@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Restaurante_Sabor_Gourmet
+namespace Restaurante_Sabor_Gourmet.Formularios
 {
-    public partial class UserControl1 : UserControl
+    public partial class Form1 : Form
     {
-        public UserControl1()
+        public Form1()
         {
             InitializeComponent();
         }
