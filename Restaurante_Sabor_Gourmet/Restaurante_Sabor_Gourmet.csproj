@@ -17,6 +17,7 @@
     <Folder Include="ConsultasSQL\" />
     <Folder Include="Haydee\" />
     <Folder Include="Jaqueline\" />
+    <Folder Include="Vane\" />
   </ItemGroup>
 
 </Project>
