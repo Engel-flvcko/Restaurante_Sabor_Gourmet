@@ -10,7 +10,7 @@ namespace Restaurante_Sabor_Gourmet.Clases
     internal class ConexionDB
     {
         private string cadenaConexion =
-           "Server=127.0.0.1;Database=db_negocio_mysql;Uid=root;Pwd=;";
+           "Server=127.0.0.1;Database=db_sabor_gourmet_fmo;Uid=root;Pwd=;";
 
         public MySqlConnection ObtenerConexion()
         {
