@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Restaurante_Sabor_Gourmet.Vane
 {
-    internal class Class1
+    internal class InventarioDAO
     {
     }
 }
