@@ -42,8 +42,8 @@
             txtUsuario = new Guna.UI2.WinForms.Guna2TextBox();
             txtContraseña = new Guna.UI2.WinForms.Guna2TextBox();
             pnlLogin = new Guna.UI2.WinForms.Guna2Panel();
-            btnInicioSesion = new Guna.UI2.WinForms.Guna2Button();
             lblTituloRestaurant = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            btnInicioSesion = new Guna.UI2.WinForms.Guna2Button();
             ((System.ComponentModel.ISupportInitialize)picLogo).BeginInit();
             pnlLogin.SuspendLayout();
             SuspendLayout();
@@ -115,6 +115,16 @@
             pnlLogin.Size = new Size(475, 558);
             pnlLogin.TabIndex = 3;
             // 
+            // lblTituloRestaurant
+            // 
+            lblTituloRestaurant.BackColor = Color.Transparent;
+            lblTituloRestaurant.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblTituloRestaurant.Location = new Point(133, 200);
+            lblTituloRestaurant.Name = "lblTituloRestaurant";
+            lblTituloRestaurant.Size = new Size(196, 30);
+            lblTituloRestaurant.TabIndex = 4;
+            lblTituloRestaurant.Text = "Sabor Gourmet FMO";
+            // 
             // btnInicioSesion
             // 
             btnInicioSesion.BorderRadius = 10;
@@ -133,22 +143,13 @@
             btnInicioSesion.Text = "Iniciar Sesion";
             btnInicioSesion.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
             // 
-            // lblTituloRestaurant
-            // 
-            lblTituloRestaurant.BackColor = Color.Transparent;
-            lblTituloRestaurant.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblTituloRestaurant.Location = new Point(133, 200);
-            lblTituloRestaurant.Name = "lblTituloRestaurant";
-            lblTituloRestaurant.Size = new Size(196, 30);
-            lblTituloRestaurant.TabIndex = 4;
-            lblTituloRestaurant.Text = "Sabor Gourmet FMO";
-            // 
             // FrmLogin
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(582, 635);
             Controls.Add(pnlLogin);
+            FormBorderStyle = FormBorderStyle.None;
             Name = "FrmLogin";
             Text = "FrmLogin";
             ((System.ComponentModel.ISupportInitialize)picLogo).EndInit();
