@@ -142,6 +142,7 @@
             btnInicioSesion.TabIndex = 3;
             btnInicioSesion.Text = "Iniciar Sesion";
             btnInicioSesion.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
+            btnInicioSesion.Click += btnInicioSesion_Click;
             // 
             // FrmLogin
             // 

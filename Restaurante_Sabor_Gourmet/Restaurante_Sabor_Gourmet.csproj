@@ -15,8 +15,8 @@
 
   <ItemGroup>
     <Folder Include="ConsultasSQL\" />
+    <Folder Include="Formularios\" />
     <Folder Include="Haydee\" />
-    <Folder Include="Jaqueline\Clases\" />
     <Folder Include="Jaqueline\ConsultasSQL\" />
   </ItemGroup>
 
