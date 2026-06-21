@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Restaurante_Sabor_Gourmet.Jaqueline
+namespace Restaurante_Sabor_Gourmet.Vane
 {
-    public partial class Form1 : Form
+    public partial class FormMenu : Form
     {
-        public Form1()
+        public FormMenu()
         {
             InitializeComponent();
         }

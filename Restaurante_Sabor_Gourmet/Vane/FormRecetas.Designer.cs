@@ -1,6 +1,6 @@
-﻿namespace Restaurante_Sabor_Gourmet.Jaqueline
+﻿namespace Restaurante_Sabor_Gourmet.Vane
 {
-    partial class Form1
+    partial class FormRecetas
     {
         /// <summary>
         /// Required designer variable.
@@ -28,10 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "Form1";
+            SuspendLayout();
+            // 
+            // FormRecetas
+            // 
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(720, 356);
+            Name = "FormRecetas";
+            Text = "FormRecetas";
+            ResumeLayout(false);
         }
 
         #endregion
