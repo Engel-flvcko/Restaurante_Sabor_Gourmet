@@ -9,7 +9,7 @@ namespace Restaurante_Sabor_Gourmet.Jaqueline.Clases
 {
     internal class ConexionDB
     {
-        private string cadenaConexion = "Server=127.0.0.1;Database=db_tienda;Uid=root;Pwd=;";
+        private string cadenaConexion = "Server=127.0.0.1;Database=db_sabor_gourmet_fmo;Uid=root;Pwd=;";
 
         public MySqlConnection ObtenerConexion()
         {

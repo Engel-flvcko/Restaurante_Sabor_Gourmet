@@ -28,19 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges9 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges10 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges7 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges11 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges12 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges13 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges14 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges15 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges16 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges19 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges20 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges17 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges18 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             picLogo = new Guna.UI2.WinForms.Guna2PictureBox();
             txtUsuario = new Guna.UI2.WinForms.Guna2TextBox();
-            txtContraseña = new Guna.UI2.WinForms.Guna2TextBox();
+            txtContrasena = new Guna.UI2.WinForms.Guna2TextBox();
             pnlLogin = new Guna.UI2.WinForms.Guna2Panel();
             lblTituloRestaurant = new Guna.UI2.WinForms.Guna2HtmlLabel();
             btnInicioSesion = new Guna.UI2.WinForms.Guna2Button();
@@ -50,11 +50,11 @@
             // 
             // picLogo
             // 
-            picLogo.CustomizableEdges = customizableEdges1;
+            picLogo.CustomizableEdges = customizableEdges11;
             picLogo.ImageRotate = 0F;
             picLogo.Location = new Point(146, 41);
             picLogo.Name = "picLogo";
-            picLogo.ShadowDecoration.CustomizableEdges = customizableEdges2;
+            picLogo.ShadowDecoration.CustomizableEdges = customizableEdges12;
             picLogo.Size = new Size(168, 141);
             picLogo.TabIndex = 0;
             picLogo.TabStop = false;
@@ -62,7 +62,7 @@
             // txtUsuario
             // 
             txtUsuario.BorderRadius = 20;
-            txtUsuario.CustomizableEdges = customizableEdges3;
+            txtUsuario.CustomizableEdges = customizableEdges13;
             txtUsuario.DefaultText = "";
             txtUsuario.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             txtUsuario.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -76,42 +76,42 @@
             txtUsuario.Name = "txtUsuario";
             txtUsuario.PlaceholderText = "";
             txtUsuario.SelectedText = "";
-            txtUsuario.ShadowDecoration.CustomizableEdges = customizableEdges4;
+            txtUsuario.ShadowDecoration.CustomizableEdges = customizableEdges14;
             txtUsuario.Size = new Size(251, 49);
             txtUsuario.TabIndex = 1;
             // 
-            // txtContraseña
+            // txtContrasena
             // 
-            txtContraseña.BorderRadius = 20;
-            txtContraseña.CustomizableEdges = customizableEdges5;
-            txtContraseña.DefaultText = "";
-            txtContraseña.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
-            txtContraseña.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
-            txtContraseña.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
-            txtContraseña.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
-            txtContraseña.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtContraseña.Font = new Font("Segoe UI", 9F);
-            txtContraseña.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtContraseña.Location = new Point(113, 380);
-            txtContraseña.Margin = new Padding(3, 4, 3, 4);
-            txtContraseña.Name = "txtContraseña";
-            txtContraseña.PlaceholderText = "";
-            txtContraseña.SelectedText = "";
-            txtContraseña.ShadowDecoration.CustomizableEdges = customizableEdges6;
-            txtContraseña.Size = new Size(251, 49);
-            txtContraseña.TabIndex = 2;
+            txtContrasena.BorderRadius = 20;
+            txtContrasena.CustomizableEdges = customizableEdges15;
+            txtContrasena.DefaultText = "";
+            txtContrasena.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
+            txtContrasena.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
+            txtContrasena.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
+            txtContrasena.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
+            txtContrasena.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
+            txtContrasena.Font = new Font("Segoe UI", 9F);
+            txtContrasena.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
+            txtContrasena.Location = new Point(113, 380);
+            txtContrasena.Margin = new Padding(3, 4, 3, 4);
+            txtContrasena.Name = "txtContrasena";
+            txtContrasena.PlaceholderText = "";
+            txtContrasena.SelectedText = "";
+            txtContrasena.ShadowDecoration.CustomizableEdges = customizableEdges16;
+            txtContrasena.Size = new Size(251, 49);
+            txtContrasena.TabIndex = 2;
             // 
             // pnlLogin
             // 
             pnlLogin.Controls.Add(lblTituloRestaurant);
             pnlLogin.Controls.Add(btnInicioSesion);
             pnlLogin.Controls.Add(picLogo);
-            pnlLogin.Controls.Add(txtContraseña);
+            pnlLogin.Controls.Add(txtContrasena);
             pnlLogin.Controls.Add(txtUsuario);
-            pnlLogin.CustomizableEdges = customizableEdges9;
+            pnlLogin.CustomizableEdges = customizableEdges19;
             pnlLogin.Location = new Point(51, 38);
             pnlLogin.Name = "pnlLogin";
-            pnlLogin.ShadowDecoration.CustomizableEdges = customizableEdges10;
+            pnlLogin.ShadowDecoration.CustomizableEdges = customizableEdges20;
             pnlLogin.Size = new Size(475, 558);
             pnlLogin.TabIndex = 3;
             // 
@@ -128,7 +128,7 @@
             // btnInicioSesion
             // 
             btnInicioSesion.BorderRadius = 10;
-            btnInicioSesion.CustomizableEdges = customizableEdges7;
+            btnInicioSesion.CustomizableEdges = customizableEdges17;
             btnInicioSesion.DisabledState.BorderColor = Color.DarkGray;
             btnInicioSesion.DisabledState.CustomBorderColor = Color.DarkGray;
             btnInicioSesion.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -137,7 +137,7 @@
             btnInicioSesion.ForeColor = Color.White;
             btnInicioSesion.Location = new Point(109, 469);
             btnInicioSesion.Name = "btnInicioSesion";
-            btnInicioSesion.ShadowDecoration.CustomizableEdges = customizableEdges8;
+            btnInicioSesion.ShadowDecoration.CustomizableEdges = customizableEdges18;
             btnInicioSesion.Size = new Size(247, 48);
             btnInicioSesion.TabIndex = 3;
             btnInicioSesion.Text = "Iniciar Sesion";
@@ -163,7 +163,7 @@
 
         private Guna.UI2.WinForms.Guna2PictureBox picLogo;
         private Guna.UI2.WinForms.Guna2TextBox txtUsuario;
-        private Guna.UI2.WinForms.Guna2TextBox txtContraseña;
+        private Guna.UI2.WinForms.Guna2TextBox txtContrasena;
         private Guna.UI2.WinForms.Guna2Panel pnlLogin;
         private Guna.UI2.WinForms.Guna2Button btnInicioSesion;
         private Guna.UI2.WinForms.Guna2HtmlLabel lblTituloRestaurant;
