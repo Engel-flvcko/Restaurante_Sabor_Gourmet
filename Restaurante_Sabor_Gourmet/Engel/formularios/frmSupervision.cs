@@ -42,7 +42,9 @@ namespace Restaurante_Sabor_Gourmet.Engel.formularios
         private void CargarDescuentosDelDia()
         {
             SQLDescuentoAutorizado sql = new SQLDescuentoAutorizado();
-            dgvDescuentosHoy.DataSource = sql.MostrarDescuentosDelDia();
+            var dt = sql.MostrarDescuentosDelDia();
+            dgvDescuentosHoy.DataSource = dt;
+            lblBadgeNum.Text = dt.Rows.Count.ToString();
         }
 
         private void btnAutorizarDescuento_Click(object sender, EventArgs e)
@@ -73,7 +75,8 @@ namespace Restaurante_Sabor_Gourmet.Engel.formularios
             if (sql.GuardarDescuento(descuento))
             {
                 MessageBox.Show("Descuento autorizado.");
-                txtMotivo.Clear();
+                txtMotivo.Text = "";
+                txtOrdenSelec.Text = "";
                 CargarOrdenesSinDescuento();
                 CargarDescuentosDelDia();
             }
@@ -116,7 +119,7 @@ namespace Restaurante_Sabor_Gourmet.Engel.formularios
             if (sql.GuardarPromocion(promocion))
             {
                 MessageBox.Show("Promoción guardada.");
-                txtNombrePromo.Clear();
+                txtNombrePromo.Text = "";
                 CargarPromociones();
             }
             else
@@ -127,10 +130,10 @@ namespace Restaurante_Sabor_Gourmet.Engel.formularios
 
         private void btnEliminarPromocion_Click(object sender, EventArgs e)
         {
-            if (dgvPromociones.SelectedRows.Count == 0) 
+            if (dgvPromociones.SelectedRows.Count == 0)
             {
                 MessageBox.Show("Selecciona una promoción de la lista.");
-                return; 
+                return;
             }
 
             int idPromocion = Convert.ToInt32(dgvPromociones.SelectedRows[0].Cells["id_promocion"].Value);
@@ -172,6 +175,17 @@ namespace Restaurante_Sabor_Gourmet.Engel.formularios
                     break;
             }
 
+        }
+
+        private void dgvOrdenes_SelectionChanged(object sender, EventArgs e)
+        {
+            if (dgvOrdenes.SelectedRows.Count == 0) return;
+
+            DataGridViewRow fila = dgvOrdenes.SelectedRows[0];
+            string idOrden = fila.Cells["id_orden"].Value.ToString();
+            string mesa = fila.Cells["numero_mesa"].Value.ToString();
+
+            txtOrdenSelec.Text = $"#{idOrden}  —  Mesa {mesa}";
         }
     }
 }

@@ -129,5 +129,31 @@ namespace Restaurante_Sabor_Gourmet.Engel.consultasSQL
 
             return dt;
         }
+
+        // Todos los arqueos de todos los cajeros — para el Dashboard gerencial
+        public DataTable MostrarTodosLosArqueos()
+        {
+            DataTable dt = new DataTable();
+
+            using (MySqlConnection cn = conexion.ObtenerConexion())
+            {
+                string sql = @"SELECT a.id_arqueo,
+                              u.nombre_usuario AS nombre_cajero,
+                              a.fecha_apertura_arqueo AS apertura,
+                              a.fecha_cierre_arqueo   AS hora_cierre,
+                              a.total_esperado_arqueo AS monto_esperado,
+                              a.total_contado_arqueo  AS monto_contado,
+                              a.diferencia_arqueo     AS diferencia,
+                              a.estado_arqueo         AS estado
+                       FROM tbl_arqueos_caja a
+                       JOIN tbl_usuarios u ON u.id_usuario = a.id_cajero_arqueo
+                       ORDER BY a.fecha_apertura_arqueo DESC";
+
+                MySqlDataAdapter da = new MySqlDataAdapter(sql, cn);
+                da.Fill(dt);
+            }
+
+            return dt;
+        }
     }
 }

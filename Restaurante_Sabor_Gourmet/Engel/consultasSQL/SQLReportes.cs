@@ -156,5 +156,101 @@ namespace Restaurante_Sabor_Gourmet.Engel.consultasSQL
 
             return dt;
         }
+        // En SQLReportes.cs — agregar estos 3 métodos:
+
+        public DataTable MostrarStockAgotado()
+        {
+            DataTable dt = new DataTable();
+            using (MySqlConnection cn = conexion.ObtenerConexion())
+            {
+                string sql = "SELECT nombre_ingrediente FROM tbl_ingredientes WHERE existencia = 0";
+                MySqlDataAdapter da = new MySqlDataAdapter(sql, cn);
+                da.Fill(dt);
+            }
+            return dt;
+        }
+
+        public DataTable MostrarOrdenesRetrasadas()
+        {
+            DataTable dt = new DataTable();
+            using (MySqlConnection cn = conexion.ObtenerConexion())
+            {
+                string sql = @"SELECT cc.id_orden, m.numero_mesa,
+                       TIMESTAMPDIFF(MINUTE, cc.hora_recepcion, NOW()) AS minutos
+                       FROM tbl_cola_cocina cc
+                       JOIN tbl_ordenes o ON o.id_orden = cc.id_orden
+                       JOIN tbl_mesas m ON m.id_mesa = o.id_mesa_orden
+                       WHERE cc.estado_cocina IN ('pendiente','en_preparacion')
+                         AND TIMESTAMPDIFF(MINUTE, cc.hora_recepcion, NOW()) > 30";
+                MySqlDataAdapter da = new MySqlDataAdapter(sql, cn);
+                da.Fill(dt);
+            }
+            return dt;
+        }
+
+        public DataTable MostrarDatosCocina()
+        {
+            DataTable dt = new DataTable();
+            using (MySqlConnection cn = conexion.ObtenerConexion())
+            {
+                string sql = @"SELECT cc.id_orden, m.numero_mesa,
+                       cc.estado_cocina AS estado,
+                       cc.hora_recepcion, cc.hora_inicio, cc.hora_finalizacion AS hora_fin,
+                       TIMESTAMPDIFF(MINUTE, cc.hora_recepcion, IFNULL(cc.hora_finalizacion, NOW())) AS tiempo_total
+                       FROM tbl_cola_cocina cc
+                       JOIN tbl_ordenes o ON o.id_orden = cc.id_orden
+                       JOIN tbl_mesas m ON m.id_mesa = o.id_mesa_orden
+                       WHERE DATE(cc.hora_recepcion) = CURDATE()
+                       ORDER BY cc.hora_recepcion DESC";
+                MySqlDataAdapter da = new MySqlDataAdapter(sql, cn);
+                da.Fill(dt);
+            }
+            return dt;
+        }
+
+        // Ingredientes con stock bajo (existencia <= stock_minimo)
+        public DataTable MostrarBajoStock()
+        {
+            DataTable dt = new DataTable();
+
+            using (MySqlConnection cn = conexion.ObtenerConexion())
+            {
+                string sql = @"SELECT nombre_ingrediente, existencia,
+                              stock_minimo, unidad_medida,
+                              CASE WHEN existencia = 0 THEN 'Agotado'
+                                   ELSE 'Stock mínimo' END AS estado
+                       FROM tbl_ingredientes
+                       WHERE existencia <= stock_minimo
+                       ORDER BY existencia ASC";
+
+                MySqlDataAdapter da = new MySqlDataAdapter(sql, cn);
+                da.Fill(dt);
+            }
+
+            return dt;
+        }
+
+        // Arqueos del día que tienen diferencia (para alertas)
+        public DataTable MostrarArqueosConDiferencias()
+        {
+            DataTable dt = new DataTable();
+
+            using (MySqlConnection cn = conexion.ObtenerConexion())
+            {
+                string sql = @"SELECT a.id_arqueo, u.nombre_usuario AS nombre_cajero,
+                              a.diferencia_arqueo, a.estado_arqueo
+                       FROM tbl_arqueos_caja a
+                       JOIN tbl_usuarios u ON u.id_usuario = a.id_cajero_arqueo
+                       WHERE DATE(a.fecha_apertura_arqueo) = CURDATE()
+                         AND a.diferencia_arqueo != 0
+                         AND a.estado_arqueo = 'cerrada'
+                       ORDER BY a.fecha_apertura_arqueo DESC";
+
+                MySqlDataAdapter da = new MySqlDataAdapter(sql, cn);
+                da.Fill(dt);
+            }
+
+            return dt;
+        }
     }
 }

@@ -13,10 +13,7 @@
         /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
-            if (disposing && (components != null))
-            {
-                components.Dispose();
-            }
+            if (disposing && (components != null)) components.Dispose();
             base.Dispose(disposing);
         }
 
@@ -26,679 +23,1034 @@
         /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
         /// </summary>
+
         private void InitializeComponent()
         {
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges9 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges10 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges7 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges17 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges18 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges11 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges12 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges13 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges14 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges15 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges16 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges19 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges20 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges27 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges28 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges29 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges30 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
-            pnlSuperior = new Guna.UI2.WinForms.Guna2Panel();
-            lblTitulo = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges37 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges38 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges31 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges32 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges33 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges34 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges35 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges36 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges41 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges42 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges39 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges40 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            DataGridViewCellStyle dataGridViewCellStyle9 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle10 = new DataGridViewCellStyle();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges45 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges46 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            DataGridViewCellStyle dataGridViewCellStyle11 = new DataGridViewCellStyle();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges43 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges44 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges51 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges52 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges47 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges48 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges49 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges50 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            DataGridViewCellStyle dataGridViewCellStyle12 = new DataGridViewCellStyle();
+            pnlTopBar = new Guna.UI2.WinForms.Guna2Panel();
+            picIcono = new PictureBox();
+            lblTitulo = new Label();
+            lblSupervisor = new Label();
             tabControl = new TabControl();
             tabDescuentos = new TabPage();
-            lblOrdenesLabel = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            dgvOrdenes = new Guna.UI2.WinForms.Guna2DataGridView();
-            pnlDescuento = new Guna.UI2.WinForms.Guna2Panel();
-            lblPorcLabel = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            nudPorcentaje = new Guna.UI2.WinForms.Guna2NumericUpDown();
-            lblMotivoLabel = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            pnlOrdenes = new Guna.UI2.WinForms.Guna2Panel();
+            lblOrdenesTitle = new Label();
+            dgvOrdenes = new DataGridView();
+            colOrdenOrd = new DataGridViewTextBoxColumn();
+            colMesaOrd = new DataGridViewTextBoxColumn();
+            colMeseroOrd = new DataGridViewTextBoxColumn();
+            colEstadoOrd = new DataGridViewTextBoxColumn();
+            colSubtotalOrd = new DataGridViewTextBoxColumn();
+            pnlAutorizar = new Guna.UI2.WinForms.Guna2Panel();
+            pnlFranjaVerde = new Panel();
+            lblAutorizarTitle = new Label();
+            lblOrdenSelec = new Label();
+            txtOrdenSelec = new Guna.UI2.WinForms.Guna2TextBox();
+            lblPorcentaje = new Label();
+            nudPorcentaje = new NumericUpDown();
+            lblMotivo = new Label();
             txtMotivo = new Guna.UI2.WinForms.Guna2TextBox();
             btnAutorizarDescuento = new Guna.UI2.WinForms.Guna2Button();
-            lblDescuentosHoyLabel = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            dgvDescuentosHoy = new Guna.UI2.WinForms.Guna2DataGridView();
+            pnlDescuentosHoy = new Guna.UI2.WinForms.Guna2Panel();
+            lblDescuentosTitle = new Label();
+            pnlBadge = new Guna.UI2.WinForms.Guna2Panel();
+            lblBadgeNum = new Label();
+            dgvDescuentosHoy = new DataGridView();
+            colOrdenHoy = new DataGridViewTextBoxColumn();
+            colMesaHoy = new DataGridViewTextBoxColumn();
+            colSupervisorHoy = new DataGridViewTextBoxColumn();
+            colCajeroHoy = new DataGridViewTextBoxColumn();
+            colPorcentajeHoy = new DataGridViewTextBoxColumn();
+            colMotivoHoy = new DataGridViewTextBoxColumn();
+            colHoraHoy = new DataGridViewTextBoxColumn();
             tabPromociones = new TabPage();
-            dgvPromociones = new Guna.UI2.WinForms.Guna2DataGridView();
-            pnlPromo = new Guna.UI2.WinForms.Guna2Panel();
-            lblNombrePromoLabel = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            pnlPromoLista = new Guna.UI2.WinForms.Guna2Panel();
+            lblPromoListaTitle = new Label();
+            dgvPromociones = new DataGridView();
+            colNombrePromo = new DataGridViewTextBoxColumn();
+            colPorcentajePromo = new DataGridViewTextBoxColumn();
+            colInicioPromo = new DataGridViewTextBoxColumn();
+            colFinPromo = new DataGridViewTextBoxColumn();
+            colEstadoPromo = new DataGridViewTextBoxColumn();
+            btnEliminarPromocion = new Guna.UI2.WinForms.Guna2Button();
+            pnlPromoForm = new Guna.UI2.WinForms.Guna2Panel();
+            lblPromoFormTitle = new Label();
+            lblNombrePromo = new Label();
             txtNombrePromo = new Guna.UI2.WinForms.Guna2TextBox();
-            lblPorcPromoLabel = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            nudPorcentajePromo = new Guna.UI2.WinForms.Guna2NumericUpDown();
-            lblInicioLabel = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            lblPorcentajePromo = new Label();
+            nudPorcentajePromo = new NumericUpDown();
+            lblInicio = new Label();
             dtpInicio = new DateTimePicker();
-            lblFinLabel = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            lblFin = new Label();
             dtpFin = new DateTimePicker();
             btnGuardarPromocion = new Guna.UI2.WinForms.Guna2Button();
-            btnEliminarPromocion = new Guna.UI2.WinForms.Guna2Button();
-            tabArqueos = new TabPage();
-            lblDifTitle = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            dgvDiferencias = new Guna.UI2.WinForms.Guna2DataGridView();
-            pnlSuperior.SuspendLayout();
+            tabDiferencias = new TabPage();
+            lblDifTitle = new Label();
+            dgvDiferencias = new DataGridView();
+            colCajeroDif = new DataGridViewTextBoxColumn();
+            colAperturaDif = new DataGridViewTextBoxColumn();
+            colEsperadoDif = new DataGridViewTextBoxColumn();
+            colContadoDif = new DataGridViewTextBoxColumn();
+            colDiferenciaDif = new DataGridViewTextBoxColumn();
+            pnlTopBar.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)picIcono).BeginInit();
             tabControl.SuspendLayout();
             tabDescuentos.SuspendLayout();
+            pnlOrdenes.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvOrdenes).BeginInit();
-            pnlDescuento.SuspendLayout();
+            pnlAutorizar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)nudPorcentaje).BeginInit();
+            pnlDescuentosHoy.SuspendLayout();
+            pnlBadge.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvDescuentosHoy).BeginInit();
             tabPromociones.SuspendLayout();
+            pnlPromoLista.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvPromociones).BeginInit();
-            pnlPromo.SuspendLayout();
+            pnlPromoForm.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)nudPorcentajePromo).BeginInit();
-            tabArqueos.SuspendLayout();
+            tabDiferencias.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvDiferencias).BeginInit();
             SuspendLayout();
             // 
-            // pnlSuperior
+            // pnlTopBar
             // 
-            pnlSuperior.BackColor = Color.FromArgb(30, 30, 47);
-            pnlSuperior.Controls.Add(lblTitulo);
-            pnlSuperior.CustomizableEdges = customizableEdges1;
-            pnlSuperior.Dock = DockStyle.Top;
-            pnlSuperior.Location = new Point(0, 0);
-            pnlSuperior.Margin = new Padding(3, 4, 3, 4);
-            pnlSuperior.Name = "pnlSuperior";
-            pnlSuperior.ShadowDecoration.CustomizableEdges = customizableEdges2;
-            pnlSuperior.Size = new Size(1371, 80);
-            pnlSuperior.TabIndex = 0;
+            pnlTopBar.BackColor = Color.FromArgb(30, 30, 47);
+            pnlTopBar.Controls.Add(picIcono);
+            pnlTopBar.Controls.Add(lblTitulo);
+            pnlTopBar.Controls.Add(lblSupervisor);
+            pnlTopBar.CustomizableEdges = customizableEdges27;
+            pnlTopBar.Dock = DockStyle.Top;
+            pnlTopBar.FillColor = Color.FromArgb(30, 30, 47);
+            pnlTopBar.Location = new Point(0, 0);
+            pnlTopBar.Name = "pnlTopBar";
+            pnlTopBar.ShadowDecoration.CustomizableEdges = customizableEdges28;
+            pnlTopBar.Size = new Size(1366, 80);
+            pnlTopBar.TabIndex = 1;
+            // 
+            // picIcono
+            // 
+            picIcono.Location = new Point(20, 22);
+            picIcono.Name = "picIcono";
+            picIcono.Size = new Size(36, 36);
+            picIcono.SizeMode = PictureBoxSizeMode.Zoom;
+            picIcono.TabIndex = 0;
+            picIcono.TabStop = false;
             // 
             // lblTitulo
             // 
-            lblTitulo.BackColor = Color.Transparent;
-            lblTitulo.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
+            lblTitulo.AutoSize = true;
+            lblTitulo.Font = new Font("Segoe UI", 18F, FontStyle.Bold);
             lblTitulo.ForeColor = Color.White;
-            lblTitulo.Location = new Point(23, 20);
-            lblTitulo.Margin = new Padding(3, 4, 3, 4);
+            lblTitulo.Location = new Point(65, 22);
             lblTitulo.Name = "lblTitulo";
-            lblTitulo.Size = new Size(288, 33);
-            lblTitulo.TabIndex = 0;
-            lblTitulo.Text = "🔐  Módulo de Supervisión";
+            lblTitulo.Size = new Size(346, 41);
+            lblTitulo.TabIndex = 1;
+            lblTitulo.Text = "Módulo de Supervisión";
+            // 
+            // lblSupervisor
+            // 
+            lblSupervisor.AutoSize = true;
+            lblSupervisor.Font = new Font("Segoe UI", 10F);
+            lblSupervisor.ForeColor = Color.FromArgb(180, 180, 200);
+            lblSupervisor.Location = new Point(1090, 28);
+            lblSupervisor.Name = "lblSupervisor";
+            lblSupervisor.Size = new Size(115, 23);
+            lblSupervisor.TabIndex = 2;
+            lblSupervisor.Text = "Supervisor: —";
             // 
             // tabControl
             // 
             tabControl.Controls.Add(tabDescuentos);
             tabControl.Controls.Add(tabPromociones);
-            tabControl.Controls.Add(tabArqueos);
+            tabControl.Controls.Add(tabDiferencias);
             tabControl.Font = new Font("Segoe UI", 10F);
             tabControl.Location = new Point(0, 80);
-            tabControl.Margin = new Padding(3, 4, 3, 4);
             tabControl.Name = "tabControl";
             tabControl.SelectedIndex = 0;
-            tabControl.Size = new Size(1371, 960);
-            tabControl.TabIndex = 1;
+            tabControl.Size = new Size(1366, 738);
+            tabControl.TabIndex = 0;
             tabControl.SelectedIndexChanged += tabControl_SelectedIndexChanged;
             // 
             // tabDescuentos
             // 
-            tabDescuentos.BackColor = Color.FromArgb(245, 245, 250);
-            tabDescuentos.Controls.Add(lblOrdenesLabel);
-            tabDescuentos.Controls.Add(dgvOrdenes);
-            tabDescuentos.Controls.Add(pnlDescuento);
-            tabDescuentos.Controls.Add(lblDescuentosHoyLabel);
-            tabDescuentos.Controls.Add(dgvDescuentosHoy);
+            tabDescuentos.BackColor = Color.FromArgb(240, 240, 248);
+            tabDescuentos.Controls.Add(pnlOrdenes);
+            tabDescuentos.Controls.Add(pnlAutorizar);
+            tabDescuentos.Controls.Add(pnlDescuentosHoy);
             tabDescuentos.Location = new Point(4, 32);
-            tabDescuentos.Margin = new Padding(3, 4, 3, 4);
             tabDescuentos.Name = "tabDescuentos";
-            tabDescuentos.Padding = new Padding(11, 13, 11, 13);
-            tabDescuentos.Size = new Size(1363, 924);
+            tabDescuentos.Padding = new Padding(10);
+            tabDescuentos.Size = new Size(1358, 702);
             tabDescuentos.TabIndex = 0;
             tabDescuentos.Text = "  Descuentos  ";
             // 
-            // lblOrdenesLabel
+            // pnlOrdenes
             // 
-            lblOrdenesLabel.BackColor = Color.Transparent;
-            lblOrdenesLabel.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            lblOrdenesLabel.ForeColor = Color.FromArgb(50, 50, 80);
-            lblOrdenesLabel.Location = new Point(11, 13);
-            lblOrdenesLabel.Margin = new Padding(3, 4, 3, 4);
-            lblOrdenesLabel.Name = "lblOrdenesLabel";
-            lblOrdenesLabel.Size = new Size(255, 25);
-            lblOrdenesLabel.TabIndex = 0;
-            lblOrdenesLabel.Text = "Órdenes sin descuento aplicado";
+            pnlOrdenes.BackColor = Color.Transparent;
+            pnlOrdenes.BorderRadius = 12;
+            pnlOrdenes.Controls.Add(lblOrdenesTitle);
+            pnlOrdenes.Controls.Add(dgvOrdenes);
+            pnlOrdenes.CustomizableEdges = customizableEdges29;
+            pnlOrdenes.FillColor = Color.White;
+            pnlOrdenes.Location = new Point(15, 15);
+            pnlOrdenes.Name = "pnlOrdenes";
+            pnlOrdenes.ShadowDecoration.Color = Color.FromArgb(30, 0, 0, 0);
+            pnlOrdenes.ShadowDecoration.CustomizableEdges = customizableEdges30;
+            pnlOrdenes.ShadowDecoration.Enabled = true;
+            pnlOrdenes.Size = new Size(760, 430);
+            pnlOrdenes.TabIndex = 0;
+            // 
+            // lblOrdenesTitle
+            // 
+            lblOrdenesTitle.AutoSize = true;
+            lblOrdenesTitle.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
+            lblOrdenesTitle.ForeColor = Color.FromArgb(30, 30, 47);
+            lblOrdenesTitle.Location = new Point(15, 13);
+            lblOrdenesTitle.Name = "lblOrdenesTitle";
+            lblOrdenesTitle.Size = new Size(334, 25);
+            lblOrdenesTitle.TabIndex = 0;
+            lblOrdenesTitle.Text = "Órdenes disponibles para descuento";
             // 
             // dgvOrdenes
             // 
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = Color.FromArgb(100, 88, 255);
-            dataGridViewCellStyle1.Font = new Font("Segoe UI", 10F);
-            dataGridViewCellStyle1.ForeColor = Color.White;
-            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-            dgvOrdenes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            dgvOrdenes.ColumnHeadersHeight = 15;
-            dgvOrdenes.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = Color.White;
-            dataGridViewCellStyle2.Font = new Font("Segoe UI", 10F);
-            dataGridViewCellStyle2.ForeColor = Color.FromArgb(71, 69, 94);
-            dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(231, 229, 255);
-            dataGridViewCellStyle2.SelectionForeColor = Color.FromArgb(71, 69, 94);
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
-            dgvOrdenes.DefaultCellStyle = dataGridViewCellStyle2;
-            dgvOrdenes.GridColor = Color.FromArgb(231, 229, 255);
-            dgvOrdenes.Location = new Point(0, 0);
-            dgvOrdenes.Margin = new Padding(3, 4, 3, 4);
+            dgvOrdenes.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvOrdenes.BackgroundColor = Color.White;
+            dgvOrdenes.BorderStyle = BorderStyle.None;
+            dgvOrdenes.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
+            dgvOrdenes.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.BackColor = Color.FromArgb(30, 30, 47);
+            dataGridViewCellStyle7.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            dataGridViewCellStyle7.ForeColor = Color.White;
+            dgvOrdenes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dgvOrdenes.ColumnHeadersHeight = 40;
+            dgvOrdenes.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            dgvOrdenes.Columns.AddRange(new DataGridViewColumn[] { colOrdenOrd, colMesaOrd, colMeseroOrd, colEstadoOrd, colSubtotalOrd });
+            dataGridViewCellStyle8.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = SystemColors.Window;
+            dataGridViewCellStyle8.Font = new Font("Segoe UI", 10F);
+            dataGridViewCellStyle8.ForeColor = Color.FromArgb(40, 40, 40);
+            dataGridViewCellStyle8.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = DataGridViewTriState.False;
+            dgvOrdenes.DefaultCellStyle = dataGridViewCellStyle8;
+            dgvOrdenes.EnableHeadersVisualStyles = false;
+            dgvOrdenes.GridColor = Color.FromArgb(220, 220, 230);
+            dgvOrdenes.Location = new Point(0, 46);
+            dgvOrdenes.MultiSelect = false;
             dgvOrdenes.Name = "dgvOrdenes";
+            dgvOrdenes.ReadOnly = true;
             dgvOrdenes.RowHeadersVisible = false;
             dgvOrdenes.RowHeadersWidth = 51;
-            dgvOrdenes.Size = new Size(274, 200);
+            dgvOrdenes.RowTemplate.Height = 38;
+            dgvOrdenes.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvOrdenes.Size = new Size(760, 384);
             dgvOrdenes.TabIndex = 1;
-            dgvOrdenes.ThemeStyle.HeaderStyle.Font = new Font("Segoe UI", 10F);
-            dgvOrdenes.ThemeStyle.RowsStyle.Font = new Font("Segoe UI", 10F);
-            dgvOrdenes.ThemeStyle.RowsStyle.Height = 29;
             dgvOrdenes.SelectionChanged += dgvOrdenes_SelectionChanged;
             // 
-            // pnlDescuento
+            // colOrdenOrd
             // 
-            pnlDescuento.BackColor = Color.White;
-            pnlDescuento.Controls.Add(lblPorcLabel);
-            pnlDescuento.Controls.Add(nudPorcentaje);
-            pnlDescuento.Controls.Add(lblMotivoLabel);
-            pnlDescuento.Controls.Add(txtMotivo);
-            pnlDescuento.Controls.Add(btnAutorizarDescuento);
-            pnlDescuento.CustomizableEdges = customizableEdges9;
-            pnlDescuento.Location = new Point(823, 13);
-            pnlDescuento.Margin = new Padding(3, 4, 3, 4);
-            pnlDescuento.Name = "pnlDescuento";
-            pnlDescuento.ShadowDecoration.CustomizableEdges = customizableEdges10;
-            pnlDescuento.Size = new Size(514, 327);
-            pnlDescuento.TabIndex = 2;
+            colOrdenOrd.HeaderText = "#Orden";
+            colOrdenOrd.MinimumWidth = 6;
+            colOrdenOrd.Name = "colOrdenOrd";
+            colOrdenOrd.ReadOnly = true;
             // 
-            // lblPorcLabel
+            // colMesaOrd
             // 
-            lblPorcLabel.BackColor = Color.Transparent;
-            lblPorcLabel.Location = new Point(0, 0);
-            lblPorcLabel.Margin = new Padding(3, 4, 3, 4);
-            lblPorcLabel.Name = "lblPorcLabel";
-            lblPorcLabel.Size = new Size(0, 0);
-            lblPorcLabel.TabIndex = 0;
-            lblPorcLabel.Text = null;
+            colMesaOrd.HeaderText = "Mesa";
+            colMesaOrd.MinimumWidth = 6;
+            colMesaOrd.Name = "colMesaOrd";
+            colMesaOrd.ReadOnly = true;
+            // 
+            // colMeseroOrd
+            // 
+            colMeseroOrd.HeaderText = "Mesero";
+            colMeseroOrd.MinimumWidth = 6;
+            colMeseroOrd.Name = "colMeseroOrd";
+            colMeseroOrd.ReadOnly = true;
+            // 
+            // colEstadoOrd
+            // 
+            colEstadoOrd.HeaderText = "Estado";
+            colEstadoOrd.MinimumWidth = 6;
+            colEstadoOrd.Name = "colEstadoOrd";
+            colEstadoOrd.ReadOnly = true;
+            // 
+            // colSubtotalOrd
+            // 
+            colSubtotalOrd.HeaderText = "Subtotal";
+            colSubtotalOrd.MinimumWidth = 6;
+            colSubtotalOrd.Name = "colSubtotalOrd";
+            colSubtotalOrd.ReadOnly = true;
+            // 
+            // pnlAutorizar
+            // 
+            pnlAutorizar.BackColor = Color.Transparent;
+            pnlAutorizar.BorderRadius = 12;
+            pnlAutorizar.Controls.Add(pnlFranjaVerde);
+            pnlAutorizar.Controls.Add(lblAutorizarTitle);
+            pnlAutorizar.Controls.Add(lblOrdenSelec);
+            pnlAutorizar.Controls.Add(txtOrdenSelec);
+            pnlAutorizar.Controls.Add(lblPorcentaje);
+            pnlAutorizar.Controls.Add(nudPorcentaje);
+            pnlAutorizar.Controls.Add(lblMotivo);
+            pnlAutorizar.Controls.Add(txtMotivo);
+            pnlAutorizar.Controls.Add(btnAutorizarDescuento);
+            pnlAutorizar.CustomizableEdges = customizableEdges37;
+            pnlAutorizar.FillColor = Color.White;
+            pnlAutorizar.Location = new Point(790, 15);
+            pnlAutorizar.Name = "pnlAutorizar";
+            pnlAutorizar.ShadowDecoration.Color = Color.FromArgb(30, 0, 0, 0);
+            pnlAutorizar.ShadowDecoration.CustomizableEdges = customizableEdges38;
+            pnlAutorizar.ShadowDecoration.Enabled = true;
+            pnlAutorizar.Size = new Size(555, 430);
+            pnlAutorizar.TabIndex = 1;
+            // 
+            // pnlFranjaVerde
+            // 
+            pnlFranjaVerde.BackColor = Color.FromArgb(34, 197, 94);
+            pnlFranjaVerde.Location = new Point(0, 0);
+            pnlFranjaVerde.Name = "pnlFranjaVerde";
+            pnlFranjaVerde.Size = new Size(5, 430);
+            pnlFranjaVerde.TabIndex = 0;
+            // 
+            // lblAutorizarTitle
+            // 
+            lblAutorizarTitle.AutoSize = true;
+            lblAutorizarTitle.Font = new Font("Segoe UI", 13F, FontStyle.Bold);
+            lblAutorizarTitle.ForeColor = Color.FromArgb(30, 30, 47);
+            lblAutorizarTitle.Location = new Point(20, 18);
+            lblAutorizarTitle.Name = "lblAutorizarTitle";
+            lblAutorizarTitle.Size = new Size(225, 30);
+            lblAutorizarTitle.TabIndex = 1;
+            lblAutorizarTitle.Text = "Autorizar Descuento";
+            // 
+            // lblOrdenSelec
+            // 
+            lblOrdenSelec.AutoSize = true;
+            lblOrdenSelec.Font = new Font("Segoe UI", 9F);
+            lblOrdenSelec.ForeColor = Color.FromArgb(100, 100, 120);
+            lblOrdenSelec.Location = new Point(20, 58);
+            lblOrdenSelec.Name = "lblOrdenSelec";
+            lblOrdenSelec.Size = new Size(143, 20);
+            lblOrdenSelec.TabIndex = 2;
+            lblOrdenSelec.Text = "Orden seleccionada:";
+            // 
+            // txtOrdenSelec
+            // 
+            txtOrdenSelec.BorderRadius = 6;
+            txtOrdenSelec.CustomizableEdges = customizableEdges31;
+            txtOrdenSelec.DefaultText = "";
+            txtOrdenSelec.FillColor = Color.FromArgb(245, 245, 250);
+            txtOrdenSelec.Font = new Font("Segoe UI", 10F);
+            txtOrdenSelec.ForeColor = Color.FromArgb(60, 60, 80);
+            txtOrdenSelec.Location = new Point(20, 78);
+            txtOrdenSelec.Margin = new Padding(3, 4, 3, 4);
+            txtOrdenSelec.Name = "txtOrdenSelec";
+            txtOrdenSelec.PlaceholderText = "Selecciona una orden de la tabla";
+            txtOrdenSelec.ReadOnly = true;
+            txtOrdenSelec.SelectedText = "";
+            txtOrdenSelec.ShadowDecoration.CustomizableEdges = customizableEdges32;
+            txtOrdenSelec.Size = new Size(510, 38);
+            txtOrdenSelec.TabIndex = 0;
+            // 
+            // lblPorcentaje
+            // 
+            lblPorcentaje.AutoSize = true;
+            lblPorcentaje.Font = new Font("Segoe UI", 9F);
+            lblPorcentaje.ForeColor = Color.FromArgb(60, 60, 80);
+            lblPorcentaje.Location = new Point(20, 130);
+            lblPorcentaje.Name = "lblPorcentaje";
+            lblPorcentaje.Size = new Size(197, 20);
+            lblPorcentaje.TabIndex = 3;
+            lblPorcentaje.Text = "Porcentaje de descuento (%)";
             // 
             // nudPorcentaje
             // 
-            nudPorcentaje.BackColor = Color.Transparent;
-            nudPorcentaje.CustomizableEdges = customizableEdges3;
-            nudPorcentaje.DecimalPlaces = 2;
-            nudPorcentaje.Font = new Font("Segoe UI", 9F);
-            nudPorcentaje.Location = new Point(17, 47);
-            nudPorcentaje.Margin = new Padding(3, 5, 3, 5);
+            nudPorcentaje.BackColor = Color.White;
+            nudPorcentaje.BorderStyle = BorderStyle.FixedSingle;
+            nudPorcentaje.Font = new Font("Segoe UI", 16F, FontStyle.Bold);
+            nudPorcentaje.Location = new Point(20, 152);
+            nudPorcentaje.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
             nudPorcentaje.Name = "nudPorcentaje";
-            nudPorcentaje.ShadowDecoration.CustomizableEdges = customizableEdges4;
-            nudPorcentaje.Size = new Size(206, 48);
+            nudPorcentaje.Size = new Size(510, 43);
             nudPorcentaje.TabIndex = 1;
+            nudPorcentaje.Value = new decimal(new int[] { 10, 0, 0, 0 });
             // 
-            // lblMotivoLabel
+            // lblMotivo
             // 
-            lblMotivoLabel.BackColor = Color.Transparent;
-            lblMotivoLabel.Location = new Point(0, 0);
-            lblMotivoLabel.Margin = new Padding(3, 4, 3, 4);
-            lblMotivoLabel.Name = "lblMotivoLabel";
-            lblMotivoLabel.Size = new Size(0, 0);
-            lblMotivoLabel.TabIndex = 2;
-            lblMotivoLabel.Text = null;
+            lblMotivo.AutoSize = true;
+            lblMotivo.Font = new Font("Segoe UI", 9F);
+            lblMotivo.ForeColor = Color.FromArgb(60, 60, 80);
+            lblMotivo.Location = new Point(20, 216);
+            lblMotivo.Name = "lblMotivo";
+            lblMotivo.Size = new Size(156, 20);
+            lblMotivo.TabIndex = 4;
+            lblMotivo.Text = "Motivo del descuento:";
             // 
             // txtMotivo
             // 
-            txtMotivo.BorderRadius = 8;
-            txtMotivo.Cursor = Cursors.IBeam;
-            txtMotivo.CustomizableEdges = customizableEdges5;
+            txtMotivo.BorderRadius = 6;
+            txtMotivo.CustomizableEdges = customizableEdges33;
             txtMotivo.DefaultText = "";
-            txtMotivo.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtMotivo.Font = new Font("Segoe UI", 9F);
-            txtMotivo.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtMotivo.Location = new Point(17, 147);
-            txtMotivo.Margin = new Padding(3, 5, 3, 5);
+            txtMotivo.Font = new Font("Segoe UI", 10F);
+            txtMotivo.ForeColor = Color.FromArgb(60, 60, 80);
+            txtMotivo.Location = new Point(20, 238);
+            txtMotivo.Margin = new Padding(3, 4, 3, 4);
             txtMotivo.Multiline = true;
             txtMotivo.Name = "txtMotivo";
-            txtMotivo.PlaceholderText = "Describe el motivo del descuento...";
+            txtMotivo.PlaceholderText = "Ingrese el motivo...";
             txtMotivo.SelectedText = "";
-            txtMotivo.ShadowDecoration.CustomizableEdges = customizableEdges6;
-            txtMotivo.Size = new Size(474, 93);
+            txtMotivo.ShadowDecoration.CustomizableEdges = customizableEdges34;
+            txtMotivo.Size = new Size(510, 100);
             txtMotivo.TabIndex = 2;
             // 
             // btnAutorizarDescuento
             // 
-            btnAutorizarDescuento.CustomizableEdges = customizableEdges7;
-            btnAutorizarDescuento.Font = new Font("Segoe UI", 9F);
+            btnAutorizarDescuento.BorderRadius = 8;
+            btnAutorizarDescuento.CustomizableEdges = customizableEdges35;
+            btnAutorizarDescuento.FillColor = Color.FromArgb(34, 197, 94);
+            btnAutorizarDescuento.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
             btnAutorizarDescuento.ForeColor = Color.White;
-            btnAutorizarDescuento.Location = new Point(0, 0);
-            btnAutorizarDescuento.Margin = new Padding(3, 4, 3, 4);
+            btnAutorizarDescuento.HoverState.FillColor = Color.FromArgb(22, 163, 74);
+            btnAutorizarDescuento.Location = new Point(20, 358);
             btnAutorizarDescuento.Name = "btnAutorizarDescuento";
-            btnAutorizarDescuento.ShadowDecoration.CustomizableEdges = customizableEdges8;
-            btnAutorizarDescuento.Size = new Size(206, 60);
+            btnAutorizarDescuento.ShadowDecoration.CustomizableEdges = customizableEdges36;
+            btnAutorizarDescuento.Size = new Size(510, 50);
             btnAutorizarDescuento.TabIndex = 3;
+            btnAutorizarDescuento.Text = "✔  Autorizar Descuento";
             btnAutorizarDescuento.Click += btnAutorizarDescuento_Click;
             // 
-            // lblDescuentosHoyLabel
+            // pnlDescuentosHoy
             // 
-            lblDescuentosHoyLabel.BackColor = Color.Transparent;
-            lblDescuentosHoyLabel.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            lblDescuentosHoyLabel.ForeColor = Color.FromArgb(50, 50, 80);
-            lblDescuentosHoyLabel.Location = new Point(11, 353);
-            lblDescuentosHoyLabel.Margin = new Padding(3, 4, 3, 4);
-            lblDescuentosHoyLabel.Name = "lblDescuentosHoyLabel";
-            lblDescuentosHoyLabel.Size = new Size(225, 25);
-            lblDescuentosHoyLabel.TabIndex = 0;
-            lblDescuentosHoyLabel.Text = "Descuentos autorizados hoy";
+            pnlDescuentosHoy.BackColor = Color.Transparent;
+            pnlDescuentosHoy.BorderRadius = 12;
+            pnlDescuentosHoy.Controls.Add(lblDescuentosTitle);
+            pnlDescuentosHoy.Controls.Add(pnlBadge);
+            pnlDescuentosHoy.Controls.Add(dgvDescuentosHoy);
+            pnlDescuentosHoy.CustomizableEdges = customizableEdges41;
+            pnlDescuentosHoy.FillColor = Color.White;
+            pnlDescuentosHoy.Location = new Point(15, 460);
+            pnlDescuentosHoy.Name = "pnlDescuentosHoy";
+            pnlDescuentosHoy.ShadowDecoration.Color = Color.FromArgb(25, 0, 0, 0);
+            pnlDescuentosHoy.ShadowDecoration.CustomizableEdges = customizableEdges42;
+            pnlDescuentosHoy.ShadowDecoration.Enabled = true;
+            pnlDescuentosHoy.Size = new Size(1330, 248);
+            pnlDescuentosHoy.TabIndex = 2;
+            // 
+            // lblDescuentosTitle
+            // 
+            lblDescuentosTitle.AutoSize = true;
+            lblDescuentosTitle.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
+            lblDescuentosTitle.ForeColor = Color.FromArgb(30, 30, 47);
+            lblDescuentosTitle.Location = new Point(2, 10);
+            lblDescuentosTitle.Name = "lblDescuentosTitle";
+            lblDescuentosTitle.Size = new Size(262, 25);
+            lblDescuentosTitle.TabIndex = 0;
+            lblDescuentosTitle.Text = "Descuentos autorizados hoy";
+            // 
+            // pnlBadge
+            // 
+            pnlBadge.BorderRadius = 13;
+            pnlBadge.Controls.Add(lblBadgeNum);
+            pnlBadge.CustomizableEdges = customizableEdges39;
+            pnlBadge.FillColor = Color.FromArgb(34, 197, 94);
+            pnlBadge.Location = new Point(270, 9);
+            pnlBadge.Name = "pnlBadge";
+            pnlBadge.ShadowDecoration.CustomizableEdges = customizableEdges40;
+            pnlBadge.Size = new Size(26, 26);
+            pnlBadge.TabIndex = 1;
+            // 
+            // lblBadgeNum
+            // 
+            lblBadgeNum.Dock = DockStyle.Fill;
+            lblBadgeNum.Font = new Font("Segoe UI", 8F, FontStyle.Bold);
+            lblBadgeNum.ForeColor = Color.White;
+            lblBadgeNum.Location = new Point(0, 0);
+            lblBadgeNum.Name = "lblBadgeNum";
+            lblBadgeNum.Size = new Size(26, 26);
+            lblBadgeNum.TabIndex = 0;
+            lblBadgeNum.Text = "0";
+            lblBadgeNum.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // dgvDescuentosHoy
             // 
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = Color.FromArgb(100, 88, 255);
-            dataGridViewCellStyle3.Font = new Font("Segoe UI", 10F);
-            dataGridViewCellStyle3.ForeColor = Color.White;
-            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
-            dgvDescuentosHoy.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            dgvDescuentosHoy.ColumnHeadersHeight = 15;
-            dgvDescuentosHoy.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = Color.White;
-            dataGridViewCellStyle4.Font = new Font("Segoe UI", 10F);
-            dataGridViewCellStyle4.ForeColor = Color.FromArgb(71, 69, 94);
-            dataGridViewCellStyle4.SelectionBackColor = Color.FromArgb(231, 229, 255);
-            dataGridViewCellStyle4.SelectionForeColor = Color.FromArgb(71, 69, 94);
-            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.False;
-            dgvDescuentosHoy.DefaultCellStyle = dataGridViewCellStyle4;
-            dgvDescuentosHoy.GridColor = Color.FromArgb(231, 229, 255);
-            dgvDescuentosHoy.Location = new Point(0, 0);
-            dgvDescuentosHoy.Margin = new Padding(3, 4, 3, 4);
+            dgvDescuentosHoy.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvDescuentosHoy.BackgroundColor = Color.White;
+            dgvDescuentosHoy.BorderStyle = BorderStyle.None;
+            dgvDescuentosHoy.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
+            dgvDescuentosHoy.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle9.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle9.BackColor = Color.FromArgb(30, 30, 47);
+            dataGridViewCellStyle9.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            dataGridViewCellStyle9.ForeColor = Color.White;
+            dgvDescuentosHoy.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            dgvDescuentosHoy.ColumnHeadersHeight = 38;
+            dgvDescuentosHoy.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            dgvDescuentosHoy.Columns.AddRange(new DataGridViewColumn[] { colOrdenHoy, colMesaHoy, colSupervisorHoy, colCajeroHoy, colPorcentajeHoy, colMotivoHoy, colHoraHoy });
+            dataGridViewCellStyle10.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = SystemColors.Window;
+            dataGridViewCellStyle10.Font = new Font("Segoe UI", 10F);
+            dataGridViewCellStyle10.ForeColor = Color.FromArgb(40, 40, 40);
+            dataGridViewCellStyle10.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle10.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle10.WrapMode = DataGridViewTriState.False;
+            dgvDescuentosHoy.DefaultCellStyle = dataGridViewCellStyle10;
+            dgvDescuentosHoy.EnableHeadersVisualStyles = false;
+            dgvDescuentosHoy.GridColor = Color.FromArgb(220, 220, 230);
+            dgvDescuentosHoy.Location = new Point(0, 43);
+            dgvDescuentosHoy.MultiSelect = false;
             dgvDescuentosHoy.Name = "dgvDescuentosHoy";
+            dgvDescuentosHoy.ReadOnly = true;
             dgvDescuentosHoy.RowHeadersVisible = false;
             dgvDescuentosHoy.RowHeadersWidth = 51;
-            dgvDescuentosHoy.Size = new Size(274, 200);
-            dgvDescuentosHoy.TabIndex = 3;
-            dgvDescuentosHoy.ThemeStyle.HeaderStyle.Font = new Font("Segoe UI", 10F);
-            dgvDescuentosHoy.ThemeStyle.RowsStyle.Font = new Font("Segoe UI", 10F);
-            dgvDescuentosHoy.ThemeStyle.RowsStyle.Height = 29;
+            dgvDescuentosHoy.RowTemplate.Height = 36;
+            dgvDescuentosHoy.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvDescuentosHoy.Size = new Size(1330, 205);
+            dgvDescuentosHoy.TabIndex = 2;
+            // 
+            // colOrdenHoy
+            // 
+            colOrdenHoy.HeaderText = "#Orden";
+            colOrdenHoy.MinimumWidth = 6;
+            colOrdenHoy.Name = "colOrdenHoy";
+            colOrdenHoy.ReadOnly = true;
+            // 
+            // colMesaHoy
+            // 
+            colMesaHoy.HeaderText = "Mesa";
+            colMesaHoy.MinimumWidth = 6;
+            colMesaHoy.Name = "colMesaHoy";
+            colMesaHoy.ReadOnly = true;
+            // 
+            // colSupervisorHoy
+            // 
+            colSupervisorHoy.HeaderText = "Supervisor";
+            colSupervisorHoy.MinimumWidth = 6;
+            colSupervisorHoy.Name = "colSupervisorHoy";
+            colSupervisorHoy.ReadOnly = true;
+            // 
+            // colCajeroHoy
+            // 
+            colCajeroHoy.HeaderText = "Cajero";
+            colCajeroHoy.MinimumWidth = 6;
+            colCajeroHoy.Name = "colCajeroHoy";
+            colCajeroHoy.ReadOnly = true;
+            // 
+            // colPorcentajeHoy
+            // 
+            colPorcentajeHoy.HeaderText = "% Descuento";
+            colPorcentajeHoy.MinimumWidth = 6;
+            colPorcentajeHoy.Name = "colPorcentajeHoy";
+            colPorcentajeHoy.ReadOnly = true;
+            // 
+            // colMotivoHoy
+            // 
+            colMotivoHoy.HeaderText = "Motivo";
+            colMotivoHoy.MinimumWidth = 6;
+            colMotivoHoy.Name = "colMotivoHoy";
+            colMotivoHoy.ReadOnly = true;
+            // 
+            // colHoraHoy
+            // 
+            colHoraHoy.HeaderText = "Hora";
+            colHoraHoy.MinimumWidth = 6;
+            colHoraHoy.Name = "colHoraHoy";
+            colHoraHoy.ReadOnly = true;
             // 
             // tabPromociones
             // 
-            tabPromociones.BackColor = Color.FromArgb(245, 245, 250);
-            tabPromociones.Controls.Add(dgvPromociones);
-            tabPromociones.Controls.Add(pnlPromo);
-            tabPromociones.Controls.Add(btnEliminarPromocion);
+            tabPromociones.BackColor = Color.FromArgb(240, 240, 248);
+            tabPromociones.Controls.Add(pnlPromoLista);
+            tabPromociones.Controls.Add(pnlPromoForm);
             tabPromociones.Location = new Point(4, 32);
-            tabPromociones.Margin = new Padding(3, 4, 3, 4);
             tabPromociones.Name = "tabPromociones";
-            tabPromociones.Padding = new Padding(11, 13, 11, 13);
-            tabPromociones.Size = new Size(1363, 924);
+            tabPromociones.Padding = new Padding(10);
+            tabPromociones.Size = new Size(1358, 702);
             tabPromociones.TabIndex = 1;
             tabPromociones.Text = "  Promociones  ";
             // 
+            // pnlPromoLista
+            // 
+            pnlPromoLista.BackColor = Color.Transparent;
+            pnlPromoLista.BorderRadius = 12;
+            pnlPromoLista.Controls.Add(lblPromoListaTitle);
+            pnlPromoLista.Controls.Add(dgvPromociones);
+            pnlPromoLista.Controls.Add(btnEliminarPromocion);
+            pnlPromoLista.CustomizableEdges = customizableEdges45;
+            pnlPromoLista.FillColor = Color.White;
+            pnlPromoLista.Location = new Point(15, 15);
+            pnlPromoLista.Name = "pnlPromoLista";
+            pnlPromoLista.ShadowDecoration.Color = Color.FromArgb(25, 0, 0, 0);
+            pnlPromoLista.ShadowDecoration.CustomizableEdges = customizableEdges46;
+            pnlPromoLista.ShadowDecoration.Enabled = true;
+            pnlPromoLista.Size = new Size(760, 676);
+            pnlPromoLista.TabIndex = 0;
+            // 
+            // lblPromoListaTitle
+            // 
+            lblPromoListaTitle.AutoSize = true;
+            lblPromoListaTitle.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
+            lblPromoListaTitle.ForeColor = Color.FromArgb(30, 30, 47);
+            lblPromoListaTitle.Location = new Point(15, 13);
+            lblPromoListaTitle.Name = "lblPromoListaTitle";
+            lblPromoListaTitle.Size = new Size(232, 25);
+            lblPromoListaTitle.TabIndex = 0;
+            lblPromoListaTitle.Text = "Promociones registradas";
+            // 
             // dgvPromociones
             // 
-            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = Color.FromArgb(100, 88, 255);
-            dataGridViewCellStyle5.Font = new Font("Segoe UI", 10F);
-            dataGridViewCellStyle5.ForeColor = Color.White;
-            dataGridViewCellStyle5.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.True;
-            dgvPromociones.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
-            dgvPromociones.ColumnHeadersHeight = 15;
-            dgvPromociones.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = Color.White;
-            dataGridViewCellStyle6.Font = new Font("Segoe UI", 10F);
-            dataGridViewCellStyle6.ForeColor = Color.FromArgb(71, 69, 94);
-            dataGridViewCellStyle6.SelectionBackColor = Color.FromArgb(231, 229, 255);
-            dataGridViewCellStyle6.SelectionForeColor = Color.FromArgb(71, 69, 94);
-            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.False;
-            dgvPromociones.DefaultCellStyle = dataGridViewCellStyle6;
-            dgvPromociones.GridColor = Color.FromArgb(231, 229, 255);
-            dgvPromociones.Location = new Point(0, 0);
-            dgvPromociones.Margin = new Padding(3, 4, 3, 4);
+            dgvPromociones.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvPromociones.BackgroundColor = Color.White;
+            dgvPromociones.BorderStyle = BorderStyle.None;
+            dgvPromociones.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
+            dgvPromociones.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            dgvPromociones.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dgvPromociones.ColumnHeadersHeight = 38;
+            dgvPromociones.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            dgvPromociones.Columns.AddRange(new DataGridViewColumn[] { colNombrePromo, colPorcentajePromo, colInicioPromo, colFinPromo, colEstadoPromo });
+            dataGridViewCellStyle11.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = SystemColors.Window;
+            dataGridViewCellStyle11.Font = new Font("Segoe UI", 10F);
+            dataGridViewCellStyle11.ForeColor = Color.FromArgb(40, 40, 40);
+            dataGridViewCellStyle11.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle11.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle11.WrapMode = DataGridViewTriState.False;
+            dgvPromociones.DefaultCellStyle = dataGridViewCellStyle11;
+            dgvPromociones.EnableHeadersVisualStyles = false;
+            dgvPromociones.GridColor = Color.FromArgb(220, 220, 230);
+            dgvPromociones.Location = new Point(0, 45);
+            dgvPromociones.MultiSelect = false;
             dgvPromociones.Name = "dgvPromociones";
+            dgvPromociones.ReadOnly = true;
             dgvPromociones.RowHeadersVisible = false;
             dgvPromociones.RowHeadersWidth = 51;
-            dgvPromociones.Size = new Size(274, 200);
+            dgvPromociones.RowTemplate.Height = 36;
+            dgvPromociones.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvPromociones.Size = new Size(760, 585);
             dgvPromociones.TabIndex = 0;
-            dgvPromociones.ThemeStyle.HeaderStyle.Font = new Font("Segoe UI", 10F);
-            dgvPromociones.ThemeStyle.RowsStyle.Font = new Font("Segoe UI", 10F);
-            dgvPromociones.ThemeStyle.RowsStyle.Height = 29;
             // 
-            // pnlPromo
+            // colNombrePromo
             // 
-            pnlPromo.BackColor = Color.White;
-            pnlPromo.Controls.Add(lblNombrePromoLabel);
-            pnlPromo.Controls.Add(txtNombrePromo);
-            pnlPromo.Controls.Add(lblPorcPromoLabel);
-            pnlPromo.Controls.Add(nudPorcentajePromo);
-            pnlPromo.Controls.Add(lblInicioLabel);
-            pnlPromo.Controls.Add(dtpInicio);
-            pnlPromo.Controls.Add(lblFinLabel);
-            pnlPromo.Controls.Add(dtpFin);
-            pnlPromo.Controls.Add(btnGuardarPromocion);
-            pnlPromo.CustomizableEdges = customizableEdges17;
-            pnlPromo.Location = new Point(823, 13);
-            pnlPromo.Margin = new Padding(3, 4, 3, 4);
-            pnlPromo.Name = "pnlPromo";
-            pnlPromo.ShadowDecoration.CustomizableEdges = customizableEdges18;
-            pnlPromo.Size = new Size(526, 747);
-            pnlPromo.TabIndex = 2;
+            colNombrePromo.HeaderText = "Nombre";
+            colNombrePromo.MinimumWidth = 6;
+            colNombrePromo.Name = "colNombrePromo";
+            colNombrePromo.ReadOnly = true;
             // 
-            // lblNombrePromoLabel
+            // colPorcentajePromo
             // 
-            lblNombrePromoLabel.BackColor = Color.Transparent;
-            lblNombrePromoLabel.Location = new Point(0, 0);
-            lblNombrePromoLabel.Margin = new Padding(3, 4, 3, 4);
-            lblNombrePromoLabel.Name = "lblNombrePromoLabel";
-            lblNombrePromoLabel.Size = new Size(0, 0);
-            lblNombrePromoLabel.TabIndex = 0;
-            lblNombrePromoLabel.Text = null;
+            colPorcentajePromo.HeaderText = "% Descuento";
+            colPorcentajePromo.MinimumWidth = 6;
+            colPorcentajePromo.Name = "colPorcentajePromo";
+            colPorcentajePromo.ReadOnly = true;
             // 
-            // txtNombrePromo
+            // colInicioPromo
             // 
-            txtNombrePromo.BorderRadius = 8;
-            txtNombrePromo.Cursor = Cursors.IBeam;
-            txtNombrePromo.CustomizableEdges = customizableEdges11;
-            txtNombrePromo.DefaultText = "";
-            txtNombrePromo.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtNombrePromo.Font = new Font("Segoe UI", 9F);
-            txtNombrePromo.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtNombrePromo.Location = new Point(17, 53);
-            txtNombrePromo.Margin = new Padding(3, 5, 3, 5);
-            txtNombrePromo.Name = "txtNombrePromo";
-            txtNombrePromo.PlaceholderText = "Ej: Combo fin de semana";
-            txtNombrePromo.SelectedText = "";
-            txtNombrePromo.ShadowDecoration.CustomizableEdges = customizableEdges12;
-            txtNombrePromo.Size = new Size(480, 48);
-            txtNombrePromo.TabIndex = 1;
+            colInicioPromo.HeaderText = "Inicio";
+            colInicioPromo.MinimumWidth = 6;
+            colInicioPromo.Name = "colInicioPromo";
+            colInicioPromo.ReadOnly = true;
             // 
-            // lblPorcPromoLabel
+            // colFinPromo
             // 
-            lblPorcPromoLabel.BackColor = Color.Transparent;
-            lblPorcPromoLabel.Location = new Point(0, 0);
-            lblPorcPromoLabel.Margin = new Padding(3, 4, 3, 4);
-            lblPorcPromoLabel.Name = "lblPorcPromoLabel";
-            lblPorcPromoLabel.Size = new Size(0, 0);
-            lblPorcPromoLabel.TabIndex = 2;
-            lblPorcPromoLabel.Text = null;
+            colFinPromo.HeaderText = "Fin";
+            colFinPromo.MinimumWidth = 6;
+            colFinPromo.Name = "colFinPromo";
+            colFinPromo.ReadOnly = true;
             // 
-            // nudPorcentajePromo
+            // colEstadoPromo
             // 
-            nudPorcentajePromo.BackColor = Color.Transparent;
-            nudPorcentajePromo.CustomizableEdges = customizableEdges13;
-            nudPorcentajePromo.DecimalPlaces = 2;
-            nudPorcentajePromo.Font = new Font("Segoe UI", 9F);
-            nudPorcentajePromo.Location = new Point(17, 160);
-            nudPorcentajePromo.Margin = new Padding(3, 5, 3, 5);
-            nudPorcentajePromo.Name = "nudPorcentajePromo";
-            nudPorcentajePromo.ShadowDecoration.CustomizableEdges = customizableEdges14;
-            nudPorcentajePromo.Size = new Size(206, 48);
-            nudPorcentajePromo.TabIndex = 2;
-            // 
-            // lblInicioLabel
-            // 
-            lblInicioLabel.BackColor = Color.Transparent;
-            lblInicioLabel.Location = new Point(0, 0);
-            lblInicioLabel.Margin = new Padding(3, 4, 3, 4);
-            lblInicioLabel.Name = "lblInicioLabel";
-            lblInicioLabel.Size = new Size(0, 0);
-            lblInicioLabel.TabIndex = 3;
-            lblInicioLabel.Text = null;
-            // 
-            // dtpInicio
-            // 
-            dtpInicio.Format = DateTimePickerFormat.Short;
-            dtpInicio.Location = new Point(17, 267);
-            dtpInicio.Margin = new Padding(3, 4, 3, 4);
-            dtpInicio.Name = "dtpInicio";
-            dtpInicio.Size = new Size(228, 30);
-            dtpInicio.TabIndex = 3;
-            // 
-            // lblFinLabel
-            // 
-            lblFinLabel.BackColor = Color.Transparent;
-            lblFinLabel.Location = new Point(0, 0);
-            lblFinLabel.Margin = new Padding(3, 4, 3, 4);
-            lblFinLabel.Name = "lblFinLabel";
-            lblFinLabel.Size = new Size(0, 0);
-            lblFinLabel.TabIndex = 4;
-            lblFinLabel.Text = null;
-            // 
-            // dtpFin
-            // 
-            dtpFin.Format = DateTimePickerFormat.Short;
-            dtpFin.Location = new Point(17, 353);
-            dtpFin.Margin = new Padding(3, 4, 3, 4);
-            dtpFin.Name = "dtpFin";
-            dtpFin.Size = new Size(228, 30);
-            dtpFin.TabIndex = 4;
-            // 
-            // btnGuardarPromocion
-            // 
-            btnGuardarPromocion.CustomizableEdges = customizableEdges15;
-            btnGuardarPromocion.Font = new Font("Segoe UI", 9F);
-            btnGuardarPromocion.ForeColor = Color.White;
-            btnGuardarPromocion.Location = new Point(0, 0);
-            btnGuardarPromocion.Margin = new Padding(3, 4, 3, 4);
-            btnGuardarPromocion.Name = "btnGuardarPromocion";
-            btnGuardarPromocion.ShadowDecoration.CustomizableEdges = customizableEdges16;
-            btnGuardarPromocion.Size = new Size(206, 60);
-            btnGuardarPromocion.TabIndex = 5;
-            btnGuardarPromocion.Click += btnGuardarPromocion_Click;
+            colEstadoPromo.HeaderText = "Estado";
+            colEstadoPromo.MinimumWidth = 6;
+            colEstadoPromo.Name = "colEstadoPromo";
+            colEstadoPromo.ReadOnly = true;
             // 
             // btnEliminarPromocion
             // 
-            btnEliminarPromocion.CustomizableEdges = customizableEdges19;
-            btnEliminarPromocion.Font = new Font("Segoe UI", 9F);
+            btnEliminarPromocion.BorderRadius = 8;
+            btnEliminarPromocion.CustomizableEdges = customizableEdges43;
+            btnEliminarPromocion.FillColor = Color.FromArgb(239, 68, 68);
+            btnEliminarPromocion.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             btnEliminarPromocion.ForeColor = Color.White;
-            btnEliminarPromocion.Location = new Point(0, 0);
-            btnEliminarPromocion.Margin = new Padding(3, 4, 3, 4);
+            btnEliminarPromocion.HoverState.FillColor = Color.FromArgb(185, 28, 28);
+            btnEliminarPromocion.Location = new Point(565, 632);
             btnEliminarPromocion.Name = "btnEliminarPromocion";
-            btnEliminarPromocion.ShadowDecoration.CustomizableEdges = customizableEdges20;
-            btnEliminarPromocion.Size = new Size(206, 60);
-            btnEliminarPromocion.TabIndex = 3;
+            btnEliminarPromocion.ShadowDecoration.CustomizableEdges = customizableEdges44;
+            btnEliminarPromocion.Size = new Size(185, 38);
+            btnEliminarPromocion.TabIndex = 1;
+            btnEliminarPromocion.Text = "Eliminar seleccionada";
             btnEliminarPromocion.Click += btnEliminarPromocion_Click;
             // 
-            // tabArqueos
+            // pnlPromoForm
             // 
-            tabArqueos.BackColor = Color.FromArgb(245, 245, 250);
-            tabArqueos.Controls.Add(lblDifTitle);
-            tabArqueos.Controls.Add(dgvDiferencias);
-            tabArqueos.Location = new Point(4, 32);
-            tabArqueos.Margin = new Padding(3, 4, 3, 4);
-            tabArqueos.Name = "tabArqueos";
-            tabArqueos.Padding = new Padding(11, 13, 11, 13);
-            tabArqueos.Size = new Size(1363, 924);
-            tabArqueos.TabIndex = 2;
-            tabArqueos.Text = "  Diferencias de Caja  ";
+            pnlPromoForm.BackColor = Color.Transparent;
+            pnlPromoForm.BorderRadius = 12;
+            pnlPromoForm.Controls.Add(lblPromoFormTitle);
+            pnlPromoForm.Controls.Add(lblNombrePromo);
+            pnlPromoForm.Controls.Add(txtNombrePromo);
+            pnlPromoForm.Controls.Add(lblPorcentajePromo);
+            pnlPromoForm.Controls.Add(nudPorcentajePromo);
+            pnlPromoForm.Controls.Add(lblInicio);
+            pnlPromoForm.Controls.Add(dtpInicio);
+            pnlPromoForm.Controls.Add(lblFin);
+            pnlPromoForm.Controls.Add(dtpFin);
+            pnlPromoForm.Controls.Add(btnGuardarPromocion);
+            pnlPromoForm.CustomizableEdges = customizableEdges51;
+            pnlPromoForm.FillColor = Color.White;
+            pnlPromoForm.Location = new Point(790, 15);
+            pnlPromoForm.Name = "pnlPromoForm";
+            pnlPromoForm.ShadowDecoration.Color = Color.FromArgb(25, 0, 0, 0);
+            pnlPromoForm.ShadowDecoration.CustomizableEdges = customizableEdges52;
+            pnlPromoForm.ShadowDecoration.Enabled = true;
+            pnlPromoForm.Size = new Size(555, 430);
+            pnlPromoForm.TabIndex = 1;
+            // 
+            // lblPromoFormTitle
+            // 
+            lblPromoFormTitle.AutoSize = true;
+            lblPromoFormTitle.Font = new Font("Segoe UI", 13F, FontStyle.Bold);
+            lblPromoFormTitle.ForeColor = Color.FromArgb(30, 30, 47);
+            lblPromoFormTitle.Location = new Point(20, 18);
+            lblPromoFormTitle.Name = "lblPromoFormTitle";
+            lblPromoFormTitle.Size = new Size(197, 30);
+            lblPromoFormTitle.TabIndex = 0;
+            lblPromoFormTitle.Text = "Nueva Promoción";
+            // 
+            // lblNombrePromo
+            // 
+            lblNombrePromo.AutoSize = true;
+            lblNombrePromo.Font = new Font("Segoe UI", 9F);
+            lblNombrePromo.ForeColor = Color.FromArgb(80, 80, 100);
+            lblNombrePromo.Location = new Point(20, 62);
+            lblNombrePromo.Name = "lblNombrePromo";
+            lblNombrePromo.Size = new Size(178, 20);
+            lblNombrePromo.TabIndex = 1;
+            lblNombrePromo.Text = "Nombre de la promoción";
+            // 
+            // txtNombrePromo
+            // 
+            txtNombrePromo.BorderRadius = 6;
+            txtNombrePromo.CustomizableEdges = customizableEdges47;
+            txtNombrePromo.DefaultText = "";
+            txtNombrePromo.Font = new Font("Segoe UI", 10F);
+            txtNombrePromo.Location = new Point(20, 84);
+            txtNombrePromo.Margin = new Padding(3, 4, 3, 4);
+            txtNombrePromo.Name = "txtNombrePromo";
+            txtNombrePromo.PlaceholderText = "Ej: Descuento fin de semana";
+            txtNombrePromo.SelectedText = "";
+            txtNombrePromo.ShadowDecoration.CustomizableEdges = customizableEdges48;
+            txtNombrePromo.Size = new Size(510, 38);
+            txtNombrePromo.TabIndex = 0;
+            // 
+            // lblPorcentajePromo
+            // 
+            lblPorcentajePromo.AutoSize = true;
+            lblPorcentajePromo.Font = new Font("Segoe UI", 9F);
+            lblPorcentajePromo.ForeColor = Color.FromArgb(80, 80, 100);
+            lblPorcentajePromo.Location = new Point(20, 138);
+            lblPorcentajePromo.Name = "lblPorcentajePromo";
+            lblPorcentajePromo.Size = new Size(197, 20);
+            lblPorcentajePromo.TabIndex = 2;
+            lblPorcentajePromo.Text = "Porcentaje de descuento (%)";
+            // 
+            // nudPorcentajePromo
+            // 
+            nudPorcentajePromo.BackColor = Color.White;
+            nudPorcentajePromo.BorderStyle = BorderStyle.FixedSingle;
+            nudPorcentajePromo.Font = new Font("Segoe UI", 11F);
+            nudPorcentajePromo.Location = new Point(20, 160);
+            nudPorcentajePromo.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
+            nudPorcentajePromo.Name = "nudPorcentajePromo";
+            nudPorcentajePromo.Size = new Size(200, 32);
+            nudPorcentajePromo.TabIndex = 1;
+            nudPorcentajePromo.Value = new decimal(new int[] { 10, 0, 0, 0 });
+            // 
+            // lblInicio
+            // 
+            lblInicio.AutoSize = true;
+            lblInicio.Font = new Font("Segoe UI", 9F);
+            lblInicio.ForeColor = Color.FromArgb(80, 80, 100);
+            lblInicio.Location = new Point(20, 216);
+            lblInicio.Name = "lblInicio";
+            lblInicio.Size = new Size(108, 20);
+            lblInicio.TabIndex = 3;
+            lblInicio.Text = "Fecha de inicio";
+            // 
+            // dtpInicio
+            // 
+            dtpInicio.Font = new Font("Segoe UI", 10F);
+            dtpInicio.Format = DateTimePickerFormat.Short;
+            dtpInicio.Location = new Point(20, 238);
+            dtpInicio.Name = "dtpInicio";
+            dtpInicio.Size = new Size(230, 30);
+            dtpInicio.TabIndex = 2;
+            // 
+            // lblFin
+            // 
+            lblFin.AutoSize = true;
+            lblFin.Font = new Font("Segoe UI", 9F);
+            lblFin.ForeColor = Color.FromArgb(80, 80, 100);
+            lblFin.Location = new Point(270, 216);
+            lblFin.Name = "lblFin";
+            lblFin.Size = new Size(89, 20);
+            lblFin.TabIndex = 4;
+            lblFin.Text = "Fecha de fin";
+            // 
+            // dtpFin
+            // 
+            dtpFin.Font = new Font("Segoe UI", 10F);
+            dtpFin.Format = DateTimePickerFormat.Short;
+            dtpFin.Location = new Point(270, 238);
+            dtpFin.Name = "dtpFin";
+            dtpFin.Size = new Size(260, 30);
+            dtpFin.TabIndex = 3;
+            // 
+            // btnGuardarPromocion
+            // 
+            btnGuardarPromocion.BorderRadius = 8;
+            btnGuardarPromocion.CustomizableEdges = customizableEdges49;
+            btnGuardarPromocion.FillColor = Color.FromArgb(34, 197, 94);
+            btnGuardarPromocion.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
+            btnGuardarPromocion.ForeColor = Color.White;
+            btnGuardarPromocion.HoverState.FillColor = Color.FromArgb(22, 163, 74);
+            btnGuardarPromocion.Location = new Point(20, 362);
+            btnGuardarPromocion.Name = "btnGuardarPromocion";
+            btnGuardarPromocion.ShadowDecoration.CustomizableEdges = customizableEdges50;
+            btnGuardarPromocion.Size = new Size(510, 48);
+            btnGuardarPromocion.TabIndex = 4;
+            btnGuardarPromocion.Text = "✔  Guardar Promoción";
+            btnGuardarPromocion.Click += btnGuardarPromocion_Click;
+            // 
+            // tabDiferencias
+            // 
+            tabDiferencias.BackColor = Color.FromArgb(240, 240, 248);
+            tabDiferencias.Controls.Add(lblDifTitle);
+            tabDiferencias.Controls.Add(dgvDiferencias);
+            tabDiferencias.Location = new Point(4, 32);
+            tabDiferencias.Name = "tabDiferencias";
+            tabDiferencias.Padding = new Padding(10);
+            tabDiferencias.Size = new Size(1358, 702);
+            tabDiferencias.TabIndex = 2;
+            tabDiferencias.Text = "  Diferencias de Caja  ";
             // 
             // lblDifTitle
             // 
-            lblDifTitle.BackColor = Color.Transparent;
-            lblDifTitle.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            lblDifTitle.ForeColor = Color.FromArgb(50, 50, 80);
-            lblDifTitle.Location = new Point(11, 13);
-            lblDifTitle.Margin = new Padding(3, 4, 3, 4);
+            lblDifTitle.AutoSize = true;
+            lblDifTitle.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
+            lblDifTitle.ForeColor = Color.FromArgb(30, 30, 47);
+            lblDifTitle.Location = new Point(15, 15);
             lblDifTitle.Name = "lblDifTitle";
-            lblDifTitle.Size = new Size(288, 25);
+            lblDifTitle.Size = new Size(300, 25);
             lblDifTitle.TabIndex = 0;
-            lblDifTitle.Text = "Arqueos con diferencias registradas";
+            lblDifTitle.Text = "Arqueos cerrados con diferencia";
             // 
             // dgvDiferencias
             // 
-            dataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = Color.FromArgb(100, 88, 255);
-            dataGridViewCellStyle7.Font = new Font("Segoe UI", 10F);
-            dataGridViewCellStyle7.ForeColor = Color.White;
-            dataGridViewCellStyle7.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = DataGridViewTriState.True;
+            dgvDiferencias.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvDiferencias.BackgroundColor = Color.White;
+            dgvDiferencias.BorderStyle = BorderStyle.None;
+            dgvDiferencias.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
+            dgvDiferencias.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
             dgvDiferencias.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
-            dgvDiferencias.ColumnHeadersHeight = 15;
-            dgvDiferencias.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            dataGridViewCellStyle8.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = Color.White;
-            dataGridViewCellStyle8.Font = new Font("Segoe UI", 10F);
-            dataGridViewCellStyle8.ForeColor = Color.FromArgb(71, 69, 94);
-            dataGridViewCellStyle8.SelectionBackColor = Color.FromArgb(231, 229, 255);
-            dataGridViewCellStyle8.SelectionForeColor = Color.FromArgb(71, 69, 94);
-            dataGridViewCellStyle8.WrapMode = DataGridViewTriState.False;
-            dgvDiferencias.DefaultCellStyle = dataGridViewCellStyle8;
-            dgvDiferencias.GridColor = Color.FromArgb(231, 229, 255);
-            dgvDiferencias.Location = new Point(0, 0);
-            dgvDiferencias.Margin = new Padding(3, 4, 3, 4);
+            dgvDiferencias.ColumnHeadersHeight = 40;
+            dgvDiferencias.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            dgvDiferencias.Columns.AddRange(new DataGridViewColumn[] { colCajeroDif, colAperturaDif, colEsperadoDif, colContadoDif, colDiferenciaDif });
+            dataGridViewCellStyle12.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle12.BackColor = SystemColors.Window;
+            dataGridViewCellStyle12.Font = new Font("Segoe UI", 10F);
+            dataGridViewCellStyle12.ForeColor = Color.FromArgb(40, 40, 40);
+            dataGridViewCellStyle12.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle12.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle12.WrapMode = DataGridViewTriState.False;
+            dgvDiferencias.DefaultCellStyle = dataGridViewCellStyle12;
+            dgvDiferencias.EnableHeadersVisualStyles = false;
+            dgvDiferencias.GridColor = Color.FromArgb(220, 220, 230);
+            dgvDiferencias.Location = new Point(15, 45);
+            dgvDiferencias.MultiSelect = false;
             dgvDiferencias.Name = "dgvDiferencias";
+            dgvDiferencias.ReadOnly = true;
             dgvDiferencias.RowHeadersVisible = false;
             dgvDiferencias.RowHeadersWidth = 51;
-            dgvDiferencias.Size = new Size(274, 200);
-            dgvDiferencias.TabIndex = 1;
-            dgvDiferencias.ThemeStyle.HeaderStyle.Font = new Font("Segoe UI", 10F);
-            dgvDiferencias.ThemeStyle.RowsStyle.Font = new Font("Segoe UI", 10F);
-            dgvDiferencias.ThemeStyle.RowsStyle.Height = 29;
+            dgvDiferencias.RowTemplate.Height = 36;
+            dgvDiferencias.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvDiferencias.Size = new Size(1330, 640);
+            dgvDiferencias.TabIndex = 0;
+            // 
+            // colCajeroDif
+            // 
+            colCajeroDif.HeaderText = "Cajero";
+            colCajeroDif.MinimumWidth = 6;
+            colCajeroDif.Name = "colCajeroDif";
+            colCajeroDif.ReadOnly = true;
+            // 
+            // colAperturaDif
+            // 
+            colAperturaDif.HeaderText = "Fecha Apertura";
+            colAperturaDif.MinimumWidth = 6;
+            colAperturaDif.Name = "colAperturaDif";
+            colAperturaDif.ReadOnly = true;
+            // 
+            // colEsperadoDif
+            // 
+            colEsperadoDif.HeaderText = "Total Esperado";
+            colEsperadoDif.MinimumWidth = 6;
+            colEsperadoDif.Name = "colEsperadoDif";
+            colEsperadoDif.ReadOnly = true;
+            // 
+            // colContadoDif
+            // 
+            colContadoDif.HeaderText = "Total Contado";
+            colContadoDif.MinimumWidth = 6;
+            colContadoDif.Name = "colContadoDif";
+            colContadoDif.ReadOnly = true;
+            // 
+            // colDiferenciaDif
+            // 
+            colDiferenciaDif.HeaderText = "Diferencia";
+            colDiferenciaDif.MinimumWidth = 6;
+            colDiferenciaDif.Name = "colDiferenciaDif";
+            colDiferenciaDif.ReadOnly = true;
             // 
             // frmSupervision
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(9F, 23F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(240, 240, 248);
-            ClientSize = new Size(1371, 1053);
-            Controls.Add(pnlSuperior);
+            ClientSize = new Size(1366, 820);
             Controls.Add(tabControl);
-            Font = new Font("Segoe UI", 9F);
-            Margin = new Padding(3, 4, 3, 4);
+            Controls.Add(pnlTopBar);
+            Font = new Font("Segoe UI", 10F);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            MaximizeBox = false;
             Name = "frmSupervision";
-            Text = "Supervisión — Sabor Gourmet FMO";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "Sabor Gourmet FMO - Supervisión";
             Load += frmSupervision_Load;
-            pnlSuperior.ResumeLayout(false);
-            pnlSuperior.PerformLayout();
+            pnlTopBar.ResumeLayout(false);
+            pnlTopBar.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)picIcono).EndInit();
             tabControl.ResumeLayout(false);
             tabDescuentos.ResumeLayout(false);
-            tabDescuentos.PerformLayout();
+            pnlOrdenes.ResumeLayout(false);
+            pnlOrdenes.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dgvOrdenes).EndInit();
-            pnlDescuento.ResumeLayout(false);
-            pnlDescuento.PerformLayout();
+            pnlAutorizar.ResumeLayout(false);
+            pnlAutorizar.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)nudPorcentaje).EndInit();
+            pnlDescuentosHoy.ResumeLayout(false);
+            pnlDescuentosHoy.PerformLayout();
+            pnlBadge.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dgvDescuentosHoy).EndInit();
             tabPromociones.ResumeLayout(false);
+            pnlPromoLista.ResumeLayout(false);
+            pnlPromoLista.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dgvPromociones).EndInit();
-            pnlPromo.ResumeLayout(false);
-            pnlPromo.PerformLayout();
+            pnlPromoForm.ResumeLayout(false);
+            pnlPromoForm.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)nudPorcentajePromo).EndInit();
-            tabArqueos.ResumeLayout(false);
-            tabArqueos.PerformLayout();
+            tabDiferencias.ResumeLayout(false);
+            tabDiferencias.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dgvDiferencias).EndInit();
             ResumeLayout(false);
         }
 
-        // ── Helpers ──────────────────────────────────────────────────────────
-        private void ConfigLabel(Guna.UI2.WinForms.Guna2HtmlLabel lbl, string texto, int x, int y)
-        {
-            lbl.BackColor = System.Drawing.Color.Transparent;
-            lbl.Font = new System.Drawing.Font("Segoe UI", 9F);
-            lbl.ForeColor = System.Drawing.Color.FromArgb(80, 80, 110);
-            lbl.Location = new System.Drawing.Point(x, y);
-            lbl.Size = new System.Drawing.Size(300, 18);
-            lbl.TabIndex = 0;
-            lbl.Text = texto;
-        }
-
-        private void AplicarEstiloDgv(Guna.UI2.WinForms.Guna2DataGridView dgv,
-            string nombre, System.Drawing.Point loc, System.Drawing.Size size)
-        {
-            var hdr = new System.Windows.Forms.DataGridViewCellStyle();
-            hdr.BackColor = System.Drawing.Color.FromArgb(30, 30, 47);
-            hdr.Font = new System.Drawing.Font("Segoe UI", 10F);
-            hdr.ForeColor = System.Drawing.Color.White;
-            hdr.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            hdr.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-
-            var row = new System.Windows.Forms.DataGridViewCellStyle();
-            row.BackColor = System.Drawing.Color.White;
-            row.Font = new System.Drawing.Font("Segoe UI", 10F);
-            row.ForeColor = System.Drawing.Color.FromArgb(50, 50, 80);
-            row.SelectionBackColor = System.Drawing.Color.FromArgb(200, 210, 255);
-            row.SelectionForeColor = System.Drawing.Color.FromArgb(30, 30, 47);
-
-            dgv.ColumnHeadersDefaultCellStyle = hdr;
-            dgv.DefaultCellStyle = row;
-            dgv.AllowUserToAddRows = false;
-            dgv.AllowUserToDeleteRows = false;
-            dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgv.GridColor = System.Drawing.Color.FromArgb(220, 220, 235);
-            dgv.Location = loc;
-            dgv.Name = nombre;
-            dgv.ReadOnly = true;
-            dgv.RowHeadersVisible = false;
-            dgv.Size = size;
-            dgv.TabIndex = 1;
-            dgv.ThemeStyle.ReadOnly = true;
-        }
-
-        private void ConfigBtn(Guna.UI2.WinForms.Guna2Button btn, string nombre,
-            string texto, int x, int y, int w, int h, System.Drawing.Color fill)
-        {
-            btn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            btn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            btn.DisabledState.FillColor = System.Drawing.Color.FromArgb(169, 169, 169);
-            btn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(141, 141, 141);
-            btn.FillColor = fill;
-            btn.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            btn.ForeColor = System.Drawing.Color.White;
-            btn.BorderRadius = 8;
-            btn.Location = new System.Drawing.Point(x, y);
-            btn.Name = nombre;
-            btn.Size = new System.Drawing.Size(w, h);
-            btn.TabIndex = 5;
-            btn.Text = texto;
-        }
-
-        private void dgvOrdenes_SelectionChanged(object sender, System.EventArgs e) { }
-
         #endregion
 
-        private Guna.UI2.WinForms.Guna2Panel pnlSuperior;
-        private Guna.UI2.WinForms.Guna2HtmlLabel lblTitulo;
+        private Guna.UI2.WinForms.Guna2Panel pnlTopBar;
+        private System.Windows.Forms.PictureBox picIcono;
+        private System.Windows.Forms.Label lblTitulo;
+        private System.Windows.Forms.Label lblSupervisor;
         private System.Windows.Forms.TabControl tabControl;
         private System.Windows.Forms.TabPage tabDescuentos;
         private System.Windows.Forms.TabPage tabPromociones;
-        private System.Windows.Forms.TabPage tabArqueos;
-
-        // Descuentos
-        private Guna.UI2.WinForms.Guna2HtmlLabel lblOrdenesLabel;
-        private Guna.UI2.WinForms.Guna2DataGridView dgvOrdenes;
-        private Guna.UI2.WinForms.Guna2Panel pnlDescuento;
-        private Guna.UI2.WinForms.Guna2HtmlLabel lblPorcLabel;
-        private Guna.UI2.WinForms.Guna2NumericUpDown nudPorcentaje;
-        private Guna.UI2.WinForms.Guna2HtmlLabel lblMotivoLabel;
+        private System.Windows.Forms.TabPage tabDiferencias;
+        private Guna.UI2.WinForms.Guna2Panel pnlOrdenes;
+        private System.Windows.Forms.Label lblOrdenesTitle;
+        private System.Windows.Forms.DataGridView dgvOrdenes;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colOrdenOrd;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colMesaOrd;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colMeseroOrd;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colEstadoOrd;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colSubtotalOrd;
+        private Guna.UI2.WinForms.Guna2Panel pnlAutorizar;
+        private System.Windows.Forms.Panel pnlFranjaVerde;
+        private System.Windows.Forms.Label lblAutorizarTitle;
+        private System.Windows.Forms.Label lblOrdenSelec;
+        private Guna.UI2.WinForms.Guna2TextBox txtOrdenSelec;
+        private System.Windows.Forms.Label lblPorcentaje;
+        private System.Windows.Forms.NumericUpDown nudPorcentaje;
+        private System.Windows.Forms.Label lblMotivo;
         private Guna.UI2.WinForms.Guna2TextBox txtMotivo;
         private Guna.UI2.WinForms.Guna2Button btnAutorizarDescuento;
-        private Guna.UI2.WinForms.Guna2HtmlLabel lblDescuentosHoyLabel;
-        private Guna.UI2.WinForms.Guna2DataGridView dgvDescuentosHoy;
-
-        // Promociones
-        private Guna.UI2.WinForms.Guna2DataGridView dgvPromociones;
-        private Guna.UI2.WinForms.Guna2Panel pnlPromo;
-        private Guna.UI2.WinForms.Guna2HtmlLabel lblNombrePromoLabel;
+        private Guna.UI2.WinForms.Guna2Panel pnlDescuentosHoy;
+        private System.Windows.Forms.Label lblDescuentosTitle;
+        private Guna.UI2.WinForms.Guna2Panel pnlBadge;
+        private System.Windows.Forms.Label lblBadgeNum;
+        private System.Windows.Forms.DataGridView dgvDescuentosHoy;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colOrdenHoy;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colMesaHoy;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colSupervisorHoy;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colCajeroHoy;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colPorcentajeHoy;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colMotivoHoy;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colHoraHoy;
+        private Guna.UI2.WinForms.Guna2Panel pnlPromoLista;
+        private System.Windows.Forms.Label lblPromoListaTitle;
+        private System.Windows.Forms.DataGridView dgvPromociones;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colNombrePromo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colPorcentajePromo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colInicioPromo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colFinPromo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colEstadoPromo;
+        private Guna.UI2.WinForms.Guna2Button btnEliminarPromocion;
+        private Guna.UI2.WinForms.Guna2Panel pnlPromoForm;
+        private System.Windows.Forms.Label lblPromoFormTitle;
+        private System.Windows.Forms.Label lblNombrePromo;
         private Guna.UI2.WinForms.Guna2TextBox txtNombrePromo;
-        private Guna.UI2.WinForms.Guna2HtmlLabel lblPorcPromoLabel;
-        private Guna.UI2.WinForms.Guna2NumericUpDown nudPorcentajePromo;
-        private Guna.UI2.WinForms.Guna2HtmlLabel lblInicioLabel;
+        private System.Windows.Forms.Label lblPorcentajePromo;
+        private System.Windows.Forms.NumericUpDown nudPorcentajePromo;
+        private System.Windows.Forms.Label lblInicio;
         private System.Windows.Forms.DateTimePicker dtpInicio;
-        private Guna.UI2.WinForms.Guna2HtmlLabel lblFinLabel;
+        private System.Windows.Forms.Label lblFin;
         private System.Windows.Forms.DateTimePicker dtpFin;
         private Guna.UI2.WinForms.Guna2Button btnGuardarPromocion;
-        private Guna.UI2.WinForms.Guna2Button btnEliminarPromocion;
-
-        // Arqueos
-        private Guna.UI2.WinForms.Guna2HtmlLabel lblDifTitle;
-        private Guna.UI2.WinForms.Guna2DataGridView dgvDiferencias;
+        private System.Windows.Forms.Label lblDifTitle;
+        private System.Windows.Forms.DataGridView dgvDiferencias;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colCajeroDif;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colAperturaDif;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colEsperadoDif;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colContadoDif;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colDiferenciaDif;
     }
 }
