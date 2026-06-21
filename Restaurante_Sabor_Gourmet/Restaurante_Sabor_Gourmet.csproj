@@ -16,7 +16,6 @@
   <ItemGroup>
     <Folder Include="ConsultasSQL\" />
     <Folder Include="Haydee\" />
-    <Folder Include="Jaqueline\ConsultasSQL\" />
   </ItemGroup>
 
   <ItemGroup>

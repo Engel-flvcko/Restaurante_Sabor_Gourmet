@@ -40,10 +40,12 @@
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             picLogo = new Guna.UI2.WinForms.Guna2PictureBox();
             txtUsuario = new Guna.UI2.WinForms.Guna2TextBox();
-            txtContraseña = new Guna.UI2.WinForms.Guna2TextBox();
+            txtContrasena = new Guna.UI2.WinForms.Guna2TextBox();
             pnlLogin = new Guna.UI2.WinForms.Guna2Panel();
             lblTituloRestaurant = new Guna.UI2.WinForms.Guna2HtmlLabel();
             btnInicioSesion = new Guna.UI2.WinForms.Guna2Button();
+            label1 = new Label();
+            label2 = new Label();
             ((System.ComponentModel.ISupportInitialize)picLogo).BeginInit();
             pnlLogin.SuspendLayout();
             SuspendLayout();
@@ -52,7 +54,7 @@
             // 
             picLogo.CustomizableEdges = customizableEdges1;
             picLogo.ImageRotate = 0F;
-            picLogo.Location = new Point(146, 41);
+            picLogo.Location = new Point(200, 43);
             picLogo.Name = "picLogo";
             picLogo.ShadowDecoration.CustomizableEdges = customizableEdges2;
             picLogo.Size = new Size(168, 141);
@@ -71,7 +73,7 @@
             txtUsuario.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             txtUsuario.Font = new Font("Segoe UI", 9F);
             txtUsuario.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtUsuario.Location = new Point(113, 270);
+            txtUsuario.Location = new Point(160, 300);
             txtUsuario.Margin = new Padding(3, 4, 3, 4);
             txtUsuario.Name = "txtUsuario";
             txtUsuario.PlaceholderText = "";
@@ -80,46 +82,48 @@
             txtUsuario.Size = new Size(251, 49);
             txtUsuario.TabIndex = 1;
             // 
-            // txtContraseña
+            // txtContrasena
             // 
-            txtContraseña.BorderRadius = 20;
-            txtContraseña.CustomizableEdges = customizableEdges5;
-            txtContraseña.DefaultText = "";
-            txtContraseña.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
-            txtContraseña.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
-            txtContraseña.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
-            txtContraseña.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
-            txtContraseña.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtContraseña.Font = new Font("Segoe UI", 9F);
-            txtContraseña.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtContraseña.Location = new Point(113, 380);
-            txtContraseña.Margin = new Padding(3, 4, 3, 4);
-            txtContraseña.Name = "txtContraseña";
-            txtContraseña.PlaceholderText = "";
-            txtContraseña.SelectedText = "";
-            txtContraseña.ShadowDecoration.CustomizableEdges = customizableEdges6;
-            txtContraseña.Size = new Size(251, 49);
-            txtContraseña.TabIndex = 2;
+            txtContrasena.BorderRadius = 20;
+            txtContrasena.CustomizableEdges = customizableEdges5;
+            txtContrasena.DefaultText = "";
+            txtContrasena.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
+            txtContrasena.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
+            txtContrasena.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
+            txtContrasena.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
+            txtContrasena.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
+            txtContrasena.Font = new Font("Segoe UI", 9F);
+            txtContrasena.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
+            txtContrasena.Location = new Point(160, 414);
+            txtContrasena.Margin = new Padding(3, 4, 3, 4);
+            txtContrasena.Name = "txtContrasena";
+            txtContrasena.PlaceholderText = "";
+            txtContrasena.SelectedText = "";
+            txtContrasena.ShadowDecoration.CustomizableEdges = customizableEdges6;
+            txtContrasena.Size = new Size(251, 49);
+            txtContrasena.TabIndex = 2;
             // 
             // pnlLogin
             // 
+            pnlLogin.Controls.Add(label2);
+            pnlLogin.Controls.Add(label1);
             pnlLogin.Controls.Add(lblTituloRestaurant);
             pnlLogin.Controls.Add(btnInicioSesion);
             pnlLogin.Controls.Add(picLogo);
-            pnlLogin.Controls.Add(txtContraseña);
+            pnlLogin.Controls.Add(txtContrasena);
             pnlLogin.Controls.Add(txtUsuario);
             pnlLogin.CustomizableEdges = customizableEdges9;
             pnlLogin.Location = new Point(51, 38);
             pnlLogin.Name = "pnlLogin";
             pnlLogin.ShadowDecoration.CustomizableEdges = customizableEdges10;
-            pnlLogin.Size = new Size(475, 558);
+            pnlLogin.Size = new Size(566, 654);
             pnlLogin.TabIndex = 3;
             // 
             // lblTituloRestaurant
             // 
             lblTituloRestaurant.BackColor = Color.Transparent;
             lblTituloRestaurant.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblTituloRestaurant.Location = new Point(133, 200);
+            lblTituloRestaurant.Location = new Point(188, 215);
             lblTituloRestaurant.Name = "lblTituloRestaurant";
             lblTituloRestaurant.Size = new Size(196, 30);
             lblTituloRestaurant.TabIndex = 4;
@@ -135,7 +139,7 @@
             btnInicioSesion.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
             btnInicioSesion.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnInicioSesion.ForeColor = Color.White;
-            btnInicioSesion.Location = new Point(109, 469);
+            btnInicioSesion.Location = new Point(160, 516);
             btnInicioSesion.Name = "btnInicioSesion";
             btnInicioSesion.ShadowDecoration.CustomizableEdges = customizableEdges8;
             btnInicioSesion.Size = new Size(247, 48);
@@ -144,11 +148,31 @@
             btnInicioSesion.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
             btnInicioSesion.Click += btnInicioSesion_Click;
             // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Location = new Point(31, 300);
+            label1.Name = "label1";
+            label1.Size = new Size(86, 28);
+            label1.TabIndex = 5;
+            label1.Text = "Usuario:";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label2.Location = new Point(42, 435);
+            label2.Name = "label2";
+            label2.Size = new Size(119, 28);
+            label2.TabIndex = 6;
+            label2.Text = "Contraseña:";
+            // 
             // FrmLogin
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(582, 635);
+            ClientSize = new Size(664, 725);
             Controls.Add(pnlLogin);
             FormBorderStyle = FormBorderStyle.None;
             Name = "FrmLogin";
@@ -163,9 +187,11 @@
 
         private Guna.UI2.WinForms.Guna2PictureBox picLogo;
         private Guna.UI2.WinForms.Guna2TextBox txtUsuario;
-        private Guna.UI2.WinForms.Guna2TextBox txtContraseña;
+        private Guna.UI2.WinForms.Guna2TextBox txtContrasena;
         private Guna.UI2.WinForms.Guna2Panel pnlLogin;
         private Guna.UI2.WinForms.Guna2Button btnInicioSesion;
         private Guna.UI2.WinForms.Guna2HtmlLabel lblTituloRestaurant;
+        private Label label1;
+        private Label label2;
     }
 }
