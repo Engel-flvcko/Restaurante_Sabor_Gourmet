@@ -79,12 +79,20 @@
             lblNumMesa = new Guna.UI2.WinForms.Guna2HtmlLabel();
             guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
-            pnlLeyendaColores = new Guna.UI2.WinForms.Guna2Panel();
+            pnlLeyenda = new Guna.UI2.WinForms.Guna2Panel();
             pnlZonaEventos = new Guna.UI2.WinForms.Guna2Panel();
+            flpEventos = new FlowLayoutPanel();
             pnlZonaFamiliar = new Guna.UI2.WinForms.Guna2Panel();
+            flpFamiliar = new FlowLayoutPanel();
             pnlSalonPrincipal = new Guna.UI2.WinForms.Guna2Panel();
+            flpSalon = new FlowLayoutPanel();
+            flpLeyenda = new FlowLayoutPanel();
             pnlInfoMesas.SuspendLayout();
             guna2Panel1.SuspendLayout();
+            pnlLeyenda.SuspendLayout();
+            pnlZonaEventos.SuspendLayout();
+            pnlZonaFamiliar.SuspendLayout();
+            pnlSalonPrincipal.SuspendLayout();
             SuspendLayout();
             // 
             // pnlInfoMesas
@@ -405,7 +413,7 @@
             // guna2Panel1
             // 
             guna2Panel1.AutoScroll = true;
-            guna2Panel1.Controls.Add(pnlLeyendaColores);
+            guna2Panel1.Controls.Add(pnlLeyenda);
             guna2Panel1.Controls.Add(pnlZonaEventos);
             guna2Panel1.Controls.Add(pnlZonaFamiliar);
             guna2Panel1.Controls.Add(pnlSalonPrincipal);
@@ -418,17 +426,19 @@
             guna2Panel1.Size = new Size(1386, 1036);
             guna2Panel1.TabIndex = 1;
             // 
-            // pnlLeyendaColores
+            // pnlLeyenda
             // 
-            pnlLeyendaColores.CustomizableEdges = customizableEdges17;
-            pnlLeyendaColores.Location = new Point(27, 906);
-            pnlLeyendaColores.Name = "pnlLeyendaColores";
-            pnlLeyendaColores.ShadowDecoration.CustomizableEdges = customizableEdges18;
-            pnlLeyendaColores.Size = new Size(956, 77);
-            pnlLeyendaColores.TabIndex = 4;
+            pnlLeyenda.Controls.Add(flpLeyenda);
+            pnlLeyenda.CustomizableEdges = customizableEdges17;
+            pnlLeyenda.Location = new Point(27, 906);
+            pnlLeyenda.Name = "pnlLeyenda";
+            pnlLeyenda.ShadowDecoration.CustomizableEdges = customizableEdges18;
+            pnlLeyenda.Size = new Size(956, 104);
+            pnlLeyenda.TabIndex = 4;
             // 
             // pnlZonaEventos
             // 
+            pnlZonaEventos.Controls.Add(flpEventos);
             pnlZonaEventos.CustomizableEdges = customizableEdges19;
             pnlZonaEventos.Location = new Point(513, 391);
             pnlZonaEventos.Name = "pnlZonaEventos";
@@ -436,8 +446,17 @@
             pnlZonaEventos.Size = new Size(470, 449);
             pnlZonaEventos.TabIndex = 3;
             // 
+            // flpEventos
+            // 
+            flpEventos.Dock = DockStyle.Fill;
+            flpEventos.Location = new Point(0, 0);
+            flpEventos.Name = "flpEventos";
+            flpEventos.Size = new Size(470, 449);
+            flpEventos.TabIndex = 0;
+            // 
             // pnlZonaFamiliar
             // 
+            pnlZonaFamiliar.Controls.Add(flpFamiliar);
             pnlZonaFamiliar.CustomizableEdges = customizableEdges21;
             pnlZonaFamiliar.Location = new Point(26, 391);
             pnlZonaFamiliar.Name = "pnlZonaFamiliar";
@@ -445,14 +464,40 @@
             pnlZonaFamiliar.Size = new Size(470, 449);
             pnlZonaFamiliar.TabIndex = 2;
             // 
+            // flpFamiliar
+            // 
+            flpFamiliar.Dock = DockStyle.Fill;
+            flpFamiliar.Location = new Point(0, 0);
+            flpFamiliar.Name = "flpFamiliar";
+            flpFamiliar.Size = new Size(470, 449);
+            flpFamiliar.TabIndex = 0;
+            // 
             // pnlSalonPrincipal
             // 
+            pnlSalonPrincipal.Controls.Add(flpSalon);
             pnlSalonPrincipal.CustomizableEdges = customizableEdges23;
             pnlSalonPrincipal.Location = new Point(26, 29);
             pnlSalonPrincipal.Name = "pnlSalonPrincipal";
             pnlSalonPrincipal.ShadowDecoration.CustomizableEdges = customizableEdges24;
             pnlSalonPrincipal.Size = new Size(957, 327);
             pnlSalonPrincipal.TabIndex = 1;
+            // 
+            // flpSalon
+            // 
+            flpSalon.AutoScroll = true;
+            flpSalon.Dock = DockStyle.Fill;
+            flpSalon.Location = new Point(0, 0);
+            flpSalon.Name = "flpSalon";
+            flpSalon.Size = new Size(957, 327);
+            flpSalon.TabIndex = 0;
+            // 
+            // flpLeyenda
+            // 
+            flpLeyenda.Dock = DockStyle.Fill;
+            flpLeyenda.Location = new Point(0, 0);
+            flpLeyenda.Name = "flpLeyenda";
+            flpLeyenda.Size = new Size(956, 104);
+            flpLeyenda.TabIndex = 0;
             // 
             // FrmMesas
             // 
@@ -465,9 +510,14 @@
             Padding = new Padding(10);
             Text = " ";
             WindowState = FormWindowState.Maximized;
+            Load += FrmMesas_Load;
             pnlInfoMesas.ResumeLayout(false);
             pnlInfoMesas.PerformLayout();
             guna2Panel1.ResumeLayout(false);
+            pnlLeyenda.ResumeLayout(false);
+            pnlZonaEventos.ResumeLayout(false);
+            pnlZonaFamiliar.ResumeLayout(false);
+            pnlSalonPrincipal.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -501,6 +551,10 @@
         private Guna.UI2.WinForms.Guna2Panel pnlZonaEventos;
         private Guna.UI2.WinForms.Guna2Panel pnlZonaFamiliar;
         private Guna.UI2.WinForms.Guna2Panel pnlSalonPrincipal;
-        private Guna.UI2.WinForms.Guna2Panel pnlLeyendaColores;
+        private Guna.UI2.WinForms.Guna2Panel pnlLeyenda;
+        private FlowLayoutPanel flpSalon;
+        private FlowLayoutPanel flpEventos;
+        private FlowLayoutPanel flpFamiliar;
+        private FlowLayoutPanel flpLeyenda;
     }
 }
