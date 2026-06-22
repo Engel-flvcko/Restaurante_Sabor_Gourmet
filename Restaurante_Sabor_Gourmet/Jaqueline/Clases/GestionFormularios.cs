@@ -28,7 +28,7 @@ namespace Restaurante_Sabor_Gourmet.Jaqueline.Clases
             // Configurar el formulario para que se muestre dentro del panel
             formulario.TopLevel = false;
             formulario.FormBorderStyle = FormBorderStyle.None;
-            formulario.Dock = DockStyle.None;
+            formulario.Dock = DockStyle.None; 
             formulario.Width = _pnlCentro.Width;
             formulario.Height = _pnlCentro.Height;
 

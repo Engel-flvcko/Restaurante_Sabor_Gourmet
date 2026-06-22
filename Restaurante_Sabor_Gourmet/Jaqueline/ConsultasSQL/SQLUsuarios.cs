@@ -57,8 +57,7 @@ namespace Restaurante_Sabor_Gourmet.Jaqueline.ConsultasSQL
                     return true;
                 }
                 return false;
-                // Si encuentra un registro, el login es correcto
-                // return lector.Read();
+               
             }
         }
 
