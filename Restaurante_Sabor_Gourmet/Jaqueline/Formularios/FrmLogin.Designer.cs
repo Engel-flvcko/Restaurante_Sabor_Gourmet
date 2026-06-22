@@ -42,10 +42,10 @@
             txtUsuario = new Guna.UI2.WinForms.Guna2TextBox();
             txtContrasena = new Guna.UI2.WinForms.Guna2TextBox();
             pnlLogin = new Guna.UI2.WinForms.Guna2Panel();
+            label2 = new Label();
+            label1 = new Label();
             lblTituloRestaurant = new Guna.UI2.WinForms.Guna2HtmlLabel();
             btnInicioSesion = new Guna.UI2.WinForms.Guna2Button();
-            label1 = new Label();
-            label2 = new Label();
             ((System.ComponentModel.ISupportInitialize)picLogo).BeginInit();
             pnlLogin.SuspendLayout();
             SuspendLayout();
@@ -119,6 +119,26 @@
             pnlLogin.Size = new Size(566, 654);
             pnlLogin.TabIndex = 3;
             // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label2.Location = new Point(42, 435);
+            label2.Name = "label2";
+            label2.Size = new Size(119, 28);
+            label2.TabIndex = 6;
+            label2.Text = "Contraseña:";
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Location = new Point(31, 300);
+            label1.Name = "label1";
+            label1.Size = new Size(86, 28);
+            label1.TabIndex = 5;
+            label1.Text = "Usuario:";
+            // 
             // lblTituloRestaurant
             // 
             lblTituloRestaurant.BackColor = Color.Transparent;
@@ -148,26 +168,6 @@
             btnInicioSesion.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
             btnInicioSesion.Click += btnInicioSesion_Click;
             // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(31, 300);
-            label1.Name = "label1";
-            label1.Size = new Size(86, 28);
-            label1.TabIndex = 5;
-            label1.Text = "Usuario:";
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.Location = new Point(42, 435);
-            label2.Name = "label2";
-            label2.Size = new Size(119, 28);
-            label2.TabIndex = 6;
-            label2.Text = "Contraseña:";
-            // 
             // FrmLogin
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -177,6 +177,7 @@
             FormBorderStyle = FormBorderStyle.None;
             Name = "FrmLogin";
             Text = "FrmLogin";
+            Load += FrmLogin_Load;
             ((System.ComponentModel.ISupportInitialize)picLogo).EndInit();
             pnlLogin.ResumeLayout(false);
             pnlLogin.PerformLayout();

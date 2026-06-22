@@ -23,7 +23,7 @@ namespace Restaurante_Sabor_Gourmet.Jaqueline.Formularios
 
         private void btnInicioSesion_Click(object sender, EventArgs e)
         {
-        
+
             // Validar campos vacíos
             if (ValidacionesLogin.CamposVacios(txtUsuario.Text, txtContrasena.Text))
             {
@@ -45,8 +45,6 @@ namespace Restaurante_Sabor_Gourmet.Jaqueline.Formularios
                 //  Verificar resultado
                 if (loginCorrecto)
                 {
-                    MessageBox.Show("Inicio de sesión exitoso");
-
                     // Abrir formulario principal
                     FrmPrincipal frm = new FrmPrincipal();
                     frm.Show();
@@ -65,6 +63,11 @@ namespace Restaurante_Sabor_Gourmet.Jaqueline.Formularios
                 MessageBox.Show("Error: " + ex.Message);
             }
         }
+
+        private void FrmLogin_Load(object sender, EventArgs e)
+        {
+
+        }
     }
-    
+
 }
