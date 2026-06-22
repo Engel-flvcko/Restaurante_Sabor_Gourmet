@@ -14,6 +14,10 @@ namespace Restaurante_Sabor_Gourmet.Vane
         public decimal Existencia { get; set; }
         public decimal StockMinimo { get; set; }
         public decimal CostoUnitario { get; set; }
+
+       
+        public bool BajoStock => Existencia <= StockMinimo;
+        public bool Agotado => Existencia <= 0;
     }
 
 }

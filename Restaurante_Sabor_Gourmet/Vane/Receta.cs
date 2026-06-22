@@ -10,8 +10,10 @@ namespace Restaurante_Sabor_Gourmet.Vane
     {
         public int IdReceta { get; set; }
         public int IdProducto { get; set; }
+        public string NombreProducto { get; set; }      // JOIN para mostrar en grilla
         public int IdIngrediente { get; set; }
-        public string NombreIngrediente { get; set; } 
+        public string NombreIngrediente { get; set; }   // JOIN para mostrar en grilla
+        public string UnidadMedida { get; set; }        // JOIN para mostrar en grilla
         public decimal CantidadReceta { get; set; }
     }
 
