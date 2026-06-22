@@ -1,14 +1,17 @@
-﻿using Restaurante_Sabor_Gourmet.Clases;
-using Restaurante_Sabor_Gourmet.ConsultasSQL;
-using Restaurante_Sabor_Gourmet.Vane;
+﻿using Restaurante_Sabor_Gourmet.ConsultasSQL;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
 using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Restaurante_Sabor_Gourmet.Vane
 {
-    public partial class FormRecetas : Form
+    public partial class frmRecetas : Form
     {
         // ─────────────────────────────────────────
         // VARIABLES DE ESTADO
@@ -42,7 +45,7 @@ namespace Restaurante_Sabor_Gourmet.Vane
         // ─────────────────────────────────────────
 
         // Desde frmPrincipal (sin preselección)
-        public FormRecetas(int idUsuarioSesion, string nombreUsuarioSesion)
+        public frmRecetas(int idUsuarioSesion, string nombreUsuarioSesion)
         {
             InitializeComponent();
             this.idUsuarioSesion     = idUsuarioSesion;
@@ -50,7 +53,7 @@ namespace Restaurante_Sabor_Gourmet.Vane
         }
 
         // Desde frmMenu (con producto preseleccionado)
-        public FormRecetas(int idProducto, string nombreProducto,
+        public frmRecetas(int idProducto, string nombreProducto,
                            int idUsuarioSesion, string nombreUsuarioSesion)
             : this(idUsuarioSesion, nombreUsuarioSesion)
         {
@@ -518,3 +521,4 @@ namespace Restaurante_Sabor_Gourmet.Vane
         }
     }
 }
+

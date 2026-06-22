@@ -1,6 +1,6 @@
 ﻿namespace Restaurante_Sabor_Gourmet.Vane
 {
-    partial class FormMenu
+    partial class menuuuuuu
     {
         /// <summary>
         /// Required designer variable.

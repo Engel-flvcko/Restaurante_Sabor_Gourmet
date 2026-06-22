@@ -16,6 +16,7 @@ namespace Restaurante_Sabor_Gourmet.Vane
         public decimal Cantidad { get; set; }
         public DateTime FechaMovimiento { get; set; }
         public string Observacion { get; set; }
+        public string NombreUsuario { get; set; }
     }
 
 }

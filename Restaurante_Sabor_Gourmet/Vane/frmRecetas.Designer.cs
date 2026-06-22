@@ -247,10 +247,10 @@
             this.colNumIngredientes.FillWeight    = 20;
 
             this.dgvProductos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-                this.colNombreProducto,
-                this.colCategoria,
-                this.colNumIngredientes
-            });
+            this.colNombreProducto,
+            this.colCategoria,
+            this.colNumIngredientes
+        });
 
             // Total productos
             this.lblTotalProductos.Text      = "Total productos: 0";
@@ -336,7 +336,7 @@
 
             this.colAcciones.Name                 = "colAcciones";
             this.colAcciones.HeaderText           = "Acciones";
-            this.colAcciones.Text                 = "🗑";
+            this.colAcciones.Text                 = "";
             this.colAcciones.UseColumnTextForButtonValue = true;
             this.colAcciones.FillWeight           = 15;
             this.colAcciones.DefaultCellStyle.BackColor  = System.Drawing.Color.FromArgb(254, 226, 226);
@@ -345,17 +345,17 @@
             this.colAcciones.DefaultCellStyle.Alignment  = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
 
             this.dgvReceta.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-                this.colIngrediente,
-                this.colUnidadMedida,
-                this.colCantidad,
-                this.colAcciones
-            });
+            this.colIngrediente,
+            this.colUnidadMedida,
+            this.colCantidad,
+            this.colAcciones
+        });
 
             this.pnlReceta.Controls.Add(this.lblNombreReceta);
             this.pnlReceta.Controls.Add(this.lblInfoReceta);
             this.pnlReceta.Controls.Add(this.dgvReceta);
 
-          
+
             this.pnlAgregarIngrediente.Location     = new System.Drawing.Point(12, 467);
             this.pnlAgregarIngrediente.Size         = new System.Drawing.Size(686, 220);
             this.pnlAgregarIngrediente.FillColor    = System.Drawing.Color.White;
@@ -363,7 +363,7 @@
             this.pnlAgregarIngrediente.ShadowDecoration.Enabled = true;
             this.pnlAgregarIngrediente.ShadowDecoration.Color   = System.Drawing.Color.FromArgb(30, 0, 0, 0);
             this.pnlAgregarIngrediente.ShadowDecoration.Depth   = 4;
-  
+
             this.pnlAgregarIngrediente.BorderColor  = System.Drawing.Color.FromArgb(37, 99, 235);
 
             // Título agregar
@@ -430,7 +430,7 @@
             this.pnlAdvertencia.BackColor = System.Drawing.Color.FromArgb(255, 247, 230);
             this.pnlAdvertencia.Visible   = false;
 
-            this.lblAdvertencia.Text      = "⚠  Este ingrediente ya está en la receta";
+            this.lblAdvertencia.Text      = " Este ingrediente ya está en la receta";
             this.lblAdvertencia.Font      = new System.Drawing.Font("Segoe UI", 9F);
             this.lblAdvertencia.ForeColor = System.Drawing.Color.FromArgb(180, 90, 0);
             this.lblAdvertencia.Location  = new System.Drawing.Point(10, 9);
@@ -539,7 +539,7 @@
             this.lblMargenPorcentaje.AutoSize  = true;
 
             // Nota basado en costos
-            this.lblNotaCosto.Text      = "ⓘ  Basado en costos unitarios de inventario";
+            this.lblNotaCosto.Text      = "Basado en costos unitarios de inventario";
             this.lblNotaCosto.Font      = new System.Drawing.Font("Segoe UI", 8.5F);
             this.lblNotaCosto.ForeColor = System.Drawing.Color.FromArgb(140, 140, 160);
             this.lblNotaCosto.Location  = new System.Drawing.Point(16, 186);
@@ -566,7 +566,7 @@
             this.pnlBotonesInf.Dock      = System.Windows.Forms.DockStyle.Bottom;
 
             // Guardar Receta
-            this.btnGuardarReceta.Text         = "💾  Guardar Receta";
+            this.btnGuardarReceta.Text         = " Guardar Receta";
             this.btnGuardarReceta.Location     = new System.Drawing.Point(12, 10);
             this.btnGuardarReceta.Size         = new System.Drawing.Size(185, 38);
             this.btnGuardarReceta.Font         = new System.Drawing.Font("Segoe UI", 9.5F, System.Drawing.FontStyle.Bold);
@@ -576,7 +576,7 @@
             this.btnGuardarReceta.ShadowDecoration.Enabled = false;
 
             // Limpiar Receta
-            this.btnLimpiarReceta.Text         = "🗑  Limpiar Receta";
+            this.btnLimpiarReceta.Text         = "  Limpiar Receta";
             this.btnLimpiarReceta.Location     = new System.Drawing.Point(207, 10);
             this.btnLimpiarReceta.Size         = new System.Drawing.Size(185, 38);
             this.btnLimpiarReceta.Font         = new System.Drawing.Font("Segoe UI", 9.5F, System.Drawing.FontStyle.Bold);
@@ -599,7 +599,7 @@
             this.pnlBotonesInf.Controls.Add(this.btnLimpiarReceta);
             this.pnlBotonesInf.Controls.Add(this.btnActualizar);
 
-           
+
             this.Load
                 += new System.EventHandler(this.frmRecetas_Load);
             this.txtBuscarProducto.TextChanged
@@ -634,7 +634,7 @@
 
         #endregion
 
-       
+
         private Guna.UI2.WinForms.Guna2Panel pnlTopBar;
         private System.Windows.Forms.PictureBox picIcono;
         private System.Windows.Forms.Label lblTitulo;
@@ -699,4 +699,3 @@
         private Guna.UI2.WinForms.Guna2Button btnActualizar;
     }
 }
-    

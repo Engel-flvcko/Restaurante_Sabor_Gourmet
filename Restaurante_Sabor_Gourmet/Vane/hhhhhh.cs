@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Restaurante_Sabor_Gourmet.Vane
 {
-    public partial class FormInventario : Form
+    public partial class hhhhhh : Form
     {
-        public FormInventario()
+        public hhhhhh()
         {
             InitializeComponent();
         }

@@ -244,7 +244,46 @@ namespace Restaurante_Sabor_Gourmet.ConsultasSQL
                     tr.Rollback();
                     return false;
                 }
+
             }
         }
+        public List<MovimientoInventario> ObtenerMovimientosConUsuario()
+        {
+            List<MovimientoInventario> lista = new List<MovimientoInventario>();
+
+            using (MySqlConnection cn = conexion.ObtenerConexion())
+            {
+                string sql = @"SELECT m.id_movimiento, m.id_ingrediente, i.nombre_ingrediente,
+                              m.id_usuario, u.nombre_usuario, m.tipo_movimiento,
+                              m.cantidad, m.fecha_movimiento, m.observacion
+                       FROM tbl_movimientos_inventario m
+                       INNER JOIN tbl_ingredientes i ON m.id_ingrediente = i.id_ingrediente
+                       INNER JOIN tbl_usuarios u     ON m.id_usuario     = u.id_usuario
+                       ORDER BY m.fecha_movimiento DESC";
+
+                using (MySqlCommand cmd = new MySqlCommand(sql, cn))
+                using (MySqlDataReader rd = cmd.ExecuteReader())
+                {
+                    while (rd.Read())
+                    {
+                        lista.Add(new MovimientoInventario
+                        {
+                            IdMovimiento      = rd.GetInt32("id_movimiento"),
+                            IdIngrediente     = rd.GetInt32("id_ingrediente"),
+                            NombreIngrediente = rd.GetString("nombre_ingrediente"),
+                            IdUsuario         = rd.GetInt32("id_usuario"),
+                            NombreUsuario     = rd.GetString("nombre_usuario"),
+                            TipoMovimiento    = rd.GetString("tipo_movimiento"),
+                            Cantidad          = rd.GetDecimal("cantidad"),
+                            FechaMovimiento   = rd.GetDateTime("fecha_movimiento"),
+                            Observacion       = rd.IsDBNull(rd.GetOrdinal("observacion"))
+                                                ? "" : rd.GetString("observacion")
+                        });
+                    }
+                }
+            }
+            return lista;
+        }
     }
+
 }

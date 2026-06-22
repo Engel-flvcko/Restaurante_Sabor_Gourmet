@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace Restaurante_Sabor_Gourmet.Vane
 {
-    public partial class FormMenu : Form
+    public partial class menuuuuuu : Form
     {
         // ─────────────────────────────────────────
         // VARIABLES DE ESTADO
@@ -26,7 +26,7 @@ namespace Restaurante_Sabor_Gourmet.Vane
         // ─────────────────────────────────────────
         // CONSTRUCTOR
         // ─────────────────────────────────────────
-        public FormMenu(int idUsuarioSesion, string nombreUsuarioSesion)
+        public menuuuuuu(int idUsuarioSesion, string nombreUsuarioSesion)
         {
             InitializeComponent();
             this.idUsuarioSesion      = idUsuarioSesion;

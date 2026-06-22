@@ -16,8 +16,9 @@ namespace Restaurante_Sabor_Gourmet
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
             //Application.Run(new FrmLogin());
-            Application.Run(new frmRecetas());
+            //Application.Run(new frmRecetas());
             //Application.Run(new FormMenu());
+            Application.Run(new frmInventario());
         }
     }
 }
