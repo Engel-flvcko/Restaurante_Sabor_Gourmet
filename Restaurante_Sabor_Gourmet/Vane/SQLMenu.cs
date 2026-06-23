@@ -192,5 +192,60 @@ namespace Restaurante_Sabor_Gourmet.ConsultasSQL
                 }
             }
         }
+
+        public List<(int Id, string Nombre, int TotalProductos)> ObtenerCategoriasConConteo()
+        {
+            var lista = new List<(int, string, int)>();
+
+            using (MySqlConnection cn = conexion.ObtenerConexion())
+            {
+                string sql = @"SELECT c.id_categoria, c.nombre_categoria,
+                              COUNT(p.id_producto) AS total_productos
+                       FROM tbl_categorias c
+                       LEFT JOIN tbl_productos p ON c.id_categoria = p.id_categoria
+                       GROUP BY c.id_categoria, c.nombre_categoria
+                       ORDER BY c.nombre_categoria";
+
+                using (MySqlCommand cmd = new MySqlCommand(sql, cn))
+                using (MySqlDataReader rd = cmd.ExecuteReader())
+                {
+                    while (rd.Read())
+                        lista.Add((
+                            rd.GetInt32("id_categoria"),
+                            rd.GetString("nombre_categoria"),
+                            rd.GetInt32("total_productos")
+                        ));
+                }
+            }
+            return lista;
+        }
+
+        public bool ActualizarNombreCategoria(int idCategoria, string nuevoNombre)
+        {
+            using (MySqlConnection cn = conexion.ObtenerConexion())
+            {
+                string sql = "UPDATE tbl_categorias SET nombre_categoria = @nombre " +
+                             "WHERE id_categoria = @id";
+                using (MySqlCommand cmd = new MySqlCommand(sql, cn))
+                {
+                    cmd.Parameters.AddWithValue("@nombre", nuevoNombre);
+                    cmd.Parameters.AddWithValue("@id", idCategoria);
+                    return cmd.ExecuteNonQuery() > 0;
+                }
+            }
+        }
+
+        public bool TieneProductos(int idCategoria)
+        {
+            using (MySqlConnection cn = conexion.ObtenerConexion())
+            {
+                string sql = "SELECT COUNT(*) FROM tbl_productos WHERE id_categoria = @id";
+                using (MySqlCommand cmd = new MySqlCommand(sql, cn))
+                {
+                    cmd.Parameters.AddWithValue("@id", idCategoria);
+                    return Convert.ToInt32(cmd.ExecuteScalar()) > 0;
+                }
+            }
+        }
     }
 }
