@@ -40,7 +40,6 @@ namespace Restaurante_Sabor_Gourmet.ConsultasSQL
                 {
                     using (MySqlDataReader rd = cmd.ExecuteReader())
                     {
-                        cn.Open();
                         while (rd.Read())
                         {
                             lista.Add(new MesaResumen
@@ -86,12 +85,10 @@ namespace Restaurante_Sabor_Gourmet.ConsultasSQL
 
                 using (MySqlCommand cmd = new MySqlCommand(sql, cn))
                 {
-                    cn.Open();
                     cmd.Parameters.AddWithValue("@id", idMesa);
 
                     using (MySqlDataReader rd = cmd.ExecuteReader())
                     {
-                        cn.Open();
                         if (rd.Read())
                         {
                             mesa = new MesaResumen

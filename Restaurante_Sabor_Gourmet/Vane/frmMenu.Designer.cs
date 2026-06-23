@@ -395,7 +395,7 @@
 
             // txtBuscarProducto
             this.txtBuscarProducto.BorderRadius = 8;
-            this.txtCodigo.BorderColor = System.Drawing.Color.FromArgb(200, 200, 220);
+            this.txtBuscarProducto.BorderColor = System.Drawing.Color.FromArgb(200, 200, 220);
             this.txtBuscarProducto.DefaultText = "Buscar producto...";
             this.txtBuscarProducto.DisabledState.FillColor = System.Drawing.Color.FromArgb(240, 240, 248);
             this.txtBuscarProducto.FillColor = System.Drawing.Color.White;
@@ -580,7 +580,7 @@
 
             // txtNombreProducto
             this.txtNombreProducto.BorderRadius = 8;
-            this.txtCodigo.BorderColor = System.Drawing.Color.FromArgb(200, 200, 220);
+            this.txtNombreProducto.BorderColor = System.Drawing.Color.FromArgb(200, 200, 220);
             this.txtNombreProducto.FillColor = System.Drawing.Color.White;
             this.txtNombreProducto.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.txtNombreProducto.ForeColor = System.Drawing.Color.FromArgb(60, 60, 80);
@@ -637,7 +637,7 @@
 
             // txtPrecio
             this.txtPrecio.BorderRadius = 8;
-            this.txtCodigo.BorderColor = System.Drawing.Color.FromArgb(200, 200, 220);
+            this.txtPrecio.BorderColor = System.Drawing.Color.FromArgb(200, 200, 220);
             this.txtPrecio.FillColor = System.Drawing.Color.White;
             this.txtPrecio.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.txtPrecio.ForeColor = System.Drawing.Color.FromArgb(60, 60, 80);
@@ -656,7 +656,7 @@
 
             // txtTiempoPrep
             this.txtTiempoPrep.BorderRadius = 8;
-            this.txtCodigo.BorderColor = System.Drawing.Color.FromArgb(200, 200, 220);
+            this.txtTiempoPrep.BorderColor = System.Drawing.Color.FromArgb(200, 200, 220);
             this.txtTiempoPrep.FillColor = System.Drawing.Color.White;
             this.txtTiempoPrep.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.txtTiempoPrep.ForeColor = System.Drawing.Color.FromArgb(60, 60, 80);
@@ -890,7 +890,7 @@
             this.lblNombreCategoria.Text = "Nombre de la categoría";
 
             this.txtNombreCategoria.BorderRadius = 8;
-            this.txtCodigo.BorderColor = System.Drawing.Color.FromArgb(200, 200, 220);
+            this.txtNombreCategoria.BorderColor = System.Drawing.Color.FromArgb(200, 200, 220);
             this.txtNombreCategoria.FillColor = System.Drawing.Color.White;
             this.txtNombreCategoria.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.txtNombreCategoria.ForeColor = System.Drawing.Color.FromArgb(60, 60, 80);

@@ -20,6 +20,8 @@ namespace Restaurante_Sabor_Gourmet.Jaqueline.ConsultasSQL
 
             using (MySqlConnection cn = conexion.ObtenerConexion())
             {
+                cn.Open();
+
                 string sql = @"
                     SELECT u.id_usuario, u.nombre_usuario, u.username_usuario,
                            u.id_rol_usuario, r.nombre_rol
@@ -84,6 +86,8 @@ namespace Restaurante_Sabor_Gourmet.Jaqueline.ConsultasSQL
             Usuario u = null;
             using (MySqlConnection cn = conexion.ObtenerConexion())
             {
+                cn.Open();
+
                 string sql = @"
                     SELECT id_usuario, nombre_usuario, username_usuario,
                            telefono_usuario, activo_usuario, id_rol_usuario
@@ -116,6 +120,8 @@ namespace Restaurante_Sabor_Gourmet.Jaqueline.ConsultasSQL
         {
             using (MySqlConnection cn = conexion.ObtenerConexion())
             {
+                cn.Open();
+
                 string sql = @"SELECT COUNT(*) FROM tbl_usuarios
                                WHERE username_usuario = @u AND id_usuario <> @id";
                 MySqlCommand cmd = new MySqlCommand(sql, cn);
@@ -129,6 +135,8 @@ namespace Restaurante_Sabor_Gourmet.Jaqueline.ConsultasSQL
         {
             using (MySqlConnection cn = conexion.ObtenerConexion())
             {
+                cn.Open();
+
                 string sql = @"
                     INSERT INTO tbl_usuarios
                         (nombre_usuario, username_usuario, contrasena_usuario,
@@ -151,6 +159,8 @@ namespace Restaurante_Sabor_Gourmet.Jaqueline.ConsultasSQL
         {
             using (MySqlConnection cn = conexion.ObtenerConexion())
             {
+                cn.Open();
+
                 string sql = @"
                     UPDATE tbl_usuarios SET
                         nombre_usuario   = @nombre,
@@ -173,6 +183,8 @@ namespace Restaurante_Sabor_Gourmet.Jaqueline.ConsultasSQL
         {
             using (MySqlConnection cn = conexion.ObtenerConexion())
             {
+                cn.Open();
+
                 string sql = @"
                     UPDATE tbl_usuarios SET
                         nombre_usuario    = @nombre,
@@ -197,6 +209,8 @@ namespace Restaurante_Sabor_Gourmet.Jaqueline.ConsultasSQL
         {
             using (MySqlConnection cn = conexion.ObtenerConexion())
             {
+                cn.Open();
+
                 string sql = "UPDATE tbl_usuarios SET activo_usuario = 0 WHERE id_usuario = @id";
                 MySqlCommand cmd = new MySqlCommand(sql, cn);
                 cmd.Parameters.AddWithValue("@id", idUsuario);

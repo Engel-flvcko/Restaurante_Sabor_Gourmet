@@ -37,12 +37,10 @@ namespace Restaurante_Sabor_Gourmet.ConsultasSQL
 
                 using (MySqlCommand cmd = new MySqlCommand(sql, cn))
                 {
-                    cn.Open();
                     cmd.Parameters.AddWithValue("@idRol", idRolMesero);
 
                     using (MySqlDataReader rd = cmd.ExecuteReader())
                     {
-                        cn.Open();
                         while (rd.Read())
                         {
                             lista.Add(new Mesero
@@ -81,12 +79,10 @@ namespace Restaurante_Sabor_Gourmet.ConsultasSQL
 
                 using (MySqlCommand cmd = new MySqlCommand(sql, cn))
                 {
-                    cn.Open();
                     cmd.Parameters.AddWithValue("@id", idUsuario);
 
                     using (MySqlDataReader rd = cmd.ExecuteReader())
                     {
-                        cn.Open();
                         if (rd.Read())
                         {
                             mesero = new Mesero
@@ -123,7 +119,6 @@ namespace Restaurante_Sabor_Gourmet.ConsultasSQL
 
                 using (MySqlCommand cmd = new MySqlCommand(sql, cn))
                 {
-                    cn.Open();
                     cmd.Parameters.AddWithValue("@username", username.Trim());
                     cmd.Parameters.AddWithValue("@idExcluir", idExcluir);
                     return Convert.ToInt32(cmd.ExecuteScalar()) > 0;
@@ -190,7 +185,6 @@ namespace Restaurante_Sabor_Gourmet.ConsultasSQL
 
                 using (MySqlCommand cmd = new MySqlCommand(sql, cn))
                 {
-                    cn.Open();
                     cmd.Parameters.AddWithValue("@nombre", m.NombreUsuario.Trim());
                     cmd.Parameters.AddWithValue("@username", m.Username.Trim());
                     if (cambiarContrasena)
@@ -250,7 +244,6 @@ namespace Restaurante_Sabor_Gourmet.ConsultasSQL
 
                 using (MySqlCommand cmd = new MySqlCommand(sqlVentas, cn))
                 {
-                    cn.Open();
                     cmd.Parameters.AddWithValue("@id", idMesero);
                     using (MySqlDataReader rd = cmd.ExecuteReader())
                     {
@@ -270,7 +263,6 @@ namespace Restaurante_Sabor_Gourmet.ConsultasSQL
 
                 using (MySqlCommand cmd = new MySqlCommand(sqlPropinas, cn))
                 {
-                    cn.Open();
                     cmd.Parameters.AddWithValue("@id", idMesero);
                     using (MySqlDataReader rd = cmd.ExecuteReader())
                     {
@@ -307,10 +299,8 @@ namespace Restaurante_Sabor_Gourmet.ConsultasSQL
 
                 using (MySqlCommand cmd = new MySqlCommand(sql, cn))
                 {
-                    cn.Open();
                     using (MySqlDataReader rd = cmd.ExecuteReader())
                     {
-                        cn.Open();
                         if (rd.Read())
                         {
                             ordenes = rd.GetInt32("tot_ordenes");

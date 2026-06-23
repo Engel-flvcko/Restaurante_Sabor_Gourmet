@@ -44,7 +44,6 @@ namespace Restaurante_Sabor_Gourmet.ConsultasSQL
                 {
                     using (MySqlDataReader rd = cmd.ExecuteReader())
                     {
-                        cn.Open();
                         while (rd.Read())
                         {
                             lista.Add(new ColaCocina
@@ -79,7 +78,7 @@ namespace Restaurante_Sabor_Gourmet.ConsultasSQL
         private List<DetalleOrden> ObtenerProductosPorOrden(MySqlConnection cn, int idOrden)
         {
             List<DetalleOrden> productos = new List<DetalleOrden>();
-            cn.Open();
+
             string sql = @"
                 SELECT d.id_detalle,
                        d.id_orden_detalle,
@@ -94,7 +93,6 @@ namespace Restaurante_Sabor_Gourmet.ConsultasSQL
 
             using (MySqlCommand cmd = new MySqlCommand(sql, cn))
             {
-                cn.Open();
                 cmd.Parameters.AddWithValue("@idOrden", idOrden);
 
                 using (MySqlDataReader rd = cmd.ExecuteReader())
@@ -267,7 +265,7 @@ namespace Restaurante_Sabor_Gourmet.ConsultasSQL
                     LIMIT  @top";
 
                 using (MySqlCommand cmd = new MySqlCommand(sql, cn))
-                {cn.Open();
+                {
                     cmd.Parameters.AddWithValue("@top", top);
 
                     using (MySqlDataReader rd = cmd.ExecuteReader())

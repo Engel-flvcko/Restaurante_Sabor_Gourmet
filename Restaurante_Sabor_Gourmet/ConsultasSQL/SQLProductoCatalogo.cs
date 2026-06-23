@@ -22,6 +22,8 @@ namespace Restaurante_Sabor_Gourmet.ConsultasSQL
 
             using (MySqlConnection cn = conexion.ObtenerConexion())
             {
+                cn.Open();
+
                 string sql = @"
                     SELECT id_categoria, nombre_categoria
                     FROM   tbl_categorias
@@ -49,6 +51,8 @@ namespace Restaurante_Sabor_Gourmet.ConsultasSQL
 
             using (MySqlConnection cn = conexion.ObtenerConexion())
             {
+                cn.Open();
+
                 string sql = @"
                     SELECT p.id_producto,
                            p.codigo_producto,
@@ -98,6 +102,8 @@ namespace Restaurante_Sabor_Gourmet.ConsultasSQL
 
             using (MySqlConnection cn = conexion.ObtenerConexion())
             {
+                cn.Open();
+
                 string sql = @"
                     SELECT p.id_producto, p.codigo_producto, p.nombre_producto,
                            p.precio_venta, p.disponible, p.id_categoria,

@@ -21,6 +21,7 @@ namespace Restaurante_Sabor_Gourmet.ConsultasSQL
 
             using (MySqlConnection cn = conexion.ObtenerConexion())
             {
+                cn.Open();
                 string sql = @"SELECT r.id_receta, r.id_producto, p.nombre_producto,
                                       r.id_ingrediente, i.nombre_ingrediente,
                                       i.unidad_medida, r.cantidad_receta
@@ -39,13 +40,13 @@ namespace Restaurante_Sabor_Gourmet.ConsultasSQL
                         {
                             lista.Add(new Receta
                             {
-                                IdReceta          = rd.GetInt32("id_receta"),
-                                IdProducto        = rd.GetInt32("id_producto"),
-                                NombreProducto    = rd.GetString("nombre_producto"),
-                                IdIngrediente     = rd.GetInt32("id_ingrediente"),
+                                IdReceta = rd.GetInt32("id_receta"),
+                                IdProducto = rd.GetInt32("id_producto"),
+                                NombreProducto = rd.GetString("nombre_producto"),
+                                IdIngrediente = rd.GetInt32("id_ingrediente"),
                                 NombreIngrediente = rd.GetString("nombre_ingrediente"),
-                                UnidadMedida      = rd.GetString("unidad_medida"),
-                                CantidadReceta    = rd.GetDecimal("cantidad_receta")
+                                UnidadMedida = rd.GetString("unidad_medida"),
+                                CantidadReceta = rd.GetDecimal("cantidad_receta")
                             });
                         }
                     }
@@ -58,6 +59,7 @@ namespace Restaurante_Sabor_Gourmet.ConsultasSQL
         {
             using (MySqlConnection cn = conexion.ObtenerConexion())
             {
+                cn.Open();
                 string sql = "SELECT COUNT(*) FROM tbl_recetas " +
                              "WHERE id_producto = @idProd AND id_ingrediente = @idIng";
                 using (MySqlCommand cmd = new MySqlCommand(sql, cn))
@@ -73,6 +75,7 @@ namespace Restaurante_Sabor_Gourmet.ConsultasSQL
         {
             using (MySqlConnection cn = conexion.ObtenerConexion())
             {
+                cn.Open();
                 string sql = @"INSERT INTO tbl_recetas (id_producto, id_ingrediente, cantidad_receta)
                                VALUES (@idProd, @idIng, @cantidad)";
 
@@ -90,6 +93,7 @@ namespace Restaurante_Sabor_Gourmet.ConsultasSQL
         {
             using (MySqlConnection cn = conexion.ObtenerConexion())
             {
+                cn.Open();
                 string sql = "UPDATE tbl_recetas SET cantidad_receta = @cantidad WHERE id_receta = @id";
                 using (MySqlCommand cmd = new MySqlCommand(sql, cn))
                 {
@@ -104,6 +108,7 @@ namespace Restaurante_Sabor_Gourmet.ConsultasSQL
         {
             using (MySqlConnection cn = conexion.ObtenerConexion())
             {
+                cn.Open();
                 string sql = "DELETE FROM tbl_recetas WHERE id_receta = @id";
                 using (MySqlCommand cmd = new MySqlCommand(sql, cn))
                 {
@@ -125,6 +130,7 @@ namespace Restaurante_Sabor_Gourmet.ConsultasSQL
 
             using (MySqlConnection cn = conexion.ObtenerConexion())
             {
+                cn.Open();
                 string sql = "SELECT id_producto, nombre_producto FROM tbl_productos " +
                              "WHERE disponible = 1 ORDER BY nombre_producto";
                 using (MySqlCommand cmd = new MySqlCommand(sql, cn))
@@ -144,6 +150,7 @@ namespace Restaurante_Sabor_Gourmet.ConsultasSQL
 
             using (MySqlConnection cn = conexion.ObtenerConexion())
             {
+                cn.Open();
                 string sql = "SELECT id_ingrediente, nombre_ingrediente FROM tbl_ingredientes " +
                              "ORDER BY nombre_ingrediente";
                 using (MySqlCommand cmd = new MySqlCommand(sql, cn))

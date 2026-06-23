@@ -21,6 +21,7 @@ namespace Restaurante_Sabor_Gourmet.ConsultasSQL
 
             using (MySqlConnection cn = conexion.ObtenerConexion())
             {
+                cn.Open();
                 string sql = @"SELECT id_ingrediente, nombre_ingrediente, unidad_medida,
                                       existencia, stock_minimo, costo_unitario
                                FROM tbl_ingredientes
@@ -33,12 +34,12 @@ namespace Restaurante_Sabor_Gourmet.ConsultasSQL
                     {
                         lista.Add(new Ingrediente
                         {
-                            IdIngrediente     = rd.GetInt32("id_ingrediente"),
+                            IdIngrediente = rd.GetInt32("id_ingrediente"),
                             NombreIngrediente = rd.GetString("nombre_ingrediente"),
-                            UnidadMedida      = rd.GetString("unidad_medida"),
-                            Existencia        = rd.GetDecimal("existencia"),
-                            StockMinimo       = rd.GetDecimal("stock_minimo"),
-                            CostoUnitario     = rd.GetDecimal("costo_unitario")
+                            UnidadMedida = rd.GetString("unidad_medida"),
+                            Existencia = rd.GetDecimal("existencia"),
+                            StockMinimo = rd.GetDecimal("stock_minimo"),
+                            CostoUnitario = rd.GetDecimal("costo_unitario")
                         });
                     }
                 }
@@ -52,6 +53,7 @@ namespace Restaurante_Sabor_Gourmet.ConsultasSQL
 
             using (MySqlConnection cn = conexion.ObtenerConexion())
             {
+                cn.Open();
                 // Usa la vista ya creada en la BD
                 string sql = "SELECT id_ingrediente, nombre_ingrediente, unidad_medida, " +
                              "existencia, stock_minimo, costo_unitario " +
@@ -64,12 +66,12 @@ namespace Restaurante_Sabor_Gourmet.ConsultasSQL
                     {
                         lista.Add(new Ingrediente
                         {
-                            IdIngrediente     = rd.GetInt32("id_ingrediente"),
+                            IdIngrediente = rd.GetInt32("id_ingrediente"),
                             NombreIngrediente = rd.GetString("nombre_ingrediente"),
-                            UnidadMedida      = rd.GetString("unidad_medida"),
-                            Existencia        = rd.GetDecimal("existencia"),
-                            StockMinimo       = rd.GetDecimal("stock_minimo"),
-                            CostoUnitario     = rd.GetDecimal("costo_unitario")
+                            UnidadMedida = rd.GetString("unidad_medida"),
+                            Existencia = rd.GetDecimal("existencia"),
+                            StockMinimo = rd.GetDecimal("stock_minimo"),
+                            CostoUnitario = rd.GetDecimal("costo_unitario")
                         });
                     }
                 }
@@ -81,6 +83,7 @@ namespace Restaurante_Sabor_Gourmet.ConsultasSQL
         {
             using (MySqlConnection cn = conexion.ObtenerConexion())
             {
+                cn.Open();
                 string sql = @"INSERT INTO tbl_ingredientes
                                (nombre_ingrediente, unidad_medida, existencia, stock_minimo, costo_unitario)
                                VALUES (@nombre, @unidad, @existencia, @stockMin, @costo)";
@@ -101,6 +104,7 @@ namespace Restaurante_Sabor_Gourmet.ConsultasSQL
         {
             using (MySqlConnection cn = conexion.ObtenerConexion())
             {
+                cn.Open();
                 string sql = @"UPDATE tbl_ingredientes SET
                                nombre_ingrediente = @nombre,
                                unidad_medida      = @unidad,
@@ -125,6 +129,7 @@ namespace Restaurante_Sabor_Gourmet.ConsultasSQL
             // Validación: no eliminar ingredientes usados en recetas
             using (MySqlConnection cn = conexion.ObtenerConexion())
             {
+                cn.Open();
                 string sql = "SELECT COUNT(*) FROM tbl_recetas WHERE id_ingrediente = @id";
                 using (MySqlCommand cmd = new MySqlCommand(sql, cn))
                 {
@@ -139,6 +144,7 @@ namespace Restaurante_Sabor_Gourmet.ConsultasSQL
             // Solo si no está en ninguna receta
             using (MySqlConnection cn = conexion.ObtenerConexion())
             {
+                cn.Open();
                 string sql = "DELETE FROM tbl_ingredientes WHERE id_ingrediente = @id";
                 using (MySqlCommand cmd = new MySqlCommand(sql, cn))
                 {
@@ -158,6 +164,7 @@ namespace Restaurante_Sabor_Gourmet.ConsultasSQL
 
             using (MySqlConnection cn = conexion.ObtenerConexion())
             {
+                cn.Open();
                 string sql = @"SELECT m.id_movimiento, m.id_ingrediente, i.nombre_ingrediente,
                                       m.id_usuario, m.tipo_movimiento, m.cantidad,
                                       m.fecha_movimiento, m.observacion
@@ -172,14 +179,14 @@ namespace Restaurante_Sabor_Gourmet.ConsultasSQL
                     {
                         lista.Add(new MovimientoInventario
                         {
-                            IdMovimiento      = rd.GetInt32("id_movimiento"),
-                            IdIngrediente     = rd.GetInt32("id_ingrediente"),
+                            IdMovimiento = rd.GetInt32("id_movimiento"),
+                            IdIngrediente = rd.GetInt32("id_ingrediente"),
                             NombreIngrediente = rd.GetString("nombre_ingrediente"),
-                            IdUsuario         = rd.GetInt32("id_usuario"),
-                            TipoMovimiento    = rd.GetString("tipo_movimiento"),
-                            Cantidad          = rd.GetDecimal("cantidad"),
-                            FechaMovimiento   = rd.GetDateTime("fecha_movimiento"),
-                            Observacion       = rd.IsDBNull(rd.GetOrdinal("observacion"))
+                            IdUsuario = rd.GetInt32("id_usuario"),
+                            TipoMovimiento = rd.GetString("tipo_movimiento"),
+                            Cantidad = rd.GetDecimal("cantidad"),
+                            FechaMovimiento = rd.GetDateTime("fecha_movimiento"),
+                            Observacion = rd.IsDBNull(rd.GetOrdinal("observacion"))
                                                 ? "" : rd.GetString("observacion")
                         });
                     }
@@ -191,68 +198,72 @@ namespace Restaurante_Sabor_Gourmet.ConsultasSQL
         public bool RegistrarMovimiento(MovimientoInventario m)
         {
             using (MySqlConnection cn = conexion.ObtenerConexion())
-            using (MySqlTransaction tr = cn.BeginTransaction())
             {
-                try
+                cn.Open();
+                using (MySqlTransaction tr = cn.BeginTransaction())
                 {
-                    // 1. Insertar movimiento
-                    string sqlInsert = @"INSERT INTO tbl_movimientos_inventario
-                                        (id_ingrediente, id_usuario, tipo_movimiento,
-                                         cantidad, fecha_movimiento, observacion)
-                                        VALUES (@idIng, @idUsu, @tipo, @cantidad, NOW(), @obs)";
-
-                    using (MySqlCommand cmd = new MySqlCommand(sqlInsert, cn, tr))
+                    try
                     {
-                        cmd.Parameters.AddWithValue("@idIng", m.IdIngrediente);
-                        cmd.Parameters.AddWithValue("@idUsu", m.IdUsuario);
-                        cmd.Parameters.AddWithValue("@tipo", m.TipoMovimiento);
-                        cmd.Parameters.AddWithValue("@cantidad", m.Cantidad);
-                        cmd.Parameters.AddWithValue("@obs", m.Observacion);
-                        cmd.ExecuteNonQuery();
-                    }
+                        // 1. Insertar movimiento
+                        string sqlInsert = @"INSERT INTO tbl_movimientos_inventario
+                                            (id_ingrediente, id_usuario, tipo_movimiento,
+                                             cantidad, fecha_movimiento, observacion)
+                                            VALUES (@idIng, @idUsu, @tipo, @cantidad, NOW(), @obs)";
 
-                    // 2. Actualizar existencia según tipo
-                    string operacion = (m.TipoMovimiento == "Compra") ? "+" : "-";
-                    string sqlExist = $"UPDATE tbl_ingredientes SET existencia = existencia {operacion} @cantidad " +
-                                      "WHERE id_ingrediente = @id";
-
-                    using (MySqlCommand cmd = new MySqlCommand(sqlExist, cn, tr))
-                    {
-                        cmd.Parameters.AddWithValue("@cantidad", m.Cantidad);
-                        cmd.Parameters.AddWithValue("@id", m.IdIngrediente);
-                        cmd.ExecuteNonQuery();
-                    }
-
-                    // 3. Verificar que no quede negativo
-                    string sqlCheck = "SELECT existencia FROM tbl_ingredientes WHERE id_ingrediente = @id";
-                    using (MySqlCommand cmd = new MySqlCommand(sqlCheck, cn, tr))
-                    {
-                        cmd.Parameters.AddWithValue("@id", m.IdIngrediente);
-                        decimal existenciaResultante = Convert.ToDecimal(cmd.ExecuteScalar());
-                        if (existenciaResultante < 0)
+                        using (MySqlCommand cmd = new MySqlCommand(sqlInsert, cn, tr))
                         {
-                            tr.Rollback();
-                            return false; // No permitir existencias negativas
+                            cmd.Parameters.AddWithValue("@idIng", m.IdIngrediente);
+                            cmd.Parameters.AddWithValue("@idUsu", m.IdUsuario);
+                            cmd.Parameters.AddWithValue("@tipo", m.TipoMovimiento);
+                            cmd.Parameters.AddWithValue("@cantidad", m.Cantidad);
+                            cmd.Parameters.AddWithValue("@obs", m.Observacion);
+                            cmd.ExecuteNonQuery();
                         }
+
+                        // 2. Actualizar existencia según tipo
+                        string operacion = (m.TipoMovimiento == "Compra") ? "+" : "-";
+                        string sqlExist = $"UPDATE tbl_ingredientes SET existencia = existencia {operacion} @cantidad " +
+                                          "WHERE id_ingrediente = @id";
+
+                        using (MySqlCommand cmd = new MySqlCommand(sqlExist, cn, tr))
+                        {
+                            cmd.Parameters.AddWithValue("@cantidad", m.Cantidad);
+                            cmd.Parameters.AddWithValue("@id", m.IdIngrediente);
+                            cmd.ExecuteNonQuery();
+                        }
+
+                        // 3. Verificar que no quede negativo
+                        string sqlCheck = "SELECT existencia FROM tbl_ingredientes WHERE id_ingrediente = @id";
+                        using (MySqlCommand cmd = new MySqlCommand(sqlCheck, cn, tr))
+                        {
+                            cmd.Parameters.AddWithValue("@id", m.IdIngrediente);
+                            decimal existenciaResultante = Convert.ToDecimal(cmd.ExecuteScalar());
+                            if (existenciaResultante < 0)
+                            {
+                                tr.Rollback();
+                                return false; // No permitir existencias negativas
+                            }
+                        }
+
+                        tr.Commit();
+                        return true;
                     }
-
-                    tr.Commit();
-                    return true;
+                    catch
+                    {
+                        tr.Rollback();
+                        return false;
+                    }
                 }
-                catch
-                {
-                    tr.Rollback();
-                    return false;
-                }
-
             }
         }
+
         public List<MovimientoInventario> ObtenerMovimientosConUsuario()
         {
             List<MovimientoInventario> lista = new List<MovimientoInventario>();
 
             using (MySqlConnection cn = conexion.ObtenerConexion())
             {
+                cn.Open();
                 string sql = @"SELECT m.id_movimiento, m.id_ingrediente, i.nombre_ingrediente,
                               m.id_usuario, u.nombre_usuario, m.tipo_movimiento,
                               m.cantidad, m.fecha_movimiento, m.observacion
@@ -268,15 +279,15 @@ namespace Restaurante_Sabor_Gourmet.ConsultasSQL
                     {
                         lista.Add(new MovimientoInventario
                         {
-                            IdMovimiento      = rd.GetInt32("id_movimiento"),
-                            IdIngrediente     = rd.GetInt32("id_ingrediente"),
+                            IdMovimiento = rd.GetInt32("id_movimiento"),
+                            IdIngrediente = rd.GetInt32("id_ingrediente"),
                             NombreIngrediente = rd.GetString("nombre_ingrediente"),
-                            IdUsuario         = rd.GetInt32("id_usuario"),
-                            NombreUsuario     = rd.GetString("nombre_usuario"),
-                            TipoMovimiento    = rd.GetString("tipo_movimiento"),
-                            Cantidad          = rd.GetDecimal("cantidad"),
-                            FechaMovimiento   = rd.GetDateTime("fecha_movimiento"),
-                            Observacion       = rd.IsDBNull(rd.GetOrdinal("observacion"))
+                            IdUsuario = rd.GetInt32("id_usuario"),
+                            NombreUsuario = rd.GetString("nombre_usuario"),
+                            TipoMovimiento = rd.GetString("tipo_movimiento"),
+                            Cantidad = rd.GetDecimal("cantidad"),
+                            FechaMovimiento = rd.GetDateTime("fecha_movimiento"),
+                            Observacion = rd.IsDBNull(rd.GetOrdinal("observacion"))
                                                 ? "" : rd.GetString("observacion")
                         });
                     }
@@ -285,5 +296,4 @@ namespace Restaurante_Sabor_Gourmet.ConsultasSQL
             return lista;
         }
     }
-
 }

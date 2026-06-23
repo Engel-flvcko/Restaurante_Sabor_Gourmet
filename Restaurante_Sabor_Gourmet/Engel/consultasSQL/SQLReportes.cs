@@ -158,6 +158,7 @@ namespace Restaurante_Sabor_Gourmet.Engel.consultasSQL
 
             return dt;
         }
+
         // En SQLReportes.cs — agregar estos 3 métodos:
 
         public DataTable MostrarStockAgotado()
