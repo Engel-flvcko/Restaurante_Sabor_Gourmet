@@ -18,7 +18,9 @@ namespace Restaurante_Sabor_Gourmet
             Application.Run(new FrmLogin());
             //Application.Run(new frmRecetas());
             //Application.Run(new FormMenu());
+
             //Application.Run(new frmInventario(1,""));
+
         }
     }
 }
