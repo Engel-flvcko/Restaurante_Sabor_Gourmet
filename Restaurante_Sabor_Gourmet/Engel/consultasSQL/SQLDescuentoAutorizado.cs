@@ -14,7 +14,7 @@ namespace Restaurante_Sabor_Gourmet.Engel.consultasSQL
 {
     internal class SQLDescuentoAutorizado
     {
-        ConexionDB conexion = new ConexionDB();
+        ConexionBD conexion = new ConexionBD();
 
         // Guardar descuento autorizado por supervisor
         public bool GuardarDescuento(DescuentoAutorizado descuento)

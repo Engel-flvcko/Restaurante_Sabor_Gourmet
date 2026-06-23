@@ -7,16 +7,13 @@ using System.Threading.Tasks;
 
 namespace Restaurante_Sabor_Gourmet.Jaqueline.Clases
 {
-    internal class ConexionDB
+    internal class ConexionBD
     {
         private string cadenaConexion = "Server=127.0.0.1;Database=db_sabor_gourmet_fmo;Uid=root;Pwd=;";
 
         public MySqlConnection ObtenerConexion()
         {
-            MySqlConnection conexion = new MySqlConnection(cadenaConexion);
-            return conexion;
+            return new MySqlConnection(cadenaConexion);
         }
-
-
     }
 }

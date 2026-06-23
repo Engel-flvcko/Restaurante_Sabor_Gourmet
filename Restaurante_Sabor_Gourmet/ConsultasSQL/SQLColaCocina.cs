@@ -11,7 +11,7 @@ namespace Restaurante_Sabor_Gourmet.ConsultasSQL
 {
     internal class SQLColaCocina
     {
-        private readonly ConexionDB conexion = new ConexionDB();
+        private readonly ConexionBD conexion = new ConexionBD();
 
         // ============================================================
         //  OBTENER COLA COMPLETA DEL DÍA
@@ -24,6 +24,7 @@ namespace Restaurante_Sabor_Gourmet.ConsultasSQL
 
             using (MySqlConnection cn = conexion.ObtenerConexion())
             {
+                cn.Open();
                 // 1. Traer la cabecera de cada orden en cola del día actual
                 string sqlCabecera = @"
                     SELECT c.id_cocina,
@@ -43,6 +44,7 @@ namespace Restaurante_Sabor_Gourmet.ConsultasSQL
                 {
                     using (MySqlDataReader rd = cmd.ExecuteReader())
                     {
+                        cn.Open();
                         while (rd.Read())
                         {
                             lista.Add(new ColaCocina
@@ -77,7 +79,7 @@ namespace Restaurante_Sabor_Gourmet.ConsultasSQL
         private List<DetalleOrden> ObtenerProductosPorOrden(MySqlConnection cn, int idOrden)
         {
             List<DetalleOrden> productos = new List<DetalleOrden>();
-
+            cn.Open();
             string sql = @"
                 SELECT d.id_detalle,
                        d.id_orden_detalle,
@@ -92,6 +94,7 @@ namespace Restaurante_Sabor_Gourmet.ConsultasSQL
 
             using (MySqlCommand cmd = new MySqlCommand(sql, cn))
             {
+                cn.Open();
                 cmd.Parameters.AddWithValue("@idOrden", idOrden);
 
                 using (MySqlDataReader rd = cmd.ExecuteReader())
@@ -131,6 +134,7 @@ namespace Restaurante_Sabor_Gourmet.ConsultasSQL
 
             using (MySqlConnection cn = conexion.ObtenerConexion())
             {
+                cn.Open();
                 string sql;
 
                 if (estadoNuevo == "en_preparacion")
@@ -180,6 +184,7 @@ namespace Restaurante_Sabor_Gourmet.ConsultasSQL
         {
             using (MySqlConnection cn = conexion.ObtenerConexion())
             {
+                cn.Open();
                 string sql = @"
                     SELECT AVG(TIMESTAMPDIFF(MINUTE, hora_inicio, hora_finalizacion))
                     FROM   tbl_cola_cocina
@@ -205,6 +210,7 @@ namespace Restaurante_Sabor_Gourmet.ConsultasSQL
         {
             using (MySqlConnection cn = conexion.ObtenerConexion())
             {
+                cn.Open();
                 string sql = @"
                     SELECT COUNT(*) FROM tbl_cola_cocina
                     WHERE  estado_cocina     = 'pendiente'
@@ -223,6 +229,7 @@ namespace Restaurante_Sabor_Gourmet.ConsultasSQL
         {
             using (MySqlConnection cn = conexion.ObtenerConexion())
             {
+                cn.Open();
                 string sql = @"
                     SELECT COUNT(*) FROM tbl_cola_cocina
                     WHERE  estado_cocina IN ('pendiente', 'en_preparacion')
@@ -247,6 +254,7 @@ namespace Restaurante_Sabor_Gourmet.ConsultasSQL
 
             using (MySqlConnection cn = conexion.ObtenerConexion())
             {
+                cn.Open();
                 string sql = @"
                     SELECT p.nombre_producto,
                            SUM(d.cantidad_detalle) AS total_unidades
@@ -259,7 +267,7 @@ namespace Restaurante_Sabor_Gourmet.ConsultasSQL
                     LIMIT  @top";
 
                 using (MySqlCommand cmd = new MySqlCommand(sql, cn))
-                {
+                {cn.Open();
                     cmd.Parameters.AddWithValue("@top", top);
 
                     using (MySqlDataReader rd = cmd.ExecuteReader())

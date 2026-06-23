@@ -7,7 +7,7 @@ namespace Restaurante_Sabor_Gourmet.ConsultasSQL
 {
     internal class SQLMenu
     {
-        private readonly ConexionDB conexion = new ConexionDB();
+        private readonly ConexionBD conexion = new ConexionBD();
 
         // ─────────────────────────────────────────
         // CATEGORÍAS

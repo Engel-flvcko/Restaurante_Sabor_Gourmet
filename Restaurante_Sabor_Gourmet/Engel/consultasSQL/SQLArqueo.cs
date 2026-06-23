@@ -13,7 +13,7 @@ namespace Restaurante_Sabor_Gourmet.Engel.consultasSQL
 {
     internal class SQLArqueo
     {
-        ConexionDB conexion = new ConexionDB();
+        ConexionBD conexion = new ConexionBD();
 
         // Abrir caja — retorna el id_arqueo generado
         public int AbrirCaja(int idCajero, decimal fondoInicial)

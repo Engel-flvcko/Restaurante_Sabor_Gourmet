@@ -14,9 +14,7 @@ namespace Restaurante_Sabor_Gourmet.Vane
 {
     public partial class frmMenu : Form
     {
-        // ─────────────────────────────────────────
-        // VARIABLES DE ESTADO
-        // ─────────────────────────────────────────
+        
         private int idUsuarioSesion;
         private string nombreUsuarioSesion;
 
@@ -34,14 +32,9 @@ namespace Restaurante_Sabor_Gourmet.Vane
         // Mapa nombre → id para categorías (uso interno)
         private Dictionary<string, int> mapaCategorias = new Dictionary<string, int>();
 
-        // ─────────────────────────────────────────
-        // DAOs
-        // ─────────────────────────────────────────
         private readonly SQLMenu sqlMenu = new SQLMenu();
 
-        // ─────────────────────────────────────────
-        // CONSTRUCTOR
-        // ─────────────────────────────────────────
+        
         public frmMenu(int idUsuarioSesion, string nombreUsuarioSesion)
         {
             InitializeComponent();

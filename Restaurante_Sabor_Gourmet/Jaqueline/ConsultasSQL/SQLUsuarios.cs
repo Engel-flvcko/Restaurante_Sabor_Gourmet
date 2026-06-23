@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -11,84 +12,64 @@ namespace Restaurante_Sabor_Gourmet.Jaqueline.ConsultasSQL
 {
     internal class SQLUsuarios
     {
+        ConexionBD conexion = new ConexionBD();
 
-        // Método para validar login en la base de datos
-        // Retorna true si el usuario existe
-
-        public bool IniciarSesion(string usuario, string contrasena)
+        public bool IniciarSesion(string username, string contrasenaPlana)
         {
-            // Crear conexión a la base de datos
-            ConexionDB conexionBD = new ConexionDB();
+            string hash = HashSHA256(contrasenaPlana);
 
-            using (MySqlConnection conexion = conexionBD.ObtenerConexion())
+            using (MySqlConnection cn = conexion.ObtenerConexion())
             {
-                conexion.Open();
-
-                // Consulta para validar usuario
-                string consulta = @"SELECT u.*, r.nombre_rol
+                string sql = @"
+                    SELECT u.id_usuario, u.nombre_usuario, u.username_usuario,
+                           u.id_rol_usuario, r.nombre_rol
                     FROM tbl_usuarios u
-                    INNER JOIN tbl_roles r
-                        ON u.id_rol_usuario = r.id_rol
-                    WHERE username_usuario = @usuario
-                    AND contraseña_usuario = @contrasena
-                    AND activo_usuario = TRUE";
+                    INNER JOIN tbl_roles r ON u.id_rol_usuario = r.id_rol
+                    WHERE u.username_usuario  = @username
+                      AND u.contraseña_usuario = @clave
+                      AND u.activo_usuario      = 1";
 
-                MySqlCommand comando = new MySqlCommand(consulta, conexion);
+                MySqlCommand cmd = new MySqlCommand(sql, cn);
+                cmd.Parameters.AddWithValue("@username", username);
+                cmd.Parameters.AddWithValue("@clave", hash);
 
-                // Enviar parámetros
-                comando.Parameters.AddWithValue("@usuario", usuario);
-                comando.Parameters.AddWithValue("@contrasena", contrasena);
-
-                MySqlDataReader lector = comando.ExecuteReader();
-
-                if (lector.Read())
+                using (MySqlDataReader dr = cmd.ExecuteReader())
                 {
-                    // Guardar información del usuario en la sesión
-
-                    Sesion.IdUsuario = Convert.ToInt32(lector["id_usuario"]);
-
-                    Sesion.NombreUsuario = lector["nombre_usuario"].ToString();
-
-                    Sesion.Username =  lector["username_usuario"].ToString();
-
-                    Sesion.IdRol = Convert.ToInt32(lector["id_rol_usuario"]);
-                    
-                    Sesion.NombreRol = lector["nombre_rol"].ToString();
-
-                    return true;
+                    if (dr.Read())
+                    {
+                        Sesion.IdUsuario = dr.GetInt32("id_usuario");
+                        Sesion.NombreUsuario = dr.GetString("nombre_usuario");
+                        Sesion.Username = dr.GetString("username_usuario");
+                        Sesion.IdRol = dr.GetInt32("id_rol_usuario");
+                        Sesion.NombreRol = dr.GetString("nombre_rol");
+                        return true;
+                    }
+                    return false;
                 }
-                return false;
-               
             }
         }
 
-        //AGREGADO POR ENGEL 
-        ConexionDB conexion = new ConexionDB();
-
-        // ══════════════════════════════════════════════════════════════════
-        // OBTENER TODOS (con filtro opcional para búsqueda)
-        // ══════════════════════════════════════════════════════════════════
+        //desde aqui engel
         public DataTable MostrarTodo(string filtro = "")
         {
             DataTable dt = new DataTable();
             using (MySqlConnection cn = conexion.ObtenerConexion())
             {
-                cn.Open();
                 string sql = @"
                     SELECT
                         u.id_usuario,
-                        u.nombre_usuario   AS Nombre,
-                        u.username         AS Usuario,
-                        u.telefono         AS Teléfono,
-                        r.nombre_rol       AS Rol,
-                        CASE u.activo
+                        u.nombre_usuario      AS Nombre,
+                        u.username_usuario    AS Usuario,
+                        u.telefono_usuario    AS Teléfono,
+                        r.nombre_rol          AS Rol,
+                        CASE u.activo_usuario
                             WHEN 1 THEN 'Activo'
                             ELSE 'Inactivo'
-                        END                AS Estado
+                        END                   AS Estado
                     FROM tbl_usuarios u
                     INNER JOIN tbl_roles r ON u.id_rol_usuario = r.id_rol
-                    WHERE u.nombre_usuario LIKE @filtro
-                       OR u.username       LIKE @filtro
+                    WHERE u.nombre_usuario   LIKE @filtro
+                       OR u.username_usuario LIKE @filtro
                     ORDER BY u.nombre_usuario";
 
                 MySqlDataAdapter da = new MySqlDataAdapter(sql, cn);
@@ -98,18 +79,14 @@ namespace Restaurante_Sabor_Gourmet.Jaqueline.ConsultasSQL
             return dt;
         }
 
-        // ══════════════════════════════════════════════════════════════════
-        // OBTENER UN USUARIO POR ID
-        // ══════════════════════════════════════════════════════════════════
         public Usuario ObtenerPorId(int idUsuario)
         {
             Usuario u = null;
             using (MySqlConnection cn = conexion.ObtenerConexion())
             {
-                cn.Open();
                 string sql = @"
-                    SELECT id_usuario, nombre_usuario, username,
-                           telefono, activo, id_rol_usuario
+                    SELECT id_usuario, nombre_usuario, username_usuario,
+                           telefono_usuario, activo_usuario, id_rol_usuario
                     FROM tbl_usuarios
                     WHERE id_usuario = @id";
 
@@ -124,9 +101,9 @@ namespace Restaurante_Sabor_Gourmet.Jaqueline.ConsultasSQL
                         {
                             IdUsuario = dr.GetInt32("id_usuario"),
                             Nombre = dr.GetString("nombre_usuario"),
-                            Username = dr.GetString("username"),
-                            Telefono = dr["telefono"].ToString(),
-                            Activo = dr.GetBoolean("activo"),
+                            Username = dr.GetString("username_usuario"),
+                            Telefono = dr["telefono_usuario"].ToString(),
+                            Activo = dr.GetBoolean("activo_usuario"),
                             IdRol = dr.GetInt32("id_rol_usuario")
                         };
                     }
@@ -135,16 +112,12 @@ namespace Restaurante_Sabor_Gourmet.Jaqueline.ConsultasSQL
             return u;
         }
 
-        // ══════════════════════════════════════════════════════════════════
-        // VERIFICAR SI EL USERNAME YA EXISTE
-        // ══════════════════════════════════════════════════════════════════
         public bool UsernameExiste(string username, int excluirId = 0)
         {
             using (MySqlConnection cn = conexion.ObtenerConexion())
             {
-                cn.Open();
                 string sql = @"SELECT COUNT(*) FROM tbl_usuarios
-                               WHERE username = @u AND id_usuario <> @id";
+                               WHERE username_usuario = @u AND id_usuario <> @id";
                 MySqlCommand cmd = new MySqlCommand(sql, cn);
                 cmd.Parameters.AddWithValue("@u", username);
                 cmd.Parameters.AddWithValue("@id", excluirId);
@@ -152,18 +125,14 @@ namespace Restaurante_Sabor_Gourmet.Jaqueline.ConsultasSQL
             }
         }
 
-        // ══════════════════════════════════════════════════════════════════
-        // GUARDAR (INSERT nuevo usuario)
-        // ══════════════════════════════════════════════════════════════════
         public bool Guardar(Usuario obj)
         {
             using (MySqlConnection cn = conexion.ObtenerConexion())
             {
-                cn.Open();
                 string sql = @"
                     INSERT INTO tbl_usuarios
-                        (nombre_usuario, username, contraseña_usuario,
-                         telefono, fecha_ingreso, activo, id_rol_usuario)
+                        (nombre_usuario, username_usuario, contrasena_usuario,
+                         telefono_usuario, fecha_ingreso_usuario, activo_usuario, id_rol_usuario)
                     VALUES
                         (@nombre, @username, @clave,
                          @tel, NOW(), 1, @rol)";
@@ -171,27 +140,23 @@ namespace Restaurante_Sabor_Gourmet.Jaqueline.ConsultasSQL
                 MySqlCommand cmd = new MySqlCommand(sql, cn);
                 cmd.Parameters.AddWithValue("@nombre", obj.Nombre);
                 cmd.Parameters.AddWithValue("@username", obj.Username);
-                cmd.Parameters.AddWithValue("@clave", obj.Contrasena);
+                cmd.Parameters.AddWithValue("@clave", HashSHA256(obj.Contrasena));
                 cmd.Parameters.AddWithValue("@tel", obj.Telefono);
                 cmd.Parameters.AddWithValue("@rol", obj.IdRol);
                 return cmd.ExecuteNonQuery() > 0;
             }
         }
 
-        // ══════════════════════════════════════════════════════════════════
-        // ACTUALIZAR (sin cambiar contraseña)
-        // ══════════════════════════════════════════════════════════════════
         public bool Actualizar(Usuario obj)
         {
             using (MySqlConnection cn = conexion.ObtenerConexion())
             {
-                cn.Open();
                 string sql = @"
                     UPDATE tbl_usuarios SET
-                        nombre_usuario = @nombre,
-                        username       = @username,
-                        telefono       = @tel,
-                        id_rol_usuario = @rol
+                        nombre_usuario   = @nombre,
+                        username_usuario = @username,
+                        telefono_usuario = @tel,
+                        id_rol_usuario   = @rol
                     WHERE id_usuario = @id";
 
                 MySqlCommand cmd = new MySqlCommand(sql, cn);
@@ -204,27 +169,23 @@ namespace Restaurante_Sabor_Gourmet.Jaqueline.ConsultasSQL
             }
         }
 
-        // ══════════════════════════════════════════════════════════════════
-        // ACTUALIZAR CON NUEVA CONTRASEÑA
-        // ══════════════════════════════════════════════════════════════════
         public bool ActualizarConClave(Usuario obj)
         {
             using (MySqlConnection cn = conexion.ObtenerConexion())
             {
-                cn.Open();
                 string sql = @"
                     UPDATE tbl_usuarios SET
-                        nombre_usuario     = @nombre,
-                        username           = @username,
-                        contraseña_usuario = @clave,
-                        telefono           = @tel,
-                        id_rol_usuario     = @rol
+                        nombre_usuario    = @nombre,
+                        username_usuario  = @username,
+                        contrasena_usuario = @clave,
+                        telefono_usuario  = @tel,
+                        id_rol_usuario    = @rol
                     WHERE id_usuario = @id";
 
                 MySqlCommand cmd = new MySqlCommand(sql, cn);
                 cmd.Parameters.AddWithValue("@nombre", obj.Nombre);
                 cmd.Parameters.AddWithValue("@username", obj.Username);
-                cmd.Parameters.AddWithValue("@clave", obj.Contrasena);
+                cmd.Parameters.AddWithValue("@clave", HashSHA256(obj.Contrasena));
                 cmd.Parameters.AddWithValue("@tel", obj.Telefono);
                 cmd.Parameters.AddWithValue("@rol", obj.IdRol);
                 cmd.Parameters.AddWithValue("@id", obj.IdUsuario);
@@ -232,30 +193,22 @@ namespace Restaurante_Sabor_Gourmet.Jaqueline.ConsultasSQL
             }
         }
 
-        // ══════════════════════════════════════════════════════════════════
-        // DESACTIVAR (baja lógica — nunca DELETE físico)
-        // ══════════════════════════════════════════════════════════════════
         public bool Desactivar(int idUsuario)
         {
             using (MySqlConnection cn = conexion.ObtenerConexion())
             {
-                cn.Open();
-                string sql = "UPDATE tbl_usuarios SET activo = 0 WHERE id_usuario = @id";
+                string sql = "UPDATE tbl_usuarios SET activo_usuario = 0 WHERE id_usuario = @id";
                 MySqlCommand cmd = new MySqlCommand(sql, cn);
                 cmd.Parameters.AddWithValue("@id", idUsuario);
                 return cmd.ExecuteNonQuery() > 0;
             }
         }
 
-        // ══════════════════════════════════════════════════════════════════
-        // CARGAR ROLES PARA COMBOBOX
-        // ══════════════════════════════════════════════════════════════════
         public DataTable ObtenerRoles()
         {
             DataTable dt = new DataTable();
             using (MySqlConnection cn = conexion.ObtenerConexion())
             {
-                cn.Open();
                 string sql = "SELECT id_rol, nombre_rol FROM tbl_roles ORDER BY nombre_rol";
                 MySqlDataAdapter da = new MySqlDataAdapter(sql, cn);
                 da.Fill(dt);
@@ -263,6 +216,18 @@ namespace Restaurante_Sabor_Gourmet.Jaqueline.ConsultasSQL
             return dt;
         }
 
-        // HASTA AQUI AGREGADO POR ENGEL
+        private string HashSHA256(string texto)
+        {
+            using (SHA256 sha = SHA256.Create())
+            {
+                byte[] bytes = sha.ComputeHash(Encoding.UTF8.GetBytes(texto));
+                StringBuilder sb = new StringBuilder();
+                foreach (byte b in bytes)
+                    sb.Append(b.ToString("x2"));
+                return sb.ToString();
+            }
+        }
+
+        //hasta aqui
     }
 }

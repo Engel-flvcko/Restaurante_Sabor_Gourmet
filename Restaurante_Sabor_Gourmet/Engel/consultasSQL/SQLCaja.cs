@@ -14,7 +14,7 @@ namespace Restaurante_Sabor_Gourmet.Engel.consultasSQL
 {
     internal class SQLCaja
     {
-        ConexionDB conexion = new ConexionDB();
+        ConexionBD conexion = new ConexionBD();
 
         // Mostrar cuentas pendientes de pago
         public DataTable MostrarCuentasPendientes()

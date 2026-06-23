@@ -49,5 +49,45 @@ namespace Restaurante_Sabor_Gourmet.Jaqueline.Formularios
             // Abrir formulario de mesas dentro del panel central
             gestorFormularios.AbrirMesas();
         }
+
+        private void btnCocina_Click(object sender, EventArgs e)
+        {
+            gestorFormularios.AbrirCocina();
+        }
+
+        private void btnMenu_Click(object sender, EventArgs e)
+        {
+            gestorFormularios.AbrirMenu();
+        }
+
+        private void btnInventario_Click(object sender, EventArgs e)
+        {
+            gestorFormularios.AbrirInventario();
+        }
+
+        private void btnUsuarios_Click(object sender, EventArgs e)
+        {
+            gestorFormularios.AbrirUsuarios();
+        }
+
+        private void btnReportes_Click(object sender, EventArgs e)
+        {
+            //gestorFormularios.AbrirReportes();
+        }
+
+        private void btnCaja_Click(object sender, EventArgs e)
+        {
+            gestorFormularios.AbrirCaja();
+        }
+
+        private void btnReservaciones_Click(object sender, EventArgs e)
+        {
+            //gestorFormularios.AbrirReservaciones();
+        }
+
+        private void btnDashboard_Click(object sender, EventArgs e)
+        {
+            gestorFormularios.AbrirDashboard();
+        }
     }
 }

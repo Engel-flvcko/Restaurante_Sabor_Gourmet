@@ -12,7 +12,7 @@ namespace Restaurante_Sabor_Gourmet.ConsultasSQL
 {
     internal class SQLOrden
     {
-        private readonly ConexionDB conexion = new ConexionDB();
+        private readonly ConexionBD conexion = new ConexionBD();
 
         // ============================================================
         //  VERIFICAR SI UNA MESA YA TIENE ORDEN ABIERTA
@@ -24,6 +24,7 @@ namespace Restaurante_Sabor_Gourmet.ConsultasSQL
 
             using (MySqlConnection cn = conexion.ObtenerConexion())
             {
+                cn.Open();
                 string sql = @"
                     SELECT o.id_orden,
                            o.id_mesa_orden,
@@ -42,10 +43,12 @@ namespace Restaurante_Sabor_Gourmet.ConsultasSQL
 
                 using (MySqlCommand cmd = new MySqlCommand(sql, cn))
                 {
+                    cn.Open();
                     cmd.Parameters.AddWithValue("@idMesa", idMesa);
 
                     using (MySqlDataReader rd = cmd.ExecuteReader())
                     {
+                        cn.Open();
                         if (rd.Read())
                         {
                             orden = new Orden
@@ -78,7 +81,7 @@ namespace Restaurante_Sabor_Gourmet.ConsultasSQL
         private List<DetalleOrden> ObtenerDetallesPorOrden(MySqlConnection cn, int idOrden)
         {
             List<DetalleOrden> detalles = new List<DetalleOrden>();
-
+            cn.Open();
             string sql = @"
                 SELECT d.id_detalle,
                        d.id_orden_detalle,
@@ -93,10 +96,12 @@ namespace Restaurante_Sabor_Gourmet.ConsultasSQL
 
             using (MySqlCommand cmd = new MySqlCommand(sql, cn))
             {
+                cn.Open();
                 cmd.Parameters.AddWithValue("@idOrden", idOrden);
 
                 using (MySqlDataReader rd = cmd.ExecuteReader())
                 {
+                    cn.Open();
                     while (rd.Read())
                     {
                         detalles.Add(new DetalleOrden
@@ -132,8 +137,10 @@ namespace Restaurante_Sabor_Gourmet.ConsultasSQL
 
             using (MySqlConnection cn = conexion.ObtenerConexion())
             {
+                cn.Open();
                 using (MySqlTransaction tx = cn.BeginTransaction())
                 {
+                    cn.Open();
                     try
                     {
                         // 1. Insertar cabecera en tbl_ordenes
@@ -147,6 +154,7 @@ namespace Restaurante_Sabor_Gourmet.ConsultasSQL
 
                         using (MySqlCommand cmd = new MySqlCommand(sqlOrden, cn, tx))
                         {
+                            cn.Open();
                             cmd.Parameters.AddWithValue("@idMesa", idMesa);
                             cmd.Parameters.AddWithValue("@idMesero", idMesero);
                             cmd.Parameters.AddWithValue("@obs", observacionesGenerales ?? "");

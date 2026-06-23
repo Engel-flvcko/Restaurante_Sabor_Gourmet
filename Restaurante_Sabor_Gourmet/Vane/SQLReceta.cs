@@ -9,7 +9,7 @@ namespace Restaurante_Sabor_Gourmet.ConsultasSQL
 {
     internal class SQLRecetas
     {
-        private readonly ConexionDB conexion = new ConexionDB();
+        private readonly ConexionBD conexion = new ConexionBD();
 
         // ─────────────────────────────────────────
         // RECETAS

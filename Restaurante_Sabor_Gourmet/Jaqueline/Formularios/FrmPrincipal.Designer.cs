@@ -198,6 +198,7 @@
             btnCocina.Size = new Size(168, 41);
             btnCocina.TabIndex = 1;
             btnCocina.Text = "Cocina";
+            btnCocina.Click += btnCocina_Click;
             // 
             // btnMenu
             // 
@@ -215,6 +216,7 @@
             btnMenu.Size = new Size(168, 41);
             btnMenu.TabIndex = 2;
             btnMenu.Text = "Menu";
+            btnMenu.Click += btnMenu_Click;
             // 
             // btnInventario
             // 
@@ -232,6 +234,7 @@
             btnInventario.Size = new Size(168, 41);
             btnInventario.TabIndex = 3;
             btnInventario.Text = "Inventario";
+            btnInventario.Click += btnInventario_Click;
             // 
             // btnUsuarios
             // 
@@ -249,6 +252,7 @@
             btnUsuarios.Size = new Size(168, 41);
             btnUsuarios.TabIndex = 4;
             btnUsuarios.Text = "Usuarios";
+            btnUsuarios.Click += btnUsuarios_Click;
             // 
             // btnReportes
             // 
@@ -266,6 +270,7 @@
             btnReportes.Size = new Size(168, 41);
             btnReportes.TabIndex = 5;
             btnReportes.Text = "Reportes";
+            btnReportes.Click += btnReportes_Click;
             // 
             // btnCaja
             // 
@@ -283,6 +288,7 @@
             btnCaja.Size = new Size(168, 41);
             btnCaja.TabIndex = 6;
             btnCaja.Text = "Caja";
+            btnCaja.Click += btnCaja_Click;
             // 
             // btnReservaciones
             // 
@@ -300,6 +306,7 @@
             btnReservaciones.Size = new Size(168, 41);
             btnReservaciones.TabIndex = 7;
             btnReservaciones.Text = "Reservaciones";
+            btnReservaciones.Click += btnReservaciones_Click;
             // 
             // btnDashboard
             // 
@@ -317,6 +324,7 @@
             btnDashboard.Size = new Size(168, 41);
             btnDashboard.TabIndex = 8;
             btnDashboard.Text = "Dashboard";
+            btnDashboard.Click += btnDashboard_Click;
             // 
             // PnlCentro
             // 

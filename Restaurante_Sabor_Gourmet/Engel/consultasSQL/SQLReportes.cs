@@ -13,7 +13,7 @@ namespace Restaurante_Sabor_Gourmet.Engel.consultasSQL
 {
     internal class SQLReportes
     {
-        ConexionDB conexion = new ConexionDB();
+        ConexionBD conexion = new ConexionBD();
 
         // Ventas del día
         public DataTable MostrarVentasDelDia()

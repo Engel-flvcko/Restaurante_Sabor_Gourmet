@@ -11,7 +11,7 @@ namespace Restaurante_Sabor_Gourmet.ConsultasSQL
 {
     internal class SQLMesero
     {
-        private readonly ConexionDB conexion = new ConexionDB();
+        private readonly ConexionBD conexion = new ConexionBD();
 
         // ============================================================
         //  OBTENER TODOS LOS MESEROS
@@ -22,6 +22,7 @@ namespace Restaurante_Sabor_Gourmet.ConsultasSQL
 
             using (MySqlConnection cn = conexion.ObtenerConexion())
             {
+                cn.Open();
                 string sql = @"
                     SELECT id_usuario,
                            nombre_usuario,
@@ -36,10 +37,12 @@ namespace Restaurante_Sabor_Gourmet.ConsultasSQL
 
                 using (MySqlCommand cmd = new MySqlCommand(sql, cn))
                 {
+                    cn.Open();
                     cmd.Parameters.AddWithValue("@idRol", idRolMesero);
 
                     using (MySqlDataReader rd = cmd.ExecuteReader())
                     {
+                        cn.Open();
                         while (rd.Read())
                         {
                             lista.Add(new Mesero
@@ -69,6 +72,7 @@ namespace Restaurante_Sabor_Gourmet.ConsultasSQL
 
             using (MySqlConnection cn = conexion.ObtenerConexion())
             {
+                cn.Open();
                 string sql = @"
                     SELECT id_usuario, nombre_usuario, username,
                            telefono, fecha_ingreso, activo, id_rol_usuario
@@ -77,10 +81,12 @@ namespace Restaurante_Sabor_Gourmet.ConsultasSQL
 
                 using (MySqlCommand cmd = new MySqlCommand(sql, cn))
                 {
+                    cn.Open();
                     cmd.Parameters.AddWithValue("@id", idUsuario);
 
                     using (MySqlDataReader rd = cmd.ExecuteReader())
                     {
+                        cn.Open();
                         if (rd.Read())
                         {
                             mesero = new Mesero
@@ -109,6 +115,7 @@ namespace Restaurante_Sabor_Gourmet.ConsultasSQL
         {
             using (MySqlConnection cn = conexion.ObtenerConexion())
             {
+                cn.Open();
                 string sql = @"
                     SELECT COUNT(*) FROM tbl_usuarios
                     WHERE  username = @username
@@ -116,6 +123,7 @@ namespace Restaurante_Sabor_Gourmet.ConsultasSQL
 
                 using (MySqlCommand cmd = new MySqlCommand(sql, cn))
                 {
+                    cn.Open();
                     cmd.Parameters.AddWithValue("@username", username.Trim());
                     cmd.Parameters.AddWithValue("@idExcluir", idExcluir);
                     return Convert.ToInt32(cmd.ExecuteScalar()) > 0;
@@ -130,6 +138,7 @@ namespace Restaurante_Sabor_Gourmet.ConsultasSQL
         {
             using (MySqlConnection cn = conexion.ObtenerConexion())
             {
+                cn.Open();
                 string sql = @"
                     INSERT INTO tbl_usuarios
                         (nombre_usuario, username, contraseña_usuario,
@@ -161,6 +170,7 @@ namespace Restaurante_Sabor_Gourmet.ConsultasSQL
         {
             using (MySqlConnection cn = conexion.ObtenerConexion())
             {
+                cn.Open();
                 string sql = cambiarContrasena
                     ? @"UPDATE tbl_usuarios
                            SET nombre_usuario    = @nombre,
@@ -180,6 +190,7 @@ namespace Restaurante_Sabor_Gourmet.ConsultasSQL
 
                 using (MySqlCommand cmd = new MySqlCommand(sql, cn))
                 {
+                    cn.Open();
                     cmd.Parameters.AddWithValue("@nombre", m.NombreUsuario.Trim());
                     cmd.Parameters.AddWithValue("@username", m.Username.Trim());
                     if (cambiarContrasena)
@@ -201,6 +212,7 @@ namespace Restaurante_Sabor_Gourmet.ConsultasSQL
         {
             using (MySqlConnection cn = conexion.ObtenerConexion())
             {
+                cn.Open();
                 string sql = @"
                     UPDATE tbl_usuarios
                        SET activo = 0
@@ -229,6 +241,7 @@ namespace Restaurante_Sabor_Gourmet.ConsultasSQL
 
             using (MySqlConnection cn = conexion.ObtenerConexion())
             {
+                cn.Open();
                 // Ventas y órdenes desde vista_ventas_mesero
                 string sqlVentas = @"
                     SELECT total_ordenes, total_ventas
@@ -237,6 +250,7 @@ namespace Restaurante_Sabor_Gourmet.ConsultasSQL
 
                 using (MySqlCommand cmd = new MySqlCommand(sqlVentas, cn))
                 {
+                    cn.Open();
                     cmd.Parameters.AddWithValue("@id", idMesero);
                     using (MySqlDataReader rd = cmd.ExecuteReader())
                     {
@@ -256,6 +270,7 @@ namespace Restaurante_Sabor_Gourmet.ConsultasSQL
 
                 using (MySqlCommand cmd = new MySqlCommand(sqlPropinas, cn))
                 {
+                    cn.Open();
                     cmd.Parameters.AddWithValue("@id", idMesero);
                     using (MySqlDataReader rd = cmd.ExecuteReader())
                     {
@@ -282,6 +297,7 @@ namespace Restaurante_Sabor_Gourmet.ConsultasSQL
 
             using (MySqlConnection cn = conexion.ObtenerConexion())
             {
+                cn.Open();
                 string sql = @"
                     SELECT COALESCE(SUM(v.total_ordenes), 0) AS tot_ordenes,
                            COALESCE(SUM(v.total_ventas),  0) AS tot_ventas,
@@ -291,8 +307,10 @@ namespace Restaurante_Sabor_Gourmet.ConsultasSQL
 
                 using (MySqlCommand cmd = new MySqlCommand(sql, cn))
                 {
+                    cn.Open();
                     using (MySqlDataReader rd = cmd.ExecuteReader())
                     {
+                        cn.Open();
                         if (rd.Read())
                         {
                             ordenes = rd.GetInt32("tot_ordenes");

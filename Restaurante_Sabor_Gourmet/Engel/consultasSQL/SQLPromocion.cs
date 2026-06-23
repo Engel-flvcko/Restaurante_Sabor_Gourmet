@@ -14,7 +14,7 @@ namespace Restaurante_Sabor_Gourmet.Engel.consultasSQL
 {
     internal class SQLPromocion
     {
-        ConexionDB conexion = new ConexionDB();
+        ConexionBD conexion = new ConexionBD();
 
         // Mostrar todas las promociones
         public DataTable MostrarPromociones()

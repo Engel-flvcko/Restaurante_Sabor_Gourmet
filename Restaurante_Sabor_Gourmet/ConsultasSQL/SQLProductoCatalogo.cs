@@ -11,7 +11,7 @@ namespace Restaurante_Sabor_Gourmet.ConsultasSQL
 {
     internal class SQLProductoCatalogo
     {
-        private readonly ConexionDB conexion = new ConexionDB();
+        private readonly ConexionBD conexion = new ConexionBD();
 
         // ============================================================
         //  OBTENER CATEGORÍAS (para los botones de filtro del catálogo)

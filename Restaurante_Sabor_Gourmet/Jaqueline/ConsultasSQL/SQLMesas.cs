@@ -12,7 +12,7 @@ namespace Restaurante_Sabor_Gourmet.Jaqueline.ConsultasSQL
     internal class SQLMesas
     {
         
-        private ConexionDB conexionBD = new ConexionDB();
+        private ConexionBD conexionBD = new ConexionBD();
 
         // Obtener todas las mesas con su zona y estado
         public DataTable ObtenerMesas()

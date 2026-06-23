@@ -1,10 +1,15 @@
-﻿using System;
+﻿using Guna.UI2.WinForms;
+using Restaurante_Sabor_Gourmet.Engel;
+using Restaurante_Sabor_Gourmet.Engel.formularios;
+using Restaurante_Sabor_Gourmet.Formularios;
+using Restaurante_Sabor_Gourmet.Haydee;
+using Restaurante_Sabor_Gourmet.Jaqueline.Formularios;
+using Restaurante_Sabor_Gourmet.Vane;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Guna.UI2.WinForms;
-using Restaurante_Sabor_Gourmet.Jaqueline.Formularios;
 
 namespace Restaurante_Sabor_Gourmet.Jaqueline.Clases
 {
@@ -45,6 +50,59 @@ namespace Restaurante_Sabor_Gourmet.Jaqueline.Clases
             CargarFormulario(new FrmMesas());
         }
 
+        // ── Módulos existentes ─────────────────────────────────────────────────────
+
+        public void AbrirCocina()
+        {
+            CargarFormulario(new frmCocina(Sesion.IdUsuario, Sesion.NombreUsuario));
+        }
+
+        public void AbrirOrdenes()
+        {
+            CargarFormulario(new frmOrdenes(Sesion.IdUsuario, Sesion.NombreUsuario));
+        }
+
+        public void AbrirInventario()
+        {
+            CargarFormulario(new frmInventario(Sesion.IdUsuario, Sesion.NombreUsuario));
+        }
+
+        public void AbrirRecetas()
+        {
+            CargarFormulario(new frmRecetas(Sesion.IdUsuario, Sesion.NombreUsuario));
+        }
+
+        public void AbrirMeseros()
+        {
+            CargarFormulario(new frmMeseros(Sesion.IdUsuario, Sesion.NombreUsuario));
+        }
+
+        public void AbrirCaja()
+        {
+            CargarFormulario(new frmCaja_Arqueo(Sesion.IdUsuario));
+        }
+
+        public void AbrirSupervision()
+        {
+            CargarFormulario(new frmSupervision(Sesion.IdUsuario));
+        }
+
+        public void AbrirDashboard()
+        {
+            CargarFormulario(new frmDashboard());
+        }
+
+        public void AbrirUsuarios()
+        {
+            CargarFormulario(new frmUsuarios());
+        }
+
+        public void AbrirMenu()
+        {
+            CargarFormulario(new frmMenu(Sesion.IdUsuario, Sesion.NombreUsuario));
+        }
+
+        // AbrirReservaciones() se agrega cuando exista frmReservaciones (Tarea 4)
 
     }
 }
