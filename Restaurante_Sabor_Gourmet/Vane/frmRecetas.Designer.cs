@@ -178,7 +178,7 @@
             // picUsuario
             // 
             picUsuario.BackColor = Color.Transparent;
-            picUsuario.Location = new Point(1240, 15);
+            picUsuario.Location = new Point(1176, 13);
             picUsuario.Name = "picUsuario";
             picUsuario.Size = new Size(36, 36);
             picUsuario.SizeMode = PictureBoxSizeMode.Zoom;
@@ -190,7 +190,7 @@
             lblUsuario.AutoSize = true;
             lblUsuario.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             lblUsuario.ForeColor = Color.White;
-            lblUsuario.Location = new Point(1282, 14);
+            lblUsuario.Location = new Point(1218, 12);
             lblUsuario.Name = "lblUsuario";
             lblUsuario.Size = new Size(127, 23);
             lblUsuario.TabIndex = 4;
@@ -201,7 +201,7 @@
             lblUsuarioFlecha.AutoSize = true;
             lblUsuarioFlecha.Font = new Font("Segoe UI", 9F);
             lblUsuarioFlecha.ForeColor = Color.FromArgb(180, 180, 210);
-            lblUsuarioFlecha.Location = new Point(1340, 34);
+            lblUsuarioFlecha.Location = new Point(1276, 32);
             lblUsuarioFlecha.Name = "lblUsuarioFlecha";
             lblUsuarioFlecha.Size = new Size(22, 20);
             lblUsuarioFlecha.TabIndex = 5;
@@ -219,7 +219,7 @@
             pnlProducto.Controls.Add(lblTotalProductos);
             pnlProducto.CustomizableEdges = customizableEdges7;
             pnlProducto.FillColor = Color.White;
-            pnlProducto.Location = new Point(12, 77);
+            pnlProducto.Location = new Point(0, 66);
             pnlProducto.Name = "pnlProducto";
             pnlProducto.ShadowDecoration.Color = Color.FromArgb(30, 0, 0, 0);
             pnlProducto.ShadowDecoration.CustomizableEdges = customizableEdges8;
@@ -282,10 +282,10 @@
             cmbCategoriaFiltro.ForeColor = Color.FromArgb(68, 88, 112);
             cmbCategoriaFiltro.ItemHeight = 30;
             cmbCategoriaFiltro.Items.AddRange(new object[] { "Todas las categorías" });
-            cmbCategoriaFiltro.Location = new Point(150, 84);
+            cmbCategoriaFiltro.Location = new Point(166, 84);
             cmbCategoriaFiltro.Name = "cmbCategoriaFiltro";
             cmbCategoriaFiltro.ShadowDecoration.CustomizableEdges = customizableEdges6;
-            cmbCategoriaFiltro.Size = new Size(292, 36);
+            cmbCategoriaFiltro.Size = new Size(276, 36);
             cmbCategoriaFiltro.TabIndex = 3;
             cmbCategoriaFiltro.SelectedIndexChanged += cmbCategoriaFiltro_SelectedIndexChanged;
             // 
@@ -317,7 +317,7 @@
             dgvProductos.DefaultCellStyle = dataGridViewCellStyle2;
             dgvProductos.EnableHeadersVisualStyles = false;
             dgvProductos.GridColor = Color.FromArgb(230, 230, 240);
-            dgvProductos.Location = new Point(14, 130);
+            dgvProductos.Location = new Point(0, 130);
             dgvProductos.MultiSelect = false;
             dgvProductos.Name = "dgvProductos";
             dgvProductos.ReadOnly = true;
@@ -325,14 +325,14 @@
             dgvProductos.RowHeadersWidth = 51;
             dgvProductos.RowTemplate.Height = 28;
             dgvProductos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvProductos.Size = new Size(428, 220);
+            dgvProductos.Size = new Size(457, 220);
             dgvProductos.TabIndex = 4;
             dgvProductos.SelectionChanged += dgvProductos_SelectionChanged;
             // 
             // colNombreProducto
             // 
             colNombreProducto.DataPropertyName = "nombre_producto";
-            colNombreProducto.FillWeight = 45F;
+            colNombreProducto.FillWeight = 40F;
             colNombreProducto.HeaderText = "Nombre Producto";
             colNombreProducto.MinimumWidth = 6;
             colNombreProducto.Name = "colNombreProducto";
@@ -341,7 +341,7 @@
             // colCategoria
             // 
             colCategoria.DataPropertyName = "nombre_categoria";
-            colCategoria.FillWeight = 35F;
+            colCategoria.FillWeight = 30F;
             colCategoria.HeaderText = "Categoría";
             colCategoria.MinimumWidth = 6;
             colCategoria.Name = "colCategoria";
@@ -350,7 +350,7 @@
             // colNumIngredientes
             // 
             colNumIngredientes.DataPropertyName = "num_ingredientes";
-            colNumIngredientes.FillWeight = 20F;
+            colNumIngredientes.FillWeight = 25F;
             colNumIngredientes.HeaderText = "# Ingredientes";
             colNumIngredientes.MinimumWidth = 6;
             colNumIngredientes.Name = "colNumIngredientes";
@@ -361,7 +361,7 @@
             lblTotalProductos.AutoSize = true;
             lblTotalProductos.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
             lblTotalProductos.ForeColor = Color.FromArgb(37, 99, 235);
-            lblTotalProductos.Location = new Point(14, 358);
+            lblTotalProductos.Location = new Point(13, 354);
             lblTotalProductos.Name = "lblTotalProductos";
             lblTotalProductos.Size = new Size(136, 20);
             lblTotalProductos.TabIndex = 5;
@@ -376,13 +376,13 @@
             pnlReceta.Controls.Add(dgvReceta);
             pnlReceta.CustomizableEdges = customizableEdges9;
             pnlReceta.FillColor = Color.White;
-            pnlReceta.Location = new Point(482, 77);
+            pnlReceta.Location = new Point(466, 66);
             pnlReceta.Name = "pnlReceta";
             pnlReceta.ShadowDecoration.Color = Color.FromArgb(30, 0, 0, 0);
             pnlReceta.ShadowDecoration.CustomizableEdges = customizableEdges10;
             pnlReceta.ShadowDecoration.Depth = 4;
             pnlReceta.ShadowDecoration.Enabled = true;
-            pnlReceta.Size = new Size(866, 380);
+            pnlReceta.Size = new Size(882, 380);
             pnlReceta.TabIndex = 2;
             // 
             // lblNombreReceta
@@ -442,7 +442,7 @@
             dgvReceta.RowHeadersWidth = 51;
             dgvReceta.RowTemplate.Height = 30;
             dgvReceta.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvReceta.Size = new Size(836, 290);
+            dgvReceta.Size = new Size(856, 290);
             dgvReceta.TabIndex = 2;
             dgvReceta.CellClick += dgvReceta_CellClick;
             // 
@@ -505,13 +505,13 @@
             pnlAgregarIngrediente.Controls.Add(btnAgregarReceta);
             pnlAgregarIngrediente.CustomizableEdges = customizableEdges17;
             pnlAgregarIngrediente.FillColor = Color.White;
-            pnlAgregarIngrediente.Location = new Point(12, 467);
+            pnlAgregarIngrediente.Location = new Point(0, 447);
             pnlAgregarIngrediente.Name = "pnlAgregarIngrediente";
             pnlAgregarIngrediente.ShadowDecoration.Color = Color.FromArgb(30, 0, 0, 0);
             pnlAgregarIngrediente.ShadowDecoration.CustomizableEdges = customizableEdges18;
             pnlAgregarIngrediente.ShadowDecoration.Depth = 4;
             pnlAgregarIngrediente.ShadowDecoration.Enabled = true;
-            pnlAgregarIngrediente.Size = new Size(686, 220);
+            pnlAgregarIngrediente.Size = new Size(686, 210);
             pnlAgregarIngrediente.TabIndex = 3;
             // 
             // lblTituloAgregar
@@ -519,7 +519,7 @@
             lblTituloAgregar.AutoSize = true;
             lblTituloAgregar.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
             lblTituloAgregar.ForeColor = Color.FromArgb(37, 99, 235);
-            lblTituloAgregar.Location = new Point(14, 12);
+            lblTituloAgregar.Location = new Point(14, 10);
             lblTituloAgregar.Name = "lblTituloAgregar";
             lblTituloAgregar.Size = new Size(272, 25);
             lblTituloAgregar.TabIndex = 0;
@@ -530,7 +530,7 @@
             lblSelIngrediente.AutoSize = true;
             lblSelIngrediente.Font = new Font("Segoe UI", 9F);
             lblSelIngrediente.ForeColor = Color.FromArgb(60, 60, 80);
-            lblSelIngrediente.Location = new Point(14, 46);
+            lblSelIngrediente.Location = new Point(14, 38);
             lblSelIngrediente.Name = "lblSelIngrediente";
             lblSelIngrediente.Size = new Size(165, 20);
             lblSelIngrediente.TabIndex = 1;
@@ -549,7 +549,7 @@
             cmbIngrediente.Font = new Font("Segoe UI", 9.5F);
             cmbIngrediente.ForeColor = Color.FromArgb(68, 88, 112);
             cmbIngrediente.ItemHeight = 30;
-            cmbIngrediente.Location = new Point(14, 68);
+            cmbIngrediente.Location = new Point(14, 60);
             cmbIngrediente.Name = "cmbIngrediente";
             cmbIngrediente.ShadowDecoration.CustomizableEdges = customizableEdges12;
             cmbIngrediente.Size = new Size(380, 36);
@@ -561,7 +561,7 @@
             lblCantidadReq.AutoSize = true;
             lblCantidadReq.Font = new Font("Segoe UI", 9F);
             lblCantidadReq.ForeColor = Color.FromArgb(60, 60, 80);
-            lblCantidadReq.Location = new Point(410, 46);
+            lblCantidadReq.Location = new Point(410, 38);
             lblCantidadReq.Name = "lblCantidadReq";
             lblCantidadReq.Size = new Size(137, 20);
             lblCantidadReq.TabIndex = 3;
@@ -573,7 +573,7 @@
             nudCantidad.DecimalPlaces = 3;
             nudCantidad.Font = new Font("Segoe UI", 10F);
             nudCantidad.Increment = new decimal(new int[] { 1, 0, 0, 196608 });
-            nudCantidad.Location = new Point(410, 68);
+            nudCantidad.Location = new Point(410, 60);
             nudCantidad.Maximum = new decimal(new int[] { 99999, 0, 0, 0 });
             nudCantidad.Name = "nudCantidad";
             nudCantidad.Size = new Size(258, 30);
@@ -584,7 +584,7 @@
             lblUnidadMedida.AutoSize = true;
             lblUnidadMedida.Font = new Font("Segoe UI", 9F);
             lblUnidadMedida.ForeColor = Color.FromArgb(60, 60, 80);
-            lblUnidadMedida.Location = new Point(14, 116);
+            lblUnidadMedida.Location = new Point(14, 108);
             lblUnidadMedida.Name = "lblUnidadMedida";
             lblUnidadMedida.Size = new Size(133, 20);
             lblUnidadMedida.TabIndex = 5;
@@ -598,7 +598,7 @@
             txtUnidadMedida.DefaultText = "---";
             txtUnidadMedida.FillColor = Color.FromArgb(240, 240, 248);
             txtUnidadMedida.Font = new Font("Segoe UI", 9.5F);
-            txtUnidadMedida.Location = new Point(14, 138);
+            txtUnidadMedida.Location = new Point(14, 130);
             txtUnidadMedida.Margin = new Padding(3, 4, 3, 4);
             txtUnidadMedida.Name = "txtUnidadMedida";
             txtUnidadMedida.PlaceholderText = "";
@@ -612,9 +612,9 @@
             // 
             pnlAdvertencia.BackColor = Color.FromArgb(255, 247, 230);
             pnlAdvertencia.Controls.Add(lblAdvertencia);
-            pnlAdvertencia.Location = new Point(14, 140);
+            pnlAdvertencia.Location = new Point(275, 132);
             pnlAdvertencia.Name = "pnlAdvertencia";
-            pnlAdvertencia.Size = new Size(654, 36);
+            pnlAdvertencia.Size = new Size(393, 36);
             pnlAdvertencia.TabIndex = 7;
             pnlAdvertencia.Visible = false;
             // 
@@ -636,7 +636,7 @@
             btnAgregarReceta.FillColor = Color.FromArgb(34, 197, 94);
             btnAgregarReceta.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             btnAgregarReceta.ForeColor = Color.White;
-            btnAgregarReceta.Location = new Point(14, 182);
+            btnAgregarReceta.Location = new Point(14, 174);
             btnAgregarReceta.Name = "btnAgregarReceta";
             btnAgregarReceta.ShadowDecoration.CustomizableEdges = customizableEdges16;
             btnAgregarReceta.Size = new Size(654, 30);
@@ -662,13 +662,13 @@
             pnlAnalisisCosto.Controls.Add(lblNotaCosto);
             pnlAnalisisCosto.CustomizableEdges = customizableEdges19;
             pnlAnalisisCosto.FillColor = Color.White;
-            pnlAnalisisCosto.Location = new Point(708, 467);
+            pnlAnalisisCosto.Location = new Point(692, 447);
             pnlAnalisisCosto.Name = "pnlAnalisisCosto";
             pnlAnalisisCosto.ShadowDecoration.Color = Color.FromArgb(30, 0, 0, 0);
             pnlAnalisisCosto.ShadowDecoration.CustomizableEdges = customizableEdges20;
             pnlAnalisisCosto.ShadowDecoration.Depth = 4;
             pnlAnalisisCosto.ShadowDecoration.Enabled = true;
-            pnlAnalisisCosto.Size = new Size(642, 220);
+            pnlAnalisisCosto.Size = new Size(656, 210);
             pnlAnalisisCosto.TabIndex = 4;
             // 
             // lblTituloAnalisis
@@ -699,7 +699,7 @@
             lblCostoProduccionVal.AutoSize = true;
             lblCostoProduccionVal.Font = new Font("Segoe UI", 9.5F);
             lblCostoProduccionVal.ForeColor = Color.FromArgb(80, 80, 100);
-            lblCostoProduccionVal.Location = new Point(520, 58);
+            lblCostoProduccionVal.Location = new Point(534, 58);
             lblCostoProduccionVal.Name = "lblCostoProduccionVal";
             lblCostoProduccionVal.Size = new Size(53, 21);
             lblCostoProduccionVal.TabIndex = 2;
@@ -722,7 +722,7 @@
             lblPrecioVentaVal.AutoSize = true;
             lblPrecioVentaVal.Font = new Font("Segoe UI", 9.5F, FontStyle.Bold);
             lblPrecioVentaVal.ForeColor = Color.FromArgb(37, 99, 235);
-            lblPrecioVentaVal.Location = new Point(520, 90);
+            lblPrecioVentaVal.Location = new Point(534, 90);
             lblPrecioVentaVal.Name = "lblPrecioVentaVal";
             lblPrecioVentaVal.Size = new Size(54, 21);
             lblPrecioVentaVal.TabIndex = 4;
@@ -745,7 +745,7 @@
             lblGananciaVal.AutoSize = true;
             lblGananciaVal.Font = new Font("Segoe UI", 9.5F, FontStyle.Bold);
             lblGananciaVal.ForeColor = Color.FromArgb(34, 197, 94);
-            lblGananciaVal.Location = new Point(520, 122);
+            lblGananciaVal.Location = new Point(534, 122);
             lblGananciaVal.Name = "lblGananciaVal";
             lblGananciaVal.Size = new Size(54, 21);
             lblGananciaVal.TabIndex = 6;

@@ -227,7 +227,7 @@
             // picUsuario
             // 
             picUsuario.BackColor = Color.Transparent;
-            picUsuario.Location = new Point(1240, 15);
+            picUsuario.Location = new Point(1134, 10);
             picUsuario.Name = "picUsuario";
             picUsuario.Size = new Size(36, 36);
             picUsuario.SizeMode = PictureBoxSizeMode.Zoom;
@@ -239,7 +239,7 @@
             lblUsuario.AutoSize = true;
             lblUsuario.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             lblUsuario.ForeColor = Color.White;
-            lblUsuario.Location = new Point(1282, 18);
+            lblUsuario.Location = new Point(1190, 10);
             lblUsuario.Name = "lblUsuario";
             lblUsuario.Size = new Size(127, 23);
             lblUsuario.TabIndex = 4;
@@ -250,7 +250,7 @@
             lblUsuarioFlecha.AutoSize = true;
             lblUsuarioFlecha.Font = new Font("Segoe UI", 9F);
             lblUsuarioFlecha.ForeColor = Color.FromArgb(180, 180, 210);
-            lblUsuarioFlecha.Location = new Point(1344, 36);
+            lblUsuarioFlecha.Location = new Point(1190, 34);
             lblUsuarioFlecha.Name = "lblUsuarioFlecha";
             lblUsuarioFlecha.Size = new Size(22, 20);
             lblUsuarioFlecha.TabIndex = 5;
@@ -265,7 +265,7 @@
             pnlCardTotal.Controls.Add(lblCardTotalValor);
             pnlCardTotal.CustomizableEdges = customizableEdges3;
             pnlCardTotal.FillColor = Color.White;
-            pnlCardTotal.Location = new Point(12, 77);
+            pnlCardTotal.Location = new Point(7, 75);
             pnlCardTotal.Name = "pnlCardTotal";
             pnlCardTotal.ShadowDecoration.Color = Color.FromArgb(25, 0, 0, 0);
             pnlCardTotal.ShadowDecoration.CustomizableEdges = customizableEdges4;
@@ -300,7 +300,7 @@
             lblCardTotalValor.AutoSize = true;
             lblCardTotalValor.Font = new Font("Segoe UI", 22F, FontStyle.Bold);
             lblCardTotalValor.ForeColor = Color.FromArgb(168, 85, 247);
-            lblCardTotalValor.Location = new Point(215, 22);
+            lblCardTotalValor.Location = new Point(210, 18);
             lblCardTotalValor.Name = "lblCardTotalValor";
             lblCardTotalValor.Size = new Size(43, 50);
             lblCardTotalValor.TabIndex = 2;
@@ -315,7 +315,7 @@
             pnlCardStock.Controls.Add(lblCardStockValor);
             pnlCardStock.CustomizableEdges = customizableEdges5;
             pnlCardStock.FillColor = Color.White;
-            pnlCardStock.Location = new Point(12, 77);
+            pnlCardStock.Location = new Point(343, 75);
             pnlCardStock.Name = "pnlCardStock";
             pnlCardStock.ShadowDecoration.Color = Color.FromArgb(25, 0, 0, 0);
             pnlCardStock.ShadowDecoration.CustomizableEdges = customizableEdges6;
@@ -350,7 +350,7 @@
             lblCardStockValor.AutoSize = true;
             lblCardStockValor.Font = new Font("Segoe UI", 22F, FontStyle.Bold);
             lblCardStockValor.ForeColor = Color.FromArgb(34, 197, 94);
-            lblCardStockValor.Location = new Point(74, 46);
+            lblCardStockValor.Location = new Point(231, 18);
             lblCardStockValor.Name = "lblCardStockValor";
             lblCardStockValor.Size = new Size(43, 50);
             lblCardStockValor.TabIndex = 2;
@@ -365,7 +365,7 @@
             pnlCardBajo.Controls.Add(lblCardBajoValor);
             pnlCardBajo.CustomizableEdges = customizableEdges7;
             pnlCardBajo.FillColor = Color.White;
-            pnlCardBajo.Location = new Point(12, 77);
+            pnlCardBajo.Location = new Point(684, 75);
             pnlCardBajo.Name = "pnlCardBajo";
             pnlCardBajo.ShadowDecoration.Color = Color.FromArgb(25, 0, 0, 0);
             pnlCardBajo.ShadowDecoration.CustomizableEdges = customizableEdges8;
@@ -400,7 +400,7 @@
             lblCardBajoValor.AutoSize = true;
             lblCardBajoValor.Font = new Font("Segoe UI", 22F, FontStyle.Bold);
             lblCardBajoValor.ForeColor = Color.FromArgb(249, 115, 22);
-            lblCardBajoValor.Location = new Point(74, 46);
+            lblCardBajoValor.Location = new Point(228, 18);
             lblCardBajoValor.Name = "lblCardBajoValor";
             lblCardBajoValor.Size = new Size(43, 50);
             lblCardBajoValor.TabIndex = 2;
@@ -415,7 +415,7 @@
             pnlCardAgotado.Controls.Add(lblCardAgotadoValor);
             pnlCardAgotado.CustomizableEdges = customizableEdges9;
             pnlCardAgotado.FillColor = Color.White;
-            pnlCardAgotado.Location = new Point(12, 77);
+            pnlCardAgotado.Location = new Point(1022, 75);
             pnlCardAgotado.Name = "pnlCardAgotado";
             pnlCardAgotado.ShadowDecoration.Color = Color.FromArgb(25, 0, 0, 0);
             pnlCardAgotado.ShadowDecoration.CustomizableEdges = customizableEdges10;
@@ -450,7 +450,7 @@
             lblCardAgotadoValor.AutoSize = true;
             lblCardAgotadoValor.Font = new Font("Segoe UI", 22F, FontStyle.Bold);
             lblCardAgotadoValor.ForeColor = Color.FromArgb(239, 68, 68);
-            lblCardAgotadoValor.Location = new Point(74, 46);
+            lblCardAgotadoValor.Location = new Point(218, 18);
             lblCardAgotadoValor.Name = "lblCardAgotadoValor";
             lblCardAgotadoValor.Size = new Size(43, 50);
             lblCardAgotadoValor.TabIndex = 2;
@@ -468,7 +468,7 @@
             pnlLista.Controls.Add(dgvIngredientes);
             pnlLista.CustomizableEdges = customizableEdges19;
             pnlLista.FillColor = Color.White;
-            pnlLista.Location = new Point(12, 180);
+            pnlLista.Location = new Point(7, 171);
             pnlLista.Name = "pnlLista";
             pnlLista.ShadowDecoration.Color = Color.FromArgb(25, 0, 0, 0);
             pnlLista.ShadowDecoration.CustomizableEdges = customizableEdges20;
@@ -549,10 +549,10 @@
             btnFiltroAgotados.FillColor = Color.White;
             btnFiltroAgotados.Font = new Font("Segoe UI", 9F);
             btnFiltroAgotados.ForeColor = Color.FromArgb(239, 68, 68);
-            btnFiltroAgotados.Location = new Point(734, 40);
+            btnFiltroAgotados.Location = new Point(731, 40);
             btnFiltroAgotados.Name = "btnFiltroAgotados";
             btnFiltroAgotados.ShadowDecoration.CustomizableEdges = customizableEdges18;
-            btnFiltroAgotados.Size = new Size(105, 34);
+            btnFiltroAgotados.Size = new Size(108, 34);
             btnFiltroAgotados.TabIndex = 4;
             btnFiltroAgotados.Text = "● Agotados";
             btnFiltroAgotados.Click += btnFiltroAgotados_Click;
@@ -585,7 +585,7 @@
             dgvIngredientes.DefaultCellStyle = dataGridViewCellStyle7;
             dgvIngredientes.EnableHeadersVisualStyles = false;
             dgvIngredientes.GridColor = Color.FromArgb(230, 230, 240);
-            dgvIngredientes.Location = new Point(14, 84);
+            dgvIngredientes.Location = new Point(5, 84);
             dgvIngredientes.MultiSelect = false;
             dgvIngredientes.Name = "dgvIngredientes";
             dgvIngredientes.ReadOnly = true;
@@ -593,7 +593,7 @@
             dgvIngredientes.RowHeadersWidth = 51;
             dgvIngredientes.RowTemplate.Height = 30;
             dgvIngredientes.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvIngredientes.Size = new Size(820, 242);
+            dgvIngredientes.Size = new Size(842, 242);
             dgvIngredientes.TabIndex = 5;
             dgvIngredientes.CellFormatting += dgvIngredientes_CellFormatting;
             dgvIngredientes.SelectionChanged += dgvIngredientes_SelectionChanged;
@@ -687,13 +687,13 @@
             pnlMovimiento.Controls.Add(btnRegistrarMovimiento);
             pnlMovimiento.CustomizableEdges = customizableEdges27;
             pnlMovimiento.FillColor = Color.White;
-            pnlMovimiento.Location = new Point(872, 180);
+            pnlMovimiento.Location = new Point(864, 171);
             pnlMovimiento.Name = "pnlMovimiento";
             pnlMovimiento.ShadowDecoration.Color = Color.FromArgb(25, 0, 0, 0);
             pnlMovimiento.ShadowDecoration.CustomizableEdges = customizableEdges28;
             pnlMovimiento.ShadowDecoration.Depth = 4;
             pnlMovimiento.ShadowDecoration.Enabled = true;
-            pnlMovimiento.Size = new Size(478, 340);
+            pnlMovimiento.Size = new Size(476, 340);
             pnlMovimiento.TabIndex = 6;
             // 
             // lblTituloMovimiento
@@ -729,7 +729,7 @@
             lblIngSelTitulo.AutoSize = true;
             lblIngSelTitulo.Font = new Font("Segoe UI", 9.5F, FontStyle.Bold);
             lblIngSelTitulo.ForeColor = Color.FromArgb(37, 99, 235);
-            lblIngSelTitulo.Location = new Point(8, 8);
+            lblIngSelTitulo.Location = new Point(8, 4);
             lblIngSelTitulo.Name = "lblIngSelTitulo";
             lblIngSelTitulo.Size = new Size(205, 21);
             lblIngSelTitulo.TabIndex = 0;
@@ -740,7 +740,7 @@
             lblNombreIngLbl.AutoSize = true;
             lblNombreIngLbl.Font = new Font("Segoe UI", 8.5F);
             lblNombreIngLbl.ForeColor = Color.FromArgb(100, 100, 120);
-            lblNombreIngLbl.Location = new Point(8, 32);
+            lblNombreIngLbl.Location = new Point(8, 28);
             lblNombreIngLbl.Name = "lblNombreIngLbl";
             lblNombreIngLbl.Size = new Size(169, 20);
             lblNombreIngLbl.TabIndex = 1;
@@ -751,7 +751,7 @@
             lblExistenciaLbl.AutoSize = true;
             lblExistenciaLbl.Font = new Font("Segoe UI", 8.5F);
             lblExistenciaLbl.ForeColor = Color.FromArgb(100, 100, 120);
-            lblExistenciaLbl.Location = new Point(240, 32);
+            lblExistenciaLbl.Location = new Point(240, 28);
             lblExistenciaLbl.Name = "lblExistenciaLbl";
             lblExistenciaLbl.Size = new Size(118, 20);
             lblExistenciaLbl.TabIndex = 2;
@@ -762,7 +762,7 @@
             lblNombreIngVal.AutoSize = true;
             lblNombreIngVal.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
             lblNombreIngVal.ForeColor = Color.FromArgb(37, 99, 235);
-            lblNombreIngVal.Location = new Point(8, 50);
+            lblNombreIngVal.Location = new Point(8, 46);
             lblNombreIngVal.Name = "lblNombreIngVal";
             lblNombreIngVal.Size = new Size(38, 32);
             lblNombreIngVal.TabIndex = 3;
@@ -773,7 +773,7 @@
             lblExistenciaVal.AutoSize = true;
             lblExistenciaVal.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
             lblExistenciaVal.ForeColor = Color.FromArgb(34, 197, 94);
-            lblExistenciaVal.Location = new Point(240, 50);
+            lblExistenciaVal.Location = new Point(240, 46);
             lblExistenciaVal.Name = "lblExistenciaVal";
             lblExistenciaVal.Size = new Size(63, 32);
             lblExistenciaVal.TabIndex = 4;
@@ -784,7 +784,7 @@
             lblStockMinLbl.AutoSize = true;
             lblStockMinLbl.Font = new Font("Segoe UI", 8.5F);
             lblStockMinLbl.ForeColor = Color.FromArgb(100, 100, 120);
-            lblStockMinLbl.Location = new Point(8, 82);
+            lblStockMinLbl.Location = new Point(8, 78);
             lblStockMinLbl.Name = "lblStockMinLbl";
             lblStockMinLbl.Size = new Size(100, 20);
             lblStockMinLbl.TabIndex = 5;
@@ -795,7 +795,7 @@
             lblUnidadMedidaLbl.AutoSize = true;
             lblUnidadMedidaLbl.Font = new Font("Segoe UI", 8.5F);
             lblUnidadMedidaLbl.ForeColor = Color.FromArgb(100, 100, 120);
-            lblUnidadMedidaLbl.Location = new Point(240, 82);
+            lblUnidadMedidaLbl.Location = new Point(240, 78);
             lblUnidadMedidaLbl.Name = "lblUnidadMedidaLbl";
             lblUnidadMedidaLbl.Size = new Size(133, 20);
             lblUnidadMedidaLbl.TabIndex = 6;
@@ -806,7 +806,7 @@
             lblStockMinVal.AutoSize = true;
             lblStockMinVal.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             lblStockMinVal.ForeColor = Color.FromArgb(30, 30, 47);
-            lblStockMinVal.Location = new Point(8, 98);
+            lblStockMinVal.Location = new Point(8, 94);
             lblStockMinVal.Name = "lblStockMinVal";
             lblStockMinVal.Size = new Size(45, 23);
             lblStockMinVal.TabIndex = 7;
@@ -817,7 +817,7 @@
             lblUnidadMedidaVal.AutoSize = true;
             lblUnidadMedidaVal.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             lblUnidadMedidaVal.ForeColor = Color.FromArgb(30, 30, 47);
-            lblUnidadMedidaVal.Location = new Point(240, 98);
+            lblUnidadMedidaVal.Location = new Point(240, 94);
             lblUnidadMedidaVal.Name = "lblUnidadMedidaVal";
             lblUnidadMedidaVal.Size = new Size(27, 23);
             lblUnidadMedidaVal.TabIndex = 8;
@@ -944,13 +944,13 @@
             pnlHistorial.Controls.Add(dgvHistorial);
             pnlHistorial.CustomizableEdges = customizableEdges31;
             pnlHistorial.FillColor = Color.White;
-            pnlHistorial.Location = new Point(12, 532);
+            pnlHistorial.Location = new Point(7, 517);
             pnlHistorial.Name = "pnlHistorial";
             pnlHistorial.ShadowDecoration.Color = Color.FromArgb(25, 0, 0, 0);
             pnlHistorial.ShadowDecoration.CustomizableEdges = customizableEdges32;
             pnlHistorial.ShadowDecoration.Depth = 4;
             pnlHistorial.ShadowDecoration.Enabled = true;
-            pnlHistorial.Size = new Size(1338, 210);
+            pnlHistorial.Size = new Size(1333, 210);
             pnlHistorial.TabIndex = 7;
             // 
             // lblTituloHistorial
