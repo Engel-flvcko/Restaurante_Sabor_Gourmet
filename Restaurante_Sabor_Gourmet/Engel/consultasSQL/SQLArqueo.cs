@@ -1,5 +1,7 @@
 ﻿using MySql.Data.MySqlClient;
 using Restaurante_Sabor_Gourmet.Clases;
+using Restaurante_Sabor_Gourmet.Jaqueline.Clases;
+
 using System;
 using System.Collections.Generic;
 using System.Data;

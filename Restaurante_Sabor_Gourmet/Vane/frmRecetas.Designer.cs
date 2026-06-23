@@ -28,608 +28,864 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-
-            // ── Controles principales ──
-            this.pnlTopBar              = new Guna.UI2.WinForms.Guna2Panel();
-            this.picIcono               = new System.Windows.Forms.PictureBox();
-            this.lblTitulo              = new System.Windows.Forms.Label();
-            this.lblSubtitulo           = new System.Windows.Forms.Label();
-            this.picUsuario             = new System.Windows.Forms.PictureBox();
-            this.lblUsuario             = new System.Windows.Forms.Label();
-            this.lblUsuarioFlecha       = new System.Windows.Forms.Label();
-
-            // ── Panel Producto (superior izquierdo) ──
-            this.pnlProducto            = new Guna.UI2.WinForms.Guna2Panel();
-            this.lblTituloProducto      = new System.Windows.Forms.Label();
-            this.txtBuscarProducto      = new Guna.UI2.WinForms.Guna2TextBox();
-            this.lblFiltrarCategoria    = new System.Windows.Forms.Label();
-            this.cmbCategoriaFiltro     = new Guna.UI2.WinForms.Guna2ComboBox();
-            this.dgvProductos           = new System.Windows.Forms.DataGridView();
-            this.colNombreProducto      = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colCategoria           = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colNumIngredientes     = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lblTotalProductos      = new System.Windows.Forms.Label();
-
-            // ── Panel Receta (superior derecho) ──
-            this.pnlReceta              = new Guna.UI2.WinForms.Guna2Panel();
-            this.lblNombreReceta        = new System.Windows.Forms.Label();
-            this.lblInfoReceta          = new System.Windows.Forms.Label();
-            this.dgvReceta              = new System.Windows.Forms.DataGridView();
-            this.colIngrediente         = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colUnidadMedida        = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colCantidad            = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colAcciones            = new System.Windows.Forms.DataGridViewButtonColumn();
-
-            // ── Panel Agregar Ingrediente (inferior izquierdo) ──
-            this.pnlAgregarIngrediente  = new Guna.UI2.WinForms.Guna2Panel();
-            this.lblTituloAgregar       = new System.Windows.Forms.Label();
-            this.lblSelIngrediente      = new System.Windows.Forms.Label();
-            this.cmbIngrediente         = new Guna.UI2.WinForms.Guna2ComboBox();
-            this.lblCantidadReq         = new System.Windows.Forms.Label();
-            this.nudCantidad            = new System.Windows.Forms.NumericUpDown();
-            this.lblUnidadMedida        = new System.Windows.Forms.Label();
-            this.txtUnidadMedida        = new Guna.UI2.WinForms.Guna2TextBox();
-            this.pnlAdvertencia         = new System.Windows.Forms.Panel();
-            this.lblAdvertencia         = new System.Windows.Forms.Label();
-            this.btnAgregarReceta       = new Guna.UI2.WinForms.Guna2Button();
-
-            // ── Panel Análisis de Costo (inferior derecho) ──
-            this.pnlAnalisisCosto       = new Guna.UI2.WinForms.Guna2Panel();
-            this.lblTituloAnalisis      = new System.Windows.Forms.Label();
-            this.lblCostoProduccionLbl  = new System.Windows.Forms.Label();
-            this.lblCostoProduccionVal  = new System.Windows.Forms.Label();
-            this.lblPrecioVentaLbl      = new System.Windows.Forms.Label();
-            this.lblPrecioVentaVal      = new System.Windows.Forms.Label();
-            this.lblGananciaLbl         = new System.Windows.Forms.Label();
-            this.lblGananciaVal         = new System.Windows.Forms.Label();
-            this.lblMargenLbl           = new System.Windows.Forms.Label();
-            this.prgMargen              = new System.Windows.Forms.ProgressBar();
-            this.lblMargenPorcentaje    = new System.Windows.Forms.Label();
-            this.lblNotaCosto           = new System.Windows.Forms.Label();
-
-            // ── Botones globales barra inferior ──
-            this.pnlBotonesInf          = new System.Windows.Forms.Panel();
-            this.btnGuardarReceta       = new Guna.UI2.WinForms.Guna2Button();
-            this.btnLimpiarReceta       = new Guna.UI2.WinForms.Guna2Button();
-            this.btnActualizar          = new Guna.UI2.WinForms.Guna2Button();
-
-            this.SuspendLayout();
-
-            // ════════════════════════════════════════════════════
-            // FORM
-            // ════════════════════════════════════════════════════
-            this.Text            = "Gestión de Recetas - Sabor Gourmet FMO";
-            this.Size            = new System.Drawing.Size(1366, 768);
-            this.MinimumSize     = new System.Drawing.Size(1100, 700);
-            this.StartPosition   = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.MaximizeBox     = false;
-            this.BackColor       = System.Drawing.Color.FromArgb(240, 240, 248);
-            this.Font            = new System.Drawing.Font("Segoe UI", 9F);
-
-            // ════════════════════════════════════════════════════
-            // BARRA SUPERIOR
-            // ════════════════════════════════════════════════════
-            this.pnlTopBar.Dock            = System.Windows.Forms.DockStyle.Top;
-            this.pnlTopBar.Height          = 65;
-            this.pnlTopBar.FillColor       = System.Drawing.Color.FromArgb(30, 30, 47);
-            this.pnlTopBar.BorderRadius    = 0;
-            this.pnlTopBar.ShadowDecoration.Enabled = false;
-
-            // Ícono formulario
-            this.picIcono.Size      = new System.Drawing.Size(42, 42);
-            this.picIcono.Location  = new System.Drawing.Point(14, 12);
-            this.picIcono.SizeMode  = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.picIcono.Image     = null;
-            this.picIcono.BackColor = System.Drawing.Color.Transparent;
-
-            // Título
-            this.lblTitulo.Text      = "Gestión de Recetas";
-            this.lblTitulo.Font      = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);
-            this.lblTitulo.ForeColor = System.Drawing.Color.White;
-            this.lblTitulo.Location  = new System.Drawing.Point(64, 10);
-            this.lblTitulo.AutoSize  = true;
-
-            // Subtítulo
-            this.lblSubtitulo.Text      = "Sabor Gourmet FMO";
-            this.lblSubtitulo.Font      = new System.Drawing.Font("Segoe UI", 9F);
-            this.lblSubtitulo.ForeColor = System.Drawing.Color.FromArgb(180, 180, 210);
-            this.lblSubtitulo.Location  = new System.Drawing.Point(66, 34);
-            this.lblSubtitulo.AutoSize  = true;
-
-            // Ícono usuario (derecha)
-            this.picUsuario.Size      = new System.Drawing.Size(36, 36);
-            this.picUsuario.Location  = new System.Drawing.Point(1240, 15);
-            this.picUsuario.SizeMode  = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.picUsuario.Image     = null;
-            this.picUsuario.BackColor = System.Drawing.Color.Transparent;
-
-            // Label usuario
-            this.lblUsuario.Text      = "Administrador";
-            this.lblUsuario.Font      = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.lblUsuario.ForeColor = System.Drawing.Color.White;
-            this.lblUsuario.Location  = new System.Drawing.Point(1282, 14);
-            this.lblUsuario.AutoSize  = true;
-
-            this.lblUsuarioFlecha.Text      = "▾";
-            this.lblUsuarioFlecha.Font      = new System.Drawing.Font("Segoe UI", 9F);
-            this.lblUsuarioFlecha.ForeColor = System.Drawing.Color.FromArgb(180, 180, 210);
-            this.lblUsuarioFlecha.Location  = new System.Drawing.Point(1340, 34);
-            this.lblUsuarioFlecha.AutoSize  = true;
-
-            this.pnlTopBar.Controls.Add(this.picIcono);
-            this.pnlTopBar.Controls.Add(this.lblTitulo);
-            this.pnlTopBar.Controls.Add(this.lblSubtitulo);
-            this.pnlTopBar.Controls.Add(this.picUsuario);
-            this.pnlTopBar.Controls.Add(this.lblUsuario);
-            this.pnlTopBar.Controls.Add(this.lblUsuarioFlecha);
-
-            // ════════════════════════════════════════════════════
-            // PANEL PRODUCTO — superior izquierdo
-            // ════════════════════════════════════════════════════
-            this.pnlProducto.Location        = new System.Drawing.Point(12, 77);
-            this.pnlProducto.Size            = new System.Drawing.Size(460, 380);
-            this.pnlProducto.FillColor       = System.Drawing.Color.White;
-            this.pnlProducto.BorderRadius    = 12;
-            this.pnlProducto.ShadowDecoration.Enabled  = true;
-            this.pnlProducto.ShadowDecoration.Color    = System.Drawing.Color.FromArgb(30, 0, 0, 0);
-            this.pnlProducto.ShadowDecoration.Depth    = 4;
-
-            // Título sección
-            this.lblTituloProducto.Text      = "Producto";
-            this.lblTituloProducto.Font      = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
-            this.lblTituloProducto.ForeColor = System.Drawing.Color.FromArgb(30, 30, 47);
-            this.lblTituloProducto.Location  = new System.Drawing.Point(14, 12);
-            this.lblTituloProducto.AutoSize  = true;
-
-            // Búsqueda
-            this.txtBuscarProducto.Location        = new System.Drawing.Point(14, 40);
-            this.txtBuscarProducto.Size            = new System.Drawing.Size(428, 36);
-            this.txtBuscarProducto.PlaceholderText = "Buscar producto...";
-            this.txtBuscarProducto.Font            = new System.Drawing.Font("Segoe UI", 9.5F);
-            this.txtBuscarProducto.BorderRadius    = 8;
-            this.txtBuscarProducto.FillColor       = System.Drawing.Color.FromArgb(245, 245, 252);
-            this.txtBuscarProducto.BorderColor     = System.Drawing.Color.FromArgb(200, 200, 220);
-
-            // Filtro categoría
-            this.lblFiltrarCategoria.Text      = "Filtrar por Categoría:";
-            this.lblFiltrarCategoria.Font      = new System.Drawing.Font("Segoe UI", 9F);
-            this.lblFiltrarCategoria.ForeColor = System.Drawing.Color.FromArgb(80, 80, 100);
-            this.lblFiltrarCategoria.Location  = new System.Drawing.Point(14, 88);
-            this.lblFiltrarCategoria.AutoSize  = true;
-
-            this.cmbCategoriaFiltro.Location     = new System.Drawing.Point(150, 84);
-            this.cmbCategoriaFiltro.Size         = new System.Drawing.Size(292, 36);
-            this.cmbCategoriaFiltro.Font         = new System.Drawing.Font("Segoe UI", 9.5F);
-            this.cmbCategoriaFiltro.BorderRadius = 8;
-            this.cmbCategoriaFiltro.FillColor    = System.Drawing.Color.FromArgb(245, 245, 252);
-            this.cmbCategoriaFiltro.BorderColor  = System.Drawing.Color.FromArgb(200, 200, 220);
-            this.cmbCategoriaFiltro.Items.Add("Todas las categorías");
-
-            // DataGridView productos
-            this.dgvProductos.Location               = new System.Drawing.Point(14, 130);
-            this.dgvProductos.Size                   = new System.Drawing.Size(428, 220);
-            this.dgvProductos.AllowUserToAddRows     = false;
-            this.dgvProductos.AllowUserToDeleteRows  = false;
-            this.dgvProductos.ReadOnly               = true;
-            this.dgvProductos.SelectionMode          = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvProductos.MultiSelect            = false;
-            this.dgvProductos.RowHeadersVisible      = false;
-            this.dgvProductos.BorderStyle            = System.Windows.Forms.BorderStyle.None;
-            this.dgvProductos.BackgroundColor        = System.Drawing.Color.White;
-            this.dgvProductos.GridColor              = System.Drawing.Color.FromArgb(230, 230, 240);
-            this.dgvProductos.AutoSizeColumnsMode    = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvProductos.ColumnHeadersDefaultCellStyle.BackColor  = System.Drawing.Color.FromArgb(30, 30, 47);
-            this.dgvProductos.ColumnHeadersDefaultCellStyle.ForeColor  = System.Drawing.Color.White;
-            this.dgvProductos.ColumnHeadersDefaultCellStyle.Font       = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.dgvProductos.ColumnHeadersBorderStyle                 = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.dgvProductos.DefaultCellStyle.SelectionBackColor      = System.Drawing.Color.FromArgb(37, 99, 235);
-            this.dgvProductos.DefaultCellStyle.SelectionForeColor      = System.Drawing.Color.White;
-            this.dgvProductos.DefaultCellStyle.Font                    = new System.Drawing.Font("Segoe UI", 9F);
-            this.dgvProductos.RowTemplate.Height                       = 28;
-            this.dgvProductos.EnableHeadersVisualStyles                = false;
-
-            // Columnas dgvProductos
-            this.colNombreProducto.Name           = "colNombreProducto";
-            this.colNombreProducto.HeaderText     = "Nombre Producto";
-            this.colNombreProducto.DataPropertyName = "nombre_producto";
-            this.colNombreProducto.FillWeight     = 45;
-
-            this.colCategoria.Name                = "colCategoria";
-            this.colCategoria.HeaderText          = "Categoría";
-            this.colCategoria.DataPropertyName    = "nombre_categoria";
-            this.colCategoria.FillWeight          = 35;
-
-            this.colNumIngredientes.Name          = "colNumIngredientes";
-            this.colNumIngredientes.HeaderText    = "# Ingredientes";
-            this.colNumIngredientes.DataPropertyName = "num_ingredientes";
-            this.colNumIngredientes.FillWeight    = 20;
-
-            this.dgvProductos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.colNombreProducto,
-            this.colCategoria,
-            this.colNumIngredientes
-        });
-
-            // Total productos
-            this.lblTotalProductos.Text      = "Total productos: 0";
-            this.lblTotalProductos.Font      = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.lblTotalProductos.ForeColor = System.Drawing.Color.FromArgb(37, 99, 235);
-            this.lblTotalProductos.Location  = new System.Drawing.Point(14, 358);
-            this.lblTotalProductos.AutoSize  = true;
-
-            this.pnlProducto.Controls.Add(this.lblTituloProducto);
-            this.pnlProducto.Controls.Add(this.txtBuscarProducto);
-            this.pnlProducto.Controls.Add(this.lblFiltrarCategoria);
-            this.pnlProducto.Controls.Add(this.cmbCategoriaFiltro);
-            this.pnlProducto.Controls.Add(this.dgvProductos);
-            this.pnlProducto.Controls.Add(this.lblTotalProductos);
-
-            // ════════════════════════════════════════════════════
-            // PANEL RECETA — superior derecho
-            // ════════════════════════════════════════════════════
-            this.pnlReceta.Location        = new System.Drawing.Point(482, 77);
-            this.pnlReceta.Size            = new System.Drawing.Size(868, 380);
-            this.pnlReceta.FillColor       = System.Drawing.Color.White;
-            this.pnlReceta.BorderRadius    = 12;
-            this.pnlReceta.ShadowDecoration.Enabled = true;
-            this.pnlReceta.ShadowDecoration.Color   = System.Drawing.Color.FromArgb(30, 0, 0, 0);
-            this.pnlReceta.ShadowDecoration.Depth   = 4;
-
-            // Nombre receta
-            this.lblNombreReceta.Text      = "Receta: [Seleccione un producto]";
-            this.lblNombreReceta.Font      = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold);
-            this.lblNombreReceta.ForeColor = System.Drawing.Color.FromArgb(37, 99, 235);
-            this.lblNombreReceta.Location  = new System.Drawing.Point(16, 14);
-            this.lblNombreReceta.AutoSize  = true;
-
-            // Info receta (categoría | precio | tiempo)
-            this.lblInfoReceta.Text      = "Categoría: — | Precio: $0.00 | Tiempo: — min";
-            this.lblInfoReceta.Font      = new System.Drawing.Font("Segoe UI", 9F);
-            this.lblInfoReceta.ForeColor = System.Drawing.Color.FromArgb(100, 100, 120);
-            this.lblInfoReceta.Location  = new System.Drawing.Point(18, 48);
-            this.lblInfoReceta.AutoSize  = true;
-
-            // DataGridView receta
-            this.dgvReceta.Location              = new System.Drawing.Point(14, 72);
-            this.dgvReceta.Size                  = new System.Drawing.Size(836, 290);
-            this.dgvReceta.AllowUserToAddRows    = false;
-            this.dgvReceta.AllowUserToDeleteRows = false;
-            this.dgvReceta.ReadOnly              = false;
-            this.dgvReceta.SelectionMode         = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvReceta.MultiSelect           = false;
-            this.dgvReceta.RowHeadersVisible     = false;
-            this.dgvReceta.BorderStyle           = System.Windows.Forms.BorderStyle.None;
-            this.dgvReceta.BackgroundColor       = System.Drawing.Color.White;
-            this.dgvReceta.GridColor             = System.Drawing.Color.FromArgb(230, 230, 240);
-            this.dgvReceta.AutoSizeColumnsMode   = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvReceta.ColumnHeadersDefaultCellStyle.BackColor = System.Drawing.Color.FromArgb(30, 30, 47);
-            this.dgvReceta.ColumnHeadersDefaultCellStyle.ForeColor = System.Drawing.Color.White;
-            this.dgvReceta.ColumnHeadersDefaultCellStyle.Font      = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.dgvReceta.ColumnHeadersBorderStyle                = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.dgvReceta.DefaultCellStyle.Font                   = new System.Drawing.Font("Segoe UI", 9.5F);
-            this.dgvReceta.DefaultCellStyle.SelectionBackColor     = System.Drawing.Color.FromArgb(220, 230, 255);
-            this.dgvReceta.DefaultCellStyle.SelectionForeColor     = System.Drawing.Color.FromArgb(30, 30, 47);
-            this.dgvReceta.RowTemplate.Height                      = 30;
-            this.dgvReceta.EnableHeadersVisualStyles               = false;
-
-            // Columnas dgvReceta
-            this.colIngrediente.Name              = "colIngrediente";
-            this.colIngrediente.HeaderText        = "Ingrediente";
-            this.colIngrediente.DataPropertyName  = "nombre_ingrediente";
-            this.colIngrediente.ReadOnly          = true;
-            this.colIngrediente.FillWeight        = 40;
-
-            this.colUnidadMedida.Name             = "colUnidadMedida";
-            this.colUnidadMedida.HeaderText       = "Unidad de Medida";
-            this.colUnidadMedida.DataPropertyName = "unidad_medida";
-            this.colUnidadMedida.ReadOnly         = true;
-            this.colUnidadMedida.FillWeight       = 25;
-
-            this.colCantidad.Name                 = "colCantidad";
-            this.colCantidad.HeaderText           = "Cantidad";
-            this.colCantidad.DataPropertyName     = "cantidad_receta";
-            this.colCantidad.ReadOnly             = true;
-            this.colCantidad.FillWeight           = 20;
-            this.colCantidad.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-
-            this.colAcciones.Name                 = "colAcciones";
-            this.colAcciones.HeaderText           = "Acciones";
-            this.colAcciones.Text                 = "";
-            this.colAcciones.UseColumnTextForButtonValue = true;
-            this.colAcciones.FillWeight           = 15;
-            this.colAcciones.DefaultCellStyle.BackColor  = System.Drawing.Color.FromArgb(254, 226, 226);
-            this.colAcciones.DefaultCellStyle.ForeColor  = System.Drawing.Color.FromArgb(239, 68, 68);
-            this.colAcciones.DefaultCellStyle.Font       = new System.Drawing.Font("Segoe UI", 11F);
-            this.colAcciones.DefaultCellStyle.Alignment  = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-
-            this.dgvReceta.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.colIngrediente,
-            this.colUnidadMedida,
-            this.colCantidad,
-            this.colAcciones
-        });
-
-            this.pnlReceta.Controls.Add(this.lblNombreReceta);
-            this.pnlReceta.Controls.Add(this.lblInfoReceta);
-            this.pnlReceta.Controls.Add(this.dgvReceta);
-
-
-            this.pnlAgregarIngrediente.Location     = new System.Drawing.Point(12, 467);
-            this.pnlAgregarIngrediente.Size         = new System.Drawing.Size(686, 220);
-            this.pnlAgregarIngrediente.FillColor    = System.Drawing.Color.White;
-            this.pnlAgregarIngrediente.BorderRadius = 12;
-            this.pnlAgregarIngrediente.ShadowDecoration.Enabled = true;
-            this.pnlAgregarIngrediente.ShadowDecoration.Color   = System.Drawing.Color.FromArgb(30, 0, 0, 0);
-            this.pnlAgregarIngrediente.ShadowDecoration.Depth   = 4;
-
-            this.pnlAgregarIngrediente.BorderColor  = System.Drawing.Color.FromArgb(37, 99, 235);
-
-            // Título agregar
-            this.lblTituloAgregar.Text      = "Agregar Ingrediente a Receta";
-            this.lblTituloAgregar.Font      = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
-            this.lblTituloAgregar.ForeColor = System.Drawing.Color.FromArgb(37, 99, 235);
-            this.lblTituloAgregar.Location  = new System.Drawing.Point(14, 12);
-            this.lblTituloAgregar.AutoSize  = true;
-
-            // Label seleccionar ingrediente
-            this.lblSelIngrediente.Text      = "Seleccionar Ingrediente";
-            this.lblSelIngrediente.Font      = new System.Drawing.Font("Segoe UI", 9F);
-            this.lblSelIngrediente.ForeColor = System.Drawing.Color.FromArgb(60, 60, 80);
-            this.lblSelIngrediente.Location  = new System.Drawing.Point(14, 46);
-            this.lblSelIngrediente.AutoSize  = true;
-
-            // ComboBox ingrediente
-            this.cmbIngrediente.Location     = new System.Drawing.Point(14, 68);
-            this.cmbIngrediente.Size         = new System.Drawing.Size(380, 36);
-            this.cmbIngrediente.Font         = new System.Drawing.Font("Segoe UI", 9.5F);
-            this.cmbIngrediente.BorderRadius = 8;
-            this.cmbIngrediente.FillColor    = System.Drawing.Color.FromArgb(245, 245, 252);
-            this.cmbIngrediente.BorderColor  = System.Drawing.Color.FromArgb(200, 200, 220);
-            this.cmbIngrediente.PlaceholderText = "Seleccione un ingrediente...";
-
-            // Label cantidad requerida
-            this.lblCantidadReq.Text      = "Cantidad requerida";
-            this.lblCantidadReq.Font      = new System.Drawing.Font("Segoe UI", 9F);
-            this.lblCantidadReq.ForeColor = System.Drawing.Color.FromArgb(60, 60, 80);
-            this.lblCantidadReq.Location  = new System.Drawing.Point(410, 46);
-            this.lblCantidadReq.AutoSize  = true;
-
-            // NumericUpDown cantidad
-            this.nudCantidad.Location       = new System.Drawing.Point(410, 68);
-            this.nudCantidad.Size           = new System.Drawing.Size(258, 36);
-            this.nudCantidad.Font           = new System.Drawing.Font("Segoe UI", 10F);
-            this.nudCantidad.DecimalPlaces  = 3;
-            this.nudCantidad.Minimum        = 0;
-            this.nudCantidad.Maximum        = 99999;
-            this.nudCantidad.Value          = 0;
-            this.nudCantidad.Increment      = (decimal)0.001;
-            this.nudCantidad.BorderStyle    = System.Windows.Forms.BorderStyle.FixedSingle;
-
-            // Label unidad de medida
-            this.lblUnidadMedida.Text      = "Unidad de medida";
-            this.lblUnidadMedida.Font      = new System.Drawing.Font("Segoe UI", 9F);
-            this.lblUnidadMedida.ForeColor = System.Drawing.Color.FromArgb(60, 60, 80);
-            this.lblUnidadMedida.Location  = new System.Drawing.Point(14, 116);
-            this.lblUnidadMedida.AutoSize  = true;
-
-            // TextBox unidad medida (solo lectura)
-            this.txtUnidadMedida.Location      = new System.Drawing.Point(14, 138);
-            this.txtUnidadMedida.Size          = new System.Drawing.Size(240, 36);
-            this.txtUnidadMedida.Font          = new System.Drawing.Font("Segoe UI", 9.5F);
-            this.txtUnidadMedida.ReadOnly      = true;
-            this.txtUnidadMedida.Text          = "---";
-            this.txtUnidadMedida.BorderRadius  = 8;
-            this.txtUnidadMedida.FillColor     = System.Drawing.Color.FromArgb(240, 240, 248);
-            this.txtUnidadMedida.BorderColor   = System.Drawing.Color.FromArgb(200, 200, 220);
-
-            // Panel advertencia (ingrediente duplicado)
-            this.pnlAdvertencia.Location  = new System.Drawing.Point(14, 140);
-            this.pnlAdvertencia.Size      = new System.Drawing.Size(654, 36);
-            this.pnlAdvertencia.BackColor = System.Drawing.Color.FromArgb(255, 247, 230);
-            this.pnlAdvertencia.Visible   = false;
-
-            this.lblAdvertencia.Text      = " Este ingrediente ya está en la receta";
-            this.lblAdvertencia.Font      = new System.Drawing.Font("Segoe UI", 9F);
-            this.lblAdvertencia.ForeColor = System.Drawing.Color.FromArgb(180, 90, 0);
-            this.lblAdvertencia.Location  = new System.Drawing.Point(10, 9);
-            this.lblAdvertencia.AutoSize  = true;
-            this.pnlAdvertencia.Controls.Add(this.lblAdvertencia);
-
-            // Botón agregar a receta
-            this.btnAgregarReceta.Text              = "+ Agregar a Receta";
-            this.btnAgregarReceta.Location          = new System.Drawing.Point(14, 182);
-            this.btnAgregarReceta.Size              = new System.Drawing.Size(654, 30);
-            this.btnAgregarReceta.Font              = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.btnAgregarReceta.FillColor         = System.Drawing.Color.FromArgb(34, 197, 94);
-            this.btnAgregarReceta.ForeColor         = System.Drawing.Color.White;
-            this.btnAgregarReceta.BorderRadius      = 8;
-            this.btnAgregarReceta.ShadowDecoration.Enabled = false;
-
-            this.pnlAgregarIngrediente.Controls.Add(this.lblTituloAgregar);
-            this.pnlAgregarIngrediente.Controls.Add(this.lblSelIngrediente);
-            this.pnlAgregarIngrediente.Controls.Add(this.cmbIngrediente);
-            this.pnlAgregarIngrediente.Controls.Add(this.lblCantidadReq);
-            this.pnlAgregarIngrediente.Controls.Add(this.nudCantidad);
-            this.pnlAgregarIngrediente.Controls.Add(this.lblUnidadMedida);
-            this.pnlAgregarIngrediente.Controls.Add(this.txtUnidadMedida);
-            this.pnlAgregarIngrediente.Controls.Add(this.pnlAdvertencia);
-            this.pnlAgregarIngrediente.Controls.Add(this.btnAgregarReceta);
-
-            // ════════════════════════════════════════════════════
-            // PANEL ANÁLISIS DE COSTO — inferior derecho
-            // ════════════════════════════════════════════════════
-            this.pnlAnalisisCosto.Location     = new System.Drawing.Point(708, 467);
-            this.pnlAnalisisCosto.Size         = new System.Drawing.Size(642, 220);
-            this.pnlAnalisisCosto.FillColor    = System.Drawing.Color.White;
-            this.pnlAnalisisCosto.BorderRadius = 12;
-            this.pnlAnalisisCosto.ShadowDecoration.Enabled = true;
-            this.pnlAnalisisCosto.ShadowDecoration.Color   = System.Drawing.Color.FromArgb(30, 0, 0, 0);
-            this.pnlAnalisisCosto.ShadowDecoration.Depth   = 4;
-            this.pnlAnalisisCosto.BorderColor  = System.Drawing.Color.FromArgb(168, 85, 247);
-
-            // Título análisis
-            this.lblTituloAnalisis.Text      = "Análisis de Costo";
-            this.lblTituloAnalisis.Font      = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
-            this.lblTituloAnalisis.ForeColor = System.Drawing.Color.FromArgb(168, 85, 247);
-            this.lblTituloAnalisis.Location  = new System.Drawing.Point(16, 14);
-            this.lblTituloAnalisis.AutoSize  = true;
-
-            // Costo de producción
-            this.lblCostoProduccionLbl.Text      = "Costo de producción:";
-            this.lblCostoProduccionLbl.Font      = new System.Drawing.Font("Segoe UI", 9.5F);
-            this.lblCostoProduccionLbl.ForeColor = System.Drawing.Color.FromArgb(80, 80, 100);
-            this.lblCostoProduccionLbl.Location  = new System.Drawing.Point(16, 58);
-            this.lblCostoProduccionLbl.AutoSize  = true;
-
-            this.lblCostoProduccionVal.Text      = "$ 0.00";
-            this.lblCostoProduccionVal.Font      = new System.Drawing.Font("Segoe UI", 9.5F);
-            this.lblCostoProduccionVal.ForeColor = System.Drawing.Color.FromArgb(80, 80, 100);
-            this.lblCostoProduccionVal.Location  = new System.Drawing.Point(520, 58);
-            this.lblCostoProduccionVal.AutoSize  = true;
-            this.lblCostoProduccionVal.Anchor    = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
-
-            // Precio de venta
-            this.lblPrecioVentaLbl.Text      = "Precio de venta:";
-            this.lblPrecioVentaLbl.Font      = new System.Drawing.Font("Segoe UI", 9.5F, System.Drawing.FontStyle.Bold);
-            this.lblPrecioVentaLbl.ForeColor = System.Drawing.Color.FromArgb(37, 99, 235);
-            this.lblPrecioVentaLbl.Location  = new System.Drawing.Point(16, 90);
-            this.lblPrecioVentaLbl.AutoSize  = true;
-
-            this.lblPrecioVentaVal.Text      = "$ 0.00";
-            this.lblPrecioVentaVal.Font      = new System.Drawing.Font("Segoe UI", 9.5F, System.Drawing.FontStyle.Bold);
-            this.lblPrecioVentaVal.ForeColor = System.Drawing.Color.FromArgb(37, 99, 235);
-            this.lblPrecioVentaVal.Location  = new System.Drawing.Point(520, 90);
-            this.lblPrecioVentaVal.AutoSize  = true;
-            this.lblPrecioVentaVal.Anchor    = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
-
-            // Ganancia estimada
-            this.lblGananciaLbl.Text      = "Ganancia estimada:";
-            this.lblGananciaLbl.Font      = new System.Drawing.Font("Segoe UI", 9.5F, System.Drawing.FontStyle.Bold);
-            this.lblGananciaLbl.ForeColor = System.Drawing.Color.FromArgb(34, 197, 94);
-            this.lblGananciaLbl.Location  = new System.Drawing.Point(16, 122);
-            this.lblGananciaLbl.AutoSize  = true;
-
-            this.lblGananciaVal.Text      = "$ 0.00";
-            this.lblGananciaVal.Font      = new System.Drawing.Font("Segoe UI", 9.5F, System.Drawing.FontStyle.Bold);
-            this.lblGananciaVal.ForeColor = System.Drawing.Color.FromArgb(34, 197, 94);
-            this.lblGananciaVal.Location  = new System.Drawing.Point(520, 122);
-            this.lblGananciaVal.AutoSize  = true;
-            this.lblGananciaVal.Anchor    = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
-
-            // Margen de ganancia
-            this.lblMargenLbl.Text      = "Margen de ganancia:";
-            this.lblMargenLbl.Font      = new System.Drawing.Font("Segoe UI", 9F);
-            this.lblMargenLbl.ForeColor = System.Drawing.Color.FromArgb(80, 80, 100);
-            this.lblMargenLbl.Location  = new System.Drawing.Point(16, 156);
-            this.lblMargenLbl.AutoSize  = true;
-
-            this.prgMargen.Location = new System.Drawing.Point(140, 156);
-            this.prgMargen.Size     = new System.Drawing.Size(380, 18);
-            this.prgMargen.Minimum  = 0;
-            this.prgMargen.Maximum  = 100;
-            this.prgMargen.Value    = 0;
-            this.prgMargen.Style    = System.Windows.Forms.ProgressBarStyle.Continuous;
-
-            this.lblMargenPorcentaje.Text      = "0.0%";
-            this.lblMargenPorcentaje.Font      = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.lblMargenPorcentaje.ForeColor = System.Drawing.Color.FromArgb(34, 197, 94);
-            this.lblMargenPorcentaje.Location  = new System.Drawing.Point(530, 154);
-            this.lblMargenPorcentaje.AutoSize  = true;
-
-            // Nota basado en costos
-            this.lblNotaCosto.Text      = "Basado en costos unitarios de inventario";
-            this.lblNotaCosto.Font      = new System.Drawing.Font("Segoe UI", 8.5F);
-            this.lblNotaCosto.ForeColor = System.Drawing.Color.FromArgb(140, 140, 160);
-            this.lblNotaCosto.Location  = new System.Drawing.Point(16, 186);
-            this.lblNotaCosto.AutoSize  = true;
-
-            this.pnlAnalisisCosto.Controls.Add(this.lblTituloAnalisis);
-            this.pnlAnalisisCosto.Controls.Add(this.lblCostoProduccionLbl);
-            this.pnlAnalisisCosto.Controls.Add(this.lblCostoProduccionVal);
-            this.pnlAnalisisCosto.Controls.Add(this.lblPrecioVentaLbl);
-            this.pnlAnalisisCosto.Controls.Add(this.lblPrecioVentaVal);
-            this.pnlAnalisisCosto.Controls.Add(this.lblGananciaLbl);
-            this.pnlAnalisisCosto.Controls.Add(this.lblGananciaVal);
-            this.pnlAnalisisCosto.Controls.Add(this.lblMargenLbl);
-            this.pnlAnalisisCosto.Controls.Add(this.prgMargen);
-            this.pnlAnalisisCosto.Controls.Add(this.lblMargenPorcentaje);
-            this.pnlAnalisisCosto.Controls.Add(this.lblNotaCosto);
-
-            // ════════════════════════════════════════════════════
-            // BARRA INFERIOR — BOTONES GLOBALES
-            // ════════════════════════════════════════════════════
-            this.pnlBotonesInf.Location  = new System.Drawing.Point(0, 695);
-            this.pnlBotonesInf.Size      = new System.Drawing.Size(1366, 58);
-            this.pnlBotonesInf.BackColor = System.Drawing.Color.FromArgb(230, 230, 242);
-            this.pnlBotonesInf.Dock      = System.Windows.Forms.DockStyle.Bottom;
-
-            // Guardar Receta
-            this.btnGuardarReceta.Text         = " Guardar Receta";
-            this.btnGuardarReceta.Location     = new System.Drawing.Point(12, 10);
-            this.btnGuardarReceta.Size         = new System.Drawing.Size(185, 38);
-            this.btnGuardarReceta.Font         = new System.Drawing.Font("Segoe UI", 9.5F, System.Drawing.FontStyle.Bold);
-            this.btnGuardarReceta.FillColor    = System.Drawing.Color.FromArgb(34, 197, 94);
-            this.btnGuardarReceta.ForeColor    = System.Drawing.Color.White;
-            this.btnGuardarReceta.BorderRadius = 8;
-            this.btnGuardarReceta.ShadowDecoration.Enabled = false;
-
-            // Limpiar Receta
-            this.btnLimpiarReceta.Text         = "  Limpiar Receta";
-            this.btnLimpiarReceta.Location     = new System.Drawing.Point(207, 10);
-            this.btnLimpiarReceta.Size         = new System.Drawing.Size(185, 38);
-            this.btnLimpiarReceta.Font         = new System.Drawing.Font("Segoe UI", 9.5F, System.Drawing.FontStyle.Bold);
-            this.btnLimpiarReceta.FillColor    = System.Drawing.Color.FromArgb(239, 68, 68);
-            this.btnLimpiarReceta.ForeColor    = System.Drawing.Color.White;
-            this.btnLimpiarReceta.BorderRadius = 8;
-            this.btnLimpiarReceta.ShadowDecoration.Enabled = false;
-
-            // Actualizar
-            this.btnActualizar.Text         = " Actualizar";
-            this.btnActualizar.Location     = new System.Drawing.Point(402, 10);
-            this.btnActualizar.Size         = new System.Drawing.Size(160, 38);
-            this.btnActualizar.Font         = new System.Drawing.Font("Segoe UI", 9.5F, System.Drawing.FontStyle.Bold);
-            this.btnActualizar.FillColor    = System.Drawing.Color.FromArgb(200, 200, 215);
-            this.btnActualizar.ForeColor    = System.Drawing.Color.FromArgb(50, 50, 70);
-            this.btnActualizar.BorderRadius = 8;
-            this.btnActualizar.ShadowDecoration.Enabled = false;
-
-            this.pnlBotonesInf.Controls.Add(this.btnGuardarReceta);
-            this.pnlBotonesInf.Controls.Add(this.btnLimpiarReceta);
-            this.pnlBotonesInf.Controls.Add(this.btnActualizar);
-
-
-            this.Load
-                += new System.EventHandler(this.frmRecetas_Load);
-            this.txtBuscarProducto.TextChanged
-                += new System.EventHandler(this.txtBuscarProducto_TextChanged);
-            this.cmbCategoriaFiltro.SelectedIndexChanged
-                += new System.EventHandler(this.cmbCategoriaFiltro_SelectedIndexChanged);
-            this.dgvProductos.SelectionChanged
-                += new System.EventHandler(this.dgvProductos_SelectionChanged);
-            this.dgvReceta.CellClick
-                += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvReceta_CellClick);
-            this.cmbIngrediente.SelectedIndexChanged
-                += new System.EventHandler(this.cmbIngrediente_SelectedIndexChanged);
-            this.btnAgregarReceta.Click
-                += new System.EventHandler(this.btnAgregarReceta_Click);
-            this.btnGuardarReceta.Click
-                += new System.EventHandler(this.btnGuardarReceta_Click);
-            this.btnLimpiarReceta.Click
-                += new System.EventHandler(this.btnLimpiarReceta_Click);
-            this.btnActualizar.Click
-                += new System.EventHandler(this.btnActualizar_Click);
-
-            this.Controls.Add(this.pnlTopBar);
-            this.Controls.Add(this.pnlProducto);
-            this.Controls.Add(this.pnlReceta);
-            this.Controls.Add(this.pnlAgregarIngrediente);
-            this.Controls.Add(this.pnlAnalisisCosto);
-            this.Controls.Add(this.pnlBotonesInf);
-
-            this.ResumeLayout(false);
-            this.PerformLayout();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges7 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges9 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges10 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges17 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges18 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges11 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges12 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges13 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges14 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges15 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges16 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges19 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges20 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges21 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges22 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges23 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges24 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges25 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges26 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            pnlTopBar = new Guna.UI2.WinForms.Guna2Panel();
+            picIcono = new PictureBox();
+            lblTitulo = new Label();
+            lblSubtitulo = new Label();
+            picUsuario = new PictureBox();
+            lblUsuario = new Label();
+            lblUsuarioFlecha = new Label();
+            pnlProducto = new Guna.UI2.WinForms.Guna2Panel();
+            lblTituloProducto = new Label();
+            txtBuscarProducto = new Guna.UI2.WinForms.Guna2TextBox();
+            lblFiltrarCategoria = new Label();
+            cmbCategoriaFiltro = new Guna.UI2.WinForms.Guna2ComboBox();
+            dgvProductos = new DataGridView();
+            colNombreProducto = new DataGridViewTextBoxColumn();
+            colCategoria = new DataGridViewTextBoxColumn();
+            colNumIngredientes = new DataGridViewTextBoxColumn();
+            lblTotalProductos = new Label();
+            pnlReceta = new Guna.UI2.WinForms.Guna2Panel();
+            lblNombreReceta = new Label();
+            lblInfoReceta = new Label();
+            dgvReceta = new DataGridView();
+            colIngrediente = new DataGridViewTextBoxColumn();
+            colUnidadMedida = new DataGridViewTextBoxColumn();
+            colCantidad = new DataGridViewTextBoxColumn();
+            colAcciones = new DataGridViewButtonColumn();
+            pnlAgregarIngrediente = new Guna.UI2.WinForms.Guna2Panel();
+            lblTituloAgregar = new Label();
+            lblSelIngrediente = new Label();
+            cmbIngrediente = new Guna.UI2.WinForms.Guna2ComboBox();
+            lblCantidadReq = new Label();
+            nudCantidad = new NumericUpDown();
+            lblUnidadMedida = new Label();
+            txtUnidadMedida = new Guna.UI2.WinForms.Guna2TextBox();
+            pnlAdvertencia = new Panel();
+            lblAdvertencia = new Label();
+            btnAgregarReceta = new Guna.UI2.WinForms.Guna2Button();
+            pnlAnalisisCosto = new Guna.UI2.WinForms.Guna2Panel();
+            lblTituloAnalisis = new Label();
+            lblCostoProduccionLbl = new Label();
+            lblCostoProduccionVal = new Label();
+            lblPrecioVentaLbl = new Label();
+            lblPrecioVentaVal = new Label();
+            lblGananciaLbl = new Label();
+            lblGananciaVal = new Label();
+            lblMargenLbl = new Label();
+            prgMargen = new ProgressBar();
+            lblMargenPorcentaje = new Label();
+            lblNotaCosto = new Label();
+            pnlBotonesInf = new Panel();
+            btnGuardarReceta = new Guna.UI2.WinForms.Guna2Button();
+            btnLimpiarReceta = new Guna.UI2.WinForms.Guna2Button();
+            btnActualizar = new Guna.UI2.WinForms.Guna2Button();
+            pnlTopBar.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)picIcono).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)picUsuario).BeginInit();
+            pnlProducto.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvProductos).BeginInit();
+            pnlReceta.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvReceta).BeginInit();
+            pnlAgregarIngrediente.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)nudCantidad).BeginInit();
+            pnlAdvertencia.SuspendLayout();
+            pnlAnalisisCosto.SuspendLayout();
+            pnlBotonesInf.SuspendLayout();
+            SuspendLayout();
+            // 
+            // pnlTopBar
+            // 
+            pnlTopBar.Controls.Add(picIcono);
+            pnlTopBar.Controls.Add(lblTitulo);
+            pnlTopBar.Controls.Add(lblSubtitulo);
+            pnlTopBar.Controls.Add(picUsuario);
+            pnlTopBar.Controls.Add(lblUsuario);
+            pnlTopBar.Controls.Add(lblUsuarioFlecha);
+            pnlTopBar.CustomizableEdges = customizableEdges1;
+            pnlTopBar.Dock = DockStyle.Top;
+            pnlTopBar.FillColor = Color.FromArgb(30, 30, 47);
+            pnlTopBar.Location = new Point(0, 0);
+            pnlTopBar.Name = "pnlTopBar";
+            pnlTopBar.ShadowDecoration.CustomizableEdges = customizableEdges2;
+            pnlTopBar.Size = new Size(1348, 65);
+            pnlTopBar.TabIndex = 0;
+            // 
+            // picIcono
+            // 
+            picIcono.BackColor = Color.Transparent;
+            picIcono.Location = new Point(14, 12);
+            picIcono.Name = "picIcono";
+            picIcono.Size = new Size(42, 42);
+            picIcono.SizeMode = PictureBoxSizeMode.Zoom;
+            picIcono.TabIndex = 0;
+            picIcono.TabStop = false;
+            // 
+            // lblTitulo
+            // 
+            lblTitulo.AutoSize = true;
+            lblTitulo.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
+            lblTitulo.ForeColor = Color.White;
+            lblTitulo.Location = new Point(64, 10);
+            lblTitulo.Name = "lblTitulo";
+            lblTitulo.Size = new Size(229, 32);
+            lblTitulo.TabIndex = 1;
+            lblTitulo.Text = "Gestión de Recetas";
+            // 
+            // lblSubtitulo
+            // 
+            lblSubtitulo.AutoSize = true;
+            lblSubtitulo.Font = new Font("Segoe UI", 9F);
+            lblSubtitulo.ForeColor = Color.FromArgb(180, 180, 210);
+            lblSubtitulo.Location = new Point(66, 34);
+            lblSubtitulo.Name = "lblSubtitulo";
+            lblSubtitulo.Size = new Size(145, 20);
+            lblSubtitulo.TabIndex = 2;
+            lblSubtitulo.Text = "Sabor Gourmet FMO";
+            // 
+            // picUsuario
+            // 
+            picUsuario.BackColor = Color.Transparent;
+            picUsuario.Location = new Point(1240, 15);
+            picUsuario.Name = "picUsuario";
+            picUsuario.Size = new Size(36, 36);
+            picUsuario.SizeMode = PictureBoxSizeMode.Zoom;
+            picUsuario.TabIndex = 3;
+            picUsuario.TabStop = false;
+            // 
+            // lblUsuario
+            // 
+            lblUsuario.AutoSize = true;
+            lblUsuario.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            lblUsuario.ForeColor = Color.White;
+            lblUsuario.Location = new Point(1282, 14);
+            lblUsuario.Name = "lblUsuario";
+            lblUsuario.Size = new Size(127, 23);
+            lblUsuario.TabIndex = 4;
+            lblUsuario.Text = "Administrador";
+            // 
+            // lblUsuarioFlecha
+            // 
+            lblUsuarioFlecha.AutoSize = true;
+            lblUsuarioFlecha.Font = new Font("Segoe UI", 9F);
+            lblUsuarioFlecha.ForeColor = Color.FromArgb(180, 180, 210);
+            lblUsuarioFlecha.Location = new Point(1340, 34);
+            lblUsuarioFlecha.Name = "lblUsuarioFlecha";
+            lblUsuarioFlecha.Size = new Size(22, 20);
+            lblUsuarioFlecha.TabIndex = 5;
+            lblUsuarioFlecha.Text = "▾";
+            // 
+            // pnlProducto
+            // 
+            pnlProducto.BackColor = Color.Transparent;
+            pnlProducto.BorderRadius = 12;
+            pnlProducto.Controls.Add(lblTituloProducto);
+            pnlProducto.Controls.Add(txtBuscarProducto);
+            pnlProducto.Controls.Add(lblFiltrarCategoria);
+            pnlProducto.Controls.Add(cmbCategoriaFiltro);
+            pnlProducto.Controls.Add(dgvProductos);
+            pnlProducto.Controls.Add(lblTotalProductos);
+            pnlProducto.CustomizableEdges = customizableEdges7;
+            pnlProducto.FillColor = Color.White;
+            pnlProducto.Location = new Point(12, 77);
+            pnlProducto.Name = "pnlProducto";
+            pnlProducto.ShadowDecoration.Color = Color.FromArgb(30, 0, 0, 0);
+            pnlProducto.ShadowDecoration.CustomizableEdges = customizableEdges8;
+            pnlProducto.ShadowDecoration.Depth = 4;
+            pnlProducto.ShadowDecoration.Enabled = true;
+            pnlProducto.Size = new Size(460, 380);
+            pnlProducto.TabIndex = 1;
+            // 
+            // lblTituloProducto
+            // 
+            lblTituloProducto.AutoSize = true;
+            lblTituloProducto.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
+            lblTituloProducto.ForeColor = Color.FromArgb(30, 30, 47);
+            lblTituloProducto.Location = new Point(14, 12);
+            lblTituloProducto.Name = "lblTituloProducto";
+            lblTituloProducto.Size = new Size(96, 25);
+            lblTituloProducto.TabIndex = 0;
+            lblTituloProducto.Text = "Producto";
+            // 
+            // txtBuscarProducto
+            // 
+            txtBuscarProducto.BorderColor = Color.FromArgb(200, 200, 220);
+            txtBuscarProducto.BorderRadius = 8;
+            txtBuscarProducto.CustomizableEdges = customizableEdges3;
+            txtBuscarProducto.DefaultText = "";
+            txtBuscarProducto.FillColor = Color.FromArgb(245, 245, 252);
+            txtBuscarProducto.Font = new Font("Segoe UI", 9.5F);
+            txtBuscarProducto.Location = new Point(14, 40);
+            txtBuscarProducto.Margin = new Padding(3, 4, 3, 4);
+            txtBuscarProducto.Name = "txtBuscarProducto";
+            txtBuscarProducto.PlaceholderText = "Buscar producto...";
+            txtBuscarProducto.SelectedText = "";
+            txtBuscarProducto.ShadowDecoration.CustomizableEdges = customizableEdges4;
+            txtBuscarProducto.Size = new Size(428, 36);
+            txtBuscarProducto.TabIndex = 1;
+            txtBuscarProducto.TextChanged += txtBuscarProducto_TextChanged;
+            // 
+            // lblFiltrarCategoria
+            // 
+            lblFiltrarCategoria.AutoSize = true;
+            lblFiltrarCategoria.Font = new Font("Segoe UI", 9F);
+            lblFiltrarCategoria.ForeColor = Color.FromArgb(80, 80, 100);
+            lblFiltrarCategoria.Location = new Point(14, 88);
+            lblFiltrarCategoria.Name = "lblFiltrarCategoria";
+            lblFiltrarCategoria.Size = new Size(146, 20);
+            lblFiltrarCategoria.TabIndex = 2;
+            lblFiltrarCategoria.Text = "Filtrar por Categoría:";
+            // 
+            // cmbCategoriaFiltro
+            // 
+            cmbCategoriaFiltro.BackColor = Color.Transparent;
+            cmbCategoriaFiltro.BorderColor = Color.FromArgb(200, 200, 220);
+            cmbCategoriaFiltro.BorderRadius = 8;
+            cmbCategoriaFiltro.CustomizableEdges = customizableEdges5;
+            cmbCategoriaFiltro.DrawMode = DrawMode.OwnerDrawFixed;
+            cmbCategoriaFiltro.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbCategoriaFiltro.FillColor = Color.FromArgb(245, 245, 252);
+            cmbCategoriaFiltro.FocusedColor = Color.Empty;
+            cmbCategoriaFiltro.Font = new Font("Segoe UI", 9.5F);
+            cmbCategoriaFiltro.ForeColor = Color.FromArgb(68, 88, 112);
+            cmbCategoriaFiltro.ItemHeight = 30;
+            cmbCategoriaFiltro.Items.AddRange(new object[] { "Todas las categorías" });
+            cmbCategoriaFiltro.Location = new Point(150, 84);
+            cmbCategoriaFiltro.Name = "cmbCategoriaFiltro";
+            cmbCategoriaFiltro.ShadowDecoration.CustomizableEdges = customizableEdges6;
+            cmbCategoriaFiltro.Size = new Size(292, 36);
+            cmbCategoriaFiltro.TabIndex = 3;
+            cmbCategoriaFiltro.SelectedIndexChanged += cmbCategoriaFiltro_SelectedIndexChanged;
+            // 
+            // dgvProductos
+            // 
+            dgvProductos.AllowUserToAddRows = false;
+            dgvProductos.AllowUserToDeleteRows = false;
+            dgvProductos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvProductos.BackgroundColor = Color.White;
+            dgvProductos.BorderStyle = BorderStyle.None;
+            dgvProductos.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = Color.FromArgb(30, 30, 47);
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            dataGridViewCellStyle1.ForeColor = Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dgvProductos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dgvProductos.ColumnHeadersHeight = 29;
+            dgvProductos.Columns.AddRange(new DataGridViewColumn[] { colNombreProducto, colCategoria, colNumIngredientes });
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = SystemColors.Window;
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle2.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(37, 99, 235);
+            dataGridViewCellStyle2.SelectionForeColor = Color.White;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            dgvProductos.DefaultCellStyle = dataGridViewCellStyle2;
+            dgvProductos.EnableHeadersVisualStyles = false;
+            dgvProductos.GridColor = Color.FromArgb(230, 230, 240);
+            dgvProductos.Location = new Point(14, 130);
+            dgvProductos.MultiSelect = false;
+            dgvProductos.Name = "dgvProductos";
+            dgvProductos.ReadOnly = true;
+            dgvProductos.RowHeadersVisible = false;
+            dgvProductos.RowHeadersWidth = 51;
+            dgvProductos.RowTemplate.Height = 28;
+            dgvProductos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvProductos.Size = new Size(428, 220);
+            dgvProductos.TabIndex = 4;
+            dgvProductos.SelectionChanged += dgvProductos_SelectionChanged;
+            // 
+            // colNombreProducto
+            // 
+            colNombreProducto.DataPropertyName = "nombre_producto";
+            colNombreProducto.FillWeight = 45F;
+            colNombreProducto.HeaderText = "Nombre Producto";
+            colNombreProducto.MinimumWidth = 6;
+            colNombreProducto.Name = "colNombreProducto";
+            colNombreProducto.ReadOnly = true;
+            // 
+            // colCategoria
+            // 
+            colCategoria.DataPropertyName = "nombre_categoria";
+            colCategoria.FillWeight = 35F;
+            colCategoria.HeaderText = "Categoría";
+            colCategoria.MinimumWidth = 6;
+            colCategoria.Name = "colCategoria";
+            colCategoria.ReadOnly = true;
+            // 
+            // colNumIngredientes
+            // 
+            colNumIngredientes.DataPropertyName = "num_ingredientes";
+            colNumIngredientes.FillWeight = 20F;
+            colNumIngredientes.HeaderText = "# Ingredientes";
+            colNumIngredientes.MinimumWidth = 6;
+            colNumIngredientes.Name = "colNumIngredientes";
+            colNumIngredientes.ReadOnly = true;
+            // 
+            // lblTotalProductos
+            // 
+            lblTotalProductos.AutoSize = true;
+            lblTotalProductos.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            lblTotalProductos.ForeColor = Color.FromArgb(37, 99, 235);
+            lblTotalProductos.Location = new Point(14, 358);
+            lblTotalProductos.Name = "lblTotalProductos";
+            lblTotalProductos.Size = new Size(136, 20);
+            lblTotalProductos.TabIndex = 5;
+            lblTotalProductos.Text = "Total productos: 0";
+            // 
+            // pnlReceta
+            // 
+            pnlReceta.BackColor = Color.Transparent;
+            pnlReceta.BorderRadius = 12;
+            pnlReceta.Controls.Add(lblNombreReceta);
+            pnlReceta.Controls.Add(lblInfoReceta);
+            pnlReceta.Controls.Add(dgvReceta);
+            pnlReceta.CustomizableEdges = customizableEdges9;
+            pnlReceta.FillColor = Color.White;
+            pnlReceta.Location = new Point(482, 77);
+            pnlReceta.Name = "pnlReceta";
+            pnlReceta.ShadowDecoration.Color = Color.FromArgb(30, 0, 0, 0);
+            pnlReceta.ShadowDecoration.CustomizableEdges = customizableEdges10;
+            pnlReceta.ShadowDecoration.Depth = 4;
+            pnlReceta.ShadowDecoration.Enabled = true;
+            pnlReceta.Size = new Size(866, 380);
+            pnlReceta.TabIndex = 2;
+            // 
+            // lblNombreReceta
+            // 
+            lblNombreReceta.AutoSize = true;
+            lblNombreReceta.Font = new Font("Segoe UI", 15F, FontStyle.Bold);
+            lblNombreReceta.ForeColor = Color.FromArgb(37, 99, 235);
+            lblNombreReceta.Location = new Point(16, 14);
+            lblNombreReceta.Name = "lblNombreReceta";
+            lblNombreReceta.Size = new Size(401, 35);
+            lblNombreReceta.TabIndex = 0;
+            lblNombreReceta.Text = "Receta: [Seleccione un producto]";
+            // 
+            // lblInfoReceta
+            // 
+            lblInfoReceta.AutoSize = true;
+            lblInfoReceta.Font = new Font("Segoe UI", 9F);
+            lblInfoReceta.ForeColor = Color.FromArgb(100, 100, 120);
+            lblInfoReceta.Location = new Point(18, 48);
+            lblInfoReceta.Name = "lblInfoReceta";
+            lblInfoReceta.Size = new Size(305, 20);
+            lblInfoReceta.TabIndex = 1;
+            lblInfoReceta.Text = "Categoría: — | Precio: $0.00 | Tiempo: — min";
+            // 
+            // dgvReceta
+            // 
+            dgvReceta.AllowUserToAddRows = false;
+            dgvReceta.AllowUserToDeleteRows = false;
+            dgvReceta.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvReceta.BackgroundColor = Color.White;
+            dgvReceta.BorderStyle = BorderStyle.None;
+            dgvReceta.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = Color.FromArgb(30, 30, 47);
+            dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            dataGridViewCellStyle3.ForeColor = Color.White;
+            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
+            dgvReceta.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dgvReceta.ColumnHeadersHeight = 29;
+            dgvReceta.Columns.AddRange(new DataGridViewColumn[] { colIngrediente, colUnidadMedida, colCantidad, colAcciones });
+            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = SystemColors.Window;
+            dataGridViewCellStyle6.Font = new Font("Segoe UI", 9.5F);
+            dataGridViewCellStyle6.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle6.SelectionBackColor = Color.FromArgb(220, 230, 255);
+            dataGridViewCellStyle6.SelectionForeColor = Color.FromArgb(30, 30, 47);
+            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.False;
+            dgvReceta.DefaultCellStyle = dataGridViewCellStyle6;
+            dgvReceta.EnableHeadersVisualStyles = false;
+            dgvReceta.GridColor = Color.FromArgb(230, 230, 240);
+            dgvReceta.Location = new Point(14, 72);
+            dgvReceta.MultiSelect = false;
+            dgvReceta.Name = "dgvReceta";
+            dgvReceta.RowHeadersVisible = false;
+            dgvReceta.RowHeadersWidth = 51;
+            dgvReceta.RowTemplate.Height = 30;
+            dgvReceta.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvReceta.Size = new Size(836, 290);
+            dgvReceta.TabIndex = 2;
+            dgvReceta.CellClick += dgvReceta_CellClick;
+            // 
+            // colIngrediente
+            // 
+            colIngrediente.DataPropertyName = "nombre_ingrediente";
+            colIngrediente.FillWeight = 40F;
+            colIngrediente.HeaderText = "Ingrediente";
+            colIngrediente.MinimumWidth = 6;
+            colIngrediente.Name = "colIngrediente";
+            colIngrediente.ReadOnly = true;
+            // 
+            // colUnidadMedida
+            // 
+            colUnidadMedida.DataPropertyName = "unidad_medida";
+            colUnidadMedida.FillWeight = 25F;
+            colUnidadMedida.HeaderText = "Unidad de Medida";
+            colUnidadMedida.MinimumWidth = 6;
+            colUnidadMedida.Name = "colUnidadMedida";
+            colUnidadMedida.ReadOnly = true;
+            // 
+            // colCantidad
+            // 
+            colCantidad.DataPropertyName = "cantidad_receta";
+            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            colCantidad.DefaultCellStyle = dataGridViewCellStyle4;
+            colCantidad.FillWeight = 20F;
+            colCantidad.HeaderText = "Cantidad";
+            colCantidad.MinimumWidth = 6;
+            colCantidad.Name = "colCantidad";
+            colCantidad.ReadOnly = true;
+            // 
+            // colAcciones
+            // 
+            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = Color.FromArgb(254, 226, 226);
+            dataGridViewCellStyle5.Font = new Font("Segoe UI", 11F);
+            dataGridViewCellStyle5.ForeColor = Color.FromArgb(239, 68, 68);
+            colAcciones.DefaultCellStyle = dataGridViewCellStyle5;
+            colAcciones.FillWeight = 15F;
+            colAcciones.HeaderText = "Acciones";
+            colAcciones.MinimumWidth = 6;
+            colAcciones.Name = "colAcciones";
+            colAcciones.Text = "";
+            colAcciones.UseColumnTextForButtonValue = true;
+            // 
+            // pnlAgregarIngrediente
+            // 
+            pnlAgregarIngrediente.BackColor = Color.Transparent;
+            pnlAgregarIngrediente.BorderColor = Color.FromArgb(37, 99, 235);
+            pnlAgregarIngrediente.BorderRadius = 12;
+            pnlAgregarIngrediente.Controls.Add(lblTituloAgregar);
+            pnlAgregarIngrediente.Controls.Add(lblSelIngrediente);
+            pnlAgregarIngrediente.Controls.Add(cmbIngrediente);
+            pnlAgregarIngrediente.Controls.Add(lblCantidadReq);
+            pnlAgregarIngrediente.Controls.Add(nudCantidad);
+            pnlAgregarIngrediente.Controls.Add(lblUnidadMedida);
+            pnlAgregarIngrediente.Controls.Add(txtUnidadMedida);
+            pnlAgregarIngrediente.Controls.Add(pnlAdvertencia);
+            pnlAgregarIngrediente.Controls.Add(btnAgregarReceta);
+            pnlAgregarIngrediente.CustomizableEdges = customizableEdges17;
+            pnlAgregarIngrediente.FillColor = Color.White;
+            pnlAgregarIngrediente.Location = new Point(12, 467);
+            pnlAgregarIngrediente.Name = "pnlAgregarIngrediente";
+            pnlAgregarIngrediente.ShadowDecoration.Color = Color.FromArgb(30, 0, 0, 0);
+            pnlAgregarIngrediente.ShadowDecoration.CustomizableEdges = customizableEdges18;
+            pnlAgregarIngrediente.ShadowDecoration.Depth = 4;
+            pnlAgregarIngrediente.ShadowDecoration.Enabled = true;
+            pnlAgregarIngrediente.Size = new Size(686, 220);
+            pnlAgregarIngrediente.TabIndex = 3;
+            // 
+            // lblTituloAgregar
+            // 
+            lblTituloAgregar.AutoSize = true;
+            lblTituloAgregar.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
+            lblTituloAgregar.ForeColor = Color.FromArgb(37, 99, 235);
+            lblTituloAgregar.Location = new Point(14, 12);
+            lblTituloAgregar.Name = "lblTituloAgregar";
+            lblTituloAgregar.Size = new Size(272, 25);
+            lblTituloAgregar.TabIndex = 0;
+            lblTituloAgregar.Text = "Agregar Ingrediente a Receta";
+            // 
+            // lblSelIngrediente
+            // 
+            lblSelIngrediente.AutoSize = true;
+            lblSelIngrediente.Font = new Font("Segoe UI", 9F);
+            lblSelIngrediente.ForeColor = Color.FromArgb(60, 60, 80);
+            lblSelIngrediente.Location = new Point(14, 46);
+            lblSelIngrediente.Name = "lblSelIngrediente";
+            lblSelIngrediente.Size = new Size(165, 20);
+            lblSelIngrediente.TabIndex = 1;
+            lblSelIngrediente.Text = "Seleccionar Ingrediente";
+            // 
+            // cmbIngrediente
+            // 
+            cmbIngrediente.BackColor = Color.Transparent;
+            cmbIngrediente.BorderColor = Color.FromArgb(200, 200, 220);
+            cmbIngrediente.BorderRadius = 8;
+            cmbIngrediente.CustomizableEdges = customizableEdges11;
+            cmbIngrediente.DrawMode = DrawMode.OwnerDrawFixed;
+            cmbIngrediente.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbIngrediente.FillColor = Color.FromArgb(245, 245, 252);
+            cmbIngrediente.FocusedColor = Color.Empty;
+            cmbIngrediente.Font = new Font("Segoe UI", 9.5F);
+            cmbIngrediente.ForeColor = Color.FromArgb(68, 88, 112);
+            cmbIngrediente.ItemHeight = 30;
+            cmbIngrediente.Location = new Point(14, 68);
+            cmbIngrediente.Name = "cmbIngrediente";
+            cmbIngrediente.ShadowDecoration.CustomizableEdges = customizableEdges12;
+            cmbIngrediente.Size = new Size(380, 36);
+            cmbIngrediente.TabIndex = 2;
+            cmbIngrediente.SelectedIndexChanged += cmbIngrediente_SelectedIndexChanged;
+            // 
+            // lblCantidadReq
+            // 
+            lblCantidadReq.AutoSize = true;
+            lblCantidadReq.Font = new Font("Segoe UI", 9F);
+            lblCantidadReq.ForeColor = Color.FromArgb(60, 60, 80);
+            lblCantidadReq.Location = new Point(410, 46);
+            lblCantidadReq.Name = "lblCantidadReq";
+            lblCantidadReq.Size = new Size(137, 20);
+            lblCantidadReq.TabIndex = 3;
+            lblCantidadReq.Text = "Cantidad requerida";
+            // 
+            // nudCantidad
+            // 
+            nudCantidad.BorderStyle = BorderStyle.FixedSingle;
+            nudCantidad.DecimalPlaces = 3;
+            nudCantidad.Font = new Font("Segoe UI", 10F);
+            nudCantidad.Increment = new decimal(new int[] { 1, 0, 0, 196608 });
+            nudCantidad.Location = new Point(410, 68);
+            nudCantidad.Maximum = new decimal(new int[] { 99999, 0, 0, 0 });
+            nudCantidad.Name = "nudCantidad";
+            nudCantidad.Size = new Size(258, 30);
+            nudCantidad.TabIndex = 4;
+            // 
+            // lblUnidadMedida
+            // 
+            lblUnidadMedida.AutoSize = true;
+            lblUnidadMedida.Font = new Font("Segoe UI", 9F);
+            lblUnidadMedida.ForeColor = Color.FromArgb(60, 60, 80);
+            lblUnidadMedida.Location = new Point(14, 116);
+            lblUnidadMedida.Name = "lblUnidadMedida";
+            lblUnidadMedida.Size = new Size(133, 20);
+            lblUnidadMedida.TabIndex = 5;
+            lblUnidadMedida.Text = "Unidad de medida";
+            // 
+            // txtUnidadMedida
+            // 
+            txtUnidadMedida.BorderColor = Color.FromArgb(200, 200, 220);
+            txtUnidadMedida.BorderRadius = 8;
+            txtUnidadMedida.CustomizableEdges = customizableEdges13;
+            txtUnidadMedida.DefaultText = "---";
+            txtUnidadMedida.FillColor = Color.FromArgb(240, 240, 248);
+            txtUnidadMedida.Font = new Font("Segoe UI", 9.5F);
+            txtUnidadMedida.Location = new Point(14, 138);
+            txtUnidadMedida.Margin = new Padding(3, 4, 3, 4);
+            txtUnidadMedida.Name = "txtUnidadMedida";
+            txtUnidadMedida.PlaceholderText = "";
+            txtUnidadMedida.ReadOnly = true;
+            txtUnidadMedida.SelectedText = "";
+            txtUnidadMedida.ShadowDecoration.CustomizableEdges = customizableEdges14;
+            txtUnidadMedida.Size = new Size(240, 36);
+            txtUnidadMedida.TabIndex = 6;
+            // 
+            // pnlAdvertencia
+            // 
+            pnlAdvertencia.BackColor = Color.FromArgb(255, 247, 230);
+            pnlAdvertencia.Controls.Add(lblAdvertencia);
+            pnlAdvertencia.Location = new Point(14, 140);
+            pnlAdvertencia.Name = "pnlAdvertencia";
+            pnlAdvertencia.Size = new Size(654, 36);
+            pnlAdvertencia.TabIndex = 7;
+            pnlAdvertencia.Visible = false;
+            // 
+            // lblAdvertencia
+            // 
+            lblAdvertencia.AutoSize = true;
+            lblAdvertencia.Font = new Font("Segoe UI", 9F);
+            lblAdvertencia.ForeColor = Color.FromArgb(180, 90, 0);
+            lblAdvertencia.Location = new Point(10, 9);
+            lblAdvertencia.Name = "lblAdvertencia";
+            lblAdvertencia.Size = new Size(251, 20);
+            lblAdvertencia.TabIndex = 0;
+            lblAdvertencia.Text = " Este ingrediente ya está en la receta";
+            // 
+            // btnAgregarReceta
+            // 
+            btnAgregarReceta.BorderRadius = 8;
+            btnAgregarReceta.CustomizableEdges = customizableEdges15;
+            btnAgregarReceta.FillColor = Color.FromArgb(34, 197, 94);
+            btnAgregarReceta.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            btnAgregarReceta.ForeColor = Color.White;
+            btnAgregarReceta.Location = new Point(14, 182);
+            btnAgregarReceta.Name = "btnAgregarReceta";
+            btnAgregarReceta.ShadowDecoration.CustomizableEdges = customizableEdges16;
+            btnAgregarReceta.Size = new Size(654, 30);
+            btnAgregarReceta.TabIndex = 8;
+            btnAgregarReceta.Text = "+ Agregar a Receta";
+            btnAgregarReceta.Click += btnAgregarReceta_Click;
+            // 
+            // pnlAnalisisCosto
+            // 
+            pnlAnalisisCosto.BackColor = Color.Transparent;
+            pnlAnalisisCosto.BorderColor = Color.FromArgb(168, 85, 247);
+            pnlAnalisisCosto.BorderRadius = 12;
+            pnlAnalisisCosto.Controls.Add(lblTituloAnalisis);
+            pnlAnalisisCosto.Controls.Add(lblCostoProduccionLbl);
+            pnlAnalisisCosto.Controls.Add(lblCostoProduccionVal);
+            pnlAnalisisCosto.Controls.Add(lblPrecioVentaLbl);
+            pnlAnalisisCosto.Controls.Add(lblPrecioVentaVal);
+            pnlAnalisisCosto.Controls.Add(lblGananciaLbl);
+            pnlAnalisisCosto.Controls.Add(lblGananciaVal);
+            pnlAnalisisCosto.Controls.Add(lblMargenLbl);
+            pnlAnalisisCosto.Controls.Add(prgMargen);
+            pnlAnalisisCosto.Controls.Add(lblMargenPorcentaje);
+            pnlAnalisisCosto.Controls.Add(lblNotaCosto);
+            pnlAnalisisCosto.CustomizableEdges = customizableEdges19;
+            pnlAnalisisCosto.FillColor = Color.White;
+            pnlAnalisisCosto.Location = new Point(708, 467);
+            pnlAnalisisCosto.Name = "pnlAnalisisCosto";
+            pnlAnalisisCosto.ShadowDecoration.Color = Color.FromArgb(30, 0, 0, 0);
+            pnlAnalisisCosto.ShadowDecoration.CustomizableEdges = customizableEdges20;
+            pnlAnalisisCosto.ShadowDecoration.Depth = 4;
+            pnlAnalisisCosto.ShadowDecoration.Enabled = true;
+            pnlAnalisisCosto.Size = new Size(642, 220);
+            pnlAnalisisCosto.TabIndex = 4;
+            // 
+            // lblTituloAnalisis
+            // 
+            lblTituloAnalisis.AutoSize = true;
+            lblTituloAnalisis.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
+            lblTituloAnalisis.ForeColor = Color.FromArgb(168, 85, 247);
+            lblTituloAnalisis.Location = new Point(16, 14);
+            lblTituloAnalisis.Name = "lblTituloAnalisis";
+            lblTituloAnalisis.Size = new Size(161, 25);
+            lblTituloAnalisis.TabIndex = 0;
+            lblTituloAnalisis.Text = "Análisis de Costo";
+            // 
+            // lblCostoProduccionLbl
+            // 
+            lblCostoProduccionLbl.AutoSize = true;
+            lblCostoProduccionLbl.Font = new Font("Segoe UI", 9.5F);
+            lblCostoProduccionLbl.ForeColor = Color.FromArgb(80, 80, 100);
+            lblCostoProduccionLbl.Location = new Point(16, 58);
+            lblCostoProduccionLbl.Name = "lblCostoProduccionLbl";
+            lblCostoProduccionLbl.Size = new Size(156, 21);
+            lblCostoProduccionLbl.TabIndex = 1;
+            lblCostoProduccionLbl.Text = "Costo de producción:";
+            // 
+            // lblCostoProduccionVal
+            // 
+            lblCostoProduccionVal.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            lblCostoProduccionVal.AutoSize = true;
+            lblCostoProduccionVal.Font = new Font("Segoe UI", 9.5F);
+            lblCostoProduccionVal.ForeColor = Color.FromArgb(80, 80, 100);
+            lblCostoProduccionVal.Location = new Point(520, 58);
+            lblCostoProduccionVal.Name = "lblCostoProduccionVal";
+            lblCostoProduccionVal.Size = new Size(53, 21);
+            lblCostoProduccionVal.TabIndex = 2;
+            lblCostoProduccionVal.Text = "$ 0.00";
+            // 
+            // lblPrecioVentaLbl
+            // 
+            lblPrecioVentaLbl.AutoSize = true;
+            lblPrecioVentaLbl.Font = new Font("Segoe UI", 9.5F, FontStyle.Bold);
+            lblPrecioVentaLbl.ForeColor = Color.FromArgb(37, 99, 235);
+            lblPrecioVentaLbl.Location = new Point(16, 90);
+            lblPrecioVentaLbl.Name = "lblPrecioVentaLbl";
+            lblPrecioVentaLbl.Size = new Size(132, 21);
+            lblPrecioVentaLbl.TabIndex = 3;
+            lblPrecioVentaLbl.Text = "Precio de venta:";
+            // 
+            // lblPrecioVentaVal
+            // 
+            lblPrecioVentaVal.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            lblPrecioVentaVal.AutoSize = true;
+            lblPrecioVentaVal.Font = new Font("Segoe UI", 9.5F, FontStyle.Bold);
+            lblPrecioVentaVal.ForeColor = Color.FromArgb(37, 99, 235);
+            lblPrecioVentaVal.Location = new Point(520, 90);
+            lblPrecioVentaVal.Name = "lblPrecioVentaVal";
+            lblPrecioVentaVal.Size = new Size(54, 21);
+            lblPrecioVentaVal.TabIndex = 4;
+            lblPrecioVentaVal.Text = "$ 0.00";
+            // 
+            // lblGananciaLbl
+            // 
+            lblGananciaLbl.AutoSize = true;
+            lblGananciaLbl.Font = new Font("Segoe UI", 9.5F, FontStyle.Bold);
+            lblGananciaLbl.ForeColor = Color.FromArgb(34, 197, 94);
+            lblGananciaLbl.Location = new Point(16, 122);
+            lblGananciaLbl.Name = "lblGananciaLbl";
+            lblGananciaLbl.Size = new Size(159, 21);
+            lblGananciaLbl.TabIndex = 5;
+            lblGananciaLbl.Text = "Ganancia estimada:";
+            // 
+            // lblGananciaVal
+            // 
+            lblGananciaVal.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            lblGananciaVal.AutoSize = true;
+            lblGananciaVal.Font = new Font("Segoe UI", 9.5F, FontStyle.Bold);
+            lblGananciaVal.ForeColor = Color.FromArgb(34, 197, 94);
+            lblGananciaVal.Location = new Point(520, 122);
+            lblGananciaVal.Name = "lblGananciaVal";
+            lblGananciaVal.Size = new Size(54, 21);
+            lblGananciaVal.TabIndex = 6;
+            lblGananciaVal.Text = "$ 0.00";
+            // 
+            // lblMargenLbl
+            // 
+            lblMargenLbl.AutoSize = true;
+            lblMargenLbl.Font = new Font("Segoe UI", 9F);
+            lblMargenLbl.ForeColor = Color.FromArgb(80, 80, 100);
+            lblMargenLbl.Location = new Point(16, 156);
+            lblMargenLbl.Name = "lblMargenLbl";
+            lblMargenLbl.Size = new Size(148, 20);
+            lblMargenLbl.TabIndex = 7;
+            lblMargenLbl.Text = "Margen de ganancia:";
+            // 
+            // prgMargen
+            // 
+            prgMargen.Location = new Point(140, 156);
+            prgMargen.Name = "prgMargen";
+            prgMargen.Size = new Size(380, 18);
+            prgMargen.Style = ProgressBarStyle.Continuous;
+            prgMargen.TabIndex = 8;
+            // 
+            // lblMargenPorcentaje
+            // 
+            lblMargenPorcentaje.AutoSize = true;
+            lblMargenPorcentaje.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            lblMargenPorcentaje.ForeColor = Color.FromArgb(34, 197, 94);
+            lblMargenPorcentaje.Location = new Point(530, 154);
+            lblMargenPorcentaje.Name = "lblMargenPorcentaje";
+            lblMargenPorcentaje.Size = new Size(44, 20);
+            lblMargenPorcentaje.TabIndex = 9;
+            lblMargenPorcentaje.Text = "0.0%";
+            // 
+            // lblNotaCosto
+            // 
+            lblNotaCosto.AutoSize = true;
+            lblNotaCosto.Font = new Font("Segoe UI", 8.5F);
+            lblNotaCosto.ForeColor = Color.FromArgb(140, 140, 160);
+            lblNotaCosto.Location = new Point(16, 186);
+            lblNotaCosto.Name = "lblNotaCosto";
+            lblNotaCosto.Size = new Size(276, 20);
+            lblNotaCosto.TabIndex = 10;
+            lblNotaCosto.Text = "Basado en costos unitarios de inventario";
+            // 
+            // pnlBotonesInf
+            // 
+            pnlBotonesInf.BackColor = Color.FromArgb(230, 230, 242);
+            pnlBotonesInf.Controls.Add(btnGuardarReceta);
+            pnlBotonesInf.Controls.Add(btnLimpiarReceta);
+            pnlBotonesInf.Controls.Add(btnActualizar);
+            pnlBotonesInf.Dock = DockStyle.Bottom;
+            pnlBotonesInf.Location = new Point(0, 663);
+            pnlBotonesInf.Name = "pnlBotonesInf";
+            pnlBotonesInf.Size = new Size(1348, 58);
+            pnlBotonesInf.TabIndex = 5;
+            // 
+            // btnGuardarReceta
+            // 
+            btnGuardarReceta.BorderRadius = 8;
+            btnGuardarReceta.CustomizableEdges = customizableEdges21;
+            btnGuardarReceta.FillColor = Color.FromArgb(34, 197, 94);
+            btnGuardarReceta.Font = new Font("Segoe UI", 9.5F, FontStyle.Bold);
+            btnGuardarReceta.ForeColor = Color.White;
+            btnGuardarReceta.Location = new Point(12, 10);
+            btnGuardarReceta.Name = "btnGuardarReceta";
+            btnGuardarReceta.ShadowDecoration.CustomizableEdges = customizableEdges22;
+            btnGuardarReceta.Size = new Size(185, 38);
+            btnGuardarReceta.TabIndex = 0;
+            btnGuardarReceta.Text = " Guardar Receta";
+            btnGuardarReceta.Click += btnGuardarReceta_Click;
+            // 
+            // btnLimpiarReceta
+            // 
+            btnLimpiarReceta.BorderRadius = 8;
+            btnLimpiarReceta.CustomizableEdges = customizableEdges23;
+            btnLimpiarReceta.FillColor = Color.FromArgb(239, 68, 68);
+            btnLimpiarReceta.Font = new Font("Segoe UI", 9.5F, FontStyle.Bold);
+            btnLimpiarReceta.ForeColor = Color.White;
+            btnLimpiarReceta.Location = new Point(207, 10);
+            btnLimpiarReceta.Name = "btnLimpiarReceta";
+            btnLimpiarReceta.ShadowDecoration.CustomizableEdges = customizableEdges24;
+            btnLimpiarReceta.Size = new Size(185, 38);
+            btnLimpiarReceta.TabIndex = 1;
+            btnLimpiarReceta.Text = "  Limpiar Receta";
+            btnLimpiarReceta.Click += btnLimpiarReceta_Click;
+            // 
+            // btnActualizar
+            // 
+            btnActualizar.BorderRadius = 8;
+            btnActualizar.CustomizableEdges = customizableEdges25;
+            btnActualizar.FillColor = Color.FromArgb(200, 200, 215);
+            btnActualizar.Font = new Font("Segoe UI", 9.5F, FontStyle.Bold);
+            btnActualizar.ForeColor = Color.FromArgb(50, 50, 70);
+            btnActualizar.Location = new Point(402, 10);
+            btnActualizar.Name = "btnActualizar";
+            btnActualizar.ShadowDecoration.CustomizableEdges = customizableEdges26;
+            btnActualizar.Size = new Size(160, 38);
+            btnActualizar.TabIndex = 2;
+            btnActualizar.Text = " Actualizar";
+            btnActualizar.Click += btnActualizar_Click;
+            // 
+            // frmRecetas
+            // 
+            BackColor = Color.FromArgb(240, 240, 248);
+            ClientSize = new Size(1348, 721);
+            Controls.Add(pnlTopBar);
+            Controls.Add(pnlProducto);
+            Controls.Add(pnlReceta);
+            Controls.Add(pnlAgregarIngrediente);
+            Controls.Add(pnlAnalisisCosto);
+            Controls.Add(pnlBotonesInf);
+            Font = new Font("Segoe UI", 9F);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            MaximizeBox = false;
+            MinimumSize = new Size(1100, 700);
+            Name = "frmRecetas";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "Gestión de Recetas - Sabor Gourmet FMO";
+            Load += frmRecetas_Load;
+            pnlTopBar.ResumeLayout(false);
+            pnlTopBar.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)picIcono).EndInit();
+            ((System.ComponentModel.ISupportInitialize)picUsuario).EndInit();
+            pnlProducto.ResumeLayout(false);
+            pnlProducto.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvProductos).EndInit();
+            pnlReceta.ResumeLayout(false);
+            pnlReceta.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvReceta).EndInit();
+            pnlAgregarIngrediente.ResumeLayout(false);
+            pnlAgregarIngrediente.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)nudCantidad).EndInit();
+            pnlAdvertencia.ResumeLayout(false);
+            pnlAdvertencia.PerformLayout();
+            pnlAnalisisCosto.ResumeLayout(false);
+            pnlAnalisisCosto.PerformLayout();
+            pnlBotonesInf.ResumeLayout(false);
+            ResumeLayout(false);
         }
 
         #endregion

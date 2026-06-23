@@ -15,10 +15,10 @@ namespace Restaurante_Sabor_Gourmet
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            //Application.Run(new FrmLogin());
+            Application.Run(new FrmLogin());
             //Application.Run(new frmRecetas());
             //Application.Run(new FormMenu());
-            Application.Run(new frmInventario());
+            //Application.Run(new frmInventario(1,""));
         }
     }
 }

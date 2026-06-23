@@ -16,6 +16,9 @@ namespace Restaurante_Sabor_Gourmet.Engel.formularios
     {
         int idSupervisor;
 
+        // Instancia de validaciones
+        ValidacionesCaja val = new ValidacionesCaja();
+
         public frmSupervision(int idSupervisor)
         {
             InitializeComponent();
@@ -24,12 +27,12 @@ namespace Restaurante_Sabor_Gourmet.Engel.formularios
 
         private void frmSupervision_Load(object sender, EventArgs e)
         {
+            tabControl.SelectedIndexChanged += tabControl_SelectedIndexChanged;
             CargarOrdenesSinDescuento();
             CargarDescuentosDelDia();
             CargarPromociones();
             CargarArqueosConDiferencias();
         }
-
 
         // ── DESCUENTOS ────────────────────────────────────────────────────────
 
@@ -49,24 +52,16 @@ namespace Restaurante_Sabor_Gourmet.Engel.formularios
 
         private void btnAutorizarDescuento_Click(object sender, EventArgs e)
         {
-            if (dgvOrdenes.SelectedRows.Count == 0)
-            {
-                MessageBox.Show("Selecciona una orden.");
-                return;
-            }
-
-            if (string.IsNullOrWhiteSpace(txtMotivo.Text))
-            {
-                MessageBox.Show("El motivo es obligatorio.");
-                return;
-            }
+            // ── Validaciones usando la clase ──────────────────────────────────
+            if (!val.ValidarOrdenSeleccionadaDescuento(dgvOrdenes)) return;
+            if (!val.ValidarMotivoDescuento(txtMotivo.Text)) return;
 
             DataGridViewRow fila = dgvOrdenes.SelectedRows[0];
 
             DescuentoAutorizado descuento = new DescuentoAutorizado();
             descuento.IdOrden = Convert.ToInt32(fila.Cells["id_orden"].Value);
             descuento.IdSupervisor = idSupervisor;
-            descuento.IdCajero = 0; // se conecta con el cajero en sesión
+            descuento.IdCajero = 0;
             descuento.PorcentajeDescuento = nudPorcentaje.Value;
             descuento.MotivoDescuento = txtMotivo.Text.Trim();
 
@@ -96,23 +91,15 @@ namespace Restaurante_Sabor_Gourmet.Engel.formularios
 
         private void btnGuardarPromocion_Click(object sender, EventArgs e)
         {
+            // ── Validaciones usando la clase ──────────────────────────────────
+            if (!val.ValidarNombrePromocion(txtNombrePromo.Text.Trim())) return;
+            if (!val.ValidarFechasPromocion(dtpInicio.Value.Date, dtpFin.Value.Date)) return;
+
             Promocion promocion = new Promocion();
             promocion.NombrePromocion = txtNombrePromo.Text.Trim();
             promocion.PorcentajePromocion = nudPorcentajePromo.Value;
             promocion.FechaInicio = dtpInicio.Value.Date;
             promocion.FechaFin = dtpFin.Value.Date;
-
-            if (string.IsNullOrWhiteSpace(promocion.NombrePromocion))
-            {
-                MessageBox.Show("El nombre de la promoción es obligatorio.");
-                return;
-            }
-
-            if (promocion.FechaFin <= promocion.FechaInicio)
-            {
-                MessageBox.Show("La fecha fin debe ser posterior a la fecha inicio.");
-                return;
-            }
 
             SQLPromocion sql = new SQLPromocion();
 
@@ -130,13 +117,11 @@ namespace Restaurante_Sabor_Gourmet.Engel.formularios
 
         private void btnEliminarPromocion_Click(object sender, EventArgs e)
         {
-            if (dgvPromociones.SelectedRows.Count == 0)
-            {
-                MessageBox.Show("Selecciona una promoción de la lista.");
-                return;
-            }
+            // ── Validación usando la clase ────────────────────────────────────
+            if (!val.ValidarPromocionSeleccionada(dgvPromociones)) return;
 
-            int idPromocion = Convert.ToInt32(dgvPromociones.SelectedRows[0].Cells["id_promocion"].Value);
+            int idPromocion = Convert.ToInt32(
+                dgvPromociones.SelectedRows[0].Cells["id_promocion"].Value);
 
             SQLPromocion sql = new SQLPromocion();
 
@@ -174,7 +159,6 @@ namespace Restaurante_Sabor_Gourmet.Engel.formularios
                     CargarArqueosConDiferencias();
                     break;
             }
-
         }
 
         private void dgvOrdenes_SelectionChanged(object sender, EventArgs e)

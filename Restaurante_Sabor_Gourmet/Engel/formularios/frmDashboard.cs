@@ -1,4 +1,5 @@
-﻿using Restaurante_Sabor_Gourmet.Engel.consultasSQL;
+﻿using Restaurante_Sabor_Gourmet.Engel.clases;
+using Restaurante_Sabor_Gourmet.Engel.consultasSQL;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,45 +16,35 @@ namespace Restaurante_Sabor_Gourmet.Engel
     {
         // ── Estado alertas ────────────────────────────────────────────────────
         bool alertasVisibles = true;
-        int yTabControlOriginal = 300; // posición original del tabControl en el designer
+        int yTabControlOriginal = 300;
 
-        // ── Constructor ───────────────────────────────────────────────────────
+        // Instancia de validaciones
+        ValidacionesCaja val = new ValidacionesCaja();
+
         public frmDashboard()
         {
             InitializeComponent();
         }
 
-        // ─────────────────────────────────────────────────────────────────────
-        // LOAD
-        // ─────────────────────────────────────────────────────────────────────
         private void frmDashboard_Load(object sender, EventArgs e)
         {
-            // Inicializar barra de status
             lblStatusFecha.Text = DateTime.Now.ToString("dd/MM/yyyy");
             lblStatusHora.Text = DateTime.Now.ToString("hh:mm tt");
 
-            // Cargar datos iniciales
             CargarKPIs();
             CargarAlertas();
-            CargarVentasMesero();         // tab 0 activo por defecto
+            CargarVentasMesero();
             CargarVentasCategoria();
 
-            // Arrancar timer
             timerActualizacion.Start();
         }
 
-        // ─────────────────────────────────────────────────────────────────────
-        // TIMER — actualiza hora y fecha en la barra de status
-        // ─────────────────────────────────────────────────────────────────────
         private void timerActualizacion_Tick(object sender, EventArgs e)
         {
             lblStatusFecha.Text = DateTime.Now.ToString("dd/MM/yyyy");
             lblStatusHora.Text = DateTime.Now.ToString("hh:mm tt");
         }
 
-        // ─────────────────────────────────────────────────────────────────────
-        // KPIs — 4 cards superiores
-        // ─────────────────────────────────────────────────────────────────────
         private void CargarKPIs()
         {
             try
@@ -63,26 +54,12 @@ namespace Restaurante_Sabor_Gourmet.Engel
 
                 if (dt.Rows.Count > 0)
                 {
-                    // Ventas hoy
-                    decimal ventasHoy = Convert.ToDecimal(dt.Rows[0]["ventas_hoy"]);
-                    lblKpiVentasValor.Text = ventasHoy.ToString("C2");
-
-                    // Mesas ocupadas — formato "18 / 25"
-                    string mesasOcupadas = dt.Rows[0]["mesas_ocupadas"].ToString();
-                    lblKpiMesasValor.Text = mesasOcupadas;
-                    // Si el SQL retorna separado: "18" de 25 totales, calcula porcentaje
-                    // lblKpiMesasComp.Text = $"{porcentaje}% ocupación";
-
-                    // Órdenes en cocina
-                    string ordenesCocina = dt.Rows[0]["ordenes_en_cocina"].ToString();
-                    lblKpiCocinaValor.Text = ordenesCocina;
-
-                    // Propinas hoy
-                    decimal propinasHoy = Convert.ToDecimal(dt.Rows[0]["propinas_hoy"]);
-                    lblKpiPropinaValor.Text = propinasHoy.ToString("C2");
+                    lblKpiVentasValor.Text = Convert.ToDecimal(dt.Rows[0]["ventas_hoy"]).ToString("C2");
+                    lblKpiMesasValor.Text = dt.Rows[0]["mesas_ocupadas"].ToString();
+                    lblKpiCocinaValor.Text = dt.Rows[0]["ordenes_en_cocina"].ToString();
+                    lblKpiPropinaValor.Text = Convert.ToDecimal(dt.Rows[0]["propinas_hoy"]).ToString("C2");
                 }
 
-                // Actualizar hora de última actualización
                 lblUltimaActualizacion.Text = $"Última actualización: {DateTime.Now:HH:mm:ss}";
             }
             catch (Exception ex)
@@ -94,13 +71,9 @@ namespace Restaurante_Sabor_Gourmet.Engel
 
         private void btnCerrar_Click(object sender, EventArgs e)
         {
-            // Cierra este form y muestra el form principal
             this.Close();
         }
 
-        // ─────────────────────────────────────────────────────────────────────
-        // ALERTAS — llena los 5 chips del panel amarillo
-        // ─────────────────────────────────────────────────────────────────────
         private void CargarAlertas()
         {
             try
@@ -108,7 +81,7 @@ namespace Restaurante_Sabor_Gourmet.Engel
                 SQLReportes sql = new SQLReportes();
                 int totalAlertas = 0;
 
-                // ── Alerta 1: Stock agotado ───────────────────────────────────
+                // Alerta 1: Stock agotado
                 DataTable dtAgotado = sql.MostrarStockAgotado();
                 if (dtAgotado.Rows.Count > 0)
                 {
@@ -122,7 +95,7 @@ namespace Restaurante_Sabor_Gourmet.Engel
                     lblAlerta1Desc.ForeColor = Color.FromArgb(120, 120, 140);
                 }
 
-                // ── Alerta 2: Stock mínimo ────────────────────────────────────
+                // Alerta 2: Stock mínimo
                 DataTable dtMinimo = sql.MostrarBajoStock();
                 if (dtMinimo.Rows.Count > 0)
                 {
@@ -136,7 +109,7 @@ namespace Restaurante_Sabor_Gourmet.Engel
                     lblAlerta2Desc.ForeColor = Color.FromArgb(120, 120, 140);
                 }
 
-                // ── Alerta 3: Órdenes retrasadas ──────────────────────────────
+                // Alerta 3: Órdenes retrasadas
                 DataTable dtRetrasadas = sql.MostrarOrdenesRetrasadas();
                 if (dtRetrasadas.Rows.Count > 0)
                 {
@@ -150,7 +123,7 @@ namespace Restaurante_Sabor_Gourmet.Engel
                     lblAlerta3Desc.ForeColor = Color.FromArgb(120, 120, 140);
                 }
 
-                // ── Alerta 4: Diferencias de caja ────────────────────────────
+                // Alerta 4: Diferencias de caja
                 DataTable dtDiferencias = sql.MostrarArqueosConDiferencias();
                 if (dtDiferencias.Rows.Count > 0)
                 {
@@ -165,28 +138,22 @@ namespace Restaurante_Sabor_Gourmet.Engel
                     lblAlerta4Desc.ForeColor = Color.FromArgb(120, 120, 140);
                 }
 
-                // ── Alerta 5: Anulaciones ─────────────────────────────────────
-                // Si la tabla de anulaciones la maneja otro módulo, dejar placeholder
+                // Alerta 5: Anulaciones (pendiente de otro módulo)
                 lblAlerta5Desc.Text = "Ver módulo de supervisión";
                 lblAlerta5Desc.ForeColor = Color.FromArgb(120, 120, 140);
 
-                // Actualizar contador del panel
                 lblAlertasTitulo.Text = $"ALERTAS ACTIVAS ({totalAlertas})";
             }
-            catch (Exception ex)
+            catch
             {
                 lblAlertasTitulo.Text = "ALERTAS — error al cargar";
             }
         }
 
-        // ─────────────────────────────────────────────────────────────────────
-        // OCULTAR / MOSTRAR ALERTAS
-        // ─────────────────────────────────────────────────────────────────────
         private void btnOcultarAlertas_Click(object sender, EventArgs e)
         {
             alertasVisibles = !alertasVisibles;
 
-            // Mostrar u ocultar solo los chips (el panel del título siempre visible)
             pnlAlerta1.Visible = alertasVisibles;
             pnlAlerta2.Visible = alertasVisibles;
             pnlAlerta3.Visible = alertasVisibles;
@@ -201,42 +168,24 @@ namespace Restaurante_Sabor_Gourmet.Engel
             }
             else
             {
-                pnlAlertas.Height = 36;  // solo el título queda visible
+                pnlAlertas.Height = 36;
                 tabControl.Location = new System.Drawing.Point(12, 228);
-                tabControl.Height = 542; // gana espacio
+                tabControl.Height = 542;
             }
         }
 
-        // ─────────────────────────────────────────────────────────────────────
-        // TAB CHANGED
-        // ─────────────────────────────────────────────────────────────────────
         private void tabControl_SelectedIndexChanged(object sender, EventArgs e)
         {
             switch (tabControl.SelectedIndex)
             {
-                case 0:
-                    CargarVentasMesero();
-                    CargarVentasCategoria();
-                    break;
-                case 1:
-                    CargarDatosCocina();
-                    break;
-                case 2:
-                    CargarBajoStock();
-                    CargarCostosProduccion();
-                    break;
-                case 3:
-                    CargarArqueos();
-                    break;
-                case 4:
-                    CargarPersonal();
-                    break;
+                case 0: CargarVentasMesero(); CargarVentasCategoria(); break;
+                case 1: CargarDatosCocina(); break;
+                case 2: CargarBajoStock(); CargarCostosProduccion(); break;
+                case 3: CargarArqueos(); break;
+                case 4: CargarPersonal(); break;
             }
         }
 
-        // ─────────────────────────────────────────────────────────────────────
-        // TAB VENTAS
-        // ─────────────────────────────────────────────────────────────────────
         private void CargarVentasMesero()
         {
             try
@@ -263,8 +212,11 @@ namespace Restaurante_Sabor_Gourmet.Engel
             }
         }
 
+        // ── ÚNICO MÉTODO QUE CAMBIÓ — usa val.ValidarRangoFechas ─────────────
         private void btnFiltrar_Click(object sender, EventArgs e)
         {
+            if (!val.ValidarRangoFechas(dtpDesde.Value, dtpHasta.Value)) return;
+
             try
             {
                 SQLReportes sql = new SQLReportes();
@@ -286,27 +238,18 @@ namespace Restaurante_Sabor_Gourmet.Engel
             }
         }
 
-        // ─────────────────────────────────────────────────────────────────────
-        // TAB COCINA
-        // ─────────────────────────────────────────────────────────────────────
         private void CargarDatosCocina()
         {
             try
             {
                 SQLReportes sql = new SQLReportes();
-
-                // Grilla principal de cocina
                 DataTable dtCocina = sql.MostrarDatosCocina();
                 dgvCocina.DataSource = dtCocina;
 
-                // Mini cards de resumen
                 DataTable dtIndicadores = sql.MostrarIndicadoresDia();
                 if (dtIndicadores.Rows.Count > 0)
-                {
                     lblAtendValor.Text = dtIndicadores.Rows[0]["ordenes_en_cocina"].ToString();
-                }
 
-                // Retrasadas y tiempo promedio — colores dinámicos en grilla
                 int retrasadas = 0;
                 foreach (DataGridViewRow row in dgvCocina.Rows)
                 {
@@ -316,8 +259,7 @@ namespace Restaurante_Sabor_Gourmet.Engel
                         object minObj = row.Cells["tiempo_total"].Value;
                         if (minObj != null && minObj != DBNull.Value)
                         {
-                            int min = Convert.ToInt32(minObj);
-                            if (min > 30) // más de 30 min = retrasada
+                            if (Convert.ToInt32(minObj) > 30)
                             {
                                 row.DefaultCellStyle.BackColor = Color.FromArgb(255, 230, 230);
                                 retrasadas++;
@@ -327,7 +269,7 @@ namespace Restaurante_Sabor_Gourmet.Engel
                 }
 
                 lblRetValor.Text = retrasadas.ToString();
-                lblTiempValor.Text = "—"; // se calcula si el SQL lo retorna
+                lblTiempValor.Text = "—";
             }
             catch (Exception ex)
             {
@@ -335,9 +277,6 @@ namespace Restaurante_Sabor_Gourmet.Engel
             }
         }
 
-        // ─────────────────────────────────────────────────────────────────────
-        // TAB INVENTARIO
-        // ─────────────────────────────────────────────────────────────────────
         private void CargarBajoStock()
         {
             try
@@ -346,7 +285,6 @@ namespace Restaurante_Sabor_Gourmet.Engel
                 DataTable dt = sql.MostrarBajoStock();
                 dgvBajoStock.DataSource = dt;
 
-                // Colorear filas: rojo si existencia = 0, naranja si <= mínimo
                 foreach (DataGridViewRow row in dgvBajoStock.Rows)
                 {
                     object exObj = row.Cells["existencia"].Value;
@@ -376,7 +314,6 @@ namespace Restaurante_Sabor_Gourmet.Engel
                 DataTable dt = sql.MostrarCostosProduccion();
                 dgvCostos.DataSource = dt;
 
-                // Colorear ganancia negativa en rojo
                 foreach (DataGridViewRow row in dgvCostos.Rows)
                 {
                     object ganObj = row.Cells["ganancia"].Value;
@@ -396,28 +333,25 @@ namespace Restaurante_Sabor_Gourmet.Engel
             }
         }
 
-        // ─────────────────────────────────────────────────────────────────────
-        // TAB CAJA
-        // ─────────────────────────────────────────────────────────────────────
         private void CargarArqueos()
         {
             try
             {
                 SQLArqueo sql = new SQLArqueo();
-                DataTable dt = sql.MostrarTodosLosArqueos(); // ← cambiar esto
+                DataTable dt = sql.MostrarTodosLosArqueos();
                 dgvArqueos.DataSource = dt;
 
-                // Colorear diferencias
                 foreach (DataGridViewRow row in dgvArqueos.Rows)
                 {
                     object difObj = row.Cells["diferencia"].Value;
-                    if (difObj == null || difObj == DBNull.Value) continue;
-
-                    decimal dif = Convert.ToDecimal(difObj);
-                    if (dif < 0)
+                    if (difObj != null && difObj != DBNull.Value)
                     {
-                        row.Cells["diferencia"].Style.ForeColor = Color.FromArgb(200, 40, 40);
-                        row.Cells["diferencia"].Style.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+                        decimal dif = Convert.ToDecimal(difObj);
+                        if (dif < 0)
+                        {
+                            row.Cells["diferencia"].Style.ForeColor = Color.FromArgb(200, 40, 40);
+                            row.Cells["diferencia"].Style.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+                        }
                     }
 
                     string estado = row.Cells["estado"].Value?.ToString() ?? "";
@@ -431,9 +365,6 @@ namespace Restaurante_Sabor_Gourmet.Engel
             }
         }
 
-        // ─────────────────────────────────────────────────────────────────────
-        // TAB PERSONAL
-        // ─────────────────────────────────────────────────────────────────────
         private void CargarPersonal()
         {
             try
@@ -442,7 +373,6 @@ namespace Restaurante_Sabor_Gourmet.Engel
                 DataTable dt = sql.MostrarVentasPorMesero();
                 dgvPersonal.DataSource = dt;
 
-                // Resaltar el top performer (primera fila)
                 if (dgvPersonal.Rows.Count > 0)
                     dgvPersonal.Rows[0].DefaultCellStyle.BackColor = Color.FromArgb(230, 255, 230);
             }
@@ -452,20 +382,13 @@ namespace Restaurante_Sabor_Gourmet.Engel
             }
         }
 
-        // ─────────────────────────────────────────────────────────────────────
-        // BOTÓN REFRESCAR (barra de status)
-        // ─────────────────────────────────────────────────────────────────────
         private void btnRefrescar_Click(object sender, EventArgs e)
         {
             CargarKPIs();
             CargarAlertas();
-            tabControl_SelectedIndexChanged(null, null); // recargar tab activo
+            tabControl_SelectedIndexChanged(null, null);
         }
 
-        // ─────────────────────────────────────────────────────────────────────
-        // MÉTODO AUXILIAR — obtener nombre del gerente desde sesión
-        // Llamar desde el form que abre este, o desde el Load si hay sesión global
-        // ─────────────────────────────────────────────────────────────────────
         public void EstablecerGerente(string nombreGerente)
         {
             lblGerente.Text = $"Gerente:  {nombreGerente}";

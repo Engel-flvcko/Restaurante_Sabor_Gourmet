@@ -1,4 +1,5 @@
 ﻿using Restaurante_Sabor_Gourmet.ConsultasSQL;
+using Restaurante_Sabor_Gourmet.Clases;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;

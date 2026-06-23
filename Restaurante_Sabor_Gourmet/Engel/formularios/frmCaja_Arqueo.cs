@@ -15,16 +15,15 @@ namespace Restaurante_Sabor_Gourmet.Engel.formularios
     public partial class frmCaja_Arqueo : Form
     {
 
-
         // ── Variables de sesión ───────────────────────────────────────────────
         int idCajero;
         int idArqueoActivo = -1;
         decimal totalEsperado = 0;
 
-        // Propiedad pública para que Program.cs pueda leer el arqueo activo
-        public int IdArqueoActivo { get { return idArqueoActivo; } }
+        // Instancia de validaciones
+        ValidacionesCaja val = new ValidacionesCaja();
 
-        // ── Constructor ───────────────────────────────────────────────────────
+        public int IdArqueoActivo { get { return idArqueoActivo; } }
 
         public frmCaja_Arqueo(int idCajero)
         {
@@ -32,9 +31,6 @@ namespace Restaurante_Sabor_Gourmet.Engel.formularios
             this.idCajero = idCajero;
         }
 
-        // ─────────────────────────────────────────────────────────────────────
-        // LOAD
-        // ─────────────────────────────────────────────────────────────────────
         private void frmCajaArqueo_Load(object sender, EventArgs e)
         {
             ConfigurarComboMetodoPago();
@@ -43,9 +39,6 @@ namespace Restaurante_Sabor_Gourmet.Engel.formularios
             CargarHistorial();
         }
 
-        // ─────────────────────────────────────────────────────────────────────
-        // TAB CHANGED
-        // ─────────────────────────────────────────────────────────────────────
         private void tabControl_SelectedIndexChanged(object sender, EventArgs e)
         {
             switch (tabControl.SelectedIndex)
@@ -83,18 +76,14 @@ namespace Restaurante_Sabor_Gourmet.Engel.formularios
             cmbMetodoPago.SelectedIndex = 0;
         }
 
-        // ── Selección en la grilla ────────────────────────────────────────────
         private void dgvCuentas_SelectionChanged(object sender, EventArgs e)
         {
             if (dgvCuentas.SelectedRows.Count == 0) return;
             if (dgvCuentas.SelectedRows[0].Cells["id_orden"].Value == null) return;
 
             DataGridViewRow fila = dgvCuentas.SelectedRows[0];
-
             txtMesa.Text = fila.Cells["numero_mesa"].Value.ToString();
             txtMesero.Text = fila.Cells["mesero"].Value.ToString();
-
-            // Mostrar "Para: [mesero]" en el campo de propina
             lblParaMesero.Text = $"Para: {txtMesero.Text}";
 
             decimal subtotal = Convert.ToDecimal(fila.Cells["subtotal"].Value);
@@ -104,7 +93,6 @@ namespace Restaurante_Sabor_Gourmet.Engel.formularios
             txtSubtotal.Text = subtotal.ToString("C2");
             txtDescuento.Text = $"{porcentaje}%  ({descuento:C2})";
 
-            // Resetear propina y monto recibido al cambiar de orden
             rbSinPropina.Checked = true;
             nudPropina.Value = 0;
             nudPorcentajePropina.Value = 10;
@@ -115,7 +103,6 @@ namespace Restaurante_Sabor_Gourmet.Engel.formularios
             RecalcularTotal();
         }
 
-        // ── Propina — 3 modos ─────────────────────────────────────────────────
         private void rbPropina_CheckedChanged(object sender, EventArgs e)
         {
             if (rbSinPropina.Checked)
@@ -134,7 +121,6 @@ namespace Restaurante_Sabor_Gourmet.Engel.formularios
                 nudPropina.Enabled = false;
                 nudPorcentajePropina.Enabled = true;
             }
-
             RecalcularTotal();
         }
 
@@ -143,25 +129,20 @@ namespace Restaurante_Sabor_Gourmet.Engel.formularios
             RecalcularTotal();
         }
 
-        // ── Método de pago ────────────────────────────────────────────────────
         private void cmbMetodoPago_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (cmbMetodoPago.SelectedItem == null) return;
-
             string metodo = cmbMetodoPago.SelectedItem.ToString();
 
-            // Pago mixto: mostrar panel extra, ocultar monto recibido simple
             pnlMixto.Visible = (metodo == "mixto");
             nudMontoRecibido.Enabled = (metodo == "efectivo");
             lblLblMontoRecibido.ForeColor = nudMontoRecibido.Enabled
                 ? Color.FromArgb(80, 80, 100)
                 : Color.FromArgb(180, 180, 200);
 
-            // Si no es efectivo ni mixto, monto recibido no aplica (tarjeta, etc.)
             if (metodo != "efectivo" && metodo != "mixto")
                 nudMontoRecibido.Value = 0;
 
-            // Ajustar posición del panel TOTAL cuando mixto aparece o desaparece
             pnlTotal.Location = pnlMixto.Visible
                 ? new System.Drawing.Point(18, 552)
                 : new System.Drawing.Point(18, 470);
@@ -179,7 +160,6 @@ namespace Restaurante_Sabor_Gourmet.Engel.formularios
             lblSumaMixto.ForeColor = (suma == ObtenerTotalFinal())
                 ? Color.FromArgb(22, 140, 60)
                 : Color.FromArgb(200, 60, 60);
-
             RecalcularTotal();
         }
 
@@ -188,18 +168,12 @@ namespace Restaurante_Sabor_Gourmet.Engel.formularios
             RecalcularTotal();
         }
 
-        // ── Cálculo central ───────────────────────────────────────────────────
         private decimal ObtenerMontoPropina()
         {
             if (dgvCuentas.SelectedRows.Count == 0) return 0;
+            if (rbSinPropina.Checked) return 0;
+            if (rbPropinaMonto.Checked) return nudPropina.Value;
 
-            if (rbSinPropina.Checked)
-                return 0;
-
-            if (rbPropinaMonto.Checked)
-                return nudPropina.Value;
-
-            // Propina sugerida: porcentaje sobre el subtotal con descuento
             DataGridViewRow fila = dgvCuentas.SelectedRows[0];
             decimal subtotal = Convert.ToDecimal(fila.Cells["subtotal"].Value);
             decimal porcentajeDesc = Convert.ToDecimal(fila.Cells["descuento"].Value);
@@ -244,7 +218,6 @@ namespace Restaurante_Sabor_Gourmet.Engel.formularios
             }
             else
             {
-                // Tarjeta, transferencia, pago_movil → no hay cambio
                 txtCambio.Text = "N/A";
                 txtCambio.ForeColor = Color.FromArgb(150, 150, 170);
             }
@@ -253,19 +226,14 @@ namespace Restaurante_Sabor_Gourmet.Engel.formularios
         // ── Registrar cobro ───────────────────────────────────────────────────
         private void btnCobrar_Click(object sender, EventArgs e)
         {
-            if (idArqueoActivo == -1)
+            // ── Validaciones usando la clase ──────────────────────────────────
+            if (!val.ValidarArqueoAbierto(idArqueoActivo))
             {
-                MessageBox.Show("No hay una caja abierta. Ve al tab 'Arqueo de Caja' y abre la caja primero.",
-                    "Sin caja abierta", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 tabControl.SelectedIndex = 1;
                 return;
             }
 
-            if (dgvCuentas.SelectedRows.Count == 0)
-            {
-                MessageBox.Show("Selecciona una cuenta de la lista.");
-                return;
-            }
+            if (!val.ValidarCuentaSeleccionada(dgvCuentas)) return;
 
             DataGridViewRow fila = dgvCuentas.SelectedRows[0];
             int idOrden = Convert.ToInt32(fila.Cells["id_orden"].Value);
@@ -277,29 +245,13 @@ namespace Restaurante_Sabor_Gourmet.Engel.formularios
             decimal totalFinal = totalConDescuento + montoPropina;
             string metodo = cmbMetodoPago.SelectedItem.ToString();
 
-            // ── Validaciones según método ─────────────────────────────────────
-            if (metodo == "efectivo" && nudMontoRecibido.Value < totalFinal)
-            {
-                MessageBox.Show("El monto recibido es menor al total a cobrar.");
-                return;
-            }
-
-            if (metodo == "mixto")
-            {
-                decimal sumaMixta = nudEfectivo.Value + nudTarjeta.Value;
-                if (sumaMixta < totalFinal)
-                {
-                    MessageBox.Show($"La suma del pago mixto ({sumaMixta:C2}) es menor al total ({totalFinal:C2}).");
-                    return;
-                }
-            }
+            if (metodo == "efectivo" && !val.ValidarPagoEfectivo(nudMontoRecibido.Value, totalFinal)) return;
+            if (metodo == "mixto" && !val.ValidarPagoMixto(nudEfectivo.Value, nudTarjeta.Value, totalFinal)) return;
 
             // ── Confirmación ──────────────────────────────────────────────────
             DialogResult confirm = MessageBox.Show(
                 $"¿Confirmar cobro de {totalFinal:C2}?\nMétodo: {metodo}\nPropina: {montoPropina:C2} (para {txtMesero.Text})",
-                "Confirmar pago",
-                MessageBoxButtons.YesNo,
-                MessageBoxIcon.Question);
+                "Confirmar pago", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
             if (confirm != DialogResult.Yes) return;
 
@@ -315,13 +267,11 @@ namespace Restaurante_Sabor_Gourmet.Engel.formularios
             pago.Total = totalFinal;
 
             SQLCaja sql = new SQLCaja();
-
             if (sql.RegistrarPago(pago))
             {
                 MessageBox.Show("Pago registrado correctamente.");
                 CargarCuentasPendientes();
                 LimpiarCampos();
-                // Refrescar total esperado en el tab Arqueo
                 VerificarArqueoActivo();
             }
             else
@@ -367,16 +317,10 @@ namespace Restaurante_Sabor_Gourmet.Engel.formularios
             {
                 idArqueoActivo = Convert.ToInt32(dt.Rows[0]["id_arqueo"]);
                 totalEsperado = Convert.ToDecimal(dt.Rows[0]["total_esperado_arqueo"]);
-
-                // Card estado
                 lblEstado.Text = $"CAJA ABIERTA #{idArqueoActivo}";
                 pnlBadgeEstado.FillColor = Color.FromArgb(34, 197, 94);
                 lblEsperado.Text = totalEsperado.ToString("C2");
-
-                // Barra superior
                 lblInfoArqueo.Text = $"Arqueo #{idArqueoActivo}  |  ABIERTO";
-
-                // Habilitar cierre
                 btnAbrirCaja.Enabled = false;
                 nudFondoInicial.Enabled = false;
                 btnCerrarCaja.Enabled = true;
@@ -387,14 +331,11 @@ namespace Restaurante_Sabor_Gourmet.Engel.formularios
             {
                 idArqueoActivo = -1;
                 totalEsperado = 0;
-
                 lblEstado.Text = "SIN CAJA ABIERTA";
                 pnlBadgeEstado.FillColor = Color.FromArgb(239, 68, 68);
                 lblEsperado.Text = "$0.00";
                 lblDiferencia.Text = "—";
-
                 lblInfoArqueo.Text = "Arqueo #—  |  CERRADO";
-
                 btnAbrirCaja.Enabled = true;
                 nudFondoInicial.Enabled = true;
                 btnCerrarCaja.Enabled = false;
@@ -409,14 +350,12 @@ namespace Restaurante_Sabor_Gourmet.Engel.formularios
             SQLArqueo sql = new SQLArqueo();
             dgvHistorial.DataSource = sql.MostrarHistorialArqueos(idCajero);
 
-            // Colorear filas: rojo faltante, verde abierta
             foreach (DataGridViewRow row in dgvHistorial.Rows)
             {
                 string estado = row.Cells["estado_arqueo"].Value?.ToString() ?? "";
                 if (estado == "abierta")
                     row.DefaultCellStyle.BackColor = Color.FromArgb(230, 255, 230);
 
-                // Si la diferencia es negativa (faltante), colorear rojo
                 object difVal = row.Cells["diferencia_arqueo"].Value;
                 if (difVal != null && difVal != DBNull.Value)
                 {
@@ -432,6 +371,8 @@ namespace Restaurante_Sabor_Gourmet.Engel.formularios
 
         private void btnAbrirCaja_Click(object sender, EventArgs e)
         {
+            if (!val.ValidarFondoInicial(nudFondoInicial.Value)) return;
+
             SQLArqueo sql = new SQLArqueo();
             int nuevoArqueo = sql.AbrirCaja(idCajero, nudFondoInicial.Value);
 
@@ -451,11 +392,8 @@ namespace Restaurante_Sabor_Gourmet.Engel.formularios
 
         private void btnCerrarCaja_Click(object sender, EventArgs e)
         {
-            if (idArqueoActivo == -1)
-            {
-                MessageBox.Show("No hay caja abierta.");
-                return;
-            }
+            if (!val.ValidarArqueoAbierto(idArqueoActivo)) return;
+            if (!val.ValidarTotalContado(nudTotalContado.Value)) return;
 
             decimal diferencia = totalEsperado - nudTotalContado.Value;
             string msgDif = diferencia == 0 ? "Sin diferencia."
@@ -464,14 +402,11 @@ namespace Restaurante_Sabor_Gourmet.Engel.formularios
 
             DialogResult confirm = MessageBox.Show(
                 $"¿Cerrar la caja?\n\nTotal esperado:  {totalEsperado:C2}\nTotal contado:   {nudTotalContado.Value:C2}\n{msgDif}",
-                "Confirmar cierre",
-                MessageBoxButtons.YesNo,
-                MessageBoxIcon.Question);
+                "Confirmar cierre", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
             if (confirm != DialogResult.Yes) return;
 
             SQLArqueo sql = new SQLArqueo();
-
             if (sql.CerrarCaja(idArqueoActivo, nudTotalContado.Value))
             {
                 MessageBox.Show("Caja cerrada correctamente.",
@@ -481,8 +416,8 @@ namespace Restaurante_Sabor_Gourmet.Engel.formularios
             }
             else
             {
-                MessageBox.Show("Error al cerrar la caja.",
-                    "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Error al cerrar la caja.", "Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
