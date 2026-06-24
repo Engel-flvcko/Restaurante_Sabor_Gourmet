@@ -1,23 +1,28 @@
-﻿using System;
+﻿using Restaurante_Sabor_Gourmet.ConsultasSQL;
+using Restaurante_Sabor_Gourmet.Jaqueline.ConsultasSQL;
+using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Drawing;
 using Restaurante_Sabor_Gourmet.Jaqueline.ConsultasSQL;
-
+using Restaurante_Sabor_Gourmet.Jaqueline.Formularios;
 
 namespace Restaurante_Sabor_Gourmet.Jaqueline.Clases
 {
     internal class InsertarMesas
     {
+        private int mesaSeleccionada = -1;
+
+
         // Acceso a datos SQL
         private SQLMesas sql = new SQLMesas();
 
         // Método principal: carga mesas en los 3 FlowLayoutPanel
-        public void CargarMesas( FlowLayoutPanel flpSalon,FlowLayoutPanel flpFamiliar, FlowLayoutPanel flpEventos)
+        public void CargarMesas(FlowLayoutPanel flpSalon, FlowLayoutPanel flpFamiliar, FlowLayoutPanel flpEventos, Action<int> alSeleccionarMesa)
         {
             // Obtener datos desde BD
             DataTable mesas = sql.ObtenerMesas();
@@ -50,7 +55,12 @@ namespace Restaurante_Sabor_Gourmet.Jaqueline.Clases
                 // Evento click 
                 btn.Click += (s, e) =>
                 {
-                    MessageBox.Show($"Mesa: {numero}\nEstado: {estado}\nID: {idMesa}");
+                    // guardar mesa seleccionada
+                    mesaSeleccionada = idMesa;
+
+                    // Ejecutar método del formulario
+                    alSeleccionarMesa(idMesa);
+
                 };
 
                 // Selección de panel según zona
@@ -72,7 +82,7 @@ namespace Restaurante_Sabor_Gourmet.Jaqueline.Clases
 
         }
 
-        // Método que define el color según estado de la mesa
+
         private Color ObtenerColorEstado(string estado)
         {
             switch (estado)
@@ -96,8 +106,6 @@ namespace Restaurante_Sabor_Gourmet.Jaqueline.Clases
                     return Color.Blue;
             }
         }
-
-
 
 
     }

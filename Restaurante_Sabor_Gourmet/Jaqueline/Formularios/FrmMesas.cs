@@ -8,11 +8,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Restaurante_Sabor_Gourmet.Jaqueline.ConsultasSQL;
 
 namespace Restaurante_Sabor_Gourmet.Jaqueline.Formularios
 {
     public partial class FrmMesas : Form
     {
+        private SQLMesas sqlMesas = new SQLMesas();
+        private int mesaSeleccionada = -1;
         public FrmMesas()
         {
             InitializeComponent();
@@ -24,13 +27,16 @@ namespace Restaurante_Sabor_Gourmet.Jaqueline.Formularios
             CrearTitulos();        // títulos de zonas
             ConfigurarLeyendaPanel(); // configuración visual
             CargarLeyenda();       // leyenda de colores
+            OcultarPanelMesa();
+
+
 
             // Crear instancia de la clase UI
             InsertarMesas ui = new InsertarMesas();
 
             // Cargar mesas en cada zona
-            ui.CargarMesas(flpSalon, flpFamiliar, flpEventos);
-            
+            ui.CargarMesas(flpSalon, flpFamiliar, flpEventos, MostrarInfoMesa);
+
         }
 
         private void CrearTitulos()
@@ -108,5 +114,175 @@ namespace Restaurante_Sabor_Gourmet.Jaqueline.Formularios
             return panel;
         }
 
+        private void MostrarInfoMesa(int idMesa)
+        {
+            mesaSeleccionada = idMesa;
+            DataTable dt = sqlMesas.ObtenerMesaPorId(idMesa);
+
+            if (dt.Rows.Count > 0)
+            {
+                DataRow row = dt.Rows[0];
+
+                //  mostrar solo lo básico al seleccionar
+                lblEstadoMesa.Text = row["estado_mesa"].ToString();
+                lblCapacidadMesa.Text = row["capacidad_mesa"].ToString();
+
+                // ubicación como nombre de zona
+                lblUbicacionMesa.Text = row["nombre_zona"].ToString();
+
+                // mesero logueado 
+                lblMeseroAsignado.Text = Sesion.NombreUsuario;
+
+                // clientes actuales
+                lblCantidadCliente.Text = row["num_clientes_mesa"].ToString();
+
+                lblNumMesa.Text = row["numero_mesa"].ToString(); // numero de mesa
+                string estado = row["estado_mesa"].ToString();
+
+                // hora inicio
+                if (row["hora_ocupacion_mesa"] != DBNull.Value)
+                {
+                    lblHoraInicioOrden.Text = row["hora_ocupacion_mesa"].ToString();
+                }
+                else
+                {
+                    lblHoraInicioOrden.Text = "-";
+                }
+
+                MostrarPanelMesa();
+
+                ConfigurarBotones(estado);
+            }
+
+
+
+
+        }
+
+
+        private void OcultarPanelMesa()
+        {
+            // Título principal
+            lblInfoMesa.Visible = false;
+
+            // Número de mesa
+            lblNumMesa.Visible = false;
+
+            // Estado
+            lblEstado.Visible = false;
+            lblEstadoMesa.Visible = false;
+
+            // Capacidad
+            lblCapacidad.Visible = false;
+            lblCapacidadMesa.Visible = false;
+
+            // Resto de información
+            lblUbicacion.Visible = false;
+            lblUbicacionMesa.Visible = false;
+
+            lblMesero.Visible = false;
+            lblMeseroAsignado.Visible = false;
+
+            lblClientes.Visible = false;
+            lblCantidadCliente.Visible = false;
+
+            lblHoraInicio.Visible = false;
+            lblHoraInicioOrden.Visible = false;
+
+            lblOrden.Visible = false;
+            lblOrdenActiva.Visible = false;
+
+            // Botones
+            btnAsignarMesa.Visible = false;
+            btnTransferirOrden.Visible = false;
+            btnSolicitarPago.Visible = false;
+            btnUnirMesas.Visible = false;
+            btnDividirMesa.Visible = false;
+            btnLiberarMesa.Visible = false;
+            btnMesaFueraServicio.Visible = false;
+        }
+
+        private void MostrarPanelMesa() // Muestra toda la informacion 
+        {
+            lblNumMesa.Visible = true;
+
+            lblEstado.Visible = true;
+            lblEstadoMesa.Visible = true;
+
+            lblCapacidad.Visible = true;
+            lblCapacidadMesa.Visible = true;
+
+            lblUbicacion.Visible = true;
+
+            lblMesero.Visible = true;
+            lblMeseroAsignado.Visible = true;   
+
+            lblUbicacionMesa.Visible = true;
+            lblInfoMesa.Visible = true;
+
+        }
+
+
+        private void guna2Panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void btnAsignarMesa_Click(object sender, EventArgs e)
+        {
+          
+        }
+
+        private void ConfigurarBotones(string estado)
+        {
+            btnAsignarMesa.Visible = false;
+            btnTransferirOrden.Visible = false;
+            btnSolicitarPago.Visible = false;
+            btnUnirMesas.Visible = false;
+            btnDividirMesa.Visible = false;
+            btnLiberarMesa.Visible = false;
+
+            switch (estado)
+            {
+                case "Disponible":
+
+                    btnAsignarMesa.Visible = true;
+                    btnUnirMesas.Visible = true;
+
+                    break;
+
+                case "Ocupada":
+
+                    lblUbicacion.Visible = true;
+                    lblUbicacionMesa.Visible = true;
+
+                    lblMesero.Visible = true;
+                    lblMeseroAsignado.Visible = true;
+
+                    lblClientes.Visible = true;
+                    lblCantidadCliente.Visible = true;
+
+                    lblHoraInicio.Visible = true;
+                    lblHoraInicioOrden.Visible = true;
+
+                    btnTransferirOrden.Visible = true;
+                    btnSolicitarPago.Visible = true;
+                    btnDividirMesa.Visible = true;
+                    btnUnirMesas.Visible = true;
+
+                    break;
+
+                case "Limpieza":
+
+                    btnLiberarMesa.Visible = true;
+
+                    break;
+            }
+        }
+
+        private void lblEstado_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

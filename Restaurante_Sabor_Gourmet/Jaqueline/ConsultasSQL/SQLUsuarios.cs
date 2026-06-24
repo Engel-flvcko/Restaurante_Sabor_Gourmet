@@ -14,9 +14,9 @@ namespace Restaurante_Sabor_Gourmet.Jaqueline.ConsultasSQL
     {
         ConexionBD conexion = new ConexionBD();
 
-        public bool IniciarSesion(string username, string contrasenaPlana)
+        public bool IniciarSesion(string username, string contraseña)
         {
-            string hash = HashSHA256(contrasenaPlana);
+            string hash = HashSHA256(contraseña);
 
             using (MySqlConnection cn = conexion.ObtenerConexion())
             {
@@ -34,6 +34,7 @@ namespace Restaurante_Sabor_Gourmet.Jaqueline.ConsultasSQL
                 MySqlCommand cmd = new MySqlCommand(sql, cn);
                 cmd.Parameters.AddWithValue("@username", username);
                 cmd.Parameters.AddWithValue("@clave", hash);
+                //cmd.Parameters.AddWithValue("@clave", hash);
 
                 using (MySqlDataReader dr = cmd.ExecuteReader())
                 {
@@ -139,7 +140,7 @@ namespace Restaurante_Sabor_Gourmet.Jaqueline.ConsultasSQL
 
                 string sql = @"
                     INSERT INTO tbl_usuarios
-                        (nombre_usuario, username_usuario, contrasena_usuario,
+                        (nombre_usuario, username_usuario, contraseña_usuario,
                          telefono_usuario, fecha_ingreso_usuario, activo_usuario, id_rol_usuario)
                     VALUES
                         (@nombre, @username, @clave,
@@ -189,7 +190,7 @@ namespace Restaurante_Sabor_Gourmet.Jaqueline.ConsultasSQL
                     UPDATE tbl_usuarios SET
                         nombre_usuario    = @nombre,
                         username_usuario  = @username,
-                        contrasena_usuario = @clave,
+                        contraseña_usuario = @clave,
                         telefono_usuario  = @tel,
                         id_rol_usuario    = @rol
                     WHERE id_usuario = @id";
@@ -243,5 +244,8 @@ namespace Restaurante_Sabor_Gourmet.Jaqueline.ConsultasSQL
         }
 
         //hasta aqui
-    }
+     }
+
 }
+
+
