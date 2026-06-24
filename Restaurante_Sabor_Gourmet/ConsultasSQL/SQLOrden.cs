@@ -194,11 +194,9 @@ namespace Restaurante_Sabor_Gourmet.ConsultasSQL
             return idOrdenGenerado;
         }
 
-        // ============================================================
         //  CERRAR CUENTA → llama al SP CerrarCuenta()
         //  Cambia estado_orden de 'abierta' a 'pendiente_pago'.
         //  Devuelve true si el UPDATE afectó exactamente 1 fila.
-        // ============================================================
         public bool CerrarCuenta(int idOrden)
         {
             using (MySqlConnection cn = conexion.ObtenerConexion())

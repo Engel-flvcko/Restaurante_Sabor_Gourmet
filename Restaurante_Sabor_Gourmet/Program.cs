@@ -1,4 +1,5 @@
 //using Restaurante_Sabor_Gourmet.Formularios;
+using Restaurante_Sabor_Gourmet.Formularios;
 using Restaurante_Sabor_Gourmet.Jaqueline.Formularios;
 using Restaurante_Sabor_Gourmet.Vane;
 
@@ -18,6 +19,7 @@ namespace Restaurante_Sabor_Gourmet
             Application.Run(new FrmLogin());
             //Application.Run(new frmRecetas());
             //Application.Run(new FormMenu());
+            //Application.Run(new frmOrdenes(4,"Juan Pérez"));
 
             //Application.Run(new frmInventario(1,""));
 

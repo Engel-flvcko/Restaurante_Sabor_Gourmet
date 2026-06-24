@@ -14,7 +14,7 @@ namespace Restaurante_Sabor_Gourmet.Formularios
 {
     public partial class frmOrdenes : Form
     {
-        // Sesión del mesero logueado (la recibe del frmPrincipal de Persona 1)
+        // Sesión del mesero logueado , la recibe del frmPrincipal de Persona 1
         private int idMeseroSesion;
         private string nombreMeseroSesion;
 
@@ -40,9 +40,7 @@ namespace Restaurante_Sabor_Gourmet.Formularios
             CargarCategoriasDinamicas();
         }
 
-        // ============================================================
-        //  CARGA DE MESAS
-        // ============================================================
+        //  carga de mesas
         private void CargarMesasOcupadas()
         {
             try
@@ -96,12 +94,9 @@ namespace Restaurante_Sabor_Gourmet.Formularios
             lblZona.Text = "--";
             lblMeseroAsignado.Text = "--";
         }
-
-        // ============================================================
-        //  ORDEN ABIERTA
-        //  Si la mesa ya tiene una orden 'abierta', la carga en la grilla.
+        //  orden abierta
+        //  Si la mesa ya tiene una orden 'abierta', se carga la orden 
         //  Si no, deja todo limpio para una orden nueva.
-        // ============================================================
         private void CargarOActualizarOrdenAbierta()
         {
             try
@@ -175,12 +170,9 @@ namespace Restaurante_Sabor_Gourmet.Formularios
                     break;
             }
         }
-
-        // ============================================================
-        //  CATEGORÍAS DINÁMICAS
+        //  categorias finamicas
         //  Se cargan desde tbl_categorias; si la BD no responde,
         //  se usan las categorías fijas del Designer como fallback.
-        // ============================================================
         private void CargarCategoriasDinamicas()
         {
             try
@@ -229,10 +221,7 @@ namespace Restaurante_Sabor_Gourmet.Formularios
                     "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
-        // ============================================================
-        //  CATEGORÍAS Y PRODUCTOS
-        // ============================================================
+        //  Categorias y productos 
         private void btnCategoria_Click(object sender, EventArgs e)
         {
             Guna.UI2.WinForms.Guna2Button btn = (Guna.UI2.WinForms.Guna2Button)sender;
@@ -346,10 +335,7 @@ namespace Restaurante_Sabor_Gourmet.Formularios
 
             AgregarProductoAOrden(idProd, nombre, precio);
         }
-
-        // ============================================================
-        //  DETALLE DE LA ORDEN (DataGridView)
-        // ============================================================
+        //  Detalle de la orden (DataGridView)
         private void AgregarProductoAOrden(int idProducto, string nombre, decimal precioUnitario)
         {
             // Si el producto ya está en la grilla, solo suma 1
@@ -450,9 +436,7 @@ namespace Restaurante_Sabor_Gourmet.Formularios
             lblTotalOrden.Text = "$" + total.ToString("0.00");
         }
 
-        // ============================================================
         //  HELPER: Construir List<DetalleOrden> desde el DataGridView
-        // ============================================================
         private List<DetalleOrden> ObtenerDetalleParaGuardar()
         {
             List<DetalleOrden> lista = new List<DetalleOrden>();
@@ -474,17 +458,14 @@ namespace Restaurante_Sabor_Gourmet.Formularios
             return lista;
         }
 
-        // ============================================================
-        //  OBSERVACIONES GENERALES
-        // ============================================================
+        //  Observaciones generales 
+
         private void txtObservacionesGenerales_TextChanged(object sender, EventArgs e)
         {
             lblContadorObs.Text = txtObservacionesGenerales.Text.Length + "/300";
         }
 
-        // ============================================================
-        //  ENVIAR A COCINA
-        // ============================================================
+        //  Enviar a cocina
         private void btnEnviarCocina_Click(object sender, EventArgs e)
         {
             // Obtener estado de la mesa para validar
@@ -543,9 +524,7 @@ namespace Restaurante_Sabor_Gourmet.Formularios
             }
         }
 
-        // ============================================================
-        //  SOLICITAR CIERRE DE CUENTA
-        // ============================================================
+        //  Solicitar de cierre de cuenta 
         private void btnSolicitarCierre_Click(object sender, EventArgs e)
         {
             if (idOrdenActual == 0)

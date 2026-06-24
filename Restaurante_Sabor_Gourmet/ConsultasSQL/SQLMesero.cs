@@ -13,9 +13,7 @@ namespace Restaurante_Sabor_Gourmet.ConsultasSQL
     {
         private readonly ConexionBD conexion = new ConexionBD();
 
-        // ============================================================
         //  OBTENER TODOS LOS MESEROS
-        // ============================================================
         public List<Mesero> ObtenerMeseros(int idRolMesero)
         {
             List<Mesero> lista = new List<Mesero>();
@@ -60,10 +58,7 @@ namespace Restaurante_Sabor_Gourmet.ConsultasSQL
 
             return lista;
         }
-
-        // ============================================================
         //  OBTENER UN MESERO POR ID
-        // ============================================================
         public Mesero ObtenerPorId(int idUsuario)
         {
             Mesero mesero = null;
