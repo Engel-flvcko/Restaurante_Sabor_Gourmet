@@ -82,7 +82,7 @@ namespace Restaurante_Sabor_Gourmet.Jaqueline.Formularios
 
         private void btnReservaciones_Click(object sender, EventArgs e)
         {
-            //gestorFormularios.AbrirReservaciones();
+            gestorFormularios.AbrirReservaciones();
         }
 
         private void btnDashboard_Click(object sender, EventArgs e)

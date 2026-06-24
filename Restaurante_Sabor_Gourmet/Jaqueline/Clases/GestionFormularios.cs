@@ -102,7 +102,10 @@ namespace Restaurante_Sabor_Gourmet.Jaqueline.Clases
             CargarFormulario(new frmMenu(Sesion.IdUsuario, Sesion.NombreUsuario));
         }
 
-        // AbrirReservaciones() se agrega cuando exista frmReservaciones (Tarea 4)
+        public void AbrirReservaciones()
+        {
+            CargarFormulario(new frmReservaciones());
+        }
 
     }
 }

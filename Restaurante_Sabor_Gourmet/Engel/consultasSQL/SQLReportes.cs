@@ -1,7 +1,6 @@
 ﻿using MySql.Data.MySqlClient;
 using Restaurante_Sabor_Gourmet.Clases;
 using Restaurante_Sabor_Gourmet.Jaqueline.Clases;
-
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -30,6 +29,51 @@ namespace Restaurante_Sabor_Gourmet.Engel.consultasSQL
                 da.Fill(dt);
             }
 
+            return dt;
+        }
+        public DataTable MostrarBajoStock()
+        {
+            DataTable dt = new DataTable();
+            using (MySqlConnection cn = conexion.ObtenerConexion())
+            {
+                // Vista correcta: vista_stock_bajo
+                // Columnas correctas: existencia_actual, stock_minimo, unidad_medida
+                string sql = @"SELECT nombre_ingrediente, existencia_actual,
+                              stock_minimo, unidad_medida,
+                              CASE WHEN existencia_actual = 0 THEN 'Agotado'
+                                   ELSE 'Stock mínimo' END AS estado
+                       FROM vista_stock_bajo
+                       ORDER BY existencia_actual ASC";
+
+                MySqlDataAdapter da = new MySqlDataAdapter(sql, cn);
+                da.Fill(dt);
+            }
+            return dt;
+        }
+
+        public DataTable MostrarStockAgotado()
+        {
+            DataTable dt = new DataTable();
+            using (MySqlConnection cn = conexion.ObtenerConexion())
+            {
+                // Vista correcta: vista_stock_bajo con existencia_actual = 0
+                string sql = "SELECT nombre_ingrediente FROM vista_stock_bajo WHERE existencia_actual = 0";
+                MySqlDataAdapter da = new MySqlDataAdapter(sql, cn);
+                da.Fill(dt);
+            }
+            return dt;
+        }
+
+        public DataTable MostrarCostosProduccion()
+        {
+            DataTable dt = new DataTable();
+            using (MySqlConnection cn = conexion.ObtenerConexion())
+            {
+                // Columna correcta: ganancia_estimada (no ganancia)
+                string sql = "SELECT * FROM vista_costos_produccion ORDER BY ganancia_estimada DESC";
+                MySqlDataAdapter da = new MySqlDataAdapter(sql, cn);
+                da.Fill(dt);
+            }
             return dt;
         }
 
@@ -119,23 +163,7 @@ namespace Restaurante_Sabor_Gourmet.Engel.consultasSQL
             return dt;
         }
 
-        // Costos de producción (usa la vista)
-        public DataTable MostrarCostosProduccion()
-        {
-            DataTable dt = new DataTable();
-
-            using (MySqlConnection cn = conexion.ObtenerConexion())
-            {
-                string sql = "SELECT * FROM vista_costos_produccion ORDER BY ganancia_estimada DESC";
-
-                MySqlDataAdapter da = new MySqlDataAdapter(sql, cn);
-                da.Fill(dt);
-            }
-
-            return dt;
-        }
-
-        // Indicadores del dashboard (4 KPIs en una sola consulta)
+        
         public DataTable MostrarIndicadoresDia()
         {
             DataTable dt = new DataTable();
@@ -158,33 +186,20 @@ namespace Restaurante_Sabor_Gourmet.Engel.consultasSQL
 
             return dt;
         }
-
-        // En SQLReportes.cs — agregar estos 3 métodos:
-
-        public DataTable MostrarStockAgotado()
-        {
-            DataTable dt = new DataTable();
-            using (MySqlConnection cn = conexion.ObtenerConexion())
-            {
-                string sql = "SELECT nombre_ingrediente FROM tbl_ingredientes WHERE existencia = 0";
-                MySqlDataAdapter da = new MySqlDataAdapter(sql, cn);
-                da.Fill(dt);
-            }
-            return dt;
-        }
+       
 
         public DataTable MostrarOrdenesRetrasadas()
         {
             DataTable dt = new DataTable();
             using (MySqlConnection cn = conexion.ObtenerConexion())
             {
-                string sql = @"SELECT cc.id_orden, m.numero_mesa,
-                       TIMESTAMPDIFF(MINUTE, cc.hora_recepcion, NOW()) AS minutos
-                       FROM tbl_cola_cocina cc
-                       JOIN tbl_ordenes o ON o.id_orden = cc.id_orden
-                       JOIN tbl_mesas m ON m.id_mesa = o.id_mesa_orden
-                       WHERE cc.estado_cocina IN ('pendiente','en_preparacion')
-                         AND TIMESTAMPDIFF(MINUTE, cc.hora_recepcion, NOW()) > 30";
+                string sql = @"SELECT cc.id_orden_cocina, m.numero_mesa,
+               TIMESTAMPDIFF(MINUTE, cc.hora_recepcion_cocina, NOW()) AS minutos
+               FROM tbl_cola_cocina cc
+               JOIN tbl_ordenes o ON o.id_orden = cc.id_orden_cocina
+               JOIN tbl_mesas m ON m.id_mesa = o.id_mesa_orden
+               WHERE cc.estado_cocina IN ('pendiente','en_preparacion')
+                 AND TIMESTAMPDIFF(MINUTE, cc.hora_recepcion_cocina, NOW()) > 30";
                 MySqlDataAdapter da = new MySqlDataAdapter(sql, cn);
                 da.Fill(dt);
             }
@@ -196,44 +211,25 @@ namespace Restaurante_Sabor_Gourmet.Engel.consultasSQL
             DataTable dt = new DataTable();
             using (MySqlConnection cn = conexion.ObtenerConexion())
             {
-                string sql = @"SELECT cc.id_orden, m.numero_mesa,
-                       cc.estado_cocina AS estado,
-                       cc.hora_recepcion, cc.hora_inicio, cc.hora_finalizacion AS hora_fin,
-                       TIMESTAMPDIFF(MINUTE, cc.hora_recepcion, IFNULL(cc.hora_finalizacion, NOW())) AS tiempo_total
-                       FROM tbl_cola_cocina cc
-                       JOIN tbl_ordenes o ON o.id_orden = cc.id_orden
-                       JOIN tbl_mesas m ON m.id_mesa = o.id_mesa_orden
-                       WHERE DATE(cc.hora_recepcion) = CURDATE()
-                       ORDER BY cc.hora_recepcion DESC";
+                string sql = @"SELECT cc.id_orden_cocina, m.numero_mesa,
+               cc.estado_cocina AS estado,
+               cc.hora_recepcion_cocina,
+               cc.hora_inicio_cocina,
+               cc.hora_finalizacion_cocina AS hora_fin,
+               TIMESTAMPDIFF(MINUTE, cc.hora_recepcion_cocina, IFNULL(cc.hora_finalizacion_cocina, NOW())) AS tiempo_total
+               FROM tbl_cola_cocina cc
+               JOIN tbl_ordenes o ON o.id_orden = cc.id_orden_cocina
+               JOIN tbl_mesas m ON m.id_mesa = o.id_mesa_orden
+               WHERE DATE(cc.hora_recepcion_cocina) = CURDATE()
+               ORDER BY cc.hora_recepcion_cocina DESC";
                 MySqlDataAdapter da = new MySqlDataAdapter(sql, cn);
                 da.Fill(dt);
             }
             return dt;
         }
+        
 
-        // Ingredientes con stock bajo (existencia <= stock_minimo)
-        public DataTable MostrarBajoStock()
-        {
-            DataTable dt = new DataTable();
-
-            using (MySqlConnection cn = conexion.ObtenerConexion())
-            {
-                string sql = @"SELECT nombre_ingrediente, existencia,
-                              stock_minimo, unidad_medida,
-                              CASE WHEN existencia = 0 THEN 'Agotado'
-                                   ELSE 'Stock mínimo' END AS estado
-                       FROM tbl_ingredientes
-                       WHERE existencia <= stock_minimo
-                       ORDER BY existencia ASC";
-
-                MySqlDataAdapter da = new MySqlDataAdapter(sql, cn);
-                da.Fill(dt);
-            }
-
-            return dt;
-        }
-
-        // Arqueos del día que tienen diferencia (para alertas)
+        
         public DataTable MostrarArqueosConDiferencias()
         {
             DataTable dt = new DataTable();

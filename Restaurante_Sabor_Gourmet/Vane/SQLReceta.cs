@@ -125,14 +125,13 @@ namespace Restaurante_Sabor_Gourmet.ConsultasSQL
 
         public Dictionary<int, string> ObtenerProductosParaCombo()
         {
-            // Solo id + nombre para llenar el ComboBox selector de producto
             Dictionary<int, string> dict = new Dictionary<int, string>();
 
             using (MySqlConnection cn = conexion.ObtenerConexion())
             {
                 cn.Open();
                 string sql = "SELECT id_producto, nombre_producto FROM tbl_productos " +
-                             "WHERE disponible = 1 ORDER BY nombre_producto";
+                             "WHERE disponible_producto = 1 ORDER BY nombre_producto";
                 using (MySqlCommand cmd = new MySqlCommand(sql, cn))
                 using (MySqlDataReader rd = cmd.ExecuteReader())
                 {

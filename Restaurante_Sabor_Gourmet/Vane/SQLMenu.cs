@@ -16,7 +16,6 @@ namespace Restaurante_Sabor_Gourmet.ConsultasSQL
         public List<string> ObtenerCategorias()
         {
             List<string> lista = new List<string>();
-
             using (MySqlConnection cn = conexion.ObtenerConexion())
             {
                 cn.Open();
@@ -62,12 +61,11 @@ namespace Restaurante_Sabor_Gourmet.ConsultasSQL
 
         public bool EliminarCategoria(int idCategoria)
         {
-            // Solo eliminar si no tiene productos asociados
             using (MySqlConnection cn = conexion.ObtenerConexion())
             {
                 cn.Open();
                 string sql = "DELETE FROM tbl_categorias WHERE id_categoria = @id " +
-                             "AND NOT EXISTS (SELECT 1 FROM tbl_productos WHERE id_categoria = @id)";
+                             "AND NOT EXISTS (SELECT 1 FROM tbl_productos WHERE id_categoria_producto = @id)";
                 using (MySqlCommand cmd = new MySqlCommand(sql, cn))
                 {
                     cmd.Parameters.AddWithValue("@id", idCategoria);
@@ -76,23 +74,19 @@ namespace Restaurante_Sabor_Gourmet.ConsultasSQL
             }
         }
 
-        // ─────────────────────────────────────────
-        // PRODUCTOS
-        // ─────────────────────────────────────────
-
         public List<ProductoCatalogo> ObtenerTodosLosProductos()
         {
             List<ProductoCatalogo> lista = new List<ProductoCatalogo>();
-
             using (MySqlConnection cn = conexion.ObtenerConexion())
             {
                 cn.Open();
                 string sql = @"SELECT p.id_producto, p.codigo_producto, p.nombre_producto,
-                                      p.descripcion, p.tiempo_preparacion_min, p.precio_venta,
-                                      p.disponible, p.id_categoria, c.nombre_categoria
-                               FROM tbl_productos p
-                               INNER JOIN tbl_categorias c ON p.id_categoria = c.id_categoria
-                               ORDER BY c.nombre_categoria, p.nombre_producto";
+                              p.descripcion_producto, p.tiempo_preparacion_producto,
+                              p.precio_venta_producto, p.disponible_producto,
+                              p.id_categoria_producto, c.nombre_categoria
+                       FROM tbl_productos p
+                       INNER JOIN tbl_categorias c ON p.id_categoria_producto = c.id_categoria
+                       ORDER BY c.nombre_categoria, p.nombre_producto";
 
                 using (MySqlCommand cmd = new MySqlCommand(sql, cn))
                 using (MySqlDataReader rd = cmd.ExecuteReader())
@@ -104,11 +98,11 @@ namespace Restaurante_Sabor_Gourmet.ConsultasSQL
                             IdProducto = rd.GetInt32("id_producto"),
                             CodigoProducto = rd.GetString("codigo_producto"),
                             NombreProducto = rd.GetString("nombre_producto"),
-                            Descripcion = rd.GetString("descripcion"),
-                            TiempoPreparacionMin = rd.GetInt32("tiempo_preparacion_min"),
-                            PrecioVenta = rd.GetDecimal("precio_venta"),
-                            Disponible = rd.GetBoolean("disponible"),
-                            IdCategoria = rd.GetInt32("id_categoria"),
+                            Descripcion = rd.GetString("descripcion_producto"),
+                            TiempoPreparacionMin = rd.GetInt32("tiempo_preparacion_producto"),
+                            PrecioVenta = rd.GetDecimal("precio_venta_producto"),
+                            Disponible = rd.GetBoolean("disponible_producto"),
+                            IdCategoria = rd.GetInt32("id_categoria_producto"),
                             NombreCategoria = rd.GetString("nombre_categoria")
                         });
                     }
@@ -123,9 +117,10 @@ namespace Restaurante_Sabor_Gourmet.ConsultasSQL
             {
                 cn.Open();
                 string sql = @"INSERT INTO tbl_productos
-                               (codigo_producto, nombre_producto, descripcion,
-                                tiempo_preparacion_min, precio_venta, disponible, id_categoria)
-                               VALUES (@codigo, @nombre, @desc, @tiempo, @precio, @disponible, @idCat)";
+                       (codigo_producto, nombre_producto, descripcion_producto,
+                        tiempo_preparacion_producto, precio_venta_producto,
+                        disponible_producto, id_categoria_producto)
+                       VALUES (@codigo, @nombre, @desc, @tiempo, @precio, @disponible, @idCat)";
 
                 using (MySqlCommand cmd = new MySqlCommand(sql, cn))
                 {
@@ -147,14 +142,14 @@ namespace Restaurante_Sabor_Gourmet.ConsultasSQL
             {
                 cn.Open();
                 string sql = @"UPDATE tbl_productos SET
-                               codigo_producto       = @codigo,
-                               nombre_producto       = @nombre,
-                               descripcion           = @desc,
-                               tiempo_preparacion_min= @tiempo,
-                               precio_venta          = @precio,
-                               disponible            = @disponible,
-                               id_categoria          = @idCat
-                               WHERE id_producto = @id";
+                       codigo_producto            = @codigo,
+                       nombre_producto            = @nombre,
+                       descripcion_producto       = @desc,
+                       tiempo_preparacion_producto= @tiempo,
+                       precio_venta_producto      = @precio,
+                       disponible_producto        = @disponible,
+                       id_categoria_producto      = @idCat
+                       WHERE id_producto = @id";
 
                 using (MySqlCommand cmd = new MySqlCommand(sql, cn))
                 {
@@ -176,7 +171,7 @@ namespace Restaurante_Sabor_Gourmet.ConsultasSQL
             using (MySqlConnection cn = conexion.ObtenerConexion())
             {
                 cn.Open();
-                string sql = "UPDATE tbl_productos SET disponible = @disp WHERE id_producto = @id";
+                string sql = "UPDATE tbl_productos SET disponible_producto = @disp WHERE id_producto = @id";
                 using (MySqlCommand cmd = new MySqlCommand(sql, cn))
                 {
                     cmd.Parameters.AddWithValue("@disp", disponible);
@@ -205,14 +200,13 @@ namespace Restaurante_Sabor_Gourmet.ConsultasSQL
         public List<(int Id, string Nombre, int TotalProductos)> ObtenerCategoriasConConteo()
         {
             var lista = new List<(int, string, int)>();
-
             using (MySqlConnection cn = conexion.ObtenerConexion())
             {
                 cn.Open();
                 string sql = @"SELECT c.id_categoria, c.nombre_categoria,
                               COUNT(p.id_producto) AS total_productos
                        FROM tbl_categorias c
-                       LEFT JOIN tbl_productos p ON c.id_categoria = p.id_categoria
+                       LEFT JOIN tbl_productos p ON p.id_categoria_producto = c.id_categoria
                        GROUP BY c.id_categoria, c.nombre_categoria
                        ORDER BY c.nombre_categoria";
 
@@ -235,8 +229,7 @@ namespace Restaurante_Sabor_Gourmet.ConsultasSQL
             using (MySqlConnection cn = conexion.ObtenerConexion())
             {
                 cn.Open();
-                string sql = "UPDATE tbl_categorias SET nombre_categoria = @nombre " +
-                             "WHERE id_categoria = @id";
+                string sql = "UPDATE tbl_categorias SET nombre_categoria = @nombre WHERE id_categoria = @id";
                 using (MySqlCommand cmd = new MySqlCommand(sql, cn))
                 {
                     cmd.Parameters.AddWithValue("@nombre", nuevoNombre);
@@ -251,7 +244,7 @@ namespace Restaurante_Sabor_Gourmet.ConsultasSQL
             using (MySqlConnection cn = conexion.ObtenerConexion())
             {
                 cn.Open();
-                string sql = "SELECT COUNT(*) FROM tbl_productos WHERE id_categoria = @id";
+                string sql = "SELECT COUNT(*) FROM tbl_productos WHERE id_categoria_producto = @id";
                 using (MySqlCommand cmd = new MySqlCommand(sql, cn))
                 {
                     cmd.Parameters.AddWithValue("@id", idCategoria);

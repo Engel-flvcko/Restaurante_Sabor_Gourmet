@@ -68,7 +68,242 @@ namespace Restaurante_Sabor_Gourmet.Engel
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+        private void CargarBajoStock()
+        {
+            try
+            {
+                SQLReportes sql = new SQLReportes();
+                DataTable dt = sql.MostrarBajoStock();
 
+                // Mapear columnas del Designer a columnas reales de vista_stock_bajo
+                dgvBajoStock.AutoGenerateColumns = false;
+                colBSIngrediente.DataPropertyName = "nombre_ingrediente";
+                colBSExistencia.DataPropertyName = "existencia_actual";
+                colBSMinimo.DataPropertyName = "stock_minimo";
+                colBSUnidad.DataPropertyName = "unidad_medida";
+                colBSEstado.DataPropertyName = "estado";
+                dgvBajoStock.DataSource = dt;
+
+                foreach (DataGridViewRow row in dgvBajoStock.Rows)
+                {
+                    object exObj = row.Cells["colBSExistencia"].Value;
+                    object minObj = row.Cells["colBSMinimo"].Value;
+                    if (exObj == null || minObj == null) continue;
+
+                    decimal exist = Convert.ToDecimal(exObj);
+                    decimal min = Convert.ToDecimal(minObj);
+
+                    if (exist == 0)
+                        row.DefaultCellStyle.BackColor = Color.FromArgb(255, 210, 210);
+                    else if (exist <= min)
+                        row.DefaultCellStyle.BackColor = Color.FromArgb(255, 237, 213);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al cargar stock:\n{ex.Message}");
+            }
+        }
+
+        private void CargarCostosProduccion()
+        {
+            try
+            {
+                SQLReportes sql = new SQLReportes();
+                DataTable dt = sql.MostrarCostosProduccion();
+
+                // Mapear columnas del Designer a columnas reales de vista_costos_produccion
+                dgvCostos.AutoGenerateColumns = false;
+                colCosProducto.DataPropertyName = "nombre_producto";
+                colCosPrecio.DataPropertyName = "precio_venta";
+                colCosCosto.DataPropertyName = "costo_produccion";
+                colCosGanancia.DataPropertyName = "ganancia_estimada";
+                dgvCostos.DataSource = dt;
+
+                foreach (DataGridViewRow row in dgvCostos.Rows)
+                {
+                    object ganObj = row.Cells["colCosGanancia"].Value;
+                    if (ganObj == null || ganObj == DBNull.Value) continue;
+
+                    decimal gan = Convert.ToDecimal(ganObj);
+                    if (gan < 0)
+                    {
+                        row.Cells["colCosGanancia"].Style.ForeColor = Color.FromArgb(200, 40, 40);
+                        row.Cells["colCosGanancia"].Style.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al cargar costos:\n{ex.Message}");
+            }
+        }
+
+        private void CargarVentasMesero()
+        {
+            try
+            {
+                SQLReportes sql = new SQLReportes();
+                DataTable dt = sql.MostrarVentasPorMesero();
+
+                // vista_ventas_mesero: id_mesero, nombre_mesero, total_ordenes, total_ventas, total_propinas
+                dgvVentasMesero.AutoGenerateColumns = false;
+                colVMesero.DataPropertyName = "nombre_mesero";
+                colVVentas.DataPropertyName = "total_ventas";
+                colVPropinas.DataPropertyName = "total_propinas";
+                colVTotal.DataPropertyName = "total_ventas";    // no hay total separado, reutiliza ventas
+                colVMesas.DataPropertyName = "";                // la vista no tiene este campo, se deja vacío
+                colVOrdenes.DataPropertyName = "total_ordenes";
+                colVTicket.DataPropertyName = "";                // la vista no tiene este campo, se deja vacío
+                dgvVentasMesero.DataSource = dt;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al cargar ventas por mesero:\n{ex.Message}");
+            }
+        }
+
+        private void CargarVentasCategoria()
+        {
+            try
+            {
+                SQLReportes sql = new SQLReportes();
+                DataTable dt = sql.MostrarVentasPorCategoria();
+
+                // vista_ventas_categoria: id_categoria, nombre_categoria, total_items_vendidos,
+                //                         total_unidades, total_ingresos
+                dgvVentasCategoria.AutoGenerateColumns = false;
+                colCatNombre.DataPropertyName = "nombre_categoria";
+                colCatVentas.DataPropertyName = "total_ingresos";
+                colCatPorcentaje.DataPropertyName = "total_unidades"; // no hay porcentaje en la vista
+                dgvVentasCategoria.DataSource = dt;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al cargar ventas por categoría:\n{ex.Message}");
+            }
+        }
+
+        private void CargarDatosCocina()
+        {
+            try
+            {
+                SQLReportes sql = new SQLReportes();
+                DataTable dtCocina = sql.MostrarDatosCocina();
+
+                // MostrarDatosCocina devuelve: id_orden_cocina, numero_mesa, estado,
+                //                              hora_recepcion_cocina, hora_inicio_cocina,
+                //                              hora_fin, tiempo_total
+                dgvCocina.AutoGenerateColumns = false;
+                colCocOrden.DataPropertyName = "id_orden_cocina";
+                colCocMesa.DataPropertyName = "numero_mesa";
+                colCocEstado.DataPropertyName = "estado";
+                colCocRecepcion.DataPropertyName = "hora_recepcion_cocina";
+                colCocInicio.DataPropertyName = "hora_inicio_cocina";
+                colCocFin.DataPropertyName = "hora_fin";
+                colCocTiempo.DataPropertyName = "tiempo_total";
+                dgvCocina.DataSource = dtCocina;
+
+                DataTable dtIndicadores = sql.MostrarIndicadoresDia();
+                if (dtIndicadores.Rows.Count > 0)
+                    lblAtendValor.Text = dtIndicadores.Rows[0]["ordenes_en_cocina"].ToString();
+
+                int retrasadas = 0;
+                foreach (DataGridViewRow row in dgvCocina.Rows)
+                {
+                    string estado = row.Cells["colCocEstado"].Value?.ToString() ?? "";
+                    if (estado == "en_preparacion" || estado == "pendiente")
+                    {
+                        object minObj = row.Cells["colCocTiempo"].Value;
+                        if (minObj != null && minObj != DBNull.Value)
+                        {
+                            if (Convert.ToInt32(minObj) > 30)
+                            {
+                                row.DefaultCellStyle.BackColor = Color.FromArgb(255, 230, 230);
+                                retrasadas++;
+                            }
+                        }
+                    }
+                }
+
+                lblRetValor.Text = retrasadas.ToString();
+                lblTiempValor.Text = "—";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al cargar datos de cocina:\n{ex.Message}");
+            }
+        }
+
+        private void CargarArqueos()
+        {
+            try
+            {
+                SQLArqueo sql = new SQLArqueo();
+                DataTable dt = sql.MostrarTodosLosArqueos();
+
+                // MostrarTodosLosArqueos devuelve: id_arqueo, nombre_cajero, apertura,
+                //                                  hora_cierre, monto_esperado,
+                //                                  monto_contado, diferencia, estado
+                dgvArqueos.AutoGenerateColumns = false;
+                colArkId.DataPropertyName = "id_arqueo";
+                colArkCajero.DataPropertyName = "nombre_cajero";
+                colArkApertura.DataPropertyName = "apertura";
+                colArkCierre.DataPropertyName = "hora_cierre";
+                colArkEsperado.DataPropertyName = "monto_esperado";
+                colArkContado.DataPropertyName = "monto_contado";
+                colArkDiferencia.DataPropertyName = "diferencia";
+                colArkEstado.DataPropertyName = "estado";
+                dgvArqueos.DataSource = dt;
+
+                foreach (DataGridViewRow row in dgvArqueos.Rows)
+                {
+                    object difObj = row.Cells["colArkDiferencia"].Value;
+                    if (difObj != null && difObj != DBNull.Value)
+                    {
+                        decimal dif = Convert.ToDecimal(difObj);
+                        if (dif < 0)
+                        {
+                            row.Cells["colArkDiferencia"].Style.ForeColor = Color.FromArgb(200, 40, 40);
+                            row.Cells["colArkDiferencia"].Style.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+                        }
+                    }
+
+                    string estado = row.Cells["colArkEstado"].Value?.ToString() ?? "";
+                    if (estado == "abierta")
+                        row.DefaultCellStyle.BackColor = Color.FromArgb(230, 255, 230);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al cargar arqueos:\n{ex.Message}");
+            }
+        }
+
+        private void CargarPersonal()
+        {
+            try
+            {
+                SQLReportes sql = new SQLReportes();
+                DataTable dt = sql.MostrarVentasPorMesero();
+
+                // vista_ventas_mesero: id_mesero, nombre_mesero, total_ordenes, total_ventas, total_propinas
+                dgvPersonal.AutoGenerateColumns = false;
+                colPersNombre.DataPropertyName = "nombre_mesero";
+                colPersOrdenes.DataPropertyName = "total_ordenes";
+                colPersVentas.DataPropertyName = "total_ventas";
+                colPersPropinas.DataPropertyName = "total_propinas";
+                colPersMesas.DataPropertyName = ""; // la vista no tiene mesas atendidas
+                dgvPersonal.DataSource = dt;
+
+                if (dgvPersonal.Rows.Count > 0)
+                    dgvPersonal.Rows[0].DefaultCellStyle.BackColor = Color.FromArgb(230, 255, 230);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al cargar personal:\n{ex.Message}");
+            }
+        }
         private void CargarAlertas()
         {
             try
@@ -181,31 +416,6 @@ namespace Restaurante_Sabor_Gourmet.Engel
             }
         }
 
-        private void CargarVentasMesero()
-        {
-            try
-            {
-                SQLReportes sql = new SQLReportes();
-                dgvVentasMesero.DataSource = sql.MostrarVentasPorMesero();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Error al cargar ventas por mesero:\n{ex.Message}");
-            }
-        }
-
-        private void CargarVentasCategoria()
-        {
-            try
-            {
-                SQLReportes sql = new SQLReportes();
-                dgvVentasCategoria.DataSource = sql.MostrarVentasPorCategoria();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Error al cargar ventas por categoría:\n{ex.Message}");
-            }
-        }
 
         // ── ÚNICO MÉTODO QUE CAMBIÓ — usa val.ValidarRangoFechas ─────────────
         private void btnFiltrar_Click(object sender, EventArgs e)
@@ -230,150 +440,6 @@ namespace Restaurante_Sabor_Gourmet.Engel
             catch (Exception ex)
             {
                 MessageBox.Show($"Error al filtrar:\n{ex.Message}");
-            }
-        }
-
-        private void CargarDatosCocina()
-        {
-            try
-            {
-                SQLReportes sql = new SQLReportes();
-                DataTable dtCocina = sql.MostrarDatosCocina();
-                dgvCocina.DataSource = dtCocina;
-
-                DataTable dtIndicadores = sql.MostrarIndicadoresDia();
-                if (dtIndicadores.Rows.Count > 0)
-                    lblAtendValor.Text = dtIndicadores.Rows[0]["ordenes_en_cocina"].ToString();
-
-                int retrasadas = 0;
-                foreach (DataGridViewRow row in dgvCocina.Rows)
-                {
-                    string estado = row.Cells["estado"].Value?.ToString() ?? "";
-                    if (estado == "en_preparacion" || estado == "pendiente")
-                    {
-                        object minObj = row.Cells["tiempo_total"].Value;
-                        if (minObj != null && minObj != DBNull.Value)
-                        {
-                            if (Convert.ToInt32(minObj) > 30)
-                            {
-                                row.DefaultCellStyle.BackColor = Color.FromArgb(255, 230, 230);
-                                retrasadas++;
-                            }
-                        }
-                    }
-                }
-
-                lblRetValor.Text = retrasadas.ToString();
-                lblTiempValor.Text = "—";
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Error al cargar datos de cocina:\n{ex.Message}");
-            }
-        }
-
-        private void CargarBajoStock()
-        {
-            try
-            {
-                SQLReportes sql = new SQLReportes();
-                DataTable dt = sql.MostrarBajoStock();
-                dgvBajoStock.DataSource = dt;
-
-                foreach (DataGridViewRow row in dgvBajoStock.Rows)
-                {
-                    object exObj = row.Cells["existencia"].Value;
-                    object minObj = row.Cells["stock_minimo"].Value;
-                    if (exObj == null || minObj == null) continue;
-
-                    decimal exist = Convert.ToDecimal(exObj);
-                    decimal min = Convert.ToDecimal(minObj);
-
-                    if (exist == 0)
-                        row.DefaultCellStyle.BackColor = Color.FromArgb(255, 210, 210);
-                    else if (exist <= min)
-                        row.DefaultCellStyle.BackColor = Color.FromArgb(255, 237, 213);
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Error al cargar stock:\n{ex.Message}");
-            }
-        }
-
-        private void CargarCostosProduccion()
-        {
-            try
-            {
-                SQLReportes sql = new SQLReportes();
-                DataTable dt = sql.MostrarCostosProduccion();
-                dgvCostos.DataSource = dt;
-
-                foreach (DataGridViewRow row in dgvCostos.Rows)
-                {
-                    object ganObj = row.Cells["ganancia"].Value;
-                    if (ganObj == null || ganObj == DBNull.Value) continue;
-
-                    decimal gan = Convert.ToDecimal(ganObj);
-                    if (gan < 0)
-                    {
-                        row.Cells["ganancia"].Style.ForeColor = Color.FromArgb(200, 40, 40);
-                        row.Cells["ganancia"].Style.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Error al cargar costos:\n{ex.Message}");
-            }
-        }
-
-        private void CargarArqueos()
-        {
-            try
-            {
-                SQLArqueo sql = new SQLArqueo();
-                DataTable dt = sql.MostrarTodosLosArqueos();
-                dgvArqueos.DataSource = dt;
-
-                foreach (DataGridViewRow row in dgvArqueos.Rows)
-                {
-                    object difObj = row.Cells["diferencia"].Value;
-                    if (difObj != null && difObj != DBNull.Value)
-                    {
-                        decimal dif = Convert.ToDecimal(difObj);
-                        if (dif < 0)
-                        {
-                            row.Cells["diferencia"].Style.ForeColor = Color.FromArgb(200, 40, 40);
-                            row.Cells["diferencia"].Style.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-                        }
-                    }
-
-                    string estado = row.Cells["estado"].Value?.ToString() ?? "";
-                    if (estado == "abierta")
-                        row.DefaultCellStyle.BackColor = Color.FromArgb(230, 255, 230);
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Error al cargar arqueos:\n{ex.Message}");
-            }
-        }
-
-        private void CargarPersonal()
-        {
-            try
-            {
-                SQLReportes sql = new SQLReportes();
-                DataTable dt = sql.MostrarVentasPorMesero();
-                dgvPersonal.DataSource = dt;
-
-                if (dgvPersonal.Rows.Count > 0)
-                    dgvPersonal.Rows[0].DefaultCellStyle.BackColor = Color.FromArgb(230, 255, 230);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Error al cargar personal:\n{ex.Message}");
             }
         }
 

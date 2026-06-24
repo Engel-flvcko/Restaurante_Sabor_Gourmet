@@ -19,58 +19,38 @@ namespace Restaurante_Sabor_Gourmet.ConsultasSQL
         public List<(int Id, string Nombre)> ObtenerCategorias()
         {
             var lista = new List<(int, string)>();
-
             using (MySqlConnection cn = conexion.ObtenerConexion())
             {
                 cn.Open();
-
-                string sql = @"
-                    SELECT id_categoria, nombre_categoria
-                    FROM   tbl_categorias
-                    ORDER  BY nombre_categoria ASC";
-
+                string sql = "SELECT id_categoria, nombre_categoria FROM tbl_categorias ORDER BY nombre_categoria ASC";
                 using (MySqlCommand cmd = new MySqlCommand(sql, cn))
+                using (MySqlDataReader rd = cmd.ExecuteReader())
                 {
-                    using (MySqlDataReader rd = cmd.ExecuteReader())
-                    {
-                        while (rd.Read())
-                            lista.Add((rd.GetInt32("id_categoria"), rd.GetString("nombre_categoria")));
-                    }
+                    while (rd.Read())
+                        lista.Add((rd.GetInt32("id_categoria"), rd.GetString("nombre_categoria")));
                 }
             }
-
             return lista;
         }
 
-        // ============================================================
-        //  OBTENER PRODUCTOS POR CATEGORÍA (solo los disponibles)
-        // ============================================================
         public List<ProductoCatalogo> ObtenerPorCategoria(int idCategoria)
         {
             List<ProductoCatalogo> lista = new List<ProductoCatalogo>();
-
             using (MySqlConnection cn = conexion.ObtenerConexion())
             {
                 cn.Open();
-
-                string sql = @"
-                    SELECT p.id_producto,
-                           p.codigo_producto,
-                           p.nombre_producto,
-                           p.precio_venta,
-                           p.disponible,
-                           p.id_categoria,
-                           c.nombre_categoria
-                    FROM   tbl_productos  p
-                    INNER  JOIN tbl_categorias c ON c.id_categoria = p.id_categoria
-                    WHERE  p.id_categoria = @idCat
-                    AND    p.disponible   = 1
-                    ORDER  BY p.nombre_producto ASC";
+                string sql = @"SELECT p.id_producto, p.codigo_producto, p.nombre_producto,
+                              p.precio_venta_producto, p.disponible_producto,
+                              p.id_categoria_producto, c.nombre_categoria
+                       FROM tbl_productos p
+                       INNER JOIN tbl_categorias c ON p.id_categoria_producto = c.id_categoria
+                       WHERE p.id_categoria_producto = @idCat
+                       AND   p.disponible_producto   = 1
+                       ORDER BY p.nombre_producto ASC";
 
                 using (MySqlCommand cmd = new MySqlCommand(sql, cn))
                 {
                     cmd.Parameters.AddWithValue("@idCat", idCategoria);
-
                     using (MySqlDataReader rd = cmd.ExecuteReader())
                     {
                         while (rd.Read())
@@ -80,42 +60,34 @@ namespace Restaurante_Sabor_Gourmet.ConsultasSQL
                                 IdProducto = rd.GetInt32("id_producto"),
                                 CodigoProducto = rd.GetString("codigo_producto"),
                                 NombreProducto = rd.GetString("nombre_producto"),
-                                PrecioVenta = rd.GetDecimal("precio_venta"),
-                                Disponible = rd.GetBoolean("disponible"),
-                                IdCategoria = rd.GetInt32("id_categoria"),
+                                PrecioVenta = rd.GetDecimal("precio_venta_producto"),
+                                Disponible = rd.GetBoolean("disponible_producto"),
+                                IdCategoria = rd.GetInt32("id_categoria_producto"),
                                 NombreCategoria = rd.GetString("nombre_categoria")
                             });
                         }
                     }
                 }
             }
-
             return lista;
         }
 
-        // ============================================================
-        //  OBTENER UN PRODUCTO POR ID
-        // ============================================================
         public ProductoCatalogo ObtenerPorId(int idProducto)
         {
             ProductoCatalogo producto = null;
-
             using (MySqlConnection cn = conexion.ObtenerConexion())
             {
                 cn.Open();
-
-                string sql = @"
-                    SELECT p.id_producto, p.codigo_producto, p.nombre_producto,
-                           p.precio_venta, p.disponible, p.id_categoria,
-                           c.nombre_categoria
-                    FROM   tbl_productos  p
-                    INNER  JOIN tbl_categorias c ON c.id_categoria = p.id_categoria
-                    WHERE  p.id_producto = @id";
+                string sql = @"SELECT p.id_producto, p.codigo_producto, p.nombre_producto,
+                              p.precio_venta_producto, p.disponible_producto,
+                              p.id_categoria_producto, c.nombre_categoria
+                       FROM tbl_productos p
+                       INNER JOIN tbl_categorias c ON p.id_categoria_producto = c.id_categoria
+                       WHERE p.id_producto = @id";
 
                 using (MySqlCommand cmd = new MySqlCommand(sql, cn))
                 {
                     cmd.Parameters.AddWithValue("@id", idProducto);
-
                     using (MySqlDataReader rd = cmd.ExecuteReader())
                     {
                         if (rd.Read())
@@ -125,16 +97,15 @@ namespace Restaurante_Sabor_Gourmet.ConsultasSQL
                                 IdProducto = rd.GetInt32("id_producto"),
                                 CodigoProducto = rd.GetString("codigo_producto"),
                                 NombreProducto = rd.GetString("nombre_producto"),
-                                PrecioVenta = rd.GetDecimal("precio_venta"),
-                                Disponible = rd.GetBoolean("disponible"),
-                                IdCategoria = rd.GetInt32("id_categoria"),
+                                PrecioVenta = rd.GetDecimal("precio_venta_producto"),
+                                Disponible = rd.GetBoolean("disponible_producto"),
+                                IdCategoria = rd.GetInt32("id_categoria_producto"),
                                 NombreCategoria = rd.GetString("nombre_categoria")
                             };
                         }
                     }
                 }
             }
-
             return producto;
         }
     }
