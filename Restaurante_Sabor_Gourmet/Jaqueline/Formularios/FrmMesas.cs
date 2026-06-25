@@ -220,6 +220,9 @@ namespace Restaurante_Sabor_Gourmet.Jaqueline.Formularios
             lblUbicacionMesa.Visible = true;
             lblInfoMesa.Visible = true;
 
+            lblOrden.Visible = true;
+            lblOrdenActiva.Visible = true;
+
         }
 
 
@@ -230,7 +233,37 @@ namespace Restaurante_Sabor_Gourmet.Jaqueline.Formularios
 
         private void btnAsignarMesa_Click(object sender, EventArgs e)
         {
-          
+            // Verificar que haya una mesa seleccionada
+            if (mesaSeleccionada == -1)
+            {
+                MessageBox.Show("Seleccione una mesa.");
+                return;
+            }
+
+            // Cambiar estado en la base de datos
+            bool resultado = sqlMesas.AsignarMesa(mesaSeleccionada);
+
+            if (resultado)
+            {
+                MessageBox.Show("Mesa asignada correctamente.");
+
+                // Recargar las mesas para actualizar colores
+                InsertarMesas ui = new InsertarMesas();
+
+                ui.CargarMesas(
+                    flpSalon,
+                    flpFamiliar,
+                    flpEventos,
+                    MostrarInfoMesa
+                );
+
+                // Volver a mostrar información actualizada
+                MostrarInfoMesa(mesaSeleccionada);
+            }
+            else
+            {
+                MessageBox.Show("No se pudo asignar la mesa.");
+            }
         }
 
         private void ConfigurarBotones(string estado)

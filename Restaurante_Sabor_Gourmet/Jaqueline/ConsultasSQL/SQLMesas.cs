@@ -76,5 +76,26 @@ namespace Restaurante_Sabor_Gourmet.Jaqueline.ConsultasSQL
         }
 
 
+        // Cambia una mesa a estado Ocupada
+        public bool AsignarMesa(int idMesa)
+        {
+            using (MySqlConnection conn = conexionBD.ObtenerConexion())
+            {
+                conn.Open();
+
+                string query = @"
+                UPDATE tbl_mesas
+                SET estado_mesa = 'Ocupada'
+                hora_ocupacion_mesa = NOW()
+                WHERE id_mesa = @idMesa";
+
+                MySqlCommand cmd = new MySqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@idMesa", idMesa);
+
+                return cmd.ExecuteNonQuery() > 0;
+            }
+        }
+
+
     }
 }
