@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Restaurante_Sabor_Gourmet.Jaqueline.Formularios;
 using Restaurante_Sabor_Gourmet.Jaqueline.ConsultasSQL;
 
 namespace Restaurante_Sabor_Gourmet.Jaqueline.Formularios
@@ -16,59 +17,59 @@ namespace Restaurante_Sabor_Gourmet.Jaqueline.Formularios
     {
         private SQLMesas sqlMesas = new SQLMesas();
         private int mesaSeleccionada = -1;
+
         public FrmMesas()
         {
             InitializeComponent();
         }
 
+        // ══════════════════════════════════════════════════════════════
+        //  CARGA INICIAL
+        // ══════════════════════════════════════════════════════════════
         private void FrmMesas_Load(object sender, EventArgs e)
         {
-
-            CrearTitulos();        // títulos de zonas
-            ConfigurarLeyendaPanel(); // configuración visual
-            CargarLeyenda();       // leyenda de colores
+            AgregarTitulosZonas();
+            ConfigurarLeyendaPanel();
+            CargarLeyenda();
             OcultarPanelMesa();
-
-
-
-            // Crear instancia de la clase UI
-            InsertarMesas ui = new InsertarMesas();
-
-            // Cargar mesas en cada zona
-            ui.CargarMesas(flpSalon, flpFamiliar, flpEventos, MostrarInfoMesa);
-
+            CargarTodasLasMesas();
         }
 
-        private void CrearTitulos()
+        // ── Cargar (o recargar) mesas en los 3 paneles ────────────────
+        private void CargarTodasLasMesas()
         {
-            // SALÓN PRINCIPAL
-            Label lblSalon = new Label();
-            lblSalon.Text = "SALÓN PRINCIPAL";
-            lblSalon.Font = new Font("Arial", 12, FontStyle.Bold);
-            lblSalon.AutoSize = true;
-            lblSalon.Location = new Point(flpSalon.Location.X, flpSalon.Location.Y - 25);
-            this.Controls.Add(lblSalon);
-
-            // ZONA FAMILIAR
-            Label lblFamiliar = new Label();
-            lblFamiliar.Text = "ZONA FAMILIAR";
-            lblFamiliar.Font = new Font("Arial", 12, FontStyle.Bold);
-            lblFamiliar.AutoSize = true;
-            lblFamiliar.Location = new Point(flpFamiliar.Location.X, flpFamiliar.Location.Y - 25);
-            this.Controls.Add(lblFamiliar);
-
-            // ZONA EVENTOS
-            Label lblEventos = new Label();
-            lblEventos.Text = "ZONA EVENTOS";
-            lblEventos.Font = new Font("Arial", 12, FontStyle.Bold);
-            lblEventos.AutoSize = true;
-            lblEventos.Location = new Point(flpEventos.Location.X, flpEventos.Location.Y - 25);
-            this.Controls.Add(lblEventos);
+            InsertarMesas ui = new InsertarMesas();
+            ui.CargarMesas(flpSalon, flpFamiliar, flpEventos, MostrarInfoMesa);
         }
 
+        // ── Títulos de zona encima de cada FlowLayoutPanel ────────────
+        private void AgregarTitulosZonas()
+        {
+            AgregarTitulo("SALÓN PRINCIPAL", pnlSalonPrincipal);
+            AgregarTitulo("ZONA FAMILIAR", pnlZonaFamiliar);
+            AgregarTitulo("ZONA EVENTOS", pnlZonaEventos);
+        }
+
+        private void AgregarTitulo(string texto, Control contenedor)
+        {
+            Label lbl = new Label
+            {
+                Text = texto,
+                Font = new Font("Segoe UI", 11, FontStyle.Bold),
+                ForeColor = Color.FromArgb(30, 30, 47),
+                AutoSize = true,
+                Dock = DockStyle.Top,
+                Padding = new Padding(8, 6, 0, 4)
+            };
+            contenedor.Controls.Add(lbl);
+            contenedor.Controls.SetChildIndex(lbl, 0);
+        }
+
+        // ══════════════════════════════════════════════════════════════
+        //  LEYENDA
+        // ══════════════════════════════════════════════════════════════
         private void ConfigurarLeyendaPanel()
         {
-            // Asegurar distribución horizontal los titulos 
             flpLeyenda.FlowDirection = FlowDirection.LeftToRight;
             flpLeyenda.WrapContents = false;
             flpLeyenda.AutoScroll = true;
@@ -76,123 +77,129 @@ namespace Restaurante_Sabor_Gourmet.Jaqueline.Formularios
 
         private void CargarLeyenda()
         {
-            // Limpiar por si ya tiene elementos
             flpLeyenda.Controls.Clear();
-
-            // Cada estado con su color
-            flpLeyenda.Controls.Add(CrearLeyenda(Color.Green, "Disponible"));
-            flpLeyenda.Controls.Add(CrearLeyenda(Color.Red, "Ocupada"));
-            flpLeyenda.Controls.Add(CrearLeyenda(Color.Orange, "Reservada"));
-            flpLeyenda.Controls.Add(CrearLeyenda(Color.Blue, "Limpieza"));
-            flpLeyenda.Controls.Add(CrearLeyenda(Color.Gray, "Fuera de servicio"));
+            flpLeyenda.Controls.Add(CrearItemLeyenda(Color.FromArgb(34, 139, 34), "Disponible"));
+            flpLeyenda.Controls.Add(CrearItemLeyenda(Color.FromArgb(220, 53, 69), "Ocupada"));
+            flpLeyenda.Controls.Add(CrearItemLeyenda(Color.FromArgb(255, 165, 0), "Reservada"));
+            flpLeyenda.Controls.Add(CrearItemLeyenda(Color.FromArgb(70, 130, 180), "En limpieza"));
+            flpLeyenda.Controls.Add(CrearItemLeyenda(Color.FromArgb(108, 117, 125), "Fuera de servicio"));
         }
 
-        private Panel CrearLeyenda(Color color, string texto)
+        private Panel CrearItemLeyenda(Color color, string texto)
         {
-            // Contenedor principal del item
-            Panel panel = new Panel();
-            panel.Width = 140;
-            panel.Height = 30;
+            Panel p = new Panel { Width = 155, Height = 30 };
 
-            // Cuadro de color
-            Panel colorBox = new Panel();
-            colorBox.BackColor = color;
-            colorBox.Width = 18;
-            colorBox.Height = 18;
-            colorBox.Location = new Point(5, 6);
+            Panel cuadro = new Panel
+            {
+                BackColor = color,
+                Width = 16,
+                Height = 16,
+                Location = new Point(5, 7)
+            };
 
-            //  Texto descriptivo
-            Label lbl = new Label();
-            lbl.Text = texto;
-            lbl.AutoSize = true;
-            lbl.Location = new Point(30, 6);
+            Label lbl = new Label
+            {
+                Text = texto,
+                Font = new Font("Segoe UI", 9F),
+                AutoSize = true,
+                Location = new Point(27, 6)
+            };
 
-            //  Agregar controles al panel
-            panel.Controls.Add(colorBox);
-            panel.Controls.Add(lbl);
-
-            return panel;
+            p.Controls.Add(cuadro);
+            p.Controls.Add(lbl);
+            return p;
         }
 
+        // ══════════════════════════════════════════════════════════════
+        //  PANEL LATERAL — mostrar info al seleccionar mesa
+        // ══════════════════════════════════════════════════════════════
         private void MostrarInfoMesa(int idMesa)
         {
             mesaSeleccionada = idMesa;
             DataTable dt = sqlMesas.ObtenerMesaPorId(idMesa);
+            if (dt.Rows.Count == 0) return;
 
-            if (dt.Rows.Count > 0)
-            {
-                DataRow row = dt.Rows[0];
+            DataRow row = dt.Rows[0];
+            string estado = row["estado_mesa"].ToString();
 
-                //  mostrar solo lo básico al seleccionar
-                lblEstadoMesa.Text = row["estado_mesa"].ToString();
-                lblCapacidadMesa.Text = row["capacidad_mesa"].ToString();
+            // Datos básicos siempre visibles
+            lblNumMesa.Text = "Mesa " + row["numero_mesa"].ToString();
+            lblEstadoMesa.Text = estado;
+            lblCapacidadMesa.Text = row["capacidad_mesa"].ToString() + " personas";
+            lblUbicacionMesa.Text = row["nombre_zona"].ToString();
+            lblMeseroAsignado.Text = Sesion.NombreUsuario;
+            lblCantidadCliente.Text = row["num_clientes_mesa"] != DBNull.Value
+                                      ? row["num_clientes_mesa"].ToString()
+                                      : "0";
 
-                // ubicación como nombre de zona
-                lblUbicacionMesa.Text = row["nombre_zona"].ToString();
+            lblHoraInicioOrden.Text = row["hora_ocupacion_mesa"] != DBNull.Value
+                                      ? Convert.ToDateTime(row["hora_ocupacion_mesa"])
+                                                .ToString("hh:mm tt")
+                                      : "-";
 
-                // mesero logueado 
-                lblMeseroAsignado.Text = Sesion.NombreUsuario;
+            // Orden activa (si existe)
+            int? idOrden = sqlMesas.ObtenerOrdenActivaPorMesa(idMesa);
+            lblOrdenActiva.Text = idOrden.HasValue ? "#" + idOrden.Value.ToString() : "-";
 
-                // clientes actuales
-                lblCantidadCliente.Text = row["num_clientes_mesa"].ToString();
+            // Color del estado
+            lblEstadoMesa.ForeColor = ObtenerColorEstado(estado);
 
-                lblNumMesa.Text = row["numero_mesa"].ToString(); // numero de mesa
-                string estado = row["estado_mesa"].ToString();
-
-                // hora inicio
-                if (row["hora_ocupacion_mesa"] != DBNull.Value)
-                {
-                    lblHoraInicioOrden.Text = row["hora_ocupacion_mesa"].ToString();
-                }
-                else
-                {
-                    lblHoraInicioOrden.Text = "-";
-                }
-
-                MostrarPanelMesa();
-
-                ConfigurarBotones(estado);
-            }
-
-
-
-
+            MostrarPanelMesa();
+            ConfigurarBotones(estado);
         }
 
+        private Color ObtenerColorEstado(string estado)
+        {
+            switch (estado)
+            {
+                case "Disponible": return Color.FromArgb(34, 139, 34);
+                case "Ocupada": return Color.FromArgb(220, 53, 69);
+                case "Reservada": return Color.FromArgb(255, 140, 0);
+                case "En limpieza": return Color.FromArgb(70, 130, 180);
+                case "Fuera de servicio": return Color.FromArgb(108, 117, 125);
+                default: return Color.Black;
+            }
+        }
 
+        // ── Visibilidad del panel lateral ─────────────────────────────
         private void OcultarPanelMesa()
         {
-            // Título principal
             lblInfoMesa.Visible = false;
-
-            // Número de mesa
             lblNumMesa.Visible = false;
-
-            // Estado
             lblEstado.Visible = false;
             lblEstadoMesa.Visible = false;
-
-            // Capacidad
             lblCapacidad.Visible = false;
             lblCapacidadMesa.Visible = false;
-
-            // Resto de información
             lblUbicacion.Visible = false;
             lblUbicacionMesa.Visible = false;
-
             lblMesero.Visible = false;
             lblMeseroAsignado.Visible = false;
-
             lblClientes.Visible = false;
             lblCantidadCliente.Visible = false;
-
             lblHoraInicio.Visible = false;
             lblHoraInicioOrden.Visible = false;
-
             lblOrden.Visible = false;
             lblOrdenActiva.Visible = false;
+            flowLayoutPanel1.Visible = false;
+        }
 
-            // Botones
+        private void MostrarPanelMesa()
+        {
+            lblInfoMesa.Visible = true;
+            lblNumMesa.Visible = true;
+            lblEstado.Visible = true;
+            lblEstadoMesa.Visible = true;
+            lblCapacidad.Visible = true;
+            lblCapacidadMesa.Visible = true;
+            lblUbicacion.Visible = true;
+            lblUbicacionMesa.Visible = true;
+            flowLayoutPanel1.Visible = true;
+        }
+
+        // ── Botones según estado ───────────────────────────────────────
+        private void ConfigurarBotones(string estado)
+        {
+            // Ocultar todo primero
             btnAsignarMesa.Visible = false;
             btnTransferirOrden.Visible = false;
             btnSolicitarPago.Visible = false;
@@ -200,122 +207,218 @@ namespace Restaurante_Sabor_Gourmet.Jaqueline.Formularios
             btnDividirMesa.Visible = false;
             btnLiberarMesa.Visible = false;
             btnMesaFueraServicio.Visible = false;
-        }
+            lblMesero.Visible = false;
+            lblMeseroAsignado.Visible = false;
+            lblClientes.Visible = false;
+            lblCantidadCliente.Visible = false;
+            lblHoraInicio.Visible = false;
+            lblHoraInicioOrden.Visible = false;
+            lblOrden.Visible = false;
+            lblOrdenActiva.Visible = false;
 
-        private void MostrarPanelMesa() // Muestra toda la informacion 
-        {
-            lblNumMesa.Visible = true;
-
-            lblEstado.Visible = true;
-            lblEstadoMesa.Visible = true;
-
-            lblCapacidad.Visible = true;
-            lblCapacidadMesa.Visible = true;
-
-            lblUbicacion.Visible = true;
-
-            lblMesero.Visible = true;
-            lblMeseroAsignado.Visible = true;   
-
-            lblUbicacionMesa.Visible = true;
-            lblInfoMesa.Visible = true;
-
-            lblOrden.Visible = true;
-            lblOrdenActiva.Visible = true;
-
-        }
-
-
-        private void guna2Panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void btnAsignarMesa_Click(object sender, EventArgs e)
-        {
-            // Verificar que haya una mesa seleccionada
-            if (mesaSeleccionada == -1)
-            {
-                MessageBox.Show("Seleccione una mesa.");
-                return;
-            }
-
-            // Cambiar estado en la base de datos
-            bool resultado = sqlMesas.AsignarMesa(mesaSeleccionada);
-
-            if (resultado)
-            {
-                MessageBox.Show("Mesa asignada correctamente.");
-
-                // Recargar las mesas para actualizar colores
-                InsertarMesas ui = new InsertarMesas();
-
-                ui.CargarMesas(
-                    flpSalon,
-                    flpFamiliar,
-                    flpEventos,
-                    MostrarInfoMesa
-                );
-
-                // Volver a mostrar información actualizada
-                MostrarInfoMesa(mesaSeleccionada);
-            }
-            else
-            {
-                MessageBox.Show("No se pudo asignar la mesa.");
-            }
-        }
-
-        private void ConfigurarBotones(string estado)
-        {
-            btnAsignarMesa.Visible = false;
-            btnTransferirOrden.Visible = false;
-            btnSolicitarPago.Visible = false;
-            btnUnirMesas.Visible = false;
-            btnDividirMesa.Visible = false;
-            btnLiberarMesa.Visible = false;
+            // Botón Fuera de Servicio solo para Admin (rol 1) y Supervisor (rol 5)
+            bool esSupervisorOAdmin = Sesion.IdRol == 1 || Sesion.IdRol == 5;
 
             switch (estado)
             {
                 case "Disponible":
-
                     btnAsignarMesa.Visible = true;
                     btnUnirMesas.Visible = true;
+                    btnMesaFueraServicio.Visible = esSupervisorOAdmin;
 
+                    // Colores
+                    btnAsignarMesa.FillColor = Color.FromArgb(34, 197, 94);
+                    btnUnirMesas.FillColor = Color.FromArgb(37, 99, 235);
+                    btnMesaFueraServicio.FillColor = Color.FromArgb(108, 117, 125);
                     break;
 
                 case "Ocupada":
-
-                    lblUbicacion.Visible = true;
-                    lblUbicacionMesa.Visible = true;
-
                     lblMesero.Visible = true;
                     lblMeseroAsignado.Visible = true;
-
                     lblClientes.Visible = true;
                     lblCantidadCliente.Visible = true;
-
                     lblHoraInicio.Visible = true;
                     lblHoraInicioOrden.Visible = true;
+                    lblOrden.Visible = true;
+                    lblOrdenActiva.Visible = true;
 
                     btnTransferirOrden.Visible = true;
                     btnSolicitarPago.Visible = true;
-                    btnDividirMesa.Visible = true;
                     btnUnirMesas.Visible = true;
+                    btnDividirMesa.Visible = true;
 
+                    btnTransferirOrden.FillColor = Color.FromArgb(37, 99, 235);
+                    btnSolicitarPago.FillColor = Color.FromArgb(249, 115, 22);
+                    btnUnirMesas.FillColor = Color.FromArgb(168, 85, 247);
+                    btnDividirMesa.FillColor = Color.FromArgb(234, 179, 8);
                     break;
 
-                case "Limpieza":
-
+                case "En limpieza":
                     btnLiberarMesa.Visible = true;
+                    btnLiberarMesa.FillColor = Color.FromArgb(70, 130, 180);
+                    break;
 
+                case "Reservada":
+                    // Solo info, sin acciones de mesero
+                    btnMesaFueraServicio.Visible = esSupervisorOAdmin;
+                    break;
+
+                case "Fuera de servicio":
+                    // Solo supervisor/admin puede restaurarla
+                    if (esSupervisorOAdmin)
+                    {
+                        btnLiberarMesa.Visible = true;
+                        btnLiberarMesa.Text = "Poner disponible";
+                        btnLiberarMesa.FillColor = Color.FromArgb(34, 197, 94);
+                    }
                     break;
             }
         }
 
-        private void lblEstado_Click(object sender, EventArgs e)
-        {
+        // ══════════════════════════════════════════════════════════════
+        //  EVENTOS DE BOTONES
+        // ══════════════════════════════════════════════════════════════
 
+        // ── Asignar Mesa ──────────────────────────────────────────────
+        private void btnAsignarMesa_Click(object sender, EventArgs e)
+        {
+            if (mesaSeleccionada == -1) return;
+
+            bool ok = sqlMesas.AsignarMesa(mesaSeleccionada, Sesion.IdUsuario);
+            if (ok)
+            {
+                CargarTodasLasMesas();
+                MostrarInfoMesa(mesaSeleccionada);
+            }
+            else
+            {
+                MessageBox.Show("No se pudo asignar la mesa.", "Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
+
+        // ── Solicitar Pago (Cerrar Cuenta) ────────────────────────────
+        private void btnSolicitarPago_Click(object sender, EventArgs e)
+        {
+            if (mesaSeleccionada == -1) return;
+
+            int? idOrden = sqlMesas.ObtenerOrdenActivaPorMesa(mesaSeleccionada);
+            if (!idOrden.HasValue)
+            {
+                MessageBox.Show("No hay orden activa en esta mesa.", "Aviso",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            DialogResult resp = MessageBox.Show(
+                "¿Solicitar cierre de cuenta para la Mesa " + mesaSeleccionada + "?",
+                "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (resp != DialogResult.Yes) return;
+
+            bool ok = sqlMesas.CerrarCuenta(idOrden.Value);
+            if (ok)
+            {
+                MessageBox.Show("Cuenta enviada a caja. Estado: Pendiente de pago.",
+                    "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                CargarTodasLasMesas();
+                MostrarInfoMesa(mesaSeleccionada);
+            }
+            else
+            {
+                MessageBox.Show("No se pudo solicitar el pago.", "Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        // ── Liberar Mesa ──────────────────────────────────────────────
+        private void btnLiberarMesa_Click(object sender, EventArgs e)
+        {
+            if (mesaSeleccionada == -1) return;
+
+            bool ok = sqlMesas.LiberarMesa(mesaSeleccionada);
+            if (ok)
+            {
+                btnLiberarMesa.Text = "Liberar mesa"; // restaurar texto si era Fuera de servicio
+                CargarTodasLasMesas();
+                OcultarPanelMesa();
+                mesaSeleccionada = -1;
+            }
+            else
+            {
+                MessageBox.Show("No se pudo liberar la mesa.", "Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        // ── Fuera de Servicio ─────────────────────────────────────────
+        private void btnMesaFueraServicio_Click(object sender, EventArgs e)
+        {
+            if (mesaSeleccionada == -1) return;
+
+            DialogResult resp = MessageBox.Show(
+                "¿Marcar la Mesa " + mesaSeleccionada + " como Fuera de servicio?",
+                "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+            if (resp != DialogResult.Yes) return;
+
+            bool ok = sqlMesas.CambiarEstado(mesaSeleccionada, "Fuera de servicio");
+            if (ok)
+            {
+                CargarTodasLasMesas();
+                MostrarInfoMesa(mesaSeleccionada);
+            }
+        }
+
+        // ── Unir Mesas → abre popup ───────────────────────────────────
+        private void btnUnirMesas_Click(object sender, EventArgs e)
+        {
+            if (mesaSeleccionada == -1) return;
+
+            using (FrmPopupMesas popup = new FrmPopupMesas(
+                       mesaSeleccionada, FrmPopupMesas.TabInicial.Unir, sqlMesas))
+            {
+                if (popup.ShowDialog() == DialogResult.OK)
+                {
+                    CargarTodasLasMesas();
+                    MostrarInfoMesa(mesaSeleccionada);
+                }
+            }
+        }
+
+        // ── Transferir Orden → abre popup ────────────────────────────
+        private void btnTransferirOrden_Click(object sender, EventArgs e)
+        {
+            if (mesaSeleccionada == -1) return;
+
+            using (FrmPopupMesas popup = new FrmPopupMesas(
+                       mesaSeleccionada, FrmPopupMesas.TabInicial.Transferir, sqlMesas))
+            {
+                if (popup.ShowDialog() == DialogResult.OK)
+                {
+                    CargarTodasLasMesas();
+                    OcultarPanelMesa();
+                    mesaSeleccionada = -1;
+                }
+            }
+        }
+
+        // ── Dividir Mesa → abre popup ─────────────────────────────────
+        private void btnDividirMesa_Click(object sender, EventArgs e)
+        {
+            if (mesaSeleccionada == -1) return;
+
+            using (FrmPopupMesas popup = new FrmPopupMesas(
+                       mesaSeleccionada, FrmPopupMesas.TabInicial.Dividir, sqlMesas))
+            {
+                if (popup.ShowDialog() == DialogResult.OK)
+                {
+                    CargarTodasLasMesas();
+                    MostrarInfoMesa(mesaSeleccionada);
+                }
+            }
+        }
+
+        
     }
 }

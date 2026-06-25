@@ -14,27 +14,26 @@ namespace Restaurante_Sabor_Gourmet.Vane
 {
     public partial class frmMenu : Form
     {
-        
+
+        // ─────────────────────────────────────────
+        // VARIABLES DE ESTADO
+        // ─────────────────────────────────────────
         private int idUsuarioSesion;
         private string nombreUsuarioSesion;
 
-        // Producto seleccionado
         private int idProductoSeleccionado = 0;
         private bool modoEdicion = false;
 
-        // Categoría seleccionada (tab Categorías)
         private int idCategoriaSeleccionada = 0;
-        private bool modoCatEdicion = false;
 
-        // Lista en memoria para filtros locales
         private List<ProductoCatalogo> todosLosProductos = new List<ProductoCatalogo>();
-
-        // Mapa nombre → id para categorías (uso interno)
         private Dictionary<string, int> mapaCategorias = new Dictionary<string, int>();
 
         private readonly SQLMenu sqlMenu = new SQLMenu();
 
-        
+        // ─────────────────────────────────────────
+        // CONSTRUCTOR
+        // ─────────────────────────────────────────
         public frmMenu(int idUsuarioSesion, string nombreUsuarioSesion)
         {
             InitializeComponent();
@@ -52,16 +51,21 @@ namespace Restaurante_Sabor_Gourmet.Vane
             CargarCategoriasEnCombos();
             CargarProductos();
             CargarGrillaCategorias();
+
+            // Estado inicial tab Productos
             ConfigurarFormProducto(false);
+            BloquearFormulario(true);
+
+            // Estado inicial tab Categorías
+            btnEliminarCategoria.Enabled = false;
+            txtNombreCategoria.Text = "";
+
         }
 
         // ════════════════════════════════════════════════════
         // SECCIÓN PRODUCTOS
         // ════════════════════════════════════════════════════
 
-        // ─────────────────────────────────────────
-        // CARGAR CATEGORÍAS EN COMBOS
-        // ─────────────────────────────────────────
         private void CargarCategoriasEnCombos()
         {
             cmbFiltroCategoria.Items.Clear();
@@ -70,26 +74,19 @@ namespace Restaurante_Sabor_Gourmet.Vane
 
             cmbFiltroCategoria.Items.Add("Todas");
 
-            List<string> cats = sqlMenu.ObtenerCategorias();
-            foreach (string cat in cats)
+            var conConteo = sqlMenu.ObtenerCategoriasConConteo();
+            foreach (var c in conConteo)
             {
-                cmbFiltroCategoria.Items.Add(cat);
-                cmbCategoria.Items.Add(cat);
+                cmbFiltroCategoria.Items.Add(c.Nombre);
+                cmbCategoria.Items.Add(c.Nombre);
+                mapaCategorias[c.Nombre] = c.Id;
             }
 
             cmbFiltroCategoria.SelectedIndex = 0;
             if (cmbCategoria.Items.Count > 0)
                 cmbCategoria.SelectedIndex = 0;
-
-            // Poblar mapa id usando conteo
-            var conConteo = sqlMenu.ObtenerCategoriasConConteo();
-            foreach (var c in conConteo)
-                mapaCategorias[c.Nombre] = c.Id;
         }
 
-        // ─────────────────────────────────────────
-        // CARGAR PRODUCTOS Y KPI CARDS
-        // ─────────────────────────────────────────
         private void CargarProductos()
         {
             todosLosProductos = sqlMenu.ObtenerTodosLosProductos();
@@ -100,18 +97,17 @@ namespace Restaurante_Sabor_Gourmet.Vane
         private void ActualizarKpiCards()
         {
             int total = todosLosProductos.Count;
-            int disponibles = 0;
-            int noDisponibles = 0;
+            int disp = 0, noDisp = 0;
 
             foreach (ProductoCatalogo p in todosLosProductos)
             {
-                if (p.Disponible) disponibles++;
-                else noDisponibles++;
+                if (p.Disponible) disp++;
+                else noDisp++;
             }
 
             lblCardTotalValor.Text = total.ToString();
-            lblCardDispValor.Text = disponibles.ToString();
-            lblCardNoDispValor.Text = noDisponibles.ToString();
+            lblCardDispValor.Text = disp.ToString();
+            lblCardNoDispValor.Text = noDisp.ToString();
         }
 
         private void AplicarFiltrosYMostrar()
@@ -155,11 +151,36 @@ namespace Restaurante_Sabor_Gourmet.Vane
 
                 dgvProductos.Rows[idx].Tag = p.IdProducto;
 
-                // Colorear fila si no está disponible
                 if (!p.Disponible)
                     dgvProductos.Rows[idx].DefaultCellStyle.ForeColor =
                         Color.FromArgb(180, 180, 180);
             }
+        }
+
+        // ─────────────────────────────────────────
+        // AUTOGENERAR CÓDIGO AL SELECCIONAR CATEGORÍA
+        // ─────────────────────────────────────────
+        private void cmbCategoria_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (modoEdicion || idProductoSeleccionado > 0) return;
+            GenerarCodigoAutomatico();
+        }
+
+        private void GenerarCodigoAutomatico()
+        {
+            if (cmbCategoria.SelectedItem == null) return;
+
+            string nombreCat = cmbCategoria.SelectedItem.ToString();
+            if (!mapaCategorias.ContainsKey(nombreCat)) return;
+
+            int idCat = mapaCategorias[nombreCat];
+
+            string prefijo = nombreCat.Length >= 3
+                ? nombreCat.Substring(0, 3).ToUpper()
+                : nombreCat.ToUpper().PadRight(3, 'X');
+
+            int conteo = sqlMenu.ContarProductosPorCategoria(idCat);
+            txtCodigo.Text = $"{prefijo}-{(conteo + 1):D3}";
         }
 
         // ─────────────────────────────────────────
@@ -180,9 +201,6 @@ namespace Restaurante_Sabor_Gourmet.Vane
             AplicarFiltrosYMostrar();
         }
 
-        // ─────────────────────────────────────────
-        // TOGGLE DISPONIBLE EN FORMULARIO
-        // ─────────────────────────────────────────
         private void tglDisponible_CheckedChanged(object sender, EventArgs e)
         {
             lblDisponibleTexto.Text = tglDisponible.Checked ? "Sí" : "No";
@@ -211,7 +229,7 @@ namespace Restaurante_Sabor_Gourmet.Vane
         private void CargarProductoEnFormulario(ProductoCatalogo p)
         {
             idProductoSeleccionado = p.IdProducto;
-            modoEdicion = false; // solo lectura hasta que presione Editar
+            modoEdicion = false;
 
             txtCodigo.Text = p.CodigoProducto;
             txtNombreProducto.Text = p.NombreProducto;
@@ -226,7 +244,7 @@ namespace Restaurante_Sabor_Gourmet.Vane
 
             lblFormTitulo.Text = $"Producto: {p.NombreProducto}";
             ConfigurarFormProducto(true);
-            BloquearFormulario(true); // lectura hasta que haga click en Editar
+            BloquearFormulario(true);
         }
 
         // ─────────────────────────────────────────
@@ -234,13 +252,27 @@ namespace Restaurante_Sabor_Gourmet.Vane
         // ─────────────────────────────────────────
         private void btnNuevoProducto_Click(object sender, EventArgs e)
         {
-            LimpiarFormularioProducto();
-            modoEdicion = false;
             idProductoSeleccionado = 0;
+            modoEdicion = false;
+
+            txtCodigo.Text = "";
+            txtNombreProducto.Text = "";
+            txtDescripcion.Text = "";
+            txtPrecio.Text = "";
+            txtTiempoPrep.Text = "";
+            tglDisponible.Checked = true;
+            lblDisponibleTexto.Text = "Sí";
+            lblDisponibleTexto.ForeColor = Color.FromArgb(34, 197, 94);
+
+            if (cmbCategoria.Items.Count > 0)
+                cmbCategoria.SelectedIndex = 0;
+
             lblFormTitulo.Text = "Nuevo Producto";
+            txtCodigo.ReadOnly = true;       // se autogenera
             BloquearFormulario(false);
-            txtCodigo.ReadOnly = false;
-            txtCodigo.Focus();
+            ConfigurarFormProducto(false);   // editar y eliminar desactivados en modo nuevo
+            GenerarCodigoAutomatico();
+            txtNombreProducto.Focus();
         }
 
         // ─────────────────────────────────────────
@@ -256,14 +288,14 @@ namespace Restaurante_Sabor_Gourmet.Vane
             }
 
             modoEdicion = true;
-            txtCodigo.ReadOnly = true; // el código no se cambia al editar
+            txtCodigo.ReadOnly = true;
             BloquearFormulario(false);
             lblFormTitulo.Text = "Editando producto...";
             txtNombreProducto.Focus();
         }
 
         // ─────────────────────────────────────────
-        // BOTÓN GUARDAR
+        // BOTÓN GUARDAR (solo visible cuando el form está desbloqueado)
         // ─────────────────────────────────────────
         private void btnGuardar_Click(object sender, EventArgs e)
         {
@@ -292,21 +324,18 @@ namespace Restaurante_Sabor_Gourmet.Vane
                 NombreCategoria = nombreCat
             };
 
-            bool resultado;
+            bool resultado = modoEdicion
+                ? sqlMenu.ActualizarProducto(p)
+                : (sqlMenu.CodigoExiste(p.CodigoProducto)
+                    ? false
+                    : sqlMenu.InsertarProducto(p));
 
-            if (!modoEdicion)
+            // Mensaje de código duplicado
+            if (!modoEdicion && sqlMenu.CodigoExiste(p.CodigoProducto, idProductoSeleccionado))
             {
-                if (sqlMenu.CodigoExiste(p.CodigoProducto))
-                {
-                    MessageBox.Show("Ya existe un producto con ese código.",
-                        "Duplicado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
-                }
-                resultado = sqlMenu.InsertarProducto(p);
-            }
-            else
-            {
-                resultado = sqlMenu.ActualizarProducto(p);
+                MessageBox.Show("Ya existe un producto con ese código.",
+                    "Duplicado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
             }
 
             if (resultado)
@@ -316,9 +345,13 @@ namespace Restaurante_Sabor_Gourmet.Vane
                     : "Producto agregado correctamente.",
                     "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                LimpiarFormularioProducto();
-                CargarProductos();
+                idProductoSeleccionado = 0;
+                modoEdicion = false;
+                lblFormTitulo.Text = "Datos del Producto";
+                BloquearFormulario(true);
                 ConfigurarFormProducto(false);
+                CargarProductos();
+                CargarGrillaCategorias();
             }
             else
             {
@@ -328,7 +361,7 @@ namespace Restaurante_Sabor_Gourmet.Vane
         }
 
         // ─────────────────────────────────────────
-        // BOTÓN ELIMINAR (soft-disable)
+        // BOTÓN ELIMINAR PRODUCTO (soft-disable)
         // ─────────────────────────────────────────
         private void btnEliminar_Click(object sender, EventArgs e)
         {
@@ -352,24 +385,19 @@ namespace Restaurante_Sabor_Gourmet.Vane
             {
                 MessageBox.Show("Producto desactivado del menú.",
                     "Listo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                LimpiarFormularioProducto();
-                CargarProductos();
+
+                idProductoSeleccionado = 0;
+                modoEdicion = false;
+                lblFormTitulo.Text = "Datos del Producto";
+                BloquearFormulario(true);
                 ConfigurarFormProducto(false);
+                CargarProductos();
             }
             else
             {
                 MessageBox.Show("No se pudo desactivar el producto.",
                     "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-        }
-
-        // ─────────────────────────────────────────
-        // BOTÓN LIMPIAR
-        // ─────────────────────────────────────────
-        private void btnLimpiar_Click(object sender, EventArgs e)
-        {
-            LimpiarFormularioProducto();
-            ConfigurarFormProducto(false);
         }
 
         // ─────────────────────────────────────────
@@ -400,6 +428,7 @@ namespace Restaurante_Sabor_Gourmet.Vane
 
         // ─────────────────────────────────────────
         // SELECCIÓN EN GRILLA CATEGORÍAS
+        // Al seleccionar → activa eliminar, limpia textbox para no confundir
         // ─────────────────────────────────────────
         private void dgvCategorias_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -409,85 +438,107 @@ namespace Restaurante_Sabor_Gourmet.Vane
             if (fila.Tag == null) return;
 
             idCategoriaSeleccionada = Convert.ToInt32(fila.Tag);
-            modoCatEdicion = true;
+            string nombreCat = fila.Cells["colCatNombre"].Value?.ToString();
 
-            txtNombreCategoria.Text = fila.Cells["colCatNombre"].Value?.ToString();
-            lblCatFormTitulo.Text = "Editar Categoría";
+            // Mostrar nombre en textbox para referencia visual
+            txtNombreCategoria.Text = nombreCat;
 
-            btnEliminarCategoria.Enabled =
-                !sqlMenu.TieneProductos(idCategoriaSeleccionada);
+            // Activar eliminar solo si la categoría no tiene productos
+            bool tieneProductos = sqlMenu.TieneProductos(idCategoriaSeleccionada);
+            btnEliminarCategoria.Enabled = !tieneProductos;
+
+            if (tieneProductos)
+                lblCatFormTitulo.Text = $"'{nombreCat}' tiene productos — no se puede eliminar";
+            else
+                lblCatFormTitulo.Text = $"Seleccionada: {nombreCat}";
         }
 
         // ─────────────────────────────────────────
         // BOTÓN NUEVA CATEGORÍA
+        // Lee el textbox y guarda directo — solo si NO hay categoría seleccionada
         // ─────────────────────────────────────────
         private void btnNuevaCategoria_Click(object sender, EventArgs e)
-        {
-            idCategoriaSeleccionada = 0;
-            modoCatEdicion = false;
-            txtNombreCategoria.Text = "";
-            lblCatFormTitulo.Text = "Nueva Categoría";
-            btnEliminarCategoria.Enabled = false;
-            txtNombreCategoria.Focus();
-        }
-
-        // ─────────────────────────────────────────
-        // BOTÓN GUARDAR CATEGORÍA
-        // ─────────────────────────────────────────
-        private void btnGuardarCategoria_Click(object sender, EventArgs e)
         {
             string nombre = txtNombreCategoria.Text.Trim();
 
             if (string.IsNullOrWhiteSpace(nombre))
             {
-                MessageBox.Show("El nombre de la categoría es obligatorio.",
+                MessageBox.Show("Escribe el nombre de la nueva categoría en el campo de texto.",
                     "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtNombreCategoria.Focus();
                 return;
             }
 
-            bool ok;
+            // Si hay una categoría seleccionada en la grilla, limpiar primero
+            if (idCategoriaSeleccionada > 0)
+            {
+                // Desseleccionar grilla y limpiar para modo nuevo
+                dgvCategorias.ClearSelection();
+                idCategoriaSeleccionada = 0;
+                btnEliminarCategoria.Enabled = false;
+                lblCatFormTitulo.Text = "Datos de Categoría";
 
-            if (!modoCatEdicion)
-                ok = sqlMenu.InsertarCategoria(nombre);
-            else
-                ok = sqlMenu.ActualizarNombreCategoria(idCategoriaSeleccionada, nombre);
+                // Avisar al usuario
+                MessageBox.Show(
+                    "Se deseleccionó la categoría anterior.\n" +
+                    "Presiona 'Nueva Categoría' de nuevo para guardar.",
+                    "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            // Validar duplicado sin distinción de mayúsculas
+            if (sqlMenu.CategoriaExiste(nombre))
+            {
+                MessageBox.Show(
+                    $"Ya existe una categoría llamada '{nombre}'.\nLos nombres no pueden repetirse.",
+                    "Duplicado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtNombreCategoria.Focus();
+                return;
+            }
+
+            bool ok = sqlMenu.InsertarCategoria(nombre);
 
             if (ok)
             {
-                MessageBox.Show(modoCatEdicion
-                    ? "Categoría actualizada correctamente."
-                    : "Categoría creada correctamente.",
+                MessageBox.Show($"Categoría '{nombre}' creada correctamente.",
                     "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                LimpiarFormularioCategoria();
+                txtNombreCategoria.Text = "";
+                idCategoriaSeleccionada = 0;
+                btnEliminarCategoria.Enabled = false;
+                lblCatFormTitulo.Text = "Datos de Categoría";
+
                 CargarGrillaCategorias();
                 CargarCategoriasEnCombos();
             }
             else
             {
-                MessageBox.Show("No se pudo guardar la categoría.",
+                MessageBox.Show("No se pudo crear la categoría.",
                     "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
         // ─────────────────────────────────────────
         // BOTÓN ELIMINAR CATEGORÍA
+        // Solo se activa cuando hay una categoría seleccionada sin productos
         // ─────────────────────────────────────────
         private void btnEliminarCategoria_Click(object sender, EventArgs e)
         {
             if (idCategoriaSeleccionada == 0) return;
 
+            string nombreCat = txtNombreCategoria.Text;
+
             if (sqlMenu.TieneProductos(idCategoriaSeleccionada))
             {
-                MessageBox.Show("No se puede eliminar: la categoría tiene productos asociados.",
+                MessageBox.Show("No se puede eliminar: tiene productos asociados.",
                     "No permitido", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                btnEliminarCategoria.Enabled = false;
                 return;
             }
 
             DialogResult confirm = MessageBox.Show(
-                $"¿Eliminar la categoría '{txtNombreCategoria.Text}'?",
-                "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                $"¿Eliminar la categoría '{nombreCat}'?\nEsta acción no se puede deshacer.",
+                "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
             if (confirm != DialogResult.Yes) return;
 
@@ -495,9 +546,14 @@ namespace Restaurante_Sabor_Gourmet.Vane
 
             if (ok)
             {
-                MessageBox.Show("Categoría eliminada.",
+                MessageBox.Show($"Categoría '{nombreCat}' eliminada.",
                     "Listo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                LimpiarFormularioCategoria();
+
+                txtNombreCategoria.Text = "";
+                idCategoriaSeleccionada = 0;
+                btnEliminarCategoria.Enabled = false;
+                lblCatFormTitulo.Text = "Datos de Categoría";
+
                 CargarGrillaCategorias();
                 CargarCategoriasEnCombos();
             }
@@ -506,14 +562,6 @@ namespace Restaurante_Sabor_Gourmet.Vane
                 MessageBox.Show("No se pudo eliminar la categoría.",
                     "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-        }
-
-        // ─────────────────────────────────────────
-        // BOTÓN LIMPIAR CATEGORÍA
-        // ─────────────────────────────────────────
-        private void btnLimpiarCategoria_Click(object sender, EventArgs e)
-        {
-            LimpiarFormularioCategoria();
         }
 
         // ════════════════════════════════════════════════════
@@ -526,64 +574,33 @@ namespace Restaurante_Sabor_Gourmet.Vane
             {
                 MessageBox.Show("El código del producto es obligatorio.",
                     "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                txtCodigo.Focus(); return false;
+                return false;
             }
-
             if (string.IsNullOrWhiteSpace(txtNombreProducto.Text))
             {
                 MessageBox.Show("El nombre del producto es obligatorio.",
                     "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtNombreProducto.Focus(); return false;
             }
-
             if (!decimal.TryParse(txtPrecio.Text.Trim(), out decimal precio) || precio <= 0)
             {
                 MessageBox.Show("Ingresa un precio válido mayor a 0.",
                     "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtPrecio.Focus(); return false;
             }
-
             if (!int.TryParse(txtTiempoPrep.Text.Trim(), out int tiempo) || tiempo < 0)
             {
-                MessageBox.Show("Ingresa un tiempo de preparación válido (en minutos).",
+                MessageBox.Show("Ingresa un tiempo de preparación válido.",
                     "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtTiempoPrep.Focus(); return false;
             }
-
             if (cmbCategoria.SelectedIndex < 0)
             {
                 MessageBox.Show("Selecciona una categoría.",
                     "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 cmbCategoria.Focus(); return false;
             }
-
             return true;
-        }
-
-        private void LimpiarFormularioProducto()
-        {
-            idProductoSeleccionado = 0;
-            modoEdicion = false;
-            txtCodigo.Text = "";
-            txtNombreProducto.Text = "";
-            txtDescripcion.Text = "";
-            txtPrecio.Text = "";
-            txtTiempoPrep.Text = "";
-            tglDisponible.Checked = true;
-            lblDisponibleTexto.Text = "Sí";
-            if (cmbCategoria.Items.Count > 0)
-                cmbCategoria.SelectedIndex = 0;
-            lblFormTitulo.Text = "Datos del Producto";
-            txtCodigo.ReadOnly = true;
-        }
-
-        private void LimpiarFormularioCategoria()
-        {
-            idCategoriaSeleccionada = 0;
-            modoCatEdicion = false;
-            txtNombreCategoria.Text = "";
-            lblCatFormTitulo.Text = "Datos de Categoría";
-            btnEliminarCategoria.Enabled = false;
         }
 
         private void ConfigurarFormProducto(bool haySeleccion)

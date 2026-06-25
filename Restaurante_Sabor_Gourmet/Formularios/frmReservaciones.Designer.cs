@@ -324,6 +324,7 @@
             this.cmbTipo.Name = "cmbTipo";
             this.cmbTipo.Size = new System.Drawing.Size(352, 38);
             this.cmbTipo.TabIndex = 6;
+            this.cmbTipo.SelectedIndexChanged += new System.EventHandler(this.cmbTipo_SelectedIndexChanged);
 
             // Nombre del Evento
             this.lblNombreEvento.AutoSize = true;
@@ -384,6 +385,7 @@
             this.btnGuardar.Size = new System.Drawing.Size(352, 48);
             this.btnGuardar.TabIndex = 10;
             this.btnGuardar.Text = "Guardar Reservación";
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
 
             // Botón Limpiar
             this.btnLimpiar.BorderRadius = 10;
@@ -395,6 +397,7 @@
             this.btnLimpiar.Size = new System.Drawing.Size(352, 18);
             this.btnLimpiar.TabIndex = 11;
             this.btnLimpiar.Text = "Limpiar Formulario";
+            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
 
             // ── pnlLista (panel derecho) ───────────────────────────────
             this.pnlLista.BorderRadius = 12;
@@ -492,6 +495,7 @@
             this.btnBuscar.Size = new System.Drawing.Size(120, 36);
             this.btnBuscar.TabIndex = 4;
             this.btnBuscar.Text = "Buscar";
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
 
             // ── dgvReservaciones ───────────────────────────────────────
             this.dgvReservaciones.AllowUserToAddRows = false;
@@ -522,6 +526,8 @@
                 this.colId, this.colNombreCliente, this.colTelefono, this.colFecha,
                 this.colHora, this.colPersonas, this.colTipoRes, this.colNombreEvento,
                 this.colMesas, this.colEstado, this.colRegistradoPor });
+            this.dgvReservaciones.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvReservaciones_CellClick);
+            this.dgvReservaciones.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvReservaciones_CellFormatting);
 
             this.colId.HeaderText = "ID";
             this.colId.Name = "colId";
@@ -606,6 +612,7 @@
             this.btnEditar.Size = new System.Drawing.Size(180, 46);
             this.btnEditar.TabIndex = 0;
             this.btnEditar.Text = "Editar";
+            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
 
             this.btnCancelarRes.BorderRadius = 10;
             this.btnCancelarRes.FillColor = System.Drawing.Color.FromArgb(239, 68, 68);
@@ -616,6 +623,7 @@
             this.btnCancelarRes.Size = new System.Drawing.Size(220, 46);
             this.btnCancelarRes.TabIndex = 1;
             this.btnCancelarRes.Text = "Cancelar Reservación";
+            this.btnCancelarRes.Click += new System.EventHandler(this.btnCancelarRes_Click);
 
             this.btnConfirmar.BorderRadius = 10;
             this.btnConfirmar.FillColor = System.Drawing.Color.FromArgb(34, 197, 94);
@@ -626,6 +634,7 @@
             this.btnConfirmar.Size = new System.Drawing.Size(180, 46);
             this.btnConfirmar.TabIndex = 2;
             this.btnConfirmar.Text = "Confirmar";
+            this.btnConfirmar.Click += new System.EventHandler(this.btnConfirmar_Click);
 
             // ── pnlKpis ────────────────────────────────────────────────
             this.pnlKpis.BorderRadius = 12;
@@ -791,6 +800,7 @@
             this.MaximizeBox = false;
             this.Name = "frmReservaciones";
             this.Text = "Gestión de Reservaciones";
+            this.Load += new System.EventHandler(this.frmReservaciones_Load);
 
             ((System.ComponentModel.ISupportInitialize)(this.dgvReservaciones)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudNumPersonas)).EndInit();

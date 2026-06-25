@@ -66,10 +66,10 @@
             btnMenu = new Guna.UI2.WinForms.Guna2Button();
             btnInventario = new Guna.UI2.WinForms.Guna2Button();
             btnUsuarios = new Guna.UI2.WinForms.Guna2Button();
-            btnReportes = new Guna.UI2.WinForms.Guna2Button();
+            btnOrdenes = new Guna.UI2.WinForms.Guna2Button();
             btnCaja = new Guna.UI2.WinForms.Guna2Button();
             btnReservaciones = new Guna.UI2.WinForms.Guna2Button();
-            btnDashboard = new Guna.UI2.WinForms.Guna2Button();
+            btnReportes = new Guna.UI2.WinForms.Guna2Button();
             PnlCentro = new Guna.UI2.WinForms.Guna2Panel();
             PnlSuperior.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)picLogo).BeginInit();
@@ -151,10 +151,10 @@
             flpIzquierdo.Controls.Add(btnMenu);
             flpIzquierdo.Controls.Add(btnInventario);
             flpIzquierdo.Controls.Add(btnUsuarios);
-            flpIzquierdo.Controls.Add(btnReportes);
+            flpIzquierdo.Controls.Add(btnOrdenes);
             flpIzquierdo.Controls.Add(btnCaja);
             flpIzquierdo.Controls.Add(btnReservaciones);
-            flpIzquierdo.Controls.Add(btnDashboard);
+            flpIzquierdo.Controls.Add(btnReportes);
             flpIzquierdo.Dock = DockStyle.Fill;
             flpIzquierdo.FlowDirection = FlowDirection.TopDown;
             flpIzquierdo.Location = new Point(0, 0);
@@ -254,23 +254,23 @@
             btnUsuarios.Text = "Usuarios";
             btnUsuarios.Click += btnUsuarios_Click;
             // 
-            // btnReportes
+            // btnOrdenes
             // 
-            btnReportes.CustomizableEdges = customizableEdges15;
-            btnReportes.DisabledState.BorderColor = Color.DarkGray;
-            btnReportes.DisabledState.CustomBorderColor = Color.DarkGray;
-            btnReportes.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
-            btnReportes.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-            btnReportes.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnReportes.ForeColor = Color.White;
-            btnReportes.Location = new Point(35, 405);
-            btnReportes.Margin = new Padding(25, 25, 25, 5);
-            btnReportes.Name = "btnReportes";
-            btnReportes.ShadowDecoration.CustomizableEdges = customizableEdges16;
-            btnReportes.Size = new Size(168, 41);
-            btnReportes.TabIndex = 5;
-            btnReportes.Text = "Reportes";
-            btnReportes.Click += btnReportes_Click;
+            btnOrdenes.CustomizableEdges = customizableEdges15;
+            btnOrdenes.DisabledState.BorderColor = Color.DarkGray;
+            btnOrdenes.DisabledState.CustomBorderColor = Color.DarkGray;
+            btnOrdenes.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            btnOrdenes.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            btnOrdenes.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnOrdenes.ForeColor = Color.White;
+            btnOrdenes.Location = new Point(35, 405);
+            btnOrdenes.Margin = new Padding(25, 25, 25, 5);
+            btnOrdenes.Name = "btnOrdenes";
+            btnOrdenes.ShadowDecoration.CustomizableEdges = customizableEdges16;
+            btnOrdenes.Size = new Size(168, 41);
+            btnOrdenes.TabIndex = 5;
+            btnOrdenes.Text = "Ordenes";
+            btnOrdenes.Click += btnOrdenes_Click;
             // 
             // btnCaja
             // 
@@ -308,23 +308,23 @@
             btnReservaciones.Text = "Reservaciones";
             btnReservaciones.Click += btnReservaciones_Click;
             // 
-            // btnDashboard
+            // btnReportes
             // 
-            btnDashboard.CustomizableEdges = customizableEdges21;
-            btnDashboard.DisabledState.BorderColor = Color.DarkGray;
-            btnDashboard.DisabledState.CustomBorderColor = Color.DarkGray;
-            btnDashboard.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
-            btnDashboard.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-            btnDashboard.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnDashboard.ForeColor = Color.White;
-            btnDashboard.Location = new Point(35, 618);
-            btnDashboard.Margin = new Padding(25, 25, 25, 5);
-            btnDashboard.Name = "btnDashboard";
-            btnDashboard.ShadowDecoration.CustomizableEdges = customizableEdges22;
-            btnDashboard.Size = new Size(168, 41);
-            btnDashboard.TabIndex = 8;
-            btnDashboard.Text = "Dashboard";
-            btnDashboard.Click += btnDashboard_Click;
+            btnReportes.CustomizableEdges = customizableEdges21;
+            btnReportes.DisabledState.BorderColor = Color.DarkGray;
+            btnReportes.DisabledState.CustomBorderColor = Color.DarkGray;
+            btnReportes.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            btnReportes.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            btnReportes.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnReportes.ForeColor = Color.White;
+            btnReportes.Location = new Point(35, 618);
+            btnReportes.Margin = new Padding(25, 25, 25, 5);
+            btnReportes.Name = "btnReportes";
+            btnReportes.ShadowDecoration.CustomizableEdges = customizableEdges22;
+            btnReportes.Size = new Size(168, 41);
+            btnReportes.TabIndex = 8;
+            btnReportes.Text = "Reportes";
+            btnReportes.Click += btnReportes_Click;
             // 
             // PnlCentro
             // 
@@ -368,10 +368,10 @@
         private Guna.UI2.WinForms.Guna2Button btnMenu;
         private Guna.UI2.WinForms.Guna2Button btnInventario;
         private Guna.UI2.WinForms.Guna2Button btnUsuarios;
-        private Guna.UI2.WinForms.Guna2Button btnReportes;
+        private Guna.UI2.WinForms.Guna2Button btnOrdenes;
         private Guna.UI2.WinForms.Guna2Button btnCaja;
         private Guna.UI2.WinForms.Guna2Button btnReservaciones;
-        private Guna.UI2.WinForms.Guna2Button btnDashboard;
+        private Guna.UI2.WinForms.Guna2Button btnReportes;
         private Guna.UI2.WinForms.Guna2PictureBox picLogo;
         private Guna.UI2.WinForms.Guna2HtmlLabel lblTituloRestaurant;
         private Guna.UI2.WinForms.Guna2HtmlLabel lblRolUsuario;

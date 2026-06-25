@@ -13,7 +13,7 @@ namespace Restaurante_Sabor_Gourmet.Clases
         public string EstadoMesa { get; set; }           // estado_mesa
         public int? IdMeseroAsignado { get; set; }       // id_mesero_asignado (FK -> tbl_usuarios)
 
-        // Solo para mostrar en pantalla (vienen de JOIN)
+        public int Capacidad { get; set; }   // capacidad// Solo para mostrar en pantalla (vienen de JOIN)
         public string NombreZona { get; set; }
         public string NombreMeseroAsignado { get; set; }
     }

@@ -17,6 +17,7 @@ namespace Restaurante_Sabor_Gourmet.ConsultasSQL
         //  VERIFICAR SI UNA MESA YA TIENE ORDEN ABIERTA
         //  Útil para saber si cargar el detalle existente o crear una nueva.
         // ============================================================
+
         public Orden ObtenerOrdenAbiertaPorMesa(int idMesa)
         {
             Orden orden = null;
@@ -25,20 +26,20 @@ namespace Restaurante_Sabor_Gourmet.ConsultasSQL
             {
                 cn.Open();
                 string sql = @"
-                    SELECT o.id_orden,
-                           o.id_mesa_orden,
-                           o.id_mesero_orden,
-                           o.fecha_hora_orden,
-                           o.estado_orden,
-                           o.observaciones,
-                           m.numero_mesa,
-                           u.nombre_usuario AS nombre_mesero
-                    FROM   tbl_ordenes  o
-                    INNER  JOIN tbl_mesas    m ON m.id_mesa    = o.id_mesa_orden
-                    INNER  JOIN tbl_usuarios u ON u.id_usuario = o.id_mesero_orden
-                    WHERE  o.id_mesa_orden = @idMesa
-                    AND    o.estado_orden  = 'abierta'
-                    LIMIT  1";
+            SELECT o.id_orden,
+                   o.id_mesa_orden,
+                   o.id_mesero_orden,
+                   o.fecha_hora_orden,
+                   o.estado_orden,
+                   o.observaciones_orden,
+                   m.numero_mesa,
+                   u.nombre_usuario AS nombre_mesero
+            FROM   tbl_ordenes  o
+            INNER  JOIN tbl_mesas    m ON m.id_mesa    = o.id_mesa_orden
+            INNER  JOIN tbl_usuarios u ON u.id_usuario = o.id_mesero_orden
+            WHERE  o.id_mesa_orden = @idMesa
+            AND    o.estado_orden  = 'abierta'
+            LIMIT  1";
 
                 using (MySqlCommand cmd = new MySqlCommand(sql, cn))
                 {
@@ -55,8 +56,8 @@ namespace Restaurante_Sabor_Gourmet.ConsultasSQL
                                 IdMeseroOrden = rd.GetInt32("id_mesero_orden"),
                                 FechaHoraOrden = rd.GetDateTime("fecha_hora_orden"),
                                 EstadoOrden = rd.GetString("estado_orden"),
-                                Observaciones = rd.IsDBNull(rd.GetOrdinal("observaciones"))
-                                                     ? "" : rd.GetString("observaciones"),
+                                Observaciones = rd.IsDBNull(rd.GetOrdinal("observaciones_orden"))
+                                                 ? "" : rd.GetString("observaciones_orden"),
                                 NumeroMesa = rd.GetInt32("numero_mesa"),
                                 NombreMesero = rd.GetString("nombre_mesero")
                             };
@@ -64,7 +65,6 @@ namespace Restaurante_Sabor_Gourmet.ConsultasSQL
                     }
                 }
 
-                // Si se encontró una orden, cargar su detalle
                 if (orden != null)
                     orden.Detalles = ObtenerDetallesPorOrden(cn, orden.IdOrden);
             }
@@ -72,24 +72,21 @@ namespace Restaurante_Sabor_Gourmet.ConsultasSQL
             return orden;
         }
 
-        // ============================================================
-        //  OBTENER DETALLES DE UNA ORDEN
-        // ============================================================
         private List<DetalleOrden> ObtenerDetallesPorOrden(MySqlConnection cn, int idOrden)
         {
             List<DetalleOrden> detalles = new List<DetalleOrden>();
 
             string sql = @"
-                SELECT d.id_detalle,
-                       d.id_orden_detalle,
-                       d.id_producto_detalle,
-                       d.cantidad_detalle,
-                       d.precio_unitario_detalle,
-                       d.observaciones,
-                       p.nombre_producto
-                FROM   tbl_detalle_orden d
-                INNER  JOIN tbl_productos p ON p.id_producto = d.id_producto_detalle
-                WHERE  d.id_orden_detalle = @idOrden";
+        SELECT d.id_detalle,
+               d.id_orden_detalle,
+               d.id_producto_detalle,
+               d.cantidad_detalle,
+               d.precio_unitario_detalle,
+               d.observaciones_detalle,
+               p.nombre_producto
+        FROM   tbl_detalle_orden d
+        INNER  JOIN tbl_productos p ON p.id_producto = d.id_producto_detalle
+        WHERE  d.id_orden_detalle = @idOrden";
 
             using (MySqlCommand cmd = new MySqlCommand(sql, cn))
             {
@@ -106,8 +103,8 @@ namespace Restaurante_Sabor_Gourmet.ConsultasSQL
                             IdProductoDetalle = rd.GetInt32("id_producto_detalle"),
                             CantidadDetalle = rd.GetInt32("cantidad_detalle"),
                             PrecioUnitarioDetalle = rd.GetDecimal("precio_unitario_detalle"),
-                            Observaciones = rd.IsDBNull(rd.GetOrdinal("observaciones"))
-                                                        ? "" : rd.GetString("observaciones"),
+                            Observaciones = rd.IsDBNull(rd.GetOrdinal("observaciones_detalle"))
+                                                     ? "" : rd.GetString("observaciones_detalle"),
                             NombreProducto = rd.GetString("nombre_producto")
                         });
                     }
@@ -117,13 +114,6 @@ namespace Restaurante_Sabor_Gourmet.ConsultasSQL
             return detalles;
         }
 
-        // ============================================================
-        //  REGISTRAR ORDEN COMPLETA → llama al SP RegistrarOrden()
-        //  El SP internamente inserta en tbl_ordenes + tbl_detalle_orden
-        //  y el trigger trg_crear_cola_cocina crea el registro en
-        //  tbl_cola_cocina automáticamente.
-        //  Devuelve el id_orden generado (o 0 si falló).
-        // ============================================================
         public int RegistrarOrden(int idMesa, int idMesero,
                                   string observacionesGenerales,
                                   List<DetalleOrden> detalles)
@@ -137,14 +127,13 @@ namespace Restaurante_Sabor_Gourmet.ConsultasSQL
                 {
                     try
                     {
-                        // 1. Insertar cabecera en tbl_ordenes
                         string sqlOrden = @"
-                            INSERT INTO tbl_ordenes
-                                (id_mesa_orden, id_mesero_orden,
-                                 fecha_hora_orden, estado_orden, observaciones)
-                            VALUES
-                                (@idMesa, @idMesero,
-                                 NOW(), 'abierta', @obs)";
+                    INSERT INTO tbl_ordenes
+                        (id_mesa_orden, id_mesero_orden,
+                         fecha_hora_orden, estado_orden, observaciones_orden)
+                    VALUES
+                        (@idMesa, @idMesero,
+                         NOW(), 'abierta', @obs)";
 
                         using (MySqlCommand cmd = new MySqlCommand(sqlOrden, cn, tx))
                         {
@@ -155,16 +144,15 @@ namespace Restaurante_Sabor_Gourmet.ConsultasSQL
                             idOrdenGenerado = (int)cmd.LastInsertedId;
                         }
 
-                        // 2. Insertar cada línea en tbl_detalle_orden
                         foreach (DetalleOrden d in detalles)
                         {
                             string sqlDetalle = @"
-                                INSERT INTO tbl_detalle_orden
-                                    (id_orden_detalle, id_producto_detalle,
-                                     cantidad_detalle, precio_unitario_detalle, observaciones)
-                                VALUES
-                                    (@idOrden, @idProducto,
-                                     @cantidad, @precio, @obs)";
+                        INSERT INTO tbl_detalle_orden
+                            (id_orden_detalle, id_producto_detalle,
+                             cantidad_detalle, precio_unitario_detalle, observaciones_detalle)
+                        VALUES
+                            (@idOrden, @idProducto,
+                             @cantidad, @precio, @obs)";
 
                             using (MySqlCommand cmd = new MySqlCommand(sqlDetalle, cn, tx))
                             {
@@ -177,16 +165,13 @@ namespace Restaurante_Sabor_Gourmet.ConsultasSQL
                             }
                         }
 
-                        // 3. El trigger trg_crear_cola_cocina se dispara automáticamente
-                        //    al hacer el INSERT en tbl_ordenes — no hay que llamarlo.
-
                         tx.Commit();
                     }
-                    catch (Exception)
+                    catch
                     {
                         tx.Rollback();
                         idOrdenGenerado = 0;
-                        throw; // re-lanza para que el formulario lo capture con try/catch
+                        throw;
                     }
                 }
             }
@@ -194,24 +179,16 @@ namespace Restaurante_Sabor_Gourmet.ConsultasSQL
             return idOrdenGenerado;
         }
 
-        //  CERRAR CUENTA → llama al SP CerrarCuenta()
-        //  Cambia estado_orden de 'abierta' a 'pendiente_pago'.
-        //  Devuelve true si el UPDATE afectó exactamente 1 fila.
         public bool CerrarCuenta(int idOrden)
         {
             using (MySqlConnection cn = conexion.ObtenerConexion())
             {
                 cn.Open();
-
-                // Si existe el SP CerrarCuenta() en tu BD, usa esto:
-                // string sql = "CALL CerrarCuenta(@idOrden)";
-
-                // Si no, el UPDATE directo equivale al SP:
                 string sql = @"
-                    UPDATE tbl_ordenes
-                       SET estado_orden = 'pendiente_pago'
-                     WHERE id_orden     = @idOrden
-                     AND   estado_orden = 'abierta'";
+            UPDATE tbl_ordenes
+               SET estado_orden = 'pendiente_pago'
+             WHERE id_orden     = @idOrden
+             AND   estado_orden = 'abierta'";
 
                 using (MySqlCommand cmd = new MySqlCommand(sql, cn))
                 {
@@ -221,10 +198,6 @@ namespace Restaurante_Sabor_Gourmet.ConsultasSQL
             }
         }
 
-        // ============================================================
-        //  OBTENER TODAS LAS ÓRDENES DE UNA MESA (historial del día)
-        //  Útil para mostrar estado en frmOrdenes.
-        // ============================================================
         public List<Orden> ObtenerOrdenesPorMesa(int idMesa)
         {
             List<Orden> lista = new List<Orden>();
@@ -232,16 +205,15 @@ namespace Restaurante_Sabor_Gourmet.ConsultasSQL
             using (MySqlConnection cn = conexion.ObtenerConexion())
             {
                 cn.Open();
-
                 string sql = @"
-                    SELECT o.id_orden, o.id_mesa_orden, o.id_mesero_orden,
-                           o.fecha_hora_orden, o.estado_orden, o.observaciones,
-                           m.numero_mesa, u.nombre_usuario AS nombre_mesero
-                    FROM   tbl_ordenes  o
-                    INNER  JOIN tbl_mesas    m ON m.id_mesa    = o.id_mesa_orden
-                    INNER  JOIN tbl_usuarios u ON u.id_usuario = o.id_mesero_orden
-                    WHERE  o.id_mesa_orden = @idMesa
-                    ORDER  BY o.fecha_hora_orden DESC";
+            SELECT o.id_orden, o.id_mesa_orden, o.id_mesero_orden,
+                   o.fecha_hora_orden, o.estado_orden, o.observaciones_orden,
+                   m.numero_mesa, u.nombre_usuario AS nombre_mesero
+            FROM   tbl_ordenes  o
+            INNER  JOIN tbl_mesas    m ON m.id_mesa    = o.id_mesa_orden
+            INNER  JOIN tbl_usuarios u ON u.id_usuario = o.id_mesero_orden
+            WHERE  o.id_mesa_orden = @idMesa
+            ORDER  BY o.fecha_hora_orden DESC";
 
                 using (MySqlCommand cmd = new MySqlCommand(sql, cn))
                 {
@@ -258,8 +230,8 @@ namespace Restaurante_Sabor_Gourmet.ConsultasSQL
                                 IdMeseroOrden = rd.GetInt32("id_mesero_orden"),
                                 FechaHoraOrden = rd.GetDateTime("fecha_hora_orden"),
                                 EstadoOrden = rd.GetString("estado_orden"),
-                                Observaciones = rd.IsDBNull(rd.GetOrdinal("observaciones"))
-                                                     ? "" : rd.GetString("observaciones"),
+                                Observaciones = rd.IsDBNull(rd.GetOrdinal("observaciones_orden"))
+                                                 ? "" : rd.GetString("observaciones_orden"),
                                 NumeroMesa = rd.GetInt32("numero_mesa"),
                                 NombreMesero = rd.GetString("nombre_mesero")
                             });
@@ -270,5 +242,7 @@ namespace Restaurante_Sabor_Gourmet.ConsultasSQL
 
             return lista;
         }
+
+        
     }
 }

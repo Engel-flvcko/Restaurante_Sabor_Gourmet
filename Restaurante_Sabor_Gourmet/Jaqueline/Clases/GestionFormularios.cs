@@ -89,7 +89,7 @@ namespace Restaurante_Sabor_Gourmet.Jaqueline.Clases
 
         public void AbrirDashboard()
         {
-            CargarFormulario(new frmDashboard());
+            CargarFormulario(new frmReportes());
         }
 
         public void AbrirUsuarios()
@@ -104,7 +104,7 @@ namespace Restaurante_Sabor_Gourmet.Jaqueline.Clases
 
         public void AbrirReservaciones()
         {
-            CargarFormulario(new frmReservaciones());
+            CargarFormulario(new frmReservaciones(Sesion.IdUsuario, Sesion.NombreUsuario));
         }
 
     }

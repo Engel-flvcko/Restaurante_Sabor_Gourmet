@@ -56,38 +56,78 @@ namespace Restaurante_Sabor_Gourmet.Engel.formularios
         // ═════════════════════════════════════════════════════════════════════
         // TAB CAJA
         // ═════════════════════════════════════════════════════════════════════
-
         private void CargarCuentasPendientes()
         {
             SQLCaja sql = new SQLCaja();
             DataTable dt = sql.MostrarCuentasPendientes();
+
+            // MostrarCuentasPendientes devuelve: id_orden, numero_mesa, mesero,
+            //                                    fecha_hora_orden, subtotal, descuento
+            dgvCuentas.AutoGenerateColumns = false;
+            colOrden.DataPropertyName = "id_orden";
+            colMesa.DataPropertyName = "numero_mesa";
+            colMesero.DataPropertyName = "mesero";
+            colHora.DataPropertyName = "fecha_hora_orden";
+            colSubtotalDgv.DataPropertyName = "subtotal";
+            colDescuentoDgv.DataPropertyName = "descuento";
             dgvCuentas.DataSource = dt;
+
             lblBadgeCuentas.Text = dt.Rows.Count.ToString();
         }
 
-        private void ConfigurarComboMetodoPago()
+        private void CargarHistorial()
         {
-            cmbMetodoPago.Items.Clear();
-            cmbMetodoPago.Items.Add("efectivo");
-            cmbMetodoPago.Items.Add("tarjeta");
-            cmbMetodoPago.Items.Add("transferencia");
-            cmbMetodoPago.Items.Add("pago_movil");
-            cmbMetodoPago.Items.Add("mixto");
-            cmbMetodoPago.SelectedIndex = 0;
+            SQLArqueo sql = new SQLArqueo();
+            DataTable dt = sql.MostrarHistorialArqueos(idCajero);
+
+            // MostrarHistorialArqueos devuelve: id_arqueo, cajero, fecha_apertura_arqueo,
+            //                                   fondo_inicial_arqueo, total_esperado_arqueo,
+            //                                   total_contado_arqueo, diferencia_arqueo, estado_arqueo
+            dgvHistorial.AutoGenerateColumns = false;
+            colArkId.DataPropertyName = "id_arqueo";
+            colArkCajero.DataPropertyName = "cajero";
+            colArkFecha.DataPropertyName = "fecha_apertura_arqueo";
+            colArkFondo.DataPropertyName = "fondo_inicial_arqueo";
+            colArkEsperado.DataPropertyName = "total_esperado_arqueo";
+            colArkContado.DataPropertyName = "total_contado_arqueo";
+            colArkDiferencia.DataPropertyName = "diferencia_arqueo";
+            colArkEstado.DataPropertyName = "estado_arqueo";
+            dgvHistorial.DataSource = dt;
+
+            foreach (DataGridViewRow row in dgvHistorial.Rows)
+            {
+                string estado = row.Cells["colArkEstado"].Value?.ToString() ?? "";
+                if (estado == "abierta")
+                    row.DefaultCellStyle.BackColor = Color.FromArgb(230, 255, 230);
+
+                object difVal = row.Cells["colArkDiferencia"].Value;
+                if (difVal != null && difVal != DBNull.Value)
+                {
+                    decimal dif = Convert.ToDecimal(difVal);
+                    if (dif < 0)
+                    {
+                        row.Cells["colArkDiferencia"].Style.ForeColor = Color.FromArgb(200, 40, 40);
+                        row.Cells["colArkDiferencia"].Style.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+                    }
+                }
+            }
         }
 
         private void dgvCuentas_SelectionChanged(object sender, EventArgs e)
         {
             if (dgvCuentas.SelectedRows.Count == 0) return;
-            if (dgvCuentas.SelectedRows[0].Cells["id_orden"].Value == null) return;
 
             DataGridViewRow fila = dgvCuentas.SelectedRows[0];
-            txtMesa.Text = fila.Cells["numero_mesa"].Value.ToString();
-            txtMesero.Text = fila.Cells["mesero"].Value.ToString();
+
+            // Usar nombres de columna del Designer (DataPropertyName ya mapeado)
+            if (fila.Cells["colOrden"].Value == null) return;
+
+            txtMesa.Text = fila.Cells["colMesa"].Value?.ToString() ?? "";
+            txtMesero.Text = fila.Cells["colMesero"].Value?.ToString() ?? "";
             lblParaMesero.Text = $"Para: {txtMesero.Text}";
 
-            decimal subtotal = Convert.ToDecimal(fila.Cells["subtotal"].Value);
-            decimal porcentaje = Convert.ToDecimal(fila.Cells["descuento"].Value);
+            decimal subtotal = Convert.ToDecimal(fila.Cells["colSubtotalDgv"].Value);
+            decimal porcentaje = Convert.ToDecimal(fila.Cells["colDescuentoDgv"].Value);
             decimal descuento = subtotal * (porcentaje / 100);
 
             txtSubtotal.Text = subtotal.ToString("C2");
@@ -101,6 +141,41 @@ namespace Restaurante_Sabor_Gourmet.Engel.formularios
             nudTarjeta.Value = 0;
 
             RecalcularTotal();
+        }
+        private void ConfigurarComboMetodoPago()
+        {
+            cmbMetodoPago.Items.Clear();
+            cmbMetodoPago.Items.Add("efectivo");
+            cmbMetodoPago.Items.Add("tarjeta");
+            cmbMetodoPago.Items.Add("transferencia");
+            cmbMetodoPago.Items.Add("pago_movil");
+            cmbMetodoPago.Items.Add("mixto");
+            cmbMetodoPago.SelectedIndex = 0;
+        }
+
+        private decimal ObtenerMontoPropina()
+        {
+            if (dgvCuentas.SelectedRows.Count == 0) return 0;
+            if (rbSinPropina.Checked) return 0;
+            if (rbPropinaMonto.Checked) return nudPropina.Value;
+
+            DataGridViewRow fila = dgvCuentas.SelectedRows[0];
+            decimal subtotal = Convert.ToDecimal(fila.Cells["colSubtotalDgv"].Value);
+            decimal porcentajeDesc = Convert.ToDecimal(fila.Cells["colDescuentoDgv"].Value);
+            decimal totalConDescuento = subtotal - subtotal * (porcentajeDesc / 100);
+            return totalConDescuento * (nudPorcentajePropina.Value / 100);
+        }
+
+        private decimal ObtenerTotalFinal()
+        {
+            if (dgvCuentas.SelectedRows.Count == 0) return 0;
+
+            DataGridViewRow fila = dgvCuentas.SelectedRows[0];
+            decimal subtotal = Convert.ToDecimal(fila.Cells["colSubtotalDgv"].Value);
+            decimal porcentajeDesc = Convert.ToDecimal(fila.Cells["colDescuentoDgv"].Value);
+            decimal montoDescuento = subtotal * (porcentajeDesc / 100);
+            decimal totalConDescuento = subtotal - montoDescuento;
+            return totalConDescuento + ObtenerMontoPropina();
         }
 
         private void rbPropina_CheckedChanged(object sender, EventArgs e)
@@ -168,31 +243,7 @@ namespace Restaurante_Sabor_Gourmet.Engel.formularios
             RecalcularTotal();
         }
 
-        private decimal ObtenerMontoPropina()
-        {
-            if (dgvCuentas.SelectedRows.Count == 0) return 0;
-            if (rbSinPropina.Checked) return 0;
-            if (rbPropinaMonto.Checked) return nudPropina.Value;
-
-            DataGridViewRow fila = dgvCuentas.SelectedRows[0];
-            decimal subtotal = Convert.ToDecimal(fila.Cells["subtotal"].Value);
-            decimal porcentajeDesc = Convert.ToDecimal(fila.Cells["descuento"].Value);
-            decimal totalConDescuento = subtotal - subtotal * (porcentajeDesc / 100);
-            return totalConDescuento * (nudPorcentajePropina.Value / 100);
-        }
-
-        private decimal ObtenerTotalFinal()
-        {
-            if (dgvCuentas.SelectedRows.Count == 0) return 0;
-
-            DataGridViewRow fila = dgvCuentas.SelectedRows[0];
-            decimal subtotal = Convert.ToDecimal(fila.Cells["subtotal"].Value);
-            decimal porcentajeDesc = Convert.ToDecimal(fila.Cells["descuento"].Value);
-            decimal montoDescuento = subtotal * (porcentajeDesc / 100);
-            decimal totalConDescuento = subtotal - montoDescuento;
-            return totalConDescuento + ObtenerMontoPropina();
-        }
-
+       
         private void RecalcularTotal()
         {
             if (dgvCuentas.SelectedRows.Count == 0) return;
@@ -234,11 +285,10 @@ namespace Restaurante_Sabor_Gourmet.Engel.formularios
             }
 
             if (!val.ValidarCuentaSeleccionada(dgvCuentas)) return;
-
             DataGridViewRow fila = dgvCuentas.SelectedRows[0];
-            int idOrden = Convert.ToInt32(fila.Cells["id_orden"].Value);
-            decimal subtotal = Convert.ToDecimal(fila.Cells["subtotal"].Value);
-            decimal porcentajeDesc = Convert.ToDecimal(fila.Cells["descuento"].Value);
+            int idOrden = Convert.ToInt32(fila.Cells["colOrden"].Value);
+            decimal subtotal = Convert.ToDecimal(fila.Cells["colSubtotalDgv"].Value);
+            decimal porcentajeDesc = Convert.ToDecimal(fila.Cells["colDescuentoDgv"].Value);
             decimal montoDescuento = subtotal * (porcentajeDesc / 100);
             decimal totalConDescuento = subtotal - montoDescuento;
             decimal montoPropina = ObtenerMontoPropina();
@@ -345,29 +395,7 @@ namespace Restaurante_Sabor_Gourmet.Engel.formularios
             }
         }
 
-        private void CargarHistorial()
-        {
-            SQLArqueo sql = new SQLArqueo();
-            dgvHistorial.DataSource = sql.MostrarHistorialArqueos(idCajero);
-
-            foreach (DataGridViewRow row in dgvHistorial.Rows)
-            {
-                string estado = row.Cells["estado_arqueo"].Value?.ToString() ?? "";
-                if (estado == "abierta")
-                    row.DefaultCellStyle.BackColor = Color.FromArgb(230, 255, 230);
-
-                object difVal = row.Cells["diferencia_arqueo"].Value;
-                if (difVal != null && difVal != DBNull.Value)
-                {
-                    decimal dif = Convert.ToDecimal(difVal);
-                    if (dif < 0)
-                    {
-                        row.Cells["diferencia_arqueo"].Style.ForeColor = Color.FromArgb(200, 40, 40);
-                        row.Cells["diferencia_arqueo"].Style.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-                    }
-                }
-            }
-        }
+        
 
         private void btnAbrirCaja_Click(object sender, EventArgs e)
         {

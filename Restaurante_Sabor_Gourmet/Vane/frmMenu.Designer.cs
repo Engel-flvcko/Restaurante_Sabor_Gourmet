@@ -28,978 +28,1179 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-
-            // ── TOP BAR ──────────────────────────────────────────────────────────
-            this.pnlTopBar = new Guna.UI2.WinForms.Guna2Panel();
-            this.picIconoApp = new System.Windows.Forms.PictureBox();
-            this.lblTituloForm = new System.Windows.Forms.Label();
-            this.lblSubtitulo = new System.Windows.Forms.Label();
-            this.picAvatarUsuario = new System.Windows.Forms.PictureBox();
-            this.lblNombreUsuario = new System.Windows.Forms.Label();
-
-            // ── TAB CONTROL ──────────────────────────────────────────────────────
-            this.tabMenu = new System.Windows.Forms.TabControl();
-            this.tabProductos = new System.Windows.Forms.TabPage();
-            this.tabCategorias = new System.Windows.Forms.TabPage();
-
-            // ── TAB PRODUCTOS ─ KPI CARDS ─────────────────────────────────────
-            this.pnlCardTotal = new Guna.UI2.WinForms.Guna2Panel();
-            this.picCardTotal = new System.Windows.Forms.PictureBox();
-            this.lblCardTotalTitulo = new System.Windows.Forms.Label();
-            this.lblCardTotalValor = new System.Windows.Forms.Label();
-
-            this.pnlCardDisponibles = new Guna.UI2.WinForms.Guna2Panel();
-            this.picCardDisponibles = new System.Windows.Forms.PictureBox();
-            this.lblCardDispTitulo = new System.Windows.Forms.Label();
-            this.lblCardDispValor = new System.Windows.Forms.Label();
-
-            this.pnlCardNoDisponibles = new Guna.UI2.WinForms.Guna2Panel();
-            this.picCardNoDisp = new System.Windows.Forms.PictureBox();
-            this.lblCardNoDispTitulo = new System.Windows.Forms.Label();
-            this.lblCardNoDispValor = new System.Windows.Forms.Label();
-
-            // ── TAB PRODUCTOS ─ PANEL IZQUIERDO (lista) ──────────────────────
-            this.pnlListaProductos = new Guna.UI2.WinForms.Guna2Panel();
-            this.lblListaTitulo = new System.Windows.Forms.Label();
-            this.txtBuscarProducto = new Guna.UI2.WinForms.Guna2TextBox();
-            this.lblFiltroCategoria = new System.Windows.Forms.Label();
-            this.cmbFiltroCategoria = new Guna.UI2.WinForms.Guna2ComboBox();
-            this.lblSoloDisponibles = new System.Windows.Forms.Label();
-            this.tglSoloDisponibles = new Guna.UI2.WinForms.Guna2ToggleSwitch();
-            this.dgvProductos = new System.Windows.Forms.DataGridView();
-
-            // ── TAB PRODUCTOS ─ PANEL DERECHO (formulario) ───────────────────
-            this.pnlFormProducto = new Guna.UI2.WinForms.Guna2Panel();
-            this.lblFormTitulo = new System.Windows.Forms.Label();
-            this.lblCodigo = new System.Windows.Forms.Label();
-            this.txtCodigo = new Guna.UI2.WinForms.Guna2TextBox();
-            this.lblNombreProducto = new System.Windows.Forms.Label();
-            this.txtNombreProducto = new Guna.UI2.WinForms.Guna2TextBox();
-            this.lblDescripcion = new System.Windows.Forms.Label();
-            this.txtDescripcion = new System.Windows.Forms.RichTextBox();
-            this.lblCategoria = new System.Windows.Forms.Label();
-            this.cmbCategoria = new Guna.UI2.WinForms.Guna2ComboBox();
-            this.lblPrecio = new System.Windows.Forms.Label();
-            this.txtPrecio = new Guna.UI2.WinForms.Guna2TextBox();
-            this.lblTiempoPrep = new System.Windows.Forms.Label();
-            this.txtTiempoPrep = new Guna.UI2.WinForms.Guna2TextBox();
-            this.lblDisponible = new System.Windows.Forms.Label();
-            this.tglDisponible = new Guna.UI2.WinForms.Guna2ToggleSwitch();
-            this.lblDisponibleTexto = new System.Windows.Forms.Label();
-            this.btnGuardar = new Guna.UI2.WinForms.Guna2Button();
-            this.btnEliminar = new Guna.UI2.WinForms.Guna2Button();
-            this.btnLimpiar = new Guna.UI2.WinForms.Guna2Button();
-
-            // ── TAB PRODUCTOS ─ BOTONES INFERIORES ──────────────────────────
-            this.pnlBotonesInferiores = new Guna.UI2.WinForms.Guna2Panel();
-            this.btnNuevoProducto = new Guna.UI2.WinForms.Guna2Button();
-            this.btnEditar = new Guna.UI2.WinForms.Guna2Button();
-            this.btnActualizarLista = new Guna.UI2.WinForms.Guna2Button();
-
-            // ── TAB CATEGORÍAS ────────────────────────────────────────────────
-            this.pnlListaCategorias = new Guna.UI2.WinForms.Guna2Panel();
-            this.lblCatListaTitulo = new System.Windows.Forms.Label();
-            this.dgvCategorias = new System.Windows.Forms.DataGridView();
-
-            this.pnlFormCategoria = new Guna.UI2.WinForms.Guna2Panel();
-            this.lblCatFormTitulo = new System.Windows.Forms.Label();
-            this.lblNombreCategoria = new System.Windows.Forms.Label();
-            this.txtNombreCategoria = new Guna.UI2.WinForms.Guna2TextBox();
-            this.btnGuardarCategoria = new Guna.UI2.WinForms.Guna2Button();
-            this.btnEliminarCategoria = new Guna.UI2.WinForms.Guna2Button();
-            this.btnLimpiarCategoria = new Guna.UI2.WinForms.Guna2Button();
-            this.btnNuevaCategoria = new Guna.UI2.WinForms.Guna2Button();
-
-            // ── DGV COLUMNS ─ PRODUCTOS ───────────────────────────────────────
-            this.colCodigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colCategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colPrecio = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colTiempoPrep = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colDisponible = new System.Windows.Forms.DataGridViewTextBoxColumn();
-
-            // ── DGV COLUMNS ─ CATEGORIAS ─────────────────────────────────────
-            this.colCatId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colCatNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colCatProductos = new System.Windows.Forms.DataGridViewTextBoxColumn();
-
-            this.pnlTopBar.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picIconoApp)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picAvatarUsuario)).BeginInit();
-            this.tabMenu.SuspendLayout();
-            this.tabProductos.SuspendLayout();
-            this.tabCategorias.SuspendLayout();
-            this.pnlCardTotal.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picCardTotal)).BeginInit();
-            this.pnlCardDisponibles.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picCardDisponibles)).BeginInit();
-            this.pnlCardNoDisponibles.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picCardNoDisp)).BeginInit();
-            this.pnlListaProductos.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).BeginInit();
-            this.pnlFormProducto.SuspendLayout();
-            this.pnlBotonesInferiores.SuspendLayout();
-            this.pnlListaCategorias.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvCategorias)).BeginInit();
-            this.pnlFormCategoria.SuspendLayout();
-            this.SuspendLayout();
-
-            // ════════════════════════════════════════════════════════════════════
-            // TOP BAR
-            // ════════════════════════════════════════════════════════════════════
-            this.pnlTopBar.BackColor = System.Drawing.Color.FromArgb(30, 30, 47);
-            this.pnlTopBar.BorderRadius = 0;
-            this.pnlTopBar.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlTopBar.Location = new System.Drawing.Point(0, 0);
-            this.pnlTopBar.Name = "pnlTopBar";
-            this.pnlTopBar.Size = new System.Drawing.Size(1366, 70);
-            this.pnlTopBar.TabIndex = 0;
-            this.pnlTopBar.Controls.Add(this.picIconoApp);
-            this.pnlTopBar.Controls.Add(this.lblTituloForm);
-            this.pnlTopBar.Controls.Add(this.lblSubtitulo);
-            this.pnlTopBar.Controls.Add(this.picAvatarUsuario);
-            this.pnlTopBar.Controls.Add(this.lblNombreUsuario);
-
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges7 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges15 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges16 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges9 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges10 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges11 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges12 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges13 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges14 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges37 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges38 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges21 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges22 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges23 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges24 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges27 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges28 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges29 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges30 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges31 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges32 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges33 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges34 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges35 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges36 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges25 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges26 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges19 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges20 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges17 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges18 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges39 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges40 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges47 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges48 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges41 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges42 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges43 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges44 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges45 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges46 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            pnlTopBar = new Guna.UI2.WinForms.Guna2Panel();
+            picIconoApp = new PictureBox();
+            lblTituloForm = new Label();
+            lblSubtitulo = new Label();
+            picAvatarUsuario = new PictureBox();
+            lblNombreUsuario = new Label();
+            tabMenu = new TabControl();
+            tabProductos = new TabPage();
+            pnlCardTotal = new Guna.UI2.WinForms.Guna2Panel();
+            picCardTotal = new PictureBox();
+            lblCardTotalTitulo = new Label();
+            lblCardTotalValor = new Label();
+            pnlCardDisponibles = new Guna.UI2.WinForms.Guna2Panel();
+            picCardDisponibles = new PictureBox();
+            lblCardDispTitulo = new Label();
+            lblCardDispValor = new Label();
+            pnlCardNoDisponibles = new Guna.UI2.WinForms.Guna2Panel();
+            picCardNoDisp = new PictureBox();
+            lblCardNoDispTitulo = new Label();
+            lblCardNoDispValor = new Label();
+            pnlListaProductos = new Guna.UI2.WinForms.Guna2Panel();
+            lblListaTitulo = new Label();
+            txtBuscarProducto = new Guna.UI2.WinForms.Guna2TextBox();
+            lblFiltroCategoria = new Label();
+            cmbFiltroCategoria = new Guna.UI2.WinForms.Guna2ComboBox();
+            lblSoloDisponibles = new Label();
+            tglSoloDisponibles = new Guna.UI2.WinForms.Guna2ToggleSwitch();
+            dgvProductos = new DataGridView();
+            colCodigo = new DataGridViewTextBoxColumn();
+            colNombre = new DataGridViewTextBoxColumn();
+            colCategoria = new DataGridViewTextBoxColumn();
+            colPrecio = new DataGridViewTextBoxColumn();
+            colTiempoPrep = new DataGridViewTextBoxColumn();
+            colDisponible = new DataGridViewTextBoxColumn();
+            pnlFormProducto = new Guna.UI2.WinForms.Guna2Panel();
+            lblFormTitulo = new Label();
+            lblCodigo = new Label();
+            txtCodigo = new Guna.UI2.WinForms.Guna2TextBox();
+            lblNombreProducto = new Label();
+            txtNombreProducto = new Guna.UI2.WinForms.Guna2TextBox();
+            lblDescripcion = new Label();
+            txtDescripcion = new RichTextBox();
+            lblCategoria = new Label();
+            cmbCategoria = new Guna.UI2.WinForms.Guna2ComboBox();
+            lblPrecio = new Label();
+            txtPrecio = new Guna.UI2.WinForms.Guna2TextBox();
+            lblTiempoPrep = new Label();
+            txtTiempoPrep = new Guna.UI2.WinForms.Guna2TextBox();
+            lblDisponible = new Label();
+            tglDisponible = new Guna.UI2.WinForms.Guna2ToggleSwitch();
+            lblDisponibleTexto = new Label();
+            btnGuardar = new Guna.UI2.WinForms.Guna2Button();
+            btnEliminar = new Guna.UI2.WinForms.Guna2Button();
+            btnEditar = new Guna.UI2.WinForms.Guna2Button();
+            btnActualizarLista = new Guna.UI2.WinForms.Guna2Button();
+            tabCategorias = new TabPage();
+            pnlListaCategorias = new Guna.UI2.WinForms.Guna2Panel();
+            lblCatListaTitulo = new Label();
+            dgvCategorias = new DataGridView();
+            colCatId = new DataGridViewTextBoxColumn();
+            colCatNombre = new DataGridViewTextBoxColumn();
+            colCatProductos = new DataGridViewTextBoxColumn();
+            pnlFormCategoria = new Guna.UI2.WinForms.Guna2Panel();
+            lblCatFormTitulo = new Label();
+            lblNombreCategoria = new Label();
+            txtNombreCategoria = new Guna.UI2.WinForms.Guna2TextBox();
+            btnEliminarCategoria = new Guna.UI2.WinForms.Guna2Button();
+            btnNuevaCategoria = new Guna.UI2.WinForms.Guna2Button();
+            pnlTopBar.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)picIconoApp).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)picAvatarUsuario).BeginInit();
+            tabMenu.SuspendLayout();
+            tabProductos.SuspendLayout();
+            pnlCardTotal.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)picCardTotal).BeginInit();
+            pnlCardDisponibles.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)picCardDisponibles).BeginInit();
+            pnlCardNoDisponibles.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)picCardNoDisp).BeginInit();
+            pnlListaProductos.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvProductos).BeginInit();
+            pnlFormProducto.SuspendLayout();
+            tabCategorias.SuspendLayout();
+            pnlListaCategorias.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvCategorias).BeginInit();
+            pnlFormCategoria.SuspendLayout();
+            SuspendLayout();
+            // 
+            // pnlTopBar
+            // 
+            pnlTopBar.BackColor = Color.FromArgb(30, 30, 47);
+            pnlTopBar.Controls.Add(picIconoApp);
+            pnlTopBar.Controls.Add(lblTituloForm);
+            pnlTopBar.Controls.Add(lblSubtitulo);
+            pnlTopBar.Controls.Add(picAvatarUsuario);
+            pnlTopBar.Controls.Add(lblNombreUsuario);
+            pnlTopBar.CustomizableEdges = customizableEdges1;
+            pnlTopBar.Dock = DockStyle.Top;
+            pnlTopBar.Location = new Point(0, 0);
+            pnlTopBar.Margin = new Padding(3, 4, 3, 4);
+            pnlTopBar.Name = "pnlTopBar";
+            pnlTopBar.ShadowDecoration.CustomizableEdges = customizableEdges2;
+            pnlTopBar.Size = new Size(1561, 93);
+            pnlTopBar.TabIndex = 0;
+            // 
             // picIconoApp
-            this.picIconoApp.BackColor = System.Drawing.Color.Transparent;
-            this.picIconoApp.Image = null;
-            this.picIconoApp.Location = new System.Drawing.Point(15, 13);
-            this.picIconoApp.Name = "picIconoApp";
-            this.picIconoApp.Size = new System.Drawing.Size(44, 44);
-            this.picIconoApp.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.picIconoApp.TabIndex = 0;
-            this.picIconoApp.TabStop = false;
-
+            // 
+            picIconoApp.BackColor = Color.Transparent;
+            picIconoApp.Location = new Point(17, 17);
+            picIconoApp.Margin = new Padding(3, 4, 3, 4);
+            picIconoApp.Name = "picIconoApp";
+            picIconoApp.Size = new Size(50, 59);
+            picIconoApp.SizeMode = PictureBoxSizeMode.Zoom;
+            picIconoApp.TabIndex = 0;
+            picIconoApp.TabStop = false;
+            // 
             // lblTituloForm
-            this.lblTituloForm.AutoSize = true;
-            this.lblTituloForm.BackColor = System.Drawing.Color.Transparent;
-            this.lblTituloForm.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);
-            this.lblTituloForm.ForeColor = System.Drawing.Color.White;
-            this.lblTituloForm.Location = new System.Drawing.Point(68, 12);
-            this.lblTituloForm.Name = "lblTituloForm";
-            this.lblTituloForm.Size = new System.Drawing.Size(180, 25);
-            this.lblTituloForm.TabIndex = 1;
-            this.lblTituloForm.Text = "Gestión de Menú";
-
+            // 
+            lblTituloForm.AutoSize = true;
+            lblTituloForm.BackColor = Color.Transparent;
+            lblTituloForm.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
+            lblTituloForm.ForeColor = Color.White;
+            lblTituloForm.Location = new Point(78, 16);
+            lblTituloForm.Name = "lblTituloForm";
+            lblTituloForm.Size = new Size(209, 32);
+            lblTituloForm.TabIndex = 1;
+            lblTituloForm.Text = "Gestión de Menú";
+            // 
             // lblSubtitulo
-            this.lblSubtitulo.AutoSize = true;
-            this.lblSubtitulo.BackColor = System.Drawing.Color.Transparent;
-            this.lblSubtitulo.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.lblSubtitulo.ForeColor = System.Drawing.Color.FromArgb(180, 180, 200);
-            this.lblSubtitulo.Location = new System.Drawing.Point(70, 40);
-            this.lblSubtitulo.Name = "lblSubtitulo";
-            this.lblSubtitulo.Size = new System.Drawing.Size(130, 15);
-            this.lblSubtitulo.TabIndex = 2;
-            this.lblSubtitulo.Text = "Sabor Gourmet FMO";
-
+            // 
+            lblSubtitulo.AutoSize = true;
+            lblSubtitulo.BackColor = Color.Transparent;
+            lblSubtitulo.Font = new Font("Segoe UI", 9F);
+            lblSubtitulo.ForeColor = Color.FromArgb(180, 180, 200);
+            lblSubtitulo.Location = new Point(80, 53);
+            lblSubtitulo.Name = "lblSubtitulo";
+            lblSubtitulo.Size = new Size(145, 20);
+            lblSubtitulo.TabIndex = 2;
+            lblSubtitulo.Text = "Sabor Gourmet FMO";
+            // 
             // picAvatarUsuario
-            this.picAvatarUsuario.BackColor = System.Drawing.Color.Transparent;
-            this.picAvatarUsuario.Image = null;
-            this.picAvatarUsuario.Location = new System.Drawing.Point(1270, 18);
-            this.picAvatarUsuario.Name = "picAvatarUsuario";
-            this.picAvatarUsuario.Size = new System.Drawing.Size(34, 34);
-            this.picAvatarUsuario.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.picAvatarUsuario.TabIndex = 3;
-            this.picAvatarUsuario.TabStop = false;
-
+            // 
+            picAvatarUsuario.BackColor = Color.Transparent;
+            picAvatarUsuario.Location = new Point(1451, 24);
+            picAvatarUsuario.Margin = new Padding(3, 4, 3, 4);
+            picAvatarUsuario.Name = "picAvatarUsuario";
+            picAvatarUsuario.Size = new Size(39, 45);
+            picAvatarUsuario.SizeMode = PictureBoxSizeMode.Zoom;
+            picAvatarUsuario.TabIndex = 3;
+            picAvatarUsuario.TabStop = false;
+            // 
             // lblNombreUsuario
-            this.lblNombreUsuario.AutoSize = true;
-            this.lblNombreUsuario.BackColor = System.Drawing.Color.Transparent;
-            this.lblNombreUsuario.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.lblNombreUsuario.ForeColor = System.Drawing.Color.White;
-            this.lblNombreUsuario.Location = new System.Drawing.Point(1185, 26);
-            this.lblNombreUsuario.Name = "lblNombreUsuario";
-            this.lblNombreUsuario.Size = new System.Drawing.Size(80, 17);
-            this.lblNombreUsuario.TabIndex = 4;
-            this.lblNombreUsuario.Text = "Administrador";
-
-            // ════════════════════════════════════════════════════════════════════
-            // TAB CONTROL
-            // ════════════════════════════════════════════════════════════════════
-            this.tabMenu.Controls.Add(this.tabProductos);
-            this.tabMenu.Controls.Add(this.tabCategorias);
-            this.tabMenu.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.tabMenu.Location = new System.Drawing.Point(12, 80);
-            this.tabMenu.Name = "tabMenu";
-            this.tabMenu.SelectedIndex = 0;
-            this.tabMenu.Size = new System.Drawing.Size(1342, 628);
-            this.tabMenu.TabIndex = 1;
-
+            // 
+            lblNombreUsuario.AutoSize = true;
+            lblNombreUsuario.BackColor = Color.Transparent;
+            lblNombreUsuario.Font = new Font("Segoe UI", 10F);
+            lblNombreUsuario.ForeColor = Color.White;
+            lblNombreUsuario.Location = new Point(1354, 35);
+            lblNombreUsuario.Name = "lblNombreUsuario";
+            lblNombreUsuario.Size = new Size(118, 23);
+            lblNombreUsuario.TabIndex = 4;
+            lblNombreUsuario.Text = "Administrador";
+            // 
+            // tabMenu
+            // 
+            tabMenu.Controls.Add(tabProductos);
+            tabMenu.Controls.Add(tabCategorias);
+            tabMenu.Font = new Font("Segoe UI", 10F);
+            tabMenu.Location = new Point(14, 107);
+            tabMenu.Margin = new Padding(3, 4, 3, 4);
+            tabMenu.Name = "tabMenu";
+            tabMenu.SelectedIndex = 0;
+            tabMenu.Size = new Size(1534, 765);
+            tabMenu.TabIndex = 1;
+            // 
             // tabProductos
-            this.tabProductos.BackColor = System.Drawing.Color.FromArgb(240, 240, 248);
-            this.tabProductos.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.tabProductos.Location = new System.Drawing.Point(4, 28);
-            this.tabProductos.Name = "tabProductos";
-            this.tabProductos.Size = new System.Drawing.Size(1334, 596);
-            this.tabProductos.TabIndex = 0;
-            this.tabProductos.Text = "  Productos";
-            this.tabProductos.Controls.Add(this.pnlCardTotal);
-            this.tabProductos.Controls.Add(this.pnlCardDisponibles);
-            this.tabProductos.Controls.Add(this.pnlCardNoDisponibles);
-            this.tabProductos.Controls.Add(this.pnlListaProductos);
-            this.tabProductos.Controls.Add(this.pnlFormProducto);
-            this.tabProductos.Controls.Add(this.pnlBotonesInferiores);
-
-            // tabCategorias
-            this.tabCategorias.BackColor = System.Drawing.Color.FromArgb(240, 240, 248);
-            this.tabCategorias.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.tabCategorias.Location = new System.Drawing.Point(4, 28);
-            this.tabCategorias.Name = "tabCategorias";
-            this.tabCategorias.Size = new System.Drawing.Size(1334, 596);
-            this.tabCategorias.TabIndex = 1;
-            this.tabCategorias.Text = "  Categorías";
-            this.tabCategorias.Controls.Add(this.pnlListaCategorias);
-            this.tabCategorias.Controls.Add(this.pnlFormCategoria);
-
-            // ════════════════════════════════════════════════════════════════════
-            // KPI CARD — TOTAL PRODUCTOS
-            // ════════════════════════════════════════════════════════════════════
-            this.pnlCardTotal.BackColor = System.Drawing.Color.White;
-            this.pnlCardTotal.BorderRadius = 12;
-            this.pnlCardTotal.ShadowDecoration.Enabled = true;
-            this.pnlCardTotal.ShadowDecoration.Color = System.Drawing.Color.FromArgb(20, 0, 0, 0);
-            this.pnlCardTotal.ShadowDecoration.Depth = 4;
-            this.pnlCardTotal.Location = new System.Drawing.Point(10, 10);
-            this.pnlCardTotal.Name = "pnlCardTotal";
-            this.pnlCardTotal.Size = new System.Drawing.Size(415, 80);
-            this.pnlCardTotal.TabIndex = 0;
-            this.pnlCardTotal.Controls.Add(this.picCardTotal);
-            this.pnlCardTotal.Controls.Add(this.lblCardTotalTitulo);
-            this.pnlCardTotal.Controls.Add(this.lblCardTotalValor);
-
-            this.picCardTotal.BackColor = System.Drawing.Color.FromArgb(168, 85, 247);
-            this.picCardTotal.Image = null;
-            this.picCardTotal.Location = new System.Drawing.Point(12, 14);
-            this.picCardTotal.Name = "picCardTotal";
-            this.picCardTotal.Size = new System.Drawing.Size(50, 50);
-            this.picCardTotal.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.picCardTotal.TabIndex = 0;
-            this.picCardTotal.TabStop = false;
-
-            this.lblCardTotalTitulo.AutoSize = true;
-            this.lblCardTotalTitulo.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.lblCardTotalTitulo.ForeColor = System.Drawing.Color.FromArgb(100, 100, 120);
-            this.lblCardTotalTitulo.Location = new System.Drawing.Point(72, 16);
-            this.lblCardTotalTitulo.Name = "lblCardTotalTitulo";
-            this.lblCardTotalTitulo.Text = "Total Productos";
-
-            this.lblCardTotalValor.AutoSize = true;
-            this.lblCardTotalValor.Font = new System.Drawing.Font("Segoe UI", 22F, System.Drawing.FontStyle.Bold);
-            this.lblCardTotalValor.ForeColor = System.Drawing.Color.FromArgb(168, 85, 247);
-            this.lblCardTotalValor.Location = new System.Drawing.Point(70, 36);
-            this.lblCardTotalValor.Name = "lblCardTotalValor";
-            this.lblCardTotalValor.Text = "0";
-
-            // KPI CARD — DISPONIBLES
-            this.pnlCardDisponibles.BackColor = System.Drawing.Color.White;
-            this.pnlCardDisponibles.BorderRadius = 12;
-            this.pnlCardDisponibles.ShadowDecoration.Enabled = true;
-            this.pnlCardDisponibles.ShadowDecoration.Color = System.Drawing.Color.FromArgb(20, 0, 0, 0);
-            this.pnlCardDisponibles.ShadowDecoration.Depth = 4;
-            this.pnlCardDisponibles.Location = new System.Drawing.Point(440, 10);
-            this.pnlCardDisponibles.Name = "pnlCardDisponibles";
-            this.pnlCardDisponibles.Size = new System.Drawing.Size(415, 80);
-            this.pnlCardDisponibles.TabIndex = 1;
-            this.pnlCardDisponibles.Controls.Add(this.picCardDisponibles);
-            this.pnlCardDisponibles.Controls.Add(this.lblCardDispTitulo);
-            this.pnlCardDisponibles.Controls.Add(this.lblCardDispValor);
-
-            this.picCardDisponibles.BackColor = System.Drawing.Color.FromArgb(34, 197, 94);
-            this.picCardDisponibles.Image = null;
-            this.picCardDisponibles.Location = new System.Drawing.Point(12, 14);
-            this.picCardDisponibles.Name = "picCardDisponibles";
-            this.picCardDisponibles.Size = new System.Drawing.Size(50, 50);
-            this.picCardDisponibles.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.picCardDisponibles.TabIndex = 0;
-            this.picCardDisponibles.TabStop = false;
-
-            this.lblCardDispTitulo.AutoSize = true;
-            this.lblCardDispTitulo.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.lblCardDispTitulo.ForeColor = System.Drawing.Color.FromArgb(100, 100, 120);
-            this.lblCardDispTitulo.Location = new System.Drawing.Point(72, 16);
-            this.lblCardDispTitulo.Name = "lblCardDispTitulo";
-            this.lblCardDispTitulo.Text = "Disponibles";
-
-            this.lblCardDispValor.AutoSize = true;
-            this.lblCardDispValor.Font = new System.Drawing.Font("Segoe UI", 22F, System.Drawing.FontStyle.Bold);
-            this.lblCardDispValor.ForeColor = System.Drawing.Color.FromArgb(34, 197, 94);
-            this.lblCardDispValor.Location = new System.Drawing.Point(70, 36);
-            this.lblCardDispValor.Name = "lblCardDispValor";
-            this.lblCardDispValor.Text = "0";
-
-            // KPI CARD — NO DISPONIBLES
-            this.pnlCardNoDisponibles.BackColor = System.Drawing.Color.White;
-            this.pnlCardNoDisponibles.BorderRadius = 12;
-            this.pnlCardNoDisponibles.ShadowDecoration.Enabled = true;
-            this.pnlCardNoDisponibles.ShadowDecoration.Color = System.Drawing.Color.FromArgb(20, 0, 0, 0);
-            this.pnlCardNoDisponibles.ShadowDecoration.Depth = 4;
-            this.pnlCardNoDisponibles.Location = new System.Drawing.Point(870, 10);
-            this.pnlCardNoDisponibles.Name = "pnlCardNoDisponibles";
-            this.pnlCardNoDisponibles.Size = new System.Drawing.Size(455, 80);
-            this.pnlCardNoDisponibles.TabIndex = 2;
-            this.pnlCardNoDisponibles.Controls.Add(this.picCardNoDisp);
-            this.pnlCardNoDisponibles.Controls.Add(this.lblCardNoDispTitulo);
-            this.pnlCardNoDisponibles.Controls.Add(this.lblCardNoDispValor);
-
-            this.picCardNoDisp.BackColor = System.Drawing.Color.FromArgb(239, 68, 68);
-            this.picCardNoDisp.Image = null;
-            this.picCardNoDisp.Location = new System.Drawing.Point(12, 14);
-            this.picCardNoDisp.Name = "picCardNoDisp";
-            this.picCardNoDisp.Size = new System.Drawing.Size(50, 50);
-            this.picCardNoDisp.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.picCardNoDisp.TabIndex = 0;
-            this.picCardNoDisp.TabStop = false;
-
-            this.lblCardNoDispTitulo.AutoSize = true;
-            this.lblCardNoDispTitulo.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.lblCardNoDispTitulo.ForeColor = System.Drawing.Color.FromArgb(100, 100, 120);
-            this.lblCardNoDispTitulo.Location = new System.Drawing.Point(72, 16);
-            this.lblCardNoDispTitulo.Name = "lblCardNoDispTitulo";
-            this.lblCardNoDispTitulo.Text = "No Disponibles";
-
-            this.lblCardNoDispValor.AutoSize = true;
-            this.lblCardNoDispValor.Font = new System.Drawing.Font("Segoe UI", 22F, System.Drawing.FontStyle.Bold);
-            this.lblCardNoDispValor.ForeColor = System.Drawing.Color.FromArgb(239, 68, 68);
-            this.lblCardNoDispValor.Location = new System.Drawing.Point(70, 36);
-            this.lblCardNoDispValor.Name = "lblCardNoDispValor";
-            this.lblCardNoDispValor.Text = "0";
-
-            // ════════════════════════════════════════════════════════════════════
-            // PANEL IZQUIERDO — LISTA DE PRODUCTOS
-            // ════════════════════════════════════════════════════════════════════
-            this.pnlListaProductos.BackColor = System.Drawing.Color.White;
-            this.pnlListaProductos.BorderRadius = 12;
-            this.pnlListaProductos.ShadowDecoration.Enabled = true;
-            this.pnlListaProductos.ShadowDecoration.Color = System.Drawing.Color.FromArgb(20, 0, 0, 0);
-            this.pnlListaProductos.ShadowDecoration.Depth = 4;
-            this.pnlListaProductos.Location = new System.Drawing.Point(10, 100);
-            this.pnlListaProductos.Name = "pnlListaProductos";
-            this.pnlListaProductos.Size = new System.Drawing.Size(810, 440);
-            this.pnlListaProductos.TabIndex = 3;
-            this.pnlListaProductos.Controls.Add(this.lblListaTitulo);
-            this.pnlListaProductos.Controls.Add(this.txtBuscarProducto);
-            this.pnlListaProductos.Controls.Add(this.lblFiltroCategoria);
-            this.pnlListaProductos.Controls.Add(this.cmbFiltroCategoria);
-            this.pnlListaProductos.Controls.Add(this.lblSoloDisponibles);
-            this.pnlListaProductos.Controls.Add(this.tglSoloDisponibles);
-            this.pnlListaProductos.Controls.Add(this.dgvProductos);
-
+            // 
+            tabProductos.BackColor = Color.FromArgb(240, 240, 248);
+            tabProductos.Controls.Add(pnlCardTotal);
+            tabProductos.Controls.Add(pnlCardDisponibles);
+            tabProductos.Controls.Add(pnlCardNoDisponibles);
+            tabProductos.Controls.Add(pnlListaProductos);
+            tabProductos.Controls.Add(pnlFormProducto);
+            tabProductos.Font = new Font("Segoe UI", 10F);
+            tabProductos.Location = new Point(4, 32);
+            tabProductos.Margin = new Padding(3, 4, 3, 4);
+            tabProductos.Name = "tabProductos";
+            tabProductos.Size = new Size(1526, 729);
+            tabProductos.TabIndex = 0;
+            tabProductos.Text = "  Productos";
+            // 
+            // pnlCardTotal
+            // 
+            pnlCardTotal.BackColor = Color.Transparent;
+            pnlCardTotal.BorderRadius = 12;
+            pnlCardTotal.Controls.Add(picCardTotal);
+            pnlCardTotal.Controls.Add(lblCardTotalTitulo);
+            pnlCardTotal.Controls.Add(lblCardTotalValor);
+            pnlCardTotal.CustomizableEdges = customizableEdges3;
+            pnlCardTotal.Location = new Point(11, 13);
+            pnlCardTotal.Margin = new Padding(3, 4, 3, 4);
+            pnlCardTotal.Name = "pnlCardTotal";
+            pnlCardTotal.ShadowDecoration.Color = Color.FromArgb(20, 0, 0, 0);
+            pnlCardTotal.ShadowDecoration.CustomizableEdges = customizableEdges4;
+            pnlCardTotal.ShadowDecoration.Depth = 4;
+            pnlCardTotal.ShadowDecoration.Enabled = true;
+            pnlCardTotal.Size = new Size(474, 107);
+            pnlCardTotal.TabIndex = 0;
+            // 
+            // picCardTotal
+            // 
+            picCardTotal.BackColor = Color.FromArgb(168, 85, 247);
+            picCardTotal.Location = new Point(14, 19);
+            picCardTotal.Margin = new Padding(3, 4, 3, 4);
+            picCardTotal.Name = "picCardTotal";
+            picCardTotal.Size = new Size(57, 67);
+            picCardTotal.SizeMode = PictureBoxSizeMode.Zoom;
+            picCardTotal.TabIndex = 0;
+            picCardTotal.TabStop = false;
+            // 
+            // lblCardTotalTitulo
+            // 
+            lblCardTotalTitulo.AutoSize = true;
+            lblCardTotalTitulo.Font = new Font("Segoe UI", 10F);
+            lblCardTotalTitulo.ForeColor = Color.FromArgb(100, 100, 120);
+            lblCardTotalTitulo.Location = new Point(82, 21);
+            lblCardTotalTitulo.Name = "lblCardTotalTitulo";
+            lblCardTotalTitulo.Size = new Size(128, 23);
+            lblCardTotalTitulo.TabIndex = 1;
+            lblCardTotalTitulo.Text = "Total Productos";
+            // 
+            // lblCardTotalValor
+            // 
+            lblCardTotalValor.AutoSize = true;
+            lblCardTotalValor.Font = new Font("Segoe UI", 22F, FontStyle.Bold);
+            lblCardTotalValor.ForeColor = Color.FromArgb(168, 85, 247);
+            lblCardTotalValor.Location = new Point(80, 48);
+            lblCardTotalValor.Name = "lblCardTotalValor";
+            lblCardTotalValor.Size = new Size(43, 50);
+            lblCardTotalValor.TabIndex = 2;
+            lblCardTotalValor.Text = "0";
+            // 
+            // pnlCardDisponibles
+            // 
+            pnlCardDisponibles.BackColor = Color.Transparent;
+            pnlCardDisponibles.BorderRadius = 12;
+            pnlCardDisponibles.Controls.Add(picCardDisponibles);
+            pnlCardDisponibles.Controls.Add(lblCardDispTitulo);
+            pnlCardDisponibles.Controls.Add(lblCardDispValor);
+            pnlCardDisponibles.CustomizableEdges = customizableEdges5;
+            pnlCardDisponibles.Location = new Point(503, 13);
+            pnlCardDisponibles.Margin = new Padding(3, 4, 3, 4);
+            pnlCardDisponibles.Name = "pnlCardDisponibles";
+            pnlCardDisponibles.ShadowDecoration.Color = Color.FromArgb(20, 0, 0, 0);
+            pnlCardDisponibles.ShadowDecoration.CustomizableEdges = customizableEdges6;
+            pnlCardDisponibles.ShadowDecoration.Depth = 4;
+            pnlCardDisponibles.ShadowDecoration.Enabled = true;
+            pnlCardDisponibles.Size = new Size(474, 107);
+            pnlCardDisponibles.TabIndex = 1;
+            // 
+            // picCardDisponibles
+            // 
+            picCardDisponibles.BackColor = Color.FromArgb(34, 197, 94);
+            picCardDisponibles.Location = new Point(14, 19);
+            picCardDisponibles.Margin = new Padding(3, 4, 3, 4);
+            picCardDisponibles.Name = "picCardDisponibles";
+            picCardDisponibles.Size = new Size(57, 67);
+            picCardDisponibles.SizeMode = PictureBoxSizeMode.Zoom;
+            picCardDisponibles.TabIndex = 0;
+            picCardDisponibles.TabStop = false;
+            // 
+            // lblCardDispTitulo
+            // 
+            lblCardDispTitulo.AutoSize = true;
+            lblCardDispTitulo.Font = new Font("Segoe UI", 10F);
+            lblCardDispTitulo.ForeColor = Color.FromArgb(100, 100, 120);
+            lblCardDispTitulo.Location = new Point(82, 21);
+            lblCardDispTitulo.Name = "lblCardDispTitulo";
+            lblCardDispTitulo.Size = new Size(97, 23);
+            lblCardDispTitulo.TabIndex = 1;
+            lblCardDispTitulo.Text = "Disponibles";
+            // 
+            // lblCardDispValor
+            // 
+            lblCardDispValor.AutoSize = true;
+            lblCardDispValor.Font = new Font("Segoe UI", 22F, FontStyle.Bold);
+            lblCardDispValor.ForeColor = Color.FromArgb(34, 197, 94);
+            lblCardDispValor.Location = new Point(80, 48);
+            lblCardDispValor.Name = "lblCardDispValor";
+            lblCardDispValor.Size = new Size(43, 50);
+            lblCardDispValor.TabIndex = 2;
+            lblCardDispValor.Text = "0";
+            // 
+            // pnlCardNoDisponibles
+            // 
+            pnlCardNoDisponibles.BackColor = Color.Transparent;
+            pnlCardNoDisponibles.BorderRadius = 12;
+            pnlCardNoDisponibles.Controls.Add(picCardNoDisp);
+            pnlCardNoDisponibles.Controls.Add(lblCardNoDispTitulo);
+            pnlCardNoDisponibles.Controls.Add(lblCardNoDispValor);
+            pnlCardNoDisponibles.CustomizableEdges = customizableEdges7;
+            pnlCardNoDisponibles.Location = new Point(994, 13);
+            pnlCardNoDisponibles.Margin = new Padding(3, 4, 3, 4);
+            pnlCardNoDisponibles.Name = "pnlCardNoDisponibles";
+            pnlCardNoDisponibles.ShadowDecoration.Color = Color.FromArgb(20, 0, 0, 0);
+            pnlCardNoDisponibles.ShadowDecoration.CustomizableEdges = customizableEdges8;
+            pnlCardNoDisponibles.ShadowDecoration.Depth = 4;
+            pnlCardNoDisponibles.ShadowDecoration.Enabled = true;
+            pnlCardNoDisponibles.Size = new Size(520, 107);
+            pnlCardNoDisponibles.TabIndex = 2;
+            // 
+            // picCardNoDisp
+            // 
+            picCardNoDisp.BackColor = Color.FromArgb(239, 68, 68);
+            picCardNoDisp.Location = new Point(14, 19);
+            picCardNoDisp.Margin = new Padding(3, 4, 3, 4);
+            picCardNoDisp.Name = "picCardNoDisp";
+            picCardNoDisp.Size = new Size(57, 67);
+            picCardNoDisp.SizeMode = PictureBoxSizeMode.Zoom;
+            picCardNoDisp.TabIndex = 0;
+            picCardNoDisp.TabStop = false;
+            // 
+            // lblCardNoDispTitulo
+            // 
+            lblCardNoDispTitulo.AutoSize = true;
+            lblCardNoDispTitulo.Font = new Font("Segoe UI", 10F);
+            lblCardNoDispTitulo.ForeColor = Color.FromArgb(100, 100, 120);
+            lblCardNoDispTitulo.Location = new Point(82, 21);
+            lblCardNoDispTitulo.Name = "lblCardNoDispTitulo";
+            lblCardNoDispTitulo.Size = new Size(125, 23);
+            lblCardNoDispTitulo.TabIndex = 1;
+            lblCardNoDispTitulo.Text = "No Disponibles";
+            // 
+            // lblCardNoDispValor
+            // 
+            lblCardNoDispValor.AutoSize = true;
+            lblCardNoDispValor.Font = new Font("Segoe UI", 22F, FontStyle.Bold);
+            lblCardNoDispValor.ForeColor = Color.FromArgb(239, 68, 68);
+            lblCardNoDispValor.Location = new Point(80, 48);
+            lblCardNoDispValor.Name = "lblCardNoDispValor";
+            lblCardNoDispValor.Size = new Size(43, 50);
+            lblCardNoDispValor.TabIndex = 2;
+            lblCardNoDispValor.Text = "0";
+            // 
+            // pnlListaProductos
+            // 
+            pnlListaProductos.BackColor = Color.Transparent;
+            pnlListaProductos.BorderRadius = 12;
+            pnlListaProductos.Controls.Add(lblListaTitulo);
+            pnlListaProductos.Controls.Add(txtBuscarProducto);
+            pnlListaProductos.Controls.Add(lblFiltroCategoria);
+            pnlListaProductos.Controls.Add(cmbFiltroCategoria);
+            pnlListaProductos.Controls.Add(lblSoloDisponibles);
+            pnlListaProductos.Controls.Add(tglSoloDisponibles);
+            pnlListaProductos.Controls.Add(dgvProductos);
+            pnlListaProductos.CustomizableEdges = customizableEdges15;
+            pnlListaProductos.Location = new Point(11, 133);
+            pnlListaProductos.Margin = new Padding(3, 4, 3, 4);
+            pnlListaProductos.Name = "pnlListaProductos";
+            pnlListaProductos.ShadowDecoration.Color = Color.FromArgb(20, 0, 0, 0);
+            pnlListaProductos.ShadowDecoration.CustomizableEdges = customizableEdges16;
+            pnlListaProductos.ShadowDecoration.Depth = 4;
+            pnlListaProductos.ShadowDecoration.Enabled = true;
+            pnlListaProductos.Size = new Size(926, 587);
+            pnlListaProductos.TabIndex = 3;
+            // 
             // lblListaTitulo
-            this.lblListaTitulo.AutoSize = true;
-            this.lblListaTitulo.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
-            this.lblListaTitulo.ForeColor = System.Drawing.Color.FromArgb(30, 30, 47);
-            this.lblListaTitulo.Location = new System.Drawing.Point(14, 14);
-            this.lblListaTitulo.Name = "lblListaTitulo";
-            this.lblListaTitulo.Text = "Lista de Productos";
-
+            // 
+            lblListaTitulo.AutoSize = true;
+            lblListaTitulo.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
+            lblListaTitulo.ForeColor = Color.FromArgb(30, 30, 47);
+            lblListaTitulo.Location = new Point(16, 19);
+            lblListaTitulo.Name = "lblListaTitulo";
+            lblListaTitulo.Size = new Size(176, 25);
+            lblListaTitulo.TabIndex = 0;
+            lblListaTitulo.Text = "Lista de Productos";
+            // 
             // txtBuscarProducto
-            this.txtBuscarProducto.BorderRadius = 8;
-            this.txtBuscarProducto.BorderColor = System.Drawing.Color.FromArgb(200, 200, 220);
-            this.txtBuscarProducto.DefaultText = "Buscar producto...";
-            this.txtBuscarProducto.DisabledState.FillColor = System.Drawing.Color.FromArgb(240, 240, 248);
-            this.txtBuscarProducto.FillColor = System.Drawing.Color.White;
-            this.txtBuscarProducto.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.txtBuscarProducto.ForeColor = System.Drawing.Color.FromArgb(60, 60, 80);
-            this.txtBuscarProducto.Location = new System.Drawing.Point(14, 42);
-            this.txtBuscarProducto.Name = "txtBuscarProducto";
-            this.txtBuscarProducto.PlaceholderText = "Buscar producto...";
-            this.txtBuscarProducto.Size = new System.Drawing.Size(220, 36);
-            this.txtBuscarProducto.TabIndex = 0;
-            this.txtBuscarProducto.TextChanged += new System.EventHandler(this.txtBuscarProducto_TextChanged);
-
+            // 
+            txtBuscarProducto.BorderColor = Color.FromArgb(200, 200, 220);
+            txtBuscarProducto.BorderRadius = 8;
+            txtBuscarProducto.CustomizableEdges = customizableEdges9;
+            txtBuscarProducto.DefaultText = "";
+            txtBuscarProducto.DisabledState.FillColor = Color.FromArgb(240, 240, 248);
+            txtBuscarProducto.Font = new Font("Segoe UI", 10F);
+            txtBuscarProducto.ForeColor = Color.FromArgb(60, 60, 80);
+            txtBuscarProducto.Location = new Point(16, 56);
+            txtBuscarProducto.Margin = new Padding(3, 5, 3, 5);
+            txtBuscarProducto.Name = "txtBuscarProducto";
+            txtBuscarProducto.PlaceholderText = "Buscar producto...";
+            txtBuscarProducto.SelectedText = "";
+            txtBuscarProducto.ShadowDecoration.CustomizableEdges = customizableEdges10;
+            txtBuscarProducto.Size = new Size(251, 48);
+            txtBuscarProducto.TabIndex = 0;
+            txtBuscarProducto.TextChanged += txtBuscarProducto_TextChanged;
+            // 
             // lblFiltroCategoria
-            this.lblFiltroCategoria.AutoSize = true;
-            this.lblFiltroCategoria.Font = new System.Drawing.Font("Segoe UI", 9.5F);
-            this.lblFiltroCategoria.ForeColor = System.Drawing.Color.FromArgb(60, 60, 80);
-            this.lblFiltroCategoria.Location = new System.Drawing.Point(250, 50);
-            this.lblFiltroCategoria.Name = "lblFiltroCategoria";
-            this.lblFiltroCategoria.Text = "Filtrar por Categoría:";
-
+            // 
+            lblFiltroCategoria.AutoSize = true;
+            lblFiltroCategoria.Font = new Font("Segoe UI", 9.5F);
+            lblFiltroCategoria.ForeColor = Color.FromArgb(60, 60, 80);
+            lblFiltroCategoria.Location = new Point(286, 67);
+            lblFiltroCategoria.Name = "lblFiltroCategoria";
+            lblFiltroCategoria.Size = new Size(153, 21);
+            lblFiltroCategoria.TabIndex = 1;
+            lblFiltroCategoria.Text = "Filtrar por Categoría:";
+            // 
             // cmbFiltroCategoria
-            this.cmbFiltroCategoria.BorderRadius = 8;
-            this.cmbFiltroCategoria.FillColor = System.Drawing.Color.White;
-            this.cmbFiltroCategoria.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.cmbFiltroCategoria.ForeColor = System.Drawing.Color.FromArgb(60, 60, 80);
-            this.cmbFiltroCategoria.ItemHeight = 30;
-            this.cmbFiltroCategoria.Location = new System.Drawing.Point(390, 42);
-            this.cmbFiltroCategoria.Name = "cmbFiltroCategoria";
-            this.cmbFiltroCategoria.Size = new System.Drawing.Size(210, 36);
-            this.cmbFiltroCategoria.TabIndex = 1;
-            this.cmbFiltroCategoria.SelectedIndexChanged += new System.EventHandler(this.cmbFiltroCategoria_SelectedIndexChanged);
-
+            // 
+            cmbFiltroCategoria.BackColor = Color.Transparent;
+            cmbFiltroCategoria.BorderRadius = 8;
+            cmbFiltroCategoria.CustomizableEdges = customizableEdges11;
+            cmbFiltroCategoria.DrawMode = DrawMode.OwnerDrawFixed;
+            cmbFiltroCategoria.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbFiltroCategoria.FocusedColor = Color.Empty;
+            cmbFiltroCategoria.Font = new Font("Segoe UI", 10F);
+            cmbFiltroCategoria.ForeColor = Color.FromArgb(60, 60, 80);
+            cmbFiltroCategoria.ItemHeight = 30;
+            cmbFiltroCategoria.Location = new Point(446, 56);
+            cmbFiltroCategoria.Margin = new Padding(3, 4, 3, 4);
+            cmbFiltroCategoria.Name = "cmbFiltroCategoria";
+            cmbFiltroCategoria.ShadowDecoration.CustomizableEdges = customizableEdges12;
+            cmbFiltroCategoria.Size = new Size(239, 36);
+            cmbFiltroCategoria.TabIndex = 1;
+            cmbFiltroCategoria.SelectedIndexChanged += cmbFiltroCategoria_SelectedIndexChanged;
+            // 
             // lblSoloDisponibles
-            this.lblSoloDisponibles.AutoSize = true;
-            this.lblSoloDisponibles.Font = new System.Drawing.Font("Segoe UI", 9.5F);
-            this.lblSoloDisponibles.ForeColor = System.Drawing.Color.FromArgb(60, 60, 80);
-            this.lblSoloDisponibles.Location = new System.Drawing.Point(617, 50);
-            this.lblSoloDisponibles.Name = "lblSoloDisponibles";
-            this.lblSoloDisponibles.Text = "Solo disponibles";
-
+            // 
+            lblSoloDisponibles.AutoSize = true;
+            lblSoloDisponibles.Font = new Font("Segoe UI", 9.5F);
+            lblSoloDisponibles.ForeColor = Color.FromArgb(60, 60, 80);
+            lblSoloDisponibles.Location = new Point(705, 67);
+            lblSoloDisponibles.Name = "lblSoloDisponibles";
+            lblSoloDisponibles.Size = new Size(124, 21);
+            lblSoloDisponibles.TabIndex = 2;
+            lblSoloDisponibles.Text = "Solo disponibles";
+            // 
             // tglSoloDisponibles
-            this.tglSoloDisponibles.CheckedState.FillColor = System.Drawing.Color.FromArgb(34, 197, 94);
-            this.tglSoloDisponibles.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.tglSoloDisponibles.Location = new System.Drawing.Point(730, 47);
-            this.tglSoloDisponibles.Name = "tglSoloDisponibles";
-            this.tglSoloDisponibles.Size = new System.Drawing.Size(55, 26);
-            this.tglSoloDisponibles.TabIndex = 2;
-            this.tglSoloDisponibles.CheckedChanged += new System.EventHandler(this.tglSoloDisponibles_CheckedChanged);
-
+            // 
+            tglSoloDisponibles.CheckedState.FillColor = Color.FromArgb(34, 197, 94);
+            tglSoloDisponibles.Cursor = Cursors.Hand;
+            tglSoloDisponibles.CustomizableEdges = customizableEdges13;
+            tglSoloDisponibles.Location = new Point(834, 63);
+            tglSoloDisponibles.Margin = new Padding(3, 4, 3, 4);
+            tglSoloDisponibles.Name = "tglSoloDisponibles";
+            tglSoloDisponibles.ShadowDecoration.CustomizableEdges = customizableEdges14;
+            tglSoloDisponibles.Size = new Size(63, 35);
+            tglSoloDisponibles.TabIndex = 2;
+            tglSoloDisponibles.CheckedChanged += tglSoloDisponibles_CheckedChanged;
+            // 
             // dgvProductos
-            this.dgvProductos.AllowUserToAddRows = false;
-            this.dgvProductos.AllowUserToDeleteRows = false;
-            this.dgvProductos.BackgroundColor = System.Drawing.Color.White;
-            this.dgvProductos.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dgvProductos.ColumnHeadersDefaultCellStyle.BackColor = System.Drawing.Color.FromArgb(30, 30, 47);
-            this.dgvProductos.ColumnHeadersDefaultCellStyle.Font = new System.Drawing.Font("Segoe UI", 9.5F, System.Drawing.FontStyle.Bold);
-            this.dgvProductos.ColumnHeadersDefaultCellStyle.ForeColor = System.Drawing.Color.White;
-            this.dgvProductos.ColumnHeadersDefaultCellStyle.SelectionBackColor = System.Drawing.Color.FromArgb(30, 30, 47);
-            this.dgvProductos.ColumnHeadersHeight = 38;
-            this.dgvProductos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.dgvProductos.DefaultCellStyle.Font = new System.Drawing.Font("Segoe UI", 9.5F);
-            this.dgvProductos.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.FromArgb(220, 235, 255);
-            this.dgvProductos.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.FromArgb(30, 30, 47);
-            this.dgvProductos.EnableHeadersVisualStyles = false;
-            this.dgvProductos.GridColor = System.Drawing.Color.FromArgb(230, 230, 245);
-            this.dgvProductos.Location = new System.Drawing.Point(10, 90);
-            this.dgvProductos.MultiSelect = false;
-            this.dgvProductos.Name = "dgvProductos";
-            this.dgvProductos.ReadOnly = true;
-            this.dgvProductos.RowHeadersVisible = false;
-            this.dgvProductos.RowTemplate.Height = 34;
-            this.dgvProductos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvProductos.Size = new System.Drawing.Size(790, 335);
-            this.dgvProductos.TabIndex = 3;
-            this.dgvProductos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProductos_CellClick);
-
-            // Columnas dgvProductos
-            this.colCodigo.DataPropertyName = "codigo_producto";
-            this.colCodigo.HeaderText = "Código";
-            this.colCodigo.Name = "colCodigo";
-            this.colCodigo.Width = 95;
-
-            this.colNombre.DataPropertyName = "nombre_producto";
-            this.colNombre.HeaderText = "Nombre";
-            this.colNombre.Name = "colNombre";
-            this.colNombre.Width = 180;
-
-            this.colCategoria.DataPropertyName = "nombre_categoria";
-            this.colCategoria.HeaderText = "Categoría";
-            this.colCategoria.Name = "colCategoria";
-            this.colCategoria.Width = 140;
-
-            this.colPrecio.DataPropertyName = "precio_venta";
-            this.colPrecio.HeaderText = "Precio";
-            this.colPrecio.Name = "colPrecio";
-            this.colPrecio.Width = 85;
-            this.colPrecio.DefaultCellStyle.Format = "C2";
-            this.colPrecio.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-
-            this.colTiempoPrep.DataPropertyName = "tiempo_preparacion_min";
-            this.colTiempoPrep.HeaderText = "Tiempo Prep.";
-            this.colTiempoPrep.Name = "colTiempoPrep";
-            this.colTiempoPrep.Width = 110;
-
-            this.colDisponible.DataPropertyName = "disponible";
-            this.colDisponible.HeaderText = "Disponible";
-            this.colDisponible.Name = "colDisponible";
-            this.colDisponible.Width = 90;
-            this.colDisponible.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-
-            this.dgvProductos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-                this.colCodigo, this.colNombre, this.colCategoria,
-                this.colPrecio, this.colTiempoPrep, this.colDisponible });
-
-            // ════════════════════════════════════════════════════════════════════
-            // PANEL DERECHO — FORMULARIO PRODUCTO
-            // ════════════════════════════════════════════════════════════════════
-            this.pnlFormProducto.BackColor = System.Drawing.Color.White;
-            this.pnlFormProducto.BorderRadius = 12;
-            this.pnlFormProducto.ShadowDecoration.Enabled = true;
-            this.pnlFormProducto.ShadowDecoration.Color = System.Drawing.Color.FromArgb(20, 0, 0, 0);
-            this.pnlFormProducto.ShadowDecoration.Depth = 4;
-            this.pnlFormProducto.Location = new System.Drawing.Point(832, 100);
-            this.pnlFormProducto.Name = "pnlFormProducto";
-            this.pnlFormProducto.Size = new System.Drawing.Size(495, 440);
-            this.pnlFormProducto.TabIndex = 4;
-            this.pnlFormProducto.Controls.Add(this.lblFormTitulo);
-            this.pnlFormProducto.Controls.Add(this.lblCodigo);
-            this.pnlFormProducto.Controls.Add(this.txtCodigo);
-            this.pnlFormProducto.Controls.Add(this.lblNombreProducto);
-            this.pnlFormProducto.Controls.Add(this.txtNombreProducto);
-            this.pnlFormProducto.Controls.Add(this.lblDescripcion);
-            this.pnlFormProducto.Controls.Add(this.txtDescripcion);
-            this.pnlFormProducto.Controls.Add(this.lblCategoria);
-            this.pnlFormProducto.Controls.Add(this.cmbCategoria);
-            this.pnlFormProducto.Controls.Add(this.lblPrecio);
-            this.pnlFormProducto.Controls.Add(this.txtPrecio);
-            this.pnlFormProducto.Controls.Add(this.lblTiempoPrep);
-            this.pnlFormProducto.Controls.Add(this.txtTiempoPrep);
-            this.pnlFormProducto.Controls.Add(this.lblDisponible);
-            this.pnlFormProducto.Controls.Add(this.tglDisponible);
-            this.pnlFormProducto.Controls.Add(this.lblDisponibleTexto);
-            this.pnlFormProducto.Controls.Add(this.btnGuardar);
-            this.pnlFormProducto.Controls.Add(this.btnEliminar);
-            this.pnlFormProducto.Controls.Add(this.btnLimpiar);
-
+            // 
+            dgvProductos.AllowUserToAddRows = false;
+            dgvProductos.AllowUserToDeleteRows = false;
+            dgvProductos.BackgroundColor = Color.White;
+            dgvProductos.BorderStyle = BorderStyle.None;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = Color.FromArgb(30, 30, 47);
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9.5F, FontStyle.Bold);
+            dataGridViewCellStyle1.ForeColor = Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = Color.FromArgb(30, 30, 47);
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dgvProductos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dgvProductos.ColumnHeadersHeight = 38;
+            dgvProductos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            dgvProductos.Columns.AddRange(new DataGridViewColumn[] { colCodigo, colNombre, colCategoria, colPrecio, colTiempoPrep, colDisponible });
+            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = SystemColors.Window;
+            dataGridViewCellStyle4.Font = new Font("Segoe UI", 9.5F);
+            dataGridViewCellStyle4.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle4.SelectionBackColor = Color.FromArgb(220, 235, 255);
+            dataGridViewCellStyle4.SelectionForeColor = Color.FromArgb(30, 30, 47);
+            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.False;
+            dgvProductos.DefaultCellStyle = dataGridViewCellStyle4;
+            dgvProductos.EnableHeadersVisualStyles = false;
+            dgvProductos.GridColor = Color.FromArgb(230, 230, 245);
+            dgvProductos.Location = new Point(14, 131);
+            dgvProductos.Margin = new Padding(3, 4, 3, 4);
+            dgvProductos.MultiSelect = false;
+            dgvProductos.Name = "dgvProductos";
+            dgvProductos.ReadOnly = true;
+            dgvProductos.RowHeadersVisible = false;
+            dgvProductos.RowHeadersWidth = 51;
+            dgvProductos.RowTemplate.Height = 34;
+            dgvProductos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvProductos.Size = new Size(899, 447);
+            dgvProductos.TabIndex = 3;
+            dgvProductos.CellClick += dgvProductos_CellClick;
+            // 
+            // colCodigo
+            // 
+            colCodigo.DataPropertyName = "codigo_producto";
+            colCodigo.HeaderText = "Código";
+            colCodigo.MinimumWidth = 6;
+            colCodigo.Name = "colCodigo";
+            colCodigo.ReadOnly = true;
+            colCodigo.Width = 125;
+            // 
+            // colNombre
+            // 
+            colNombre.DataPropertyName = "nombre_producto";
+            colNombre.HeaderText = "Nombre";
+            colNombre.MinimumWidth = 6;
+            colNombre.Name = "colNombre";
+            colNombre.ReadOnly = true;
+            colNombre.Width = 225;
+            // 
+            // colCategoria
+            // 
+            colCategoria.DataPropertyName = "nombre_categoria";
+            colCategoria.HeaderText = "Categoría";
+            colCategoria.MinimumWidth = 6;
+            colCategoria.Name = "colCategoria";
+            colCategoria.ReadOnly = true;
+            colCategoria.Width = 160;
+            // 
+            // colPrecio
+            // 
+            colPrecio.DataPropertyName = "precio_venta";
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle2.Format = "C2";
+            colPrecio.DefaultCellStyle = dataGridViewCellStyle2;
+            colPrecio.HeaderText = "Precio";
+            colPrecio.MinimumWidth = 6;
+            colPrecio.Name = "colPrecio";
+            colPrecio.ReadOnly = true;
+            colPrecio.Width = 125;
+            // 
+            // colTiempoPrep
+            // 
+            colTiempoPrep.DataPropertyName = "tiempo_preparacion_min";
+            colTiempoPrep.HeaderText = "Tiempo Prep.";
+            colTiempoPrep.MinimumWidth = 6;
+            colTiempoPrep.Name = "colTiempoPrep";
+            colTiempoPrep.ReadOnly = true;
+            colTiempoPrep.Width = 170;
+            // 
+            // colDisponible
+            // 
+            colDisponible.DataPropertyName = "disponible";
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            colDisponible.DefaultCellStyle = dataGridViewCellStyle3;
+            colDisponible.HeaderText = "Disponible";
+            colDisponible.MinimumWidth = 6;
+            colDisponible.Name = "colDisponible";
+            colDisponible.ReadOnly = true;
+            colDisponible.Width = 110;
+            // 
+            // pnlFormProducto
+            // 
+            pnlFormProducto.BackColor = Color.Transparent;
+            pnlFormProducto.BorderRadius = 12;
+            pnlFormProducto.Controls.Add(btnActualizarLista);
+            pnlFormProducto.Controls.Add(lblFormTitulo);
+            pnlFormProducto.Controls.Add(btnEditar);
+            pnlFormProducto.Controls.Add(lblCodigo);
+            pnlFormProducto.Controls.Add(txtCodigo);
+            pnlFormProducto.Controls.Add(lblNombreProducto);
+            pnlFormProducto.Controls.Add(txtNombreProducto);
+            pnlFormProducto.Controls.Add(btnEliminar);
+            pnlFormProducto.Controls.Add(lblDescripcion);
+            pnlFormProducto.Controls.Add(txtDescripcion);
+            pnlFormProducto.Controls.Add(lblCategoria);
+            pnlFormProducto.Controls.Add(cmbCategoria);
+            pnlFormProducto.Controls.Add(lblPrecio);
+            pnlFormProducto.Controls.Add(txtPrecio);
+            pnlFormProducto.Controls.Add(lblTiempoPrep);
+            pnlFormProducto.Controls.Add(txtTiempoPrep);
+            pnlFormProducto.Controls.Add(lblDisponible);
+            pnlFormProducto.Controls.Add(tglDisponible);
+            pnlFormProducto.Controls.Add(lblDisponibleTexto);
+            pnlFormProducto.Controls.Add(btnGuardar);
+            pnlFormProducto.CustomizableEdges = customizableEdges37;
+            pnlFormProducto.Location = new Point(951, 133);
+            pnlFormProducto.Margin = new Padding(3, 4, 3, 4);
+            pnlFormProducto.Name = "pnlFormProducto";
+            pnlFormProducto.ShadowDecoration.Color = Color.FromArgb(20, 0, 0, 0);
+            pnlFormProducto.ShadowDecoration.CustomizableEdges = customizableEdges38;
+            pnlFormProducto.ShadowDecoration.Depth = 4;
+            pnlFormProducto.ShadowDecoration.Enabled = true;
+            pnlFormProducto.Size = new Size(566, 587);
+            pnlFormProducto.TabIndex = 4;
+            // 
             // lblFormTitulo
-            this.lblFormTitulo.AutoSize = true;
-            this.lblFormTitulo.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
-            this.lblFormTitulo.ForeColor = System.Drawing.Color.FromArgb(30, 30, 47);
-            this.lblFormTitulo.Location = new System.Drawing.Point(14, 14);
-            this.lblFormTitulo.Name = "lblFormTitulo";
-            this.lblFormTitulo.Text = "Datos del Producto";
-
+            // 
+            lblFormTitulo.AutoSize = true;
+            lblFormTitulo.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
+            lblFormTitulo.ForeColor = Color.FromArgb(30, 30, 47);
+            lblFormTitulo.Location = new Point(16, 19);
+            lblFormTitulo.Name = "lblFormTitulo";
+            lblFormTitulo.Size = new Size(184, 25);
+            lblFormTitulo.TabIndex = 0;
+            lblFormTitulo.Text = "Datos del Producto";
+            // 
             // lblCodigo
-            this.lblCodigo.AutoSize = true;
-            this.lblCodigo.Font = new System.Drawing.Font("Segoe UI", 9.5F);
-            this.lblCodigo.ForeColor = System.Drawing.Color.FromArgb(60, 60, 80);
-            this.lblCodigo.Location = new System.Drawing.Point(14, 46);
-            this.lblCodigo.Name = "lblCodigo";
-            this.lblCodigo.Text = "Código del producto";
-
+            // 
+            lblCodigo.AutoSize = true;
+            lblCodigo.Font = new Font("Segoe UI", 9.5F);
+            lblCodigo.ForeColor = Color.FromArgb(60, 60, 80);
+            lblCodigo.Location = new Point(16, 40);
+            lblCodigo.Name = "lblCodigo";
+            lblCodigo.Size = new Size(152, 21);
+            lblCodigo.TabIndex = 1;
+            lblCodigo.Text = "Código del producto";
+            // 
             // txtCodigo
-            this.txtCodigo.BorderRadius = 8;
-            this.txtCodigo.BorderColor = System.Drawing.Color.FromArgb(200, 200, 220);
-            this.txtCodigo.FillColor = System.Drawing.Color.White;
-            this.txtCodigo.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.txtCodigo.ForeColor = System.Drawing.Color.FromArgb(60, 60, 80);
-            this.txtCodigo.Location = new System.Drawing.Point(14, 66);
-            this.txtCodigo.Name = "txtCodigo";
-            this.txtCodigo.ReadOnly = true;
-            this.txtCodigo.Size = new System.Drawing.Size(462, 36);
-            this.txtCodigo.TabIndex = 0;
-
+            // 
+            txtCodigo.BorderColor = Color.FromArgb(200, 200, 220);
+            txtCodigo.BorderRadius = 8;
+            txtCodigo.CustomizableEdges = customizableEdges21;
+            txtCodigo.DefaultText = "";
+            txtCodigo.Font = new Font("Segoe UI", 10F);
+            txtCodigo.ForeColor = Color.FromArgb(60, 60, 80);
+            txtCodigo.Location = new Point(16, 67);
+            txtCodigo.Margin = new Padding(3, 5, 3, 5);
+            txtCodigo.Name = "txtCodigo";
+            txtCodigo.PlaceholderText = "";
+            txtCodigo.ReadOnly = true;
+            txtCodigo.SelectedText = "";
+            txtCodigo.ShadowDecoration.CustomizableEdges = customizableEdges22;
+            txtCodigo.Size = new Size(528, 48);
+            txtCodigo.TabIndex = 0;
+            // 
             // lblNombreProducto
-            this.lblNombreProducto.AutoSize = true;
-            this.lblNombreProducto.Font = new System.Drawing.Font("Segoe UI", 9.5F);
-            this.lblNombreProducto.ForeColor = System.Drawing.Color.FromArgb(60, 60, 80);
-            this.lblNombreProducto.Location = new System.Drawing.Point(14, 112);
-            this.lblNombreProducto.Name = "lblNombreProducto";
-            this.lblNombreProducto.Text = "Nombre del producto";
-
+            // 
+            lblNombreProducto.AutoSize = true;
+            lblNombreProducto.Font = new Font("Segoe UI", 9.5F);
+            lblNombreProducto.ForeColor = Color.FromArgb(60, 60, 80);
+            lblNombreProducto.Location = new Point(16, 128);
+            lblNombreProducto.Name = "lblNombreProducto";
+            lblNombreProducto.Size = new Size(160, 21);
+            lblNombreProducto.TabIndex = 2;
+            lblNombreProducto.Text = "Nombre del producto";
+            // 
             // txtNombreProducto
-            this.txtNombreProducto.BorderRadius = 8;
-            this.txtNombreProducto.BorderColor = System.Drawing.Color.FromArgb(200, 200, 220);
-            this.txtNombreProducto.FillColor = System.Drawing.Color.White;
-            this.txtNombreProducto.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.txtNombreProducto.ForeColor = System.Drawing.Color.FromArgb(60, 60, 80);
-            this.txtNombreProducto.Location = new System.Drawing.Point(14, 132);
-            this.txtNombreProducto.Name = "txtNombreProducto";
-            this.txtNombreProducto.Size = new System.Drawing.Size(462, 36);
-            this.txtNombreProducto.TabIndex = 1;
-
+            // 
+            txtNombreProducto.BorderColor = Color.FromArgb(200, 200, 220);
+            txtNombreProducto.BorderRadius = 8;
+            txtNombreProducto.CustomizableEdges = customizableEdges23;
+            txtNombreProducto.DefaultText = "";
+            txtNombreProducto.Font = new Font("Segoe UI", 10F);
+            txtNombreProducto.ForeColor = Color.FromArgb(60, 60, 80);
+            txtNombreProducto.Location = new Point(16, 155);
+            txtNombreProducto.Margin = new Padding(3, 5, 3, 5);
+            txtNombreProducto.Name = "txtNombreProducto";
+            txtNombreProducto.PlaceholderText = "";
+            txtNombreProducto.SelectedText = "";
+            txtNombreProducto.ShadowDecoration.CustomizableEdges = customizableEdges24;
+            txtNombreProducto.Size = new Size(528, 48);
+            txtNombreProducto.TabIndex = 1;
+            // 
             // lblDescripcion
-            this.lblDescripcion.AutoSize = true;
-            this.lblDescripcion.Font = new System.Drawing.Font("Segoe UI", 9.5F);
-            this.lblDescripcion.ForeColor = System.Drawing.Color.FromArgb(60, 60, 80);
-            this.lblDescripcion.Location = new System.Drawing.Point(14, 178);
-            this.lblDescripcion.Name = "lblDescripcion";
-            this.lblDescripcion.Text = "Descripción";
-
+            // 
+            lblDescripcion.AutoSize = true;
+            lblDescripcion.Font = new Font("Segoe UI", 9.5F);
+            lblDescripcion.ForeColor = Color.FromArgb(60, 60, 80);
+            lblDescripcion.Location = new Point(16, 216);
+            lblDescripcion.Name = "lblDescripcion";
+            lblDescripcion.Size = new Size(91, 21);
+            lblDescripcion.TabIndex = 3;
+            lblDescripcion.Text = "Descripción";
+            // 
             // txtDescripcion
-            this.txtDescripcion.BackColor = System.Drawing.Color.White;
-            this.txtDescripcion.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtDescripcion.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.txtDescripcion.ForeColor = System.Drawing.Color.FromArgb(60, 60, 80);
-            this.txtDescripcion.Location = new System.Drawing.Point(14, 198);
-            this.txtDescripcion.Name = "txtDescripcion";
-            this.txtDescripcion.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
-            this.txtDescripcion.Size = new System.Drawing.Size(462, 72);
-            this.txtDescripcion.TabIndex = 2;
-
+            // 
+            txtDescripcion.BackColor = Color.White;
+            txtDescripcion.BorderStyle = BorderStyle.FixedSingle;
+            txtDescripcion.Font = new Font("Segoe UI", 10F);
+            txtDescripcion.ForeColor = Color.FromArgb(60, 60, 80);
+            txtDescripcion.Location = new Point(16, 243);
+            txtDescripcion.Margin = new Padding(3, 4, 3, 4);
+            txtDescripcion.Name = "txtDescripcion";
+            txtDescripcion.ScrollBars = RichTextBoxScrollBars.Vertical;
+            txtDescripcion.Size = new Size(527, 94);
+            txtDescripcion.TabIndex = 2;
+            txtDescripcion.Text = "";
+            // 
             // lblCategoria
-            this.lblCategoria.AutoSize = true;
-            this.lblCategoria.Font = new System.Drawing.Font("Segoe UI", 9.5F);
-            this.lblCategoria.ForeColor = System.Drawing.Color.FromArgb(60, 60, 80);
-            this.lblCategoria.Location = new System.Drawing.Point(14, 282);
-            this.lblCategoria.Name = "lblCategoria";
-            this.lblCategoria.Text = "Categoría";
-
+            // 
+            lblCategoria.AutoSize = true;
+            lblCategoria.Font = new Font("Segoe UI", 9.5F);
+            lblCategoria.ForeColor = Color.FromArgb(60, 60, 80);
+            lblCategoria.Location = new Point(16, 349);
+            lblCategoria.Name = "lblCategoria";
+            lblCategoria.Size = new Size(77, 21);
+            lblCategoria.TabIndex = 4;
+            lblCategoria.Text = "Categoría";
+            // 
             // cmbCategoria
-            this.cmbCategoria.BorderRadius = 8;
-            this.cmbCategoria.FillColor = System.Drawing.Color.White;
-            this.cmbCategoria.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.cmbCategoria.ForeColor = System.Drawing.Color.FromArgb(60, 60, 80);
-            this.cmbCategoria.ItemHeight = 30;
-            this.cmbCategoria.Location = new System.Drawing.Point(14, 302);
-            this.cmbCategoria.Name = "cmbCategoria";
-            this.cmbCategoria.Size = new System.Drawing.Size(220, 36);
-            this.cmbCategoria.TabIndex = 3;
-
+            // 
+            cmbCategoria.BackColor = Color.Transparent;
+            cmbCategoria.BorderRadius = 8;
+            cmbCategoria.CustomizableEdges = customizableEdges27;
+            cmbCategoria.DrawMode = DrawMode.OwnerDrawFixed;
+            cmbCategoria.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbCategoria.FocusedColor = Color.Empty;
+            cmbCategoria.Font = new Font("Segoe UI", 10F);
+            cmbCategoria.ForeColor = Color.FromArgb(60, 60, 80);
+            cmbCategoria.ItemHeight = 30;
+            cmbCategoria.Location = new Point(16, 376);
+            cmbCategoria.Margin = new Padding(3, 4, 3, 4);
+            cmbCategoria.Name = "cmbCategoria";
+            cmbCategoria.ShadowDecoration.CustomizableEdges = customizableEdges28;
+            cmbCategoria.Size = new Size(251, 36);
+            cmbCategoria.TabIndex = 3;
+            cmbCategoria.SelectedIndexChanged += cmbCategoria_SelectedIndexChanged;
+            // 
             // lblPrecio
-            this.lblPrecio.AutoSize = true;
-            this.lblPrecio.Font = new System.Drawing.Font("Segoe UI", 9.5F);
-            this.lblPrecio.ForeColor = System.Drawing.Color.FromArgb(60, 60, 80);
-            this.lblPrecio.Location = new System.Drawing.Point(248, 282);
-            this.lblPrecio.Name = "lblPrecio";
-            this.lblPrecio.Text = "Precio de venta ($)";
-
+            // 
+            lblPrecio.AutoSize = true;
+            lblPrecio.Font = new Font("Segoe UI", 9.5F);
+            lblPrecio.ForeColor = Color.FromArgb(60, 60, 80);
+            lblPrecio.Location = new Point(283, 349);
+            lblPrecio.Name = "lblPrecio";
+            lblPrecio.Size = new Size(139, 21);
+            lblPrecio.TabIndex = 5;
+            lblPrecio.Text = "Precio de venta ($)";
+            // 
             // txtPrecio
-            this.txtPrecio.BorderRadius = 8;
-            this.txtPrecio.BorderColor = System.Drawing.Color.FromArgb(200, 200, 220);
-            this.txtPrecio.FillColor = System.Drawing.Color.White;
-            this.txtPrecio.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.txtPrecio.ForeColor = System.Drawing.Color.FromArgb(60, 60, 80);
-            this.txtPrecio.Location = new System.Drawing.Point(248, 302);
-            this.txtPrecio.Name = "txtPrecio";
-            this.txtPrecio.Size = new System.Drawing.Size(228, 36);
-            this.txtPrecio.TabIndex = 4;
-
+            // 
+            txtPrecio.BorderColor = Color.FromArgb(200, 200, 220);
+            txtPrecio.BorderRadius = 8;
+            txtPrecio.CustomizableEdges = customizableEdges29;
+            txtPrecio.DefaultText = "";
+            txtPrecio.Font = new Font("Segoe UI", 10F);
+            txtPrecio.ForeColor = Color.FromArgb(60, 60, 80);
+            txtPrecio.Location = new Point(283, 376);
+            txtPrecio.Margin = new Padding(3, 5, 3, 5);
+            txtPrecio.Name = "txtPrecio";
+            txtPrecio.PlaceholderText = "";
+            txtPrecio.SelectedText = "";
+            txtPrecio.ShadowDecoration.CustomizableEdges = customizableEdges30;
+            txtPrecio.Size = new Size(261, 36);
+            txtPrecio.TabIndex = 4;
+            // 
             // lblTiempoPrep
-            this.lblTiempoPrep.AutoSize = true;
-            this.lblTiempoPrep.Font = new System.Drawing.Font("Segoe UI", 9.5F);
-            this.lblTiempoPrep.ForeColor = System.Drawing.Color.FromArgb(60, 60, 80);
-            this.lblTiempoPrep.Location = new System.Drawing.Point(14, 350);
-            this.lblTiempoPrep.Name = "lblTiempoPrep";
-            this.lblTiempoPrep.Text = "Tiempo de preparación (min)";
-
+            // 
+            lblTiempoPrep.AutoSize = true;
+            lblTiempoPrep.Font = new Font("Segoe UI", 9.5F);
+            lblTiempoPrep.ForeColor = Color.FromArgb(60, 60, 80);
+            lblTiempoPrep.Location = new Point(16, 434);
+            lblTiempoPrep.Name = "lblTiempoPrep";
+            lblTiempoPrep.Size = new Size(211, 21);
+            lblTiempoPrep.TabIndex = 6;
+            lblTiempoPrep.Text = "Tiempo de preparación (min)";
+            // 
             // txtTiempoPrep
-            this.txtTiempoPrep.BorderRadius = 8;
-            this.txtTiempoPrep.BorderColor = System.Drawing.Color.FromArgb(200, 200, 220);
-            this.txtTiempoPrep.FillColor = System.Drawing.Color.White;
-            this.txtTiempoPrep.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.txtTiempoPrep.ForeColor = System.Drawing.Color.FromArgb(60, 60, 80);
-            this.txtTiempoPrep.Location = new System.Drawing.Point(14, 370);
-            this.txtTiempoPrep.Name = "txtTiempoPrep";
-            this.txtTiempoPrep.Size = new System.Drawing.Size(190, 36);
-            this.txtTiempoPrep.TabIndex = 5;
-
+            // 
+            txtTiempoPrep.BorderColor = Color.FromArgb(200, 200, 220);
+            txtTiempoPrep.BorderRadius = 8;
+            txtTiempoPrep.CustomizableEdges = customizableEdges31;
+            txtTiempoPrep.DefaultText = "";
+            txtTiempoPrep.Font = new Font("Segoe UI", 10F);
+            txtTiempoPrep.ForeColor = Color.FromArgb(60, 60, 80);
+            txtTiempoPrep.Location = new Point(16, 460);
+            txtTiempoPrep.Margin = new Padding(3, 5, 3, 5);
+            txtTiempoPrep.Name = "txtTiempoPrep";
+            txtTiempoPrep.PlaceholderText = "";
+            txtTiempoPrep.SelectedText = "";
+            txtTiempoPrep.ShadowDecoration.CustomizableEdges = customizableEdges32;
+            txtTiempoPrep.Size = new Size(217, 48);
+            txtTiempoPrep.TabIndex = 5;
+            // 
             // lblDisponible
-            this.lblDisponible.AutoSize = true;
-            this.lblDisponible.Font = new System.Drawing.Font("Segoe UI", 9.5F);
-            this.lblDisponible.ForeColor = System.Drawing.Color.FromArgb(60, 60, 80);
-            this.lblDisponible.Location = new System.Drawing.Point(248, 350);
-            this.lblDisponible.Name = "lblDisponible";
-            this.lblDisponible.Text = "Disponible";
-
+            // 
+            lblDisponible.AutoSize = true;
+            lblDisponible.Font = new Font("Segoe UI", 9.5F);
+            lblDisponible.ForeColor = Color.FromArgb(60, 60, 80);
+            lblDisponible.Location = new Point(286, 439);
+            lblDisponible.Name = "lblDisponible";
+            lblDisponible.Size = new Size(84, 21);
+            lblDisponible.TabIndex = 7;
+            lblDisponible.Text = "Disponible";
+            // 
             // tglDisponible
-            this.tglDisponible.CheckedState.FillColor = System.Drawing.Color.FromArgb(34, 197, 94);
-            this.tglDisponible.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.tglDisponible.Location = new System.Drawing.Point(248, 374);
-            this.tglDisponible.Name = "tglDisponible";
-            this.tglDisponible.Size = new System.Drawing.Size(55, 26);
-            this.tglDisponible.TabIndex = 6;
-            this.tglDisponible.CheckedChanged += new System.EventHandler(this.tglDisponible_CheckedChanged);
-
+            // 
+            tglDisponible.CheckedState.FillColor = Color.FromArgb(34, 197, 94);
+            tglDisponible.Cursor = Cursors.Hand;
+            tglDisponible.CustomizableEdges = customizableEdges33;
+            tglDisponible.Location = new Point(289, 467);
+            tglDisponible.Margin = new Padding(3, 4, 3, 4);
+            tglDisponible.Name = "tglDisponible";
+            tglDisponible.ShadowDecoration.CustomizableEdges = customizableEdges34;
+            tglDisponible.Size = new Size(63, 35);
+            tglDisponible.TabIndex = 6;
+            tglDisponible.CheckedChanged += tglDisponible_CheckedChanged;
+            // 
             // lblDisponibleTexto
-            this.lblDisponibleTexto.AutoSize = true;
-            this.lblDisponibleTexto.Font = new System.Drawing.Font("Segoe UI", 9.5F);
-            this.lblDisponibleTexto.ForeColor = System.Drawing.Color.FromArgb(100, 100, 120);
-            this.lblDisponibleTexto.Location = new System.Drawing.Point(312, 379);
-            this.lblDisponibleTexto.Name = "lblDisponibleTexto";
-            this.lblDisponibleTexto.Text = "Sí";
-
+            // 
+            lblDisponibleTexto.AutoSize = true;
+            lblDisponibleTexto.Font = new Font("Segoe UI", 9.5F);
+            lblDisponibleTexto.ForeColor = Color.FromArgb(100, 100, 120);
+            lblDisponibleTexto.Location = new Point(363, 473);
+            lblDisponibleTexto.Name = "lblDisponibleTexto";
+            lblDisponibleTexto.Size = new Size(23, 21);
+            lblDisponibleTexto.TabIndex = 8;
+            lblDisponibleTexto.Text = "Sí";
+            // 
             // btnGuardar
-            this.btnGuardar.BorderRadius = 8;
-            this.btnGuardar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnGuardar.FillColor = System.Drawing.Color.FromArgb(34, 197, 94);
-            this.btnGuardar.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.btnGuardar.ForeColor = System.Drawing.Color.White;
-            this.btnGuardar.HoverState.FillColor = System.Drawing.Color.FromArgb(22, 163, 74);
-            this.btnGuardar.Location = new System.Drawing.Point(14, 395);
-            this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(138, 38);
-            this.btnGuardar.TabIndex = 7;
-            this.btnGuardar.Text = "  Guardar";
-            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
-
+            // 
+            btnGuardar.BorderRadius = 8;
+            btnGuardar.Cursor = Cursors.Hand;
+            btnGuardar.CustomizableEdges = customizableEdges35;
+            btnGuardar.FillColor = Color.FromArgb(34, 197, 94);
+            btnGuardar.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            btnGuardar.ForeColor = Color.White;
+            btnGuardar.HoverState.FillColor = Color.FromArgb(22, 163, 74);
+            btnGuardar.Location = new Point(16, 527);
+            btnGuardar.Margin = new Padding(3, 4, 3, 4);
+            btnGuardar.Name = "btnGuardar";
+            btnGuardar.ShadowDecoration.CustomizableEdges = customizableEdges36;
+            btnGuardar.Size = new Size(113, 51);
+            btnGuardar.TabIndex = 7;
+            btnGuardar.Text = "  Guardar";
+            btnGuardar.Click += btnGuardar_Click;
+            // 
             // btnEliminar
-            this.btnEliminar.BorderRadius = 8;
-            this.btnEliminar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnEliminar.FillColor = System.Drawing.Color.FromArgb(239, 68, 68);
-            this.btnEliminar.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.btnEliminar.ForeColor = System.Drawing.Color.White;
-            this.btnEliminar.HoverState.FillColor = System.Drawing.Color.FromArgb(185, 28, 28);
-            this.btnEliminar.Location = new System.Drawing.Point(162, 395);
-            this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(138, 38);
-            this.btnEliminar.TabIndex = 8;
-            this.btnEliminar.Text = "  Eliminar";
-            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
-
-            // btnLimpiar
-            this.btnLimpiar.BorderRadius = 8;
-            this.btnLimpiar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnLimpiar.FillColor = System.Drawing.Color.FromArgb(220, 220, 235);
-            this.btnLimpiar.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.btnLimpiar.ForeColor = System.Drawing.Color.FromArgb(60, 60, 80);
-            this.btnLimpiar.HoverState.FillColor = System.Drawing.Color.FromArgb(200, 200, 215);
-            this.btnLimpiar.Location = new System.Drawing.Point(310, 395);
-            this.btnLimpiar.Name = "btnLimpiar";
-            this.btnLimpiar.Size = new System.Drawing.Size(166, 38);
-            this.btnLimpiar.TabIndex = 9;
-            this.btnLimpiar.Text = "  Limpiar";
-            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
-
-            // ════════════════════════════════════════════════════════════════════
-            // PANEL INFERIOR — BOTONES DE ACCIÓN
-            // ════════════════════════════════════════════════════════════════════
-            this.pnlBotonesInferiores.BackColor = System.Drawing.Color.Transparent;
-            this.pnlBotonesInferiores.BorderRadius = 0;
-            this.pnlBotonesInferiores.Location = new System.Drawing.Point(10, 550);
-            this.pnlBotonesInferiores.Name = "pnlBotonesInferiores";
-            this.pnlBotonesInferiores.Size = new System.Drawing.Size(810, 50);
-            this.pnlBotonesInferiores.TabIndex = 5;
-            this.pnlBotonesInferiores.Controls.Add(this.btnNuevoProducto);
-            this.pnlBotonesInferiores.Controls.Add(this.btnEditar);
-            this.pnlBotonesInferiores.Controls.Add(this.btnActualizarLista);
-
-            // btnNuevoProducto
-            this.btnNuevoProducto.BorderRadius = 8;
-            this.btnNuevoProducto.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnNuevoProducto.FillColor = System.Drawing.Color.FromArgb(37, 99, 235);
-            this.btnNuevoProducto.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.btnNuevoProducto.ForeColor = System.Drawing.Color.White;
-            this.btnNuevoProducto.HoverState.FillColor = System.Drawing.Color.FromArgb(29, 78, 216);
-            this.btnNuevoProducto.Location = new System.Drawing.Point(0, 5);
-            this.btnNuevoProducto.Name = "btnNuevoProducto";
-            this.btnNuevoProducto.Size = new System.Drawing.Size(175, 40);
-            this.btnNuevoProducto.TabIndex = 0;
-            this.btnNuevoProducto.Text = "  + Nuevo Producto";
-            this.btnNuevoProducto.Click += new System.EventHandler(this.btnNuevoProducto_Click);
-
+            // 
+            btnEliminar.BorderRadius = 8;
+            btnEliminar.Cursor = Cursors.Hand;
+            btnEliminar.CustomizableEdges = customizableEdges25;
+            btnEliminar.FillColor = Color.FromArgb(239, 68, 68);
+            btnEliminar.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            btnEliminar.ForeColor = Color.White;
+            btnEliminar.HoverState.FillColor = Color.FromArgb(185, 28, 28);
+            btnEliminar.Location = new Point(289, 525);
+            btnEliminar.Margin = new Padding(3, 4, 3, 4);
+            btnEliminar.Name = "btnEliminar";
+            btnEliminar.ShadowDecoration.CustomizableEdges = customizableEdges26;
+            btnEliminar.Size = new Size(113, 51);
+            btnEliminar.TabIndex = 8;
+            btnEliminar.Text = "  Eliminar";
+            btnEliminar.Click += btnEliminar_Click;
+            // 
             // btnEditar
-            this.btnEditar.BorderRadius = 8;
-            this.btnEditar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnEditar.FillColor = System.Drawing.Color.FromArgb(249, 115, 22);
-            this.btnEditar.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.btnEditar.ForeColor = System.Drawing.Color.White;
-            this.btnEditar.HoverState.FillColor = System.Drawing.Color.FromArgb(234, 88, 12);
-            this.btnEditar.Location = new System.Drawing.Point(185, 5);
-            this.btnEditar.Name = "btnEditar";
-            this.btnEditar.Size = new System.Drawing.Size(140, 40);
-            this.btnEditar.TabIndex = 1;
-            this.btnEditar.Text = "  Editar";
-            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
-
+            // 
+            btnEditar.BorderRadius = 8;
+            btnEditar.Cursor = Cursors.Hand;
+            btnEditar.CustomizableEdges = customizableEdges19;
+            btnEditar.FillColor = Color.FromArgb(249, 115, 22);
+            btnEditar.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            btnEditar.ForeColor = Color.White;
+            btnEditar.HoverState.FillColor = Color.FromArgb(234, 88, 12);
+            btnEditar.Location = new Point(154, 525);
+            btnEditar.Margin = new Padding(3, 4, 3, 4);
+            btnEditar.Name = "btnEditar";
+            btnEditar.ShadowDecoration.CustomizableEdges = customizableEdges20;
+            btnEditar.Size = new Size(113, 53);
+            btnEditar.TabIndex = 1;
+            btnEditar.Text = "  Editar";
+            btnEditar.Click += btnEditar_Click;
+            // 
             // btnActualizarLista
-            this.btnActualizarLista.BorderRadius = 8;
-            this.btnActualizarLista.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnActualizarLista.FillColor = System.Drawing.Color.FromArgb(220, 220, 235);
-            this.btnActualizarLista.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.btnActualizarLista.ForeColor = System.Drawing.Color.FromArgb(60, 60, 80);
-            this.btnActualizarLista.HoverState.FillColor = System.Drawing.Color.FromArgb(200, 200, 215);
-            this.btnActualizarLista.Location = new System.Drawing.Point(335, 5);
-            this.btnActualizarLista.Name = "btnActualizarLista";
-            this.btnActualizarLista.Size = new System.Drawing.Size(175, 40);
-            this.btnActualizarLista.TabIndex = 2;
-            this.btnActualizarLista.Text = "  Actualizar lista";
-            this.btnActualizarLista.Click += new System.EventHandler(this.btnActualizarLista_Click);
-
-            // ════════════════════════════════════════════════════════════════════
-            // TAB CATEGORÍAS — PANEL LISTA
-            // ════════════════════════════════════════════════════════════════════
-            this.pnlListaCategorias.BackColor = System.Drawing.Color.White;
-            this.pnlListaCategorias.BorderRadius = 12;
-            this.pnlListaCategorias.ShadowDecoration.Enabled = true;
-            this.pnlListaCategorias.ShadowDecoration.Color = System.Drawing.Color.FromArgb(20, 0, 0, 0);
-            this.pnlListaCategorias.ShadowDecoration.Depth = 4;
-            this.pnlListaCategorias.Location = new System.Drawing.Point(10, 10);
-            this.pnlListaCategorias.Name = "pnlListaCategorias";
-            this.pnlListaCategorias.Size = new System.Drawing.Size(810, 570);
-            this.pnlListaCategorias.TabIndex = 0;
-            this.pnlListaCategorias.Controls.Add(this.lblCatListaTitulo);
-            this.pnlListaCategorias.Controls.Add(this.dgvCategorias);
-
-            this.lblCatListaTitulo.AutoSize = true;
-            this.lblCatListaTitulo.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
-            this.lblCatListaTitulo.ForeColor = System.Drawing.Color.FromArgb(30, 30, 47);
-            this.lblCatListaTitulo.Location = new System.Drawing.Point(14, 14);
-            this.lblCatListaTitulo.Name = "lblCatListaTitulo";
-            this.lblCatListaTitulo.Text = "Lista de Categorías";
-
-            this.dgvCategorias.AllowUserToAddRows = false;
-            this.dgvCategorias.AllowUserToDeleteRows = false;
-            this.dgvCategorias.BackgroundColor = System.Drawing.Color.White;
-            this.dgvCategorias.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dgvCategorias.ColumnHeadersDefaultCellStyle.BackColor = System.Drawing.Color.FromArgb(30, 30, 47);
-            this.dgvCategorias.ColumnHeadersDefaultCellStyle.Font = new System.Drawing.Font("Segoe UI", 9.5F, System.Drawing.FontStyle.Bold);
-            this.dgvCategorias.ColumnHeadersDefaultCellStyle.ForeColor = System.Drawing.Color.White;
-            this.dgvCategorias.ColumnHeadersDefaultCellStyle.SelectionBackColor = System.Drawing.Color.FromArgb(30, 30, 47);
-            this.dgvCategorias.ColumnHeadersHeight = 38;
-            this.dgvCategorias.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.dgvCategorias.DefaultCellStyle.Font = new System.Drawing.Font("Segoe UI", 9.5F);
-            this.dgvCategorias.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.FromArgb(220, 235, 255);
-            this.dgvCategorias.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.FromArgb(30, 30, 47);
-            this.dgvCategorias.EnableHeadersVisualStyles = false;
-            this.dgvCategorias.GridColor = System.Drawing.Color.FromArgb(230, 230, 245);
-            this.dgvCategorias.Location = new System.Drawing.Point(10, 44);
-            this.dgvCategorias.MultiSelect = false;
-            this.dgvCategorias.Name = "dgvCategorias";
-            this.dgvCategorias.ReadOnly = true;
-            this.dgvCategorias.RowHeadersVisible = false;
-            this.dgvCategorias.RowTemplate.Height = 34;
-            this.dgvCategorias.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvCategorias.Size = new System.Drawing.Size(790, 508);
-            this.dgvCategorias.TabIndex = 0;
-            this.dgvCategorias.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCategorias_CellClick);
-
-            this.colCatId.DataPropertyName = "id_categoria";
-            this.colCatId.HeaderText = "ID";
-            this.colCatId.Name = "colCatId";
-            this.colCatId.Width = 60;
-
-            this.colCatNombre.DataPropertyName = "nombre_categoria";
-            this.colCatNombre.HeaderText = "Nombre de Categoría";
-            this.colCatNombre.Name = "colCatNombre";
-            this.colCatNombre.Width = 300;
-            this.colCatNombre.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-
-            this.colCatProductos.DataPropertyName = "total_productos";
-            this.colCatProductos.HeaderText = "Total Productos";
-            this.colCatProductos.Name = "colCatProductos";
-            this.colCatProductos.Width = 130;
-            this.colCatProductos.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-
-            this.dgvCategorias.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-                this.colCatId, this.colCatNombre, this.colCatProductos });
-
-            // ════════════════════════════════════════════════════════════════════
-            // TAB CATEGORÍAS — PANEL FORMULARIO
-            // ════════════════════════════════════════════════════════════════════
-            this.pnlFormCategoria.BackColor = System.Drawing.Color.White;
-            this.pnlFormCategoria.BorderRadius = 12;
-            this.pnlFormCategoria.ShadowDecoration.Enabled = true;
-            this.pnlFormCategoria.ShadowDecoration.Color = System.Drawing.Color.FromArgb(20, 0, 0, 0);
-            this.pnlFormCategoria.ShadowDecoration.Depth = 4;
-            this.pnlFormCategoria.Location = new System.Drawing.Point(832, 10);
-            this.pnlFormCategoria.Name = "pnlFormCategoria";
-            this.pnlFormCategoria.Size = new System.Drawing.Size(495, 200);
-            this.pnlFormCategoria.TabIndex = 1;
-            this.pnlFormCategoria.Controls.Add(this.lblCatFormTitulo);
-            this.pnlFormCategoria.Controls.Add(this.lblNombreCategoria);
-            this.pnlFormCategoria.Controls.Add(this.txtNombreCategoria);
-            this.pnlFormCategoria.Controls.Add(this.btnGuardarCategoria);
-            this.pnlFormCategoria.Controls.Add(this.btnEliminarCategoria);
-            this.pnlFormCategoria.Controls.Add(this.btnLimpiarCategoria);
-            this.pnlFormCategoria.Controls.Add(this.btnNuevaCategoria);
-
-            this.lblCatFormTitulo.AutoSize = true;
-            this.lblCatFormTitulo.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
-            this.lblCatFormTitulo.ForeColor = System.Drawing.Color.FromArgb(30, 30, 47);
-            this.lblCatFormTitulo.Location = new System.Drawing.Point(14, 14);
-            this.lblCatFormTitulo.Name = "lblCatFormTitulo";
-            this.lblCatFormTitulo.Text = "Datos de Categoría";
-
-            this.lblNombreCategoria.AutoSize = true;
-            this.lblNombreCategoria.Font = new System.Drawing.Font("Segoe UI", 9.5F);
-            this.lblNombreCategoria.ForeColor = System.Drawing.Color.FromArgb(60, 60, 80);
-            this.lblNombreCategoria.Location = new System.Drawing.Point(14, 46);
-            this.lblNombreCategoria.Name = "lblNombreCategoria";
-            this.lblNombreCategoria.Text = "Nombre de la categoría";
-
-            this.txtNombreCategoria.BorderRadius = 8;
-            this.txtNombreCategoria.BorderColor = System.Drawing.Color.FromArgb(200, 200, 220);
-            this.txtNombreCategoria.FillColor = System.Drawing.Color.White;
-            this.txtNombreCategoria.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.txtNombreCategoria.ForeColor = System.Drawing.Color.FromArgb(60, 60, 80);
-            this.txtNombreCategoria.Location = new System.Drawing.Point(14, 66);
-            this.txtNombreCategoria.Name = "txtNombreCategoria";
-            this.txtNombreCategoria.Size = new System.Drawing.Size(462, 36);
-            this.txtNombreCategoria.TabIndex = 0;
-
-            this.btnGuardarCategoria.BorderRadius = 8;
-            this.btnGuardarCategoria.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnGuardarCategoria.FillColor = System.Drawing.Color.FromArgb(34, 197, 94);
-            this.btnGuardarCategoria.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.btnGuardarCategoria.ForeColor = System.Drawing.Color.White;
-            this.btnGuardarCategoria.HoverState.FillColor = System.Drawing.Color.FromArgb(22, 163, 74);
-            this.btnGuardarCategoria.Location = new System.Drawing.Point(14, 118);
-            this.btnGuardarCategoria.Name = "btnGuardarCategoria";
-            this.btnGuardarCategoria.Size = new System.Drawing.Size(130, 38);
-            this.btnGuardarCategoria.TabIndex = 1;
-            this.btnGuardarCategoria.Text = "  Guardar";
-            this.btnGuardarCategoria.Click += new System.EventHandler(this.btnGuardarCategoria_Click);
-
-            this.btnEliminarCategoria.BorderRadius = 8;
-            this.btnEliminarCategoria.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnEliminarCategoria.FillColor = System.Drawing.Color.FromArgb(239, 68, 68);
-            this.btnEliminarCategoria.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.btnEliminarCategoria.ForeColor = System.Drawing.Color.White;
-            this.btnEliminarCategoria.HoverState.FillColor = System.Drawing.Color.FromArgb(185, 28, 28);
-            this.btnEliminarCategoria.Location = new System.Drawing.Point(154, 118);
-            this.btnEliminarCategoria.Name = "btnEliminarCategoria";
-            this.btnEliminarCategoria.Size = new System.Drawing.Size(130, 38);
-            this.btnEliminarCategoria.TabIndex = 2;
-            this.btnEliminarCategoria.Text = "  Eliminar";
-            this.btnEliminarCategoria.Click += new System.EventHandler(this.btnEliminarCategoria_Click);
-
-            this.btnLimpiarCategoria.BorderRadius = 8;
-            this.btnLimpiarCategoria.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnLimpiarCategoria.FillColor = System.Drawing.Color.FromArgb(220, 220, 235);
-            this.btnLimpiarCategoria.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.btnLimpiarCategoria.ForeColor = System.Drawing.Color.FromArgb(60, 60, 80);
-            this.btnLimpiarCategoria.HoverState.FillColor = System.Drawing.Color.FromArgb(200, 200, 215);
-            this.btnLimpiarCategoria.Location = new System.Drawing.Point(294, 118);
-            this.btnLimpiarCategoria.Name = "btnLimpiarCategoria";
-            this.btnLimpiarCategoria.Size = new System.Drawing.Size(130, 38);
-            this.btnLimpiarCategoria.TabIndex = 3;
-            this.btnLimpiarCategoria.Text = "  Limpiar";
-            this.btnLimpiarCategoria.Click += new System.EventHandler(this.btnLimpiarCategoria_Click);
-
-            this.btnNuevaCategoria.BorderRadius = 8;
-            this.btnNuevaCategoria.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnNuevaCategoria.FillColor = System.Drawing.Color.FromArgb(37, 99, 235);
-            this.btnNuevaCategoria.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.btnNuevaCategoria.ForeColor = System.Drawing.Color.White;
-            this.btnNuevaCategoria.HoverState.FillColor = System.Drawing.Color.FromArgb(29, 78, 216);
-            this.btnNuevaCategoria.Location = new System.Drawing.Point(14, 162);
-            this.btnNuevaCategoria.Name = "btnNuevaCategoria";
-            this.btnNuevaCategoria.Size = new System.Drawing.Size(175, 38);
-            this.btnNuevaCategoria.TabIndex = 4;
-            this.btnNuevaCategoria.Text = "  + Nueva Categoría";
-            this.btnNuevaCategoria.Click += new System.EventHandler(this.btnNuevaCategoria_Click);
-
-            // ════════════════════════════════════════════════════════════════════
-            // frmMenu — FORM PROPERTIES
-            // ════════════════════════════════════════════════════════════════════
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(240, 240, 248);
-            this.ClientSize = new System.Drawing.Size(1366, 728);
-            this.Controls.Add(this.tabMenu);
-            this.Controls.Add(this.pnlTopBar);
-            this.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.MaximizeBox = false;
-            this.Name = "frmMenu";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Gestión de Menú - Sabor Gourmet FMO";
-            this.Load += new System.EventHandler(this.frmMenu_Load);
-
-            // ════════════════════════════════════════════════════════════════════
-            // RESUME LAYOUTS
-            // ════════════════════════════════════════════════════════════════════
-            this.pnlTopBar.ResumeLayout(false);
-            this.pnlTopBar.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picIconoApp)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picAvatarUsuario)).EndInit();
-            this.tabMenu.ResumeLayout(false);
-            this.tabProductos.ResumeLayout(false);
-            this.tabCategorias.ResumeLayout(false);
-            this.pnlCardTotal.ResumeLayout(false);
-            this.pnlCardTotal.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picCardTotal)).EndInit();
-            this.pnlCardDisponibles.ResumeLayout(false);
-            this.pnlCardDisponibles.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picCardDisponibles)).EndInit();
-            this.pnlCardNoDisponibles.ResumeLayout(false);
-            this.pnlCardNoDisponibles.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picCardNoDisp)).EndInit();
-            this.pnlListaProductos.ResumeLayout(false);
-            this.pnlListaProductos.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).EndInit();
-            this.pnlFormProducto.ResumeLayout(false);
-            this.pnlFormProducto.PerformLayout();
-            this.pnlBotonesInferiores.ResumeLayout(false);
-            this.pnlListaCategorias.ResumeLayout(false);
-            this.pnlListaCategorias.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvCategorias)).EndInit();
-            this.pnlFormCategoria.ResumeLayout(false);
-            this.pnlFormCategoria.PerformLayout();
-            this.ResumeLayout(false);
-            this.PerformLayout();
+            // 
+            btnActualizarLista.BorderRadius = 8;
+            btnActualizarLista.Cursor = Cursors.Hand;
+            btnActualizarLista.CustomizableEdges = customizableEdges17;
+            btnActualizarLista.FillColor = Color.FromArgb(220, 220, 235);
+            btnActualizarLista.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            btnActualizarLista.ForeColor = Color.FromArgb(60, 60, 80);
+            btnActualizarLista.HoverState.FillColor = Color.FromArgb(200, 200, 215);
+            btnActualizarLista.Location = new Point(422, 523);
+            btnActualizarLista.Margin = new Padding(3, 4, 3, 4);
+            btnActualizarLista.Name = "btnActualizarLista";
+            btnActualizarLista.ShadowDecoration.CustomizableEdges = customizableEdges18;
+            btnActualizarLista.Size = new Size(141, 53);
+            btnActualizarLista.TabIndex = 2;
+            btnActualizarLista.Text = "  Actualizar";
+            btnActualizarLista.Click += btnActualizarLista_Click;
+            // 
+            // tabCategorias
+            // 
+            tabCategorias.BackColor = Color.FromArgb(240, 240, 248);
+            tabCategorias.Controls.Add(pnlListaCategorias);
+            tabCategorias.Controls.Add(pnlFormCategoria);
+            tabCategorias.Font = new Font("Segoe UI", 10F);
+            tabCategorias.Location = new Point(4, 32);
+            tabCategorias.Margin = new Padding(3, 4, 3, 4);
+            tabCategorias.Name = "tabCategorias";
+            tabCategorias.Size = new Size(1526, 801);
+            tabCategorias.TabIndex = 1;
+            tabCategorias.Text = "  Categorías";
+            // 
+            // pnlListaCategorias
+            // 
+            pnlListaCategorias.BackColor = Color.Transparent;
+            pnlListaCategorias.BorderRadius = 12;
+            pnlListaCategorias.Controls.Add(lblCatListaTitulo);
+            pnlListaCategorias.Controls.Add(dgvCategorias);
+            pnlListaCategorias.CustomizableEdges = customizableEdges39;
+            pnlListaCategorias.Location = new Point(11, 13);
+            pnlListaCategorias.Margin = new Padding(3, 4, 3, 4);
+            pnlListaCategorias.Name = "pnlListaCategorias";
+            pnlListaCategorias.ShadowDecoration.Color = Color.FromArgb(20, 0, 0, 0);
+            pnlListaCategorias.ShadowDecoration.CustomizableEdges = customizableEdges40;
+            pnlListaCategorias.ShadowDecoration.Depth = 4;
+            pnlListaCategorias.ShadowDecoration.Enabled = true;
+            pnlListaCategorias.Size = new Size(926, 760);
+            pnlListaCategorias.TabIndex = 0;
+            // 
+            // lblCatListaTitulo
+            // 
+            lblCatListaTitulo.AutoSize = true;
+            lblCatListaTitulo.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
+            lblCatListaTitulo.ForeColor = Color.FromArgb(30, 30, 47);
+            lblCatListaTitulo.Location = new Point(16, 19);
+            lblCatListaTitulo.Name = "lblCatListaTitulo";
+            lblCatListaTitulo.Size = new Size(178, 25);
+            lblCatListaTitulo.TabIndex = 0;
+            lblCatListaTitulo.Text = "Lista de Categorías";
+            // 
+            // dgvCategorias
+            // 
+            dgvCategorias.AllowUserToAddRows = false;
+            dgvCategorias.AllowUserToDeleteRows = false;
+            dgvCategorias.BackgroundColor = Color.White;
+            dgvCategorias.BorderStyle = BorderStyle.None;
+            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = Color.FromArgb(30, 30, 47);
+            dataGridViewCellStyle5.Font = new Font("Segoe UI", 9.5F, FontStyle.Bold);
+            dataGridViewCellStyle5.ForeColor = Color.White;
+            dataGridViewCellStyle5.SelectionBackColor = Color.FromArgb(30, 30, 47);
+            dataGridViewCellStyle5.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.True;
+            dgvCategorias.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dgvCategorias.ColumnHeadersHeight = 38;
+            dgvCategorias.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            dgvCategorias.Columns.AddRange(new DataGridViewColumn[] { colCatId, colCatNombre, colCatProductos });
+            dataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = SystemColors.Window;
+            dataGridViewCellStyle7.Font = new Font("Segoe UI", 9.5F);
+            dataGridViewCellStyle7.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle7.SelectionBackColor = Color.FromArgb(220, 235, 255);
+            dataGridViewCellStyle7.SelectionForeColor = Color.FromArgb(30, 30, 47);
+            dataGridViewCellStyle7.WrapMode = DataGridViewTriState.False;
+            dgvCategorias.DefaultCellStyle = dataGridViewCellStyle7;
+            dgvCategorias.EnableHeadersVisualStyles = false;
+            dgvCategorias.GridColor = Color.FromArgb(230, 230, 245);
+            dgvCategorias.Location = new Point(11, 59);
+            dgvCategorias.Margin = new Padding(3, 4, 3, 4);
+            dgvCategorias.MultiSelect = false;
+            dgvCategorias.Name = "dgvCategorias";
+            dgvCategorias.ReadOnly = true;
+            dgvCategorias.RowHeadersVisible = false;
+            dgvCategorias.RowHeadersWidth = 51;
+            dgvCategorias.RowTemplate.Height = 34;
+            dgvCategorias.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvCategorias.Size = new Size(903, 677);
+            dgvCategorias.TabIndex = 0;
+            dgvCategorias.CellClick += dgvCategorias_CellClick;
+            // 
+            // colCatId
+            // 
+            colCatId.DataPropertyName = "id_categoria";
+            colCatId.HeaderText = "ID";
+            colCatId.MinimumWidth = 6;
+            colCatId.Name = "colCatId";
+            colCatId.ReadOnly = true;
+            colCatId.Width = 60;
+            // 
+            // colCatNombre
+            // 
+            colCatNombre.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            colCatNombre.DataPropertyName = "nombre_categoria";
+            colCatNombre.HeaderText = "Nombre de Categoría";
+            colCatNombre.MinimumWidth = 6;
+            colCatNombre.Name = "colCatNombre";
+            colCatNombre.ReadOnly = true;
+            // 
+            // colCatProductos
+            // 
+            colCatProductos.DataPropertyName = "total_productos";
+            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            colCatProductos.DefaultCellStyle = dataGridViewCellStyle6;
+            colCatProductos.HeaderText = "Total Productos";
+            colCatProductos.MinimumWidth = 6;
+            colCatProductos.Name = "colCatProductos";
+            colCatProductos.ReadOnly = true;
+            colCatProductos.Width = 130;
+            // 
+            // pnlFormCategoria
+            // 
+            pnlFormCategoria.BackColor = Color.Transparent;
+            pnlFormCategoria.BorderRadius = 12;
+            pnlFormCategoria.Controls.Add(lblCatFormTitulo);
+            pnlFormCategoria.Controls.Add(lblNombreCategoria);
+            pnlFormCategoria.Controls.Add(txtNombreCategoria);
+            pnlFormCategoria.Controls.Add(btnEliminarCategoria);
+            pnlFormCategoria.Controls.Add(btnNuevaCategoria);
+            pnlFormCategoria.CustomizableEdges = customizableEdges47;
+            pnlFormCategoria.Location = new Point(951, 13);
+            pnlFormCategoria.Margin = new Padding(3, 4, 3, 4);
+            pnlFormCategoria.Name = "pnlFormCategoria";
+            pnlFormCategoria.ShadowDecoration.Color = Color.FromArgb(20, 0, 0, 0);
+            pnlFormCategoria.ShadowDecoration.CustomizableEdges = customizableEdges48;
+            pnlFormCategoria.ShadowDecoration.Depth = 4;
+            pnlFormCategoria.ShadowDecoration.Enabled = true;
+            pnlFormCategoria.Size = new Size(566, 284);
+            pnlFormCategoria.TabIndex = 1;
+            // 
+            // lblCatFormTitulo
+            // 
+            lblCatFormTitulo.AutoSize = true;
+            lblCatFormTitulo.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
+            lblCatFormTitulo.ForeColor = Color.FromArgb(30, 30, 47);
+            lblCatFormTitulo.Location = new Point(16, 19);
+            lblCatFormTitulo.Name = "lblCatFormTitulo";
+            lblCatFormTitulo.Size = new Size(181, 25);
+            lblCatFormTitulo.TabIndex = 0;
+            lblCatFormTitulo.Text = "Datos de Categoría";
+            // 
+            // lblNombreCategoria
+            // 
+            lblNombreCategoria.AutoSize = true;
+            lblNombreCategoria.Font = new Font("Segoe UI", 9.5F);
+            lblNombreCategoria.ForeColor = Color.FromArgb(60, 60, 80);
+            lblNombreCategoria.Location = new Point(16, 61);
+            lblNombreCategoria.Name = "lblNombreCategoria";
+            lblNombreCategoria.Size = new Size(173, 21);
+            lblNombreCategoria.TabIndex = 1;
+            lblNombreCategoria.Text = "Nombre de la categoría";
+            // 
+            // txtNombreCategoria
+            // 
+            txtNombreCategoria.BorderColor = Color.FromArgb(200, 200, 220);
+            txtNombreCategoria.BorderRadius = 8;
+            txtNombreCategoria.CustomizableEdges = customizableEdges41;
+            txtNombreCategoria.DefaultText = "";
+            txtNombreCategoria.Font = new Font("Segoe UI", 10F);
+            txtNombreCategoria.ForeColor = Color.FromArgb(60, 60, 80);
+            txtNombreCategoria.Location = new Point(16, 88);
+            txtNombreCategoria.Margin = new Padding(3, 5, 3, 5);
+            txtNombreCategoria.Name = "txtNombreCategoria";
+            txtNombreCategoria.PlaceholderText = "";
+            txtNombreCategoria.SelectedText = "";
+            txtNombreCategoria.ShadowDecoration.CustomizableEdges = customizableEdges42;
+            txtNombreCategoria.Size = new Size(528, 48);
+            txtNombreCategoria.TabIndex = 0;
+            // 
+            // btnEliminarCategoria
+            // 
+            btnEliminarCategoria.BorderRadius = 8;
+            btnEliminarCategoria.Cursor = Cursors.Hand;
+            btnEliminarCategoria.CustomizableEdges = customizableEdges43;
+            btnEliminarCategoria.FillColor = Color.FromArgb(239, 68, 68);
+            btnEliminarCategoria.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            btnEliminarCategoria.ForeColor = Color.White;
+            btnEliminarCategoria.HoverState.FillColor = Color.FromArgb(185, 28, 28);
+            btnEliminarCategoria.Location = new Point(385, 176);
+            btnEliminarCategoria.Margin = new Padding(3, 4, 3, 4);
+            btnEliminarCategoria.Name = "btnEliminarCategoria";
+            btnEliminarCategoria.ShadowDecoration.CustomizableEdges = customizableEdges44;
+            btnEliminarCategoria.Size = new Size(149, 51);
+            btnEliminarCategoria.TabIndex = 2;
+            btnEliminarCategoria.Text = "  Eliminar";
+            btnEliminarCategoria.Click += btnEliminarCategoria_Click;
+            // 
+            // btnNuevaCategoria
+            // 
+            btnNuevaCategoria.BorderRadius = 8;
+            btnNuevaCategoria.Cursor = Cursors.Hand;
+            btnNuevaCategoria.CustomizableEdges = customizableEdges45;
+            btnNuevaCategoria.FillColor = Color.FromArgb(37, 99, 235);
+            btnNuevaCategoria.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            btnNuevaCategoria.ForeColor = Color.White;
+            btnNuevaCategoria.HoverState.FillColor = Color.FromArgb(29, 78, 216);
+            btnNuevaCategoria.Location = new Point(16, 176);
+            btnNuevaCategoria.Margin = new Padding(3, 4, 3, 4);
+            btnNuevaCategoria.Name = "btnNuevaCategoria";
+            btnNuevaCategoria.ShadowDecoration.CustomizableEdges = customizableEdges46;
+            btnNuevaCategoria.Size = new Size(187, 51);
+            btnNuevaCategoria.TabIndex = 4;
+            btnNuevaCategoria.Text = "Nueva Categoría";
+            btnNuevaCategoria.Click += btnNuevaCategoria_Click;
+            // 
+            // frmMenu
+            // 
+            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.FromArgb(240, 240, 248);
+            ClientSize = new Size(1561, 875);
+            Controls.Add(tabMenu);
+            Controls.Add(pnlTopBar);
+            Font = new Font("Segoe UI", 9F);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            Margin = new Padding(3, 4, 3, 4);
+            MaximizeBox = false;
+            Name = "frmMenu";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "Gestión de Menú - Sabor Gourmet FMO";
+            Load += frmMenu_Load;
+            pnlTopBar.ResumeLayout(false);
+            pnlTopBar.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)picIconoApp).EndInit();
+            ((System.ComponentModel.ISupportInitialize)picAvatarUsuario).EndInit();
+            tabMenu.ResumeLayout(false);
+            tabProductos.ResumeLayout(false);
+            pnlCardTotal.ResumeLayout(false);
+            pnlCardTotal.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)picCardTotal).EndInit();
+            pnlCardDisponibles.ResumeLayout(false);
+            pnlCardDisponibles.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)picCardDisponibles).EndInit();
+            pnlCardNoDisponibles.ResumeLayout(false);
+            pnlCardNoDisponibles.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)picCardNoDisp).EndInit();
+            pnlListaProductos.ResumeLayout(false);
+            pnlListaProductos.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvProductos).EndInit();
+            pnlFormProducto.ResumeLayout(false);
+            pnlFormProducto.PerformLayout();
+            tabCategorias.ResumeLayout(false);
+            pnlListaCategorias.ResumeLayout(false);
+            pnlListaCategorias.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvCategorias).EndInit();
+            pnlFormCategoria.ResumeLayout(false);
+            pnlFormCategoria.PerformLayout();
+            ResumeLayout(false);
         }
 
         #endregion
@@ -1063,11 +1264,6 @@
         private System.Windows.Forms.Label lblDisponibleTexto;
         private Guna.UI2.WinForms.Guna2Button btnGuardar;
         private Guna.UI2.WinForms.Guna2Button btnEliminar;
-        private Guna.UI2.WinForms.Guna2Button btnLimpiar;
-
-        // ── BOTONES INFERIORES
-        private Guna.UI2.WinForms.Guna2Panel pnlBotonesInferiores;
-        private Guna.UI2.WinForms.Guna2Button btnNuevoProducto;
         private Guna.UI2.WinForms.Guna2Button btnEditar;
         private Guna.UI2.WinForms.Guna2Button btnActualizarLista;
 
@@ -1080,21 +1276,16 @@
         private System.Windows.Forms.Label lblCatFormTitulo;
         private System.Windows.Forms.Label lblNombreCategoria;
         private Guna.UI2.WinForms.Guna2TextBox txtNombreCategoria;
-        private Guna.UI2.WinForms.Guna2Button btnGuardarCategoria;
         private Guna.UI2.WinForms.Guna2Button btnEliminarCategoria;
-        private Guna.UI2.WinForms.Guna2Button btnLimpiarCategoria;
         private Guna.UI2.WinForms.Guna2Button btnNuevaCategoria;
-
-        // ── DGV COLUMNS
-        private System.Windows.Forms.DataGridViewTextBoxColumn colCodigo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colNombre;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colCategoria;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colPrecio;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colTiempoPrep;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colDisponible;
-
-        private System.Windows.Forms.DataGridViewTextBoxColumn colCatId;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colCatNombre;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colCatProductos;
+        private DataGridViewTextBoxColumn colCatId;
+        private DataGridViewTextBoxColumn colCatNombre;
+        private DataGridViewTextBoxColumn colCatProductos;
+        private DataGridViewTextBoxColumn colCodigo;
+        private DataGridViewTextBoxColumn colNombre;
+        private DataGridViewTextBoxColumn colCategoria;
+        private DataGridViewTextBoxColumn colPrecio;
+        private DataGridViewTextBoxColumn colTiempoPrep;
+        private DataGridViewTextBoxColumn colDisponible;
     }
 }

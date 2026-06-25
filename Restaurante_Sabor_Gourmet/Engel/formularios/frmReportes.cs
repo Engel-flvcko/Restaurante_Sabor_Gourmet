@@ -12,7 +12,7 @@ using System.Windows.Forms;
 
 namespace Restaurante_Sabor_Gourmet.Engel
 {
-    public partial class frmDashboard : Form
+    public partial class frmReportes : Form
     {
         // ── Estado alertas ────────────────────────────────────────────────────
         bool alertasVisibles = true;
@@ -21,7 +21,7 @@ namespace Restaurante_Sabor_Gourmet.Engel
         // Instancia de validaciones
         ValidacionesCaja val = new ValidacionesCaja();
 
-        public frmDashboard()
+        public frmReportes()
         {
             InitializeComponent();
         }
@@ -146,15 +146,14 @@ namespace Restaurante_Sabor_Gourmet.Engel
                 SQLReportes sql = new SQLReportes();
                 DataTable dt = sql.MostrarVentasPorMesero();
 
-                // vista_ventas_mesero: id_mesero, nombre_mesero, total_ordenes, total_ventas, total_propinas
                 dgvVentasMesero.AutoGenerateColumns = false;
                 colVMesero.DataPropertyName = "nombre_mesero";
                 colVVentas.DataPropertyName = "total_ventas";
                 colVPropinas.DataPropertyName = "total_propinas";
-                colVTotal.DataPropertyName = "total_ventas";    // no hay total separado, reutiliza ventas
-                colVMesas.DataPropertyName = "";                // la vista no tiene este campo, se deja vacío
+                colVTotal.DataPropertyName = "total_ventas";
+                colVMesas.DataPropertyName = "mesas_atendidas";
                 colVOrdenes.DataPropertyName = "total_ordenes";
-                colVTicket.DataPropertyName = "";                // la vista no tiene este campo, se deja vacío
+                colVTicket.DataPropertyName = "ticket_promedio";
                 dgvVentasMesero.DataSource = dt;
             }
             catch (Exception ex)
@@ -175,7 +174,7 @@ namespace Restaurante_Sabor_Gourmet.Engel
                 dgvVentasCategoria.AutoGenerateColumns = false;
                 colCatNombre.DataPropertyName = "nombre_categoria";
                 colCatVentas.DataPropertyName = "total_ingresos";
-                colCatPorcentaje.DataPropertyName = "total_unidades"; // no hay porcentaje en la vista
+                colCatPorcentaje.DataPropertyName = "porcentaje_ventas";
                 dgvVentasCategoria.DataSource = dt;
             }
             catch (Exception ex)
@@ -279,7 +278,6 @@ namespace Restaurante_Sabor_Gourmet.Engel
                 MessageBox.Show($"Error al cargar arqueos:\n{ex.Message}");
             }
         }
-
         private void CargarPersonal()
         {
             try
@@ -287,13 +285,12 @@ namespace Restaurante_Sabor_Gourmet.Engel
                 SQLReportes sql = new SQLReportes();
                 DataTable dt = sql.MostrarVentasPorMesero();
 
-                // vista_ventas_mesero: id_mesero, nombre_mesero, total_ordenes, total_ventas, total_propinas
                 dgvPersonal.AutoGenerateColumns = false;
                 colPersNombre.DataPropertyName = "nombre_mesero";
                 colPersOrdenes.DataPropertyName = "total_ordenes";
                 colPersVentas.DataPropertyName = "total_ventas";
                 colPersPropinas.DataPropertyName = "total_propinas";
-                colPersMesas.DataPropertyName = ""; // la vista no tiene mesas atendidas
+                colPersMesas.DataPropertyName = "mesas_atendidas";
                 dgvPersonal.DataSource = dt;
 
                 if (dgvPersonal.Rows.Count > 0)
@@ -304,6 +301,7 @@ namespace Restaurante_Sabor_Gourmet.Engel
                 MessageBox.Show($"Error al cargar personal:\n{ex.Message}");
             }
         }
+  
         private void CargarAlertas()
         {
             try

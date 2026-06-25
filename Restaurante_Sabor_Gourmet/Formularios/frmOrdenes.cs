@@ -74,10 +74,10 @@ namespace Restaurante_Sabor_Gourmet.Formularios
         private void cbxMesa_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (cbxMesa.SelectedValue == null) return;
+            if (cbxMesa.SelectedValue is DataRowView) return; // ← evita el crash al cargar
 
             idMesaSeleccionada = Convert.ToInt32(cbxMesa.SelectedValue);
 
-            // Buscar la mesa en el caché (evita otra consulta a la BD)
             MesaResumen mesa = mesasOcupadas.Find(m => m.IdMesa == idMesaSeleccionada);
             if (mesa == null) return;
 

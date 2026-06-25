@@ -59,6 +59,38 @@ namespace Restaurante_Sabor_Gourmet.ConsultasSQL
             }
         }
 
+        public bool CategoriaExiste(string nombre, int idExcluir = 0)
+        {
+            using (MySqlConnection cn = conexion.ObtenerConexion())
+            {
+                cn.Open();
+                string sql = "SELECT COUNT(*) FROM tbl_categorias " +
+                             "WHERE LOWER(nombre_categoria) = LOWER(@nombre) " +
+                             "AND id_categoria <> @id";
+                using (MySqlCommand cmd = new MySqlCommand(sql, cn))
+                {
+                    cmd.Parameters.AddWithValue("@nombre", nombre);
+                    cmd.Parameters.AddWithValue("@id", idExcluir);
+                    return Convert.ToInt32(cmd.ExecuteScalar()) > 0;
+                }
+            }
+        }
+
+        public int ContarProductosPorCategoria(int idCategoria)
+        {
+            using (MySqlConnection cn = conexion.ObtenerConexion())
+            {
+                cn.Open();
+                string sql = "SELECT COUNT(*) FROM tbl_productos " +
+                             "WHERE id_categoria_producto = @id";
+                using (MySqlCommand cmd = new MySqlCommand(sql, cn))
+                {
+                    cmd.Parameters.AddWithValue("@id", idCategoria);
+                    return Convert.ToInt32(cmd.ExecuteScalar());
+                }
+            }
+        }
+        
         public bool EliminarCategoria(int idCategoria)
         {
             using (MySqlConnection cn = conexion.ObtenerConexion())

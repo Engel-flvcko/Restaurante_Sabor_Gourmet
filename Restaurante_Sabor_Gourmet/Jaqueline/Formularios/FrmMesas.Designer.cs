@@ -178,6 +178,7 @@
             btnTransferirOrden.Size = new Size(240, 40);
             btnTransferirOrden.TabIndex = 17;
             btnTransferirOrden.Text = "Transferir orden";
+            btnTransferirOrden.Click += btnTransferirOrden_Click;
             // 
             // btnSolicitarPago
             // 
@@ -196,6 +197,7 @@
             btnSolicitarPago.Size = new Size(240, 40);
             btnSolicitarPago.TabIndex = 18;
             btnSolicitarPago.Text = "Solicitar pago";
+            btnSolicitarPago.Click += btnSolicitarPago_Click;
             // 
             // btnUnirMesas
             // 
@@ -214,6 +216,7 @@
             btnUnirMesas.Size = new Size(240, 40);
             btnUnirMesas.TabIndex = 19;
             btnUnirMesas.Text = "Unir mesas";
+            btnUnirMesas.Click += btnUnirMesas_Click;
             // 
             // btnDividirMesa
             // 
@@ -232,6 +235,7 @@
             btnDividirMesa.Size = new Size(240, 40);
             btnDividirMesa.TabIndex = 20;
             btnDividirMesa.Text = "Dividir mesa";
+            btnDividirMesa.Click += btnDividirMesa_Click;
             // 
             // btnLiberarMesa
             // 
@@ -250,6 +254,7 @@
             btnLiberarMesa.Size = new Size(240, 40);
             btnLiberarMesa.TabIndex = 21;
             btnLiberarMesa.Text = "Liberar mesa";
+            btnLiberarMesa.Click += btnLiberarMesa_Click;
             // 
             // btnMesaFueraServicio
             // 
@@ -268,6 +273,7 @@
             btnMesaFueraServicio.Size = new Size(240, 40);
             btnMesaFueraServicio.TabIndex = 22;
             btnMesaFueraServicio.Text = "Fuera de servicio";
+            btnMesaFueraServicio.Click += btnMesaFueraServicio_Click;
             // 
             // lblOrdenActiva
             // 
@@ -408,7 +414,6 @@
             lblEstado.Size = new Size(68, 30);
             lblEstado.TabIndex = 2;
             lblEstado.Text = "Estado:";
-            lblEstado.Click += lblEstado_Click;
             // 
             // lblNumMesa
             // 
@@ -447,7 +452,6 @@
             guna2Panel1.ShadowDecoration.CustomizableEdges = customizableEdges26;
             guna2Panel1.Size = new Size(1386, 1036);
             guna2Panel1.TabIndex = 1;
-            guna2Panel1.Paint += guna2Panel1_Paint;
             // 
             // pnlLeyenda
             // 
