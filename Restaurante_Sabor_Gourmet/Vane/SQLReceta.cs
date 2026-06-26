@@ -11,9 +11,6 @@ namespace Restaurante_Sabor_Gourmet.ConsultasSQL
     {
         private readonly ConexionBD conexion = new ConexionBD();
 
-       
-        // Recetas
-
         public List<Receta> ObtenerPorProducto(int idProducto)
         {
             List<Receta> lista = new List<Receta>();
@@ -21,14 +18,19 @@ namespace Restaurante_Sabor_Gourmet.ConsultasSQL
             using (MySqlConnection cn = conexion.ObtenerConexion())
             {
                 cn.Open();
-                string sql = @"SELECT r.id_receta, r.id_producto, p.nombre_producto,
-                                      r.id_ingrediente, i.nombre_ingrediente,
-                                      i.unidad_medida, r.cantidad_receta
-                               FROM tbl_recetas r
-                               INNER JOIN tbl_productos p ON r.id_producto = p.id_producto
-                               INNER JOIN tbl_ingredientes i ON r.id_ingrediente = i.id_ingrediente
-                               WHERE r.id_producto = @idProd
-                               ORDER BY i.nombre_ingrediente";
+                string sql = @"
+                    SELECT r.id_receta,
+                           r.id_producto_receta        AS id_producto,
+                           p.nombre_producto,
+                           r.id_ingrediente_receta     AS id_ingrediente,
+                           i.nombre_ingrediente,
+                           i.unidad_medida_ingrediente AS unidad_medida,
+                           r.cantidad_receta
+                    FROM   tbl_recetas r
+                    INNER  JOIN tbl_productos    p ON p.id_producto    = r.id_producto_receta
+                    INNER  JOIN tbl_ingredientes i ON i.id_ingrediente = r.id_ingrediente_receta
+                    WHERE  r.id_producto_receta = @idProd
+                    ORDER  BY i.nombre_ingrediente";
 
                 using (MySqlCommand cmd = new MySqlCommand(sql, cn))
                 {
@@ -59,8 +61,9 @@ namespace Restaurante_Sabor_Gourmet.ConsultasSQL
             using (MySqlConnection cn = conexion.ObtenerConexion())
             {
                 cn.Open();
-                string sql = "SELECT COUNT(*) FROM tbl_recetas " +
-                             "WHERE id_producto = @idProd AND id_ingrediente = @idIng";
+                string sql = @"SELECT COUNT(*) FROM tbl_recetas
+                               WHERE id_producto_receta    = @idProd
+                                 AND id_ingrediente_receta = @idIng";
                 using (MySqlCommand cmd = new MySqlCommand(sql, cn))
                 {
                     cmd.Parameters.AddWithValue("@idProd", idProducto);
@@ -75,9 +78,9 @@ namespace Restaurante_Sabor_Gourmet.ConsultasSQL
             using (MySqlConnection cn = conexion.ObtenerConexion())
             {
                 cn.Open();
-                string sql = @"INSERT INTO tbl_recetas (id_producto, id_ingrediente, cantidad_receta)
+                string sql = @"INSERT INTO tbl_recetas
+                                   (id_producto_receta, id_ingrediente_receta, cantidad_receta)
                                VALUES (@idProd, @idIng, @cantidad)";
-
                 using (MySqlCommand cmd = new MySqlCommand(sql, cn))
                 {
                     cmd.Parameters.AddWithValue("@idProd", r.IdProducto);
@@ -93,7 +96,9 @@ namespace Restaurante_Sabor_Gourmet.ConsultasSQL
             using (MySqlConnection cn = conexion.ObtenerConexion())
             {
                 cn.Open();
-                string sql = "UPDATE tbl_recetas SET cantidad_receta = @cantidad WHERE id_receta = @id";
+                string sql = @"UPDATE tbl_recetas
+                               SET    cantidad_receta = @cantidad
+                               WHERE  id_receta       = @id";
                 using (MySqlCommand cmd = new MySqlCommand(sql, cn))
                 {
                     cmd.Parameters.AddWithValue("@cantidad", nuevaCantidad);
@@ -116,23 +121,23 @@ namespace Restaurante_Sabor_Gourmet.ConsultasSQL
                 }
             }
         }
-        // AUXILIARES — Solo para poblar ComboBox en frmRecetas
-        // Los productos completos los maneja SQLProductoCatalogo (Persona 2)
 
         public Dictionary<int, string> ObtenerProductosParaCombo()
         {
             Dictionary<int, string> dict = new Dictionary<int, string>();
-
             using (MySqlConnection cn = conexion.ObtenerConexion())
             {
                 cn.Open();
-                string sql = "SELECT id_producto, nombre_producto FROM tbl_productos " +
-                             "WHERE disponible_producto = 1 ORDER BY nombre_producto";
+                string sql = @"SELECT id_producto, nombre_producto
+                               FROM   tbl_productos
+                               WHERE  disponible_producto = 1
+                               ORDER  BY nombre_producto";
                 using (MySqlCommand cmd = new MySqlCommand(sql, cn))
                 using (MySqlDataReader rd = cmd.ExecuteReader())
                 {
                     while (rd.Read())
-                        dict.Add(rd.GetInt32("id_producto"), rd.GetString("nombre_producto"));
+                        dict.Add(rd.GetInt32("id_producto"),
+                                 rd.GetString("nombre_producto"));
                 }
             }
             return dict;
@@ -140,19 +145,19 @@ namespace Restaurante_Sabor_Gourmet.ConsultasSQL
 
         public Dictionary<int, string> ObtenerIngredientesParaCombo()
         {
-            // Solo id + nombre para llenar el ComboBox selector de ingrediente
             Dictionary<int, string> dict = new Dictionary<int, string>();
-
             using (MySqlConnection cn = conexion.ObtenerConexion())
             {
                 cn.Open();
-                string sql = "SELECT id_ingrediente, nombre_ingrediente FROM tbl_ingredientes " +
-                             "ORDER BY nombre_ingrediente";
+                string sql = @"SELECT id_ingrediente, nombre_ingrediente
+                               FROM   tbl_ingredientes
+                               ORDER  BY nombre_ingrediente";
                 using (MySqlCommand cmd = new MySqlCommand(sql, cn))
                 using (MySqlDataReader rd = cmd.ExecuteReader())
                 {
                     while (rd.Read())
-                        dict.Add(rd.GetInt32("id_ingrediente"), rd.GetString("nombre_ingrediente"));
+                        dict.Add(rd.GetInt32("id_ingrediente"),
+                                 rd.GetString("nombre_ingrediente"));
                 }
             }
             return dict;
