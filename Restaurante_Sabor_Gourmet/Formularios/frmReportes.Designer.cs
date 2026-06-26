@@ -935,9 +935,9 @@
             lblVentasMeseroTitle.ForeColor = Color.FromArgb(37, 99, 235);
             lblVentasMeseroTitle.Location = new Point(14, 13);
             lblVentasMeseroTitle.Name = "lblVentasMeseroTitle";
-            lblVentasMeseroTitle.Size = new Size(326, 20);
+            lblVentasMeseroTitle.Size = new Size(171, 20);
             lblVentasMeseroTitle.TabIndex = 0;
-            lblVentasMeseroTitle.Text = "VENTAS POR MESERO  (vista_ventas_mesero)";
+            lblVentasMeseroTitle.Text = "VENTAS POR MESERO  ";
             // 
             // dgvVentasMesero
             // 
@@ -1049,9 +1049,9 @@
             lblVentasCatTitle.ForeColor = Color.FromArgb(37, 99, 235);
             lblVentasCatTitle.Location = new Point(14, 13);
             lblVentasCatTitle.Name = "lblVentasCatTitle";
-            lblVentasCatTitle.Size = new Size(364, 20);
+            lblVentasCatTitle.Size = new Size(196, 20);
             lblVentasCatTitle.TabIndex = 0;
-            lblVentasCatTitle.Text = "VENTAS POR CATEGORÍA  (vista_ventas_categoria)";
+            lblVentasCatTitle.Text = "VENTAS POR CATEGORÍA  ";
             // 
             // dgvVentasCategoria
             // 
@@ -1358,9 +1358,9 @@
             lblBajoStockTitle.ForeColor = Color.FromArgb(239, 68, 68);
             lblBajoStockTitle.Location = new Point(14, 13);
             lblBajoStockTitle.Name = "lblBajoStockTitle";
-            lblBajoStockTitle.Size = new Size(395, 20);
+            lblBajoStockTitle.Size = new Size(254, 20);
             lblBajoStockTitle.TabIndex = 0;
-            lblBajoStockTitle.Text = "INGREDIENTES CON BAJO STOCK  (vista_alertas_stock)";
+            lblBajoStockTitle.Text = "INGREDIENTES CON BAJO STOCK  ";
             // 
             // dgvBajoStock
             // 
@@ -1454,9 +1454,9 @@
             lblCostosTitle.ForeColor = Color.FromArgb(37, 99, 235);
             lblCostosTitle.Location = new Point(14, 13);
             lblCostosTitle.Name = "lblCostosTitle";
-            lblCostosTitle.Size = new Size(463, 20);
+            lblCostosTitle.Size = new Size(297, 20);
             lblCostosTitle.TabIndex = 0;
-            lblCostosTitle.Text = "COSTOS Y GANANCIAS POR PRODUCTO  (vista_costos_producto)";
+            lblCostosTitle.Text = "COSTOS Y GANANCIAS POR PRODUCTO  ";
             // 
             // dgvCostos
             // 

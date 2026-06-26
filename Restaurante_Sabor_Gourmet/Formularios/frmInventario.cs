@@ -266,9 +266,7 @@ namespace Restaurante_Sabor_Gourmet.Vane
             }
         }
 
-        // ─────────────────────────────────────────
         // SELECCIÓN EN GRILLA — carga panel movimiento
-        // ─────────────────────────────────────────
         private void dgvIngredientes_SelectionChanged(object sender, EventArgs e)
         {
             if (dgvIngredientes.SelectedRows.Count == 0) return;
@@ -285,20 +283,17 @@ namespace Restaurante_Sabor_Gourmet.Vane
 
             if (ing == null) return;
 
-            // Actualizar subpanel
             lblNombreIngVal.Text   = ing.NombreIngrediente;
             lblExistenciaVal.Text  = ing.Existencia.ToString("F2");
             lblStockMinVal.Text    = ing.StockMinimo.ToString("F2");
             lblUnidadMedidaVal.Text = ing.UnidadMedida;
 
-            // Colorear existencia según estado
             lblExistenciaVal.ForeColor = ing.Agotado ? Color.FromArgb(239, 68, 68) :
                                          ing.BajoStock ? Color.FromArgb(249, 115, 22) :
                                                           Color.FromArgb(34, 197, 94);
 
             ConfigurarPanelMovimiento(true);
 
-            // Habilitar/deshabilitar btnEliminar según recetas
             bool tieneReceta = sqlInv.EstaEnReceta(idIngredienteSeleccionado);
             btnEliminar.Enabled          = !tieneReceta;
             lblDeshabilitado.Visible     = tieneReceta;
@@ -321,9 +316,7 @@ namespace Restaurante_Sabor_Gourmet.Vane
                 : Color.FromArgb(60, 60, 80);
         }
 
-        // ─────────────────────────────────────────
         // BOTÓN REGISTRAR MOVIMIENTO
-        // ─────────────────────────────────────────
         private void btnRegistrarMovimiento_Click(object sender, EventArgs e)
         {
             if (idIngredienteSeleccionado == 0)
@@ -351,7 +344,7 @@ namespace Restaurante_Sabor_Gourmet.Vane
                 MessageBox.Show("Movimiento registrado correctamente.",
                     "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 LimpiarFormularioMovimiento();
-                CargarTodo(); // recarga grilla + historial + KPI cards
+                CargarTodo(); 
             }
             else
             {
@@ -362,9 +355,7 @@ namespace Restaurante_Sabor_Gourmet.Vane
             }
         }
 
-        // ─────────────────────────────────────────
         // FILTRO HISTORIAL POR FECHA
-        // ─────────────────────────────────────────
         private void dtpFiltroFecha_ValueChanged(object sender, EventArgs e)
         {
             DateTime fecha = dtpFiltroFecha.Value.Date;
@@ -386,7 +377,6 @@ namespace Restaurante_Sabor_Gourmet.Vane
         // ─────────────────────────────────────────
         private void btnNuevoIngrediente_Click(object sender, EventArgs e)
         {
-            // Usar InputDialog inline con campos simples
             string nombre = Microsoft.VisualBasic.Interaction.InputBox(
                 "Nombre del ingrediente:", "Nuevo Ingrediente", "");
             if (string.IsNullOrWhiteSpace(nombre)) return;
@@ -413,32 +403,58 @@ namespace Restaurante_Sabor_Gourmet.Vane
                 return;
             }
 
+            string existenciaStr = Microsoft.VisualBasic.Interaction.InputBox(
+                "Existencia inicial (0 si aún no hay stock):", "Nuevo Ingrediente", "0");
+            if (!decimal.TryParse(existenciaStr, out decimal existenciaInicial) || existenciaInicial < 0)
+            {
+                MessageBox.Show("Existencia inválida.",
+                    "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             Ingrediente nuevo = new Ingrediente
             {
                 NombreIngrediente = nombre.Trim(),
-                UnidadMedida      = unidad.Trim(),
-                Existencia        = 0,
-                StockMinimo       = stockMin,
-                CostoUnitario     = costo
+                UnidadMedida = unidad.Trim(),
+                Existencia = 0,          
+                StockMinimo = stockMin,
+                CostoUnitario = costo
             };
 
             bool ok = sqlInv.InsertarIngrediente(nuevo);
-            if (ok)
-            {
-                MessageBox.Show("Ingrediente creado correctamente.",
-                    "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                CargarIngredientes();
-            }
-            else
+            if (!ok)
             {
                 MessageBox.Show("No se pudo crear el ingrediente.",
                     "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
+
+            if (existenciaInicial > 0)
+            {
+                Ingrediente insertado = sqlInv.ObtenerTodos()
+                    .Find(i => i.NombreIngrediente.Equals(
+                        nuevo.NombreIngrediente, StringComparison.OrdinalIgnoreCase));
+
+                if (insertado != null)
+                {
+                    MovimientoInventario movInicial = new MovimientoInventario
+                    {
+                        IdIngrediente = insertado.IdIngrediente,
+                        IdUsuario = idUsuarioSesion,
+                        TipoMovimiento = "Compra",
+                        Cantidad = existenciaInicial,
+                        Observacion = "Stock inicial al crear ingrediente"
+                    };
+                    sqlInv.RegistrarMovimiento(movInicial);
+                }
+            }
+
+            MessageBox.Show("Ingrediente creado correctamente.",
+                "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            CargarIngredientes();
         }
 
-        // ─────────────────────────────────────────
         // BOTÓN EDITAR INGREDIENTE
-        // ─────────────────────────────────────────
         private void btnEditarIngrediente_Click(object sender, EventArgs e)
         {
             if (idIngredienteSeleccionado == 0)
@@ -448,13 +464,11 @@ namespace Restaurante_Sabor_Gourmet.Vane
                 return;
             }
 
-            Ingrediente actual = todosLosIngredientes.Find(
-                i => i.IdIngrediente == idIngredienteSeleccionado);
+            Ingrediente actual = todosLosIngredientes.Find(i => i.IdIngrediente == idIngredienteSeleccionado);
             if (actual == null) return;
 
             bool tieneReceta = sqlInv.EstaEnReceta(idIngredienteSeleccionado);
 
-            // Si tiene receta, solo editar stock mínimo y costo
             if (!tieneReceta)
             {
                 string nuevoNombre = Microsoft.VisualBasic.Interaction.InputBox(
@@ -477,25 +491,60 @@ namespace Restaurante_Sabor_Gourmet.Vane
             string stockStr = Microsoft.VisualBasic.Interaction.InputBox(
                 "Stock mínimo:", "Editar Ingrediente",
                 actual.StockMinimo.ToString("F2"));
-            if (decimal.TryParse(stockStr, out decimal nuevoStock) && nuevoStock >= 0)
-                actual.StockMinimo = nuevoStock;
+
+            if (string.IsNullOrWhiteSpace(stockStr))
+            {
+                MessageBox.Show("Edición cancelada.", "Aviso",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            stockStr = stockStr.Replace(',', '.');
+            if (!decimal.TryParse(stockStr,
+                    System.Globalization.NumberStyles.Any,
+                    System.Globalization.CultureInfo.InvariantCulture,
+                    out decimal nuevoStock) || nuevoStock < 0)
+            {
+                MessageBox.Show("Stock mínimo inválido. Ingresa un número mayor o igual a 0.",
+                    "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            actual.StockMinimo = nuevoStock;
 
             string costoStr = Microsoft.VisualBasic.Interaction.InputBox(
                 "Costo unitario:", "Editar Ingrediente",
                 actual.CostoUnitario.ToString("F2"));
-            if (decimal.TryParse(costoStr, out decimal nuevoCosto) && nuevoCosto >= 0)
-                actual.CostoUnitario = nuevoCosto;
 
+            if (string.IsNullOrWhiteSpace(costoStr))
+            {
+                MessageBox.Show("Edición cancelada.", "Aviso",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            costoStr = costoStr.Replace(',', '.');
+            if (!decimal.TryParse(costoStr,
+                    System.Globalization.NumberStyles.Any,
+                    System.Globalization.CultureInfo.InvariantCulture,
+                    out decimal nuevoCosto) || nuevoCosto < 0)
+            {
+                MessageBox.Show("Costo unitario inválido. Ingresa un número mayor o igual a 0.",
+                    "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            actual.CostoUnitario = nuevoCosto;
+
+            // ── Guardar ───────────────────────────────────────────────────
             bool ok = sqlInv.ActualizarIngrediente(actual);
             if (ok)
             {
-                MessageBox.Show("Ingrediente actualizado.",
+                MessageBox.Show("Ingrediente actualizado correctamente.",
                     "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 CargarIngredientes();
             }
             else
             {
-                MessageBox.Show("No se pudo actualizar.",
+                MessageBox.Show("No se pudo actualizar el ingrediente.",
                     "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
