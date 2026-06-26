@@ -174,12 +174,12 @@
             pnlDatosMesero.Controls.Add(btnLimpiar);
             pnlDatosMesero.CustomizableEdges = customizableEdges23;
             pnlDatosMesero.FillColor = Color.White;
-            pnlDatosMesero.Location = new Point(25, 25);
+            pnlDatosMesero.Location = new Point(42, 25);
             pnlDatosMesero.Margin = new Padding(4);
             pnlDatosMesero.Name = "pnlDatosMesero";
             pnlDatosMesero.ShadowDecoration.CustomizableEdges = customizableEdges24;
             pnlDatosMesero.ShadowDecoration.Enabled = true;
-            pnlDatosMesero.Size = new Size(588, 1125);
+            pnlDatosMesero.Size = new Size(588, 859);
             pnlDatosMesero.TabIndex = 0;
             // 
             // lblTituloDatos
@@ -606,7 +606,7 @@
             pnlMetricas.Name = "pnlMetricas";
             pnlMetricas.ShadowDecoration.CustomizableEdges = customizableEdges46;
             pnlMetricas.ShadowDecoration.Enabled = true;
-            pnlMetricas.Size = new Size(1225, 409);
+            pnlMetricas.Size = new Size(1225, 451);
             pnlMetricas.TabIndex = 2;
             // 
             // lblMetricasTitulo
