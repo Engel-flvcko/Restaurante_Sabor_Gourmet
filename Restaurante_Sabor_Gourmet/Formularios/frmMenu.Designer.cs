@@ -169,7 +169,7 @@
             tabMenu.Margin = new Padding(3, 4, 3, 4);
             tabMenu.Name = "tabMenu";
             tabMenu.SelectedIndex = 0;
-            tabMenu.Size = new Size(1534, 788);
+            tabMenu.Size = new Size(1574, 788);
             tabMenu.TabIndex = 1;
             // 
             // tabProductos
@@ -185,7 +185,7 @@
             tabProductos.Location = new Point(4, 32);
             tabProductos.Margin = new Padding(3, 4, 3, 4);
             tabProductos.Name = "tabProductos";
-            tabProductos.Size = new Size(1526, 752);
+            tabProductos.Size = new Size(1566, 752);
             tabProductos.TabIndex = 0;
             tabProductos.Text = "  Productos";
             // 
@@ -873,7 +873,7 @@
             tabCategorias.Location = new Point(4, 32);
             tabCategorias.Margin = new Padding(3, 4, 3, 4);
             tabCategorias.Name = "tabCategorias";
-            tabCategorias.Size = new Size(1526, 752);
+            tabCategorias.Size = new Size(1566, 752);
             tabCategorias.TabIndex = 1;
             tabCategorias.Text = "  Categorías";
             // 
@@ -891,7 +891,7 @@
             pnlListaCategorias.ShadowDecoration.CustomizableEdges = customizableEdges38;
             pnlListaCategorias.ShadowDecoration.Depth = 4;
             pnlListaCategorias.ShadowDecoration.Enabled = true;
-            pnlListaCategorias.Size = new Size(926, 760);
+            pnlListaCategorias.Size = new Size(926, 735);
             pnlListaCategorias.TabIndex = 0;
             // 
             // lblCatListaTitulo
@@ -937,7 +937,7 @@
             // ▼ CORRECCIÓN: faltaba esta línea — sin ella el header ignora su estilo de color
             dgvCategorias.EnableHeadersVisualStyles = false;
             dgvCategorias.GridColor = Color.FromArgb(230, 230, 245);
-            dgvCategorias.Location = new Point(11, 59);
+            dgvCategorias.Location = new Point(11, 61);
             dgvCategorias.Margin = new Padding(3, 4, 3, 4);
             dgvCategorias.MultiSelect = false;
             dgvCategorias.Name = "dgvCategorias";
@@ -946,7 +946,7 @@
             dgvCategorias.RowHeadersWidth = 51;
             dgvCategorias.RowTemplate.Height = 34;
             dgvCategorias.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvCategorias.Size = new Size(801, 677);
+            dgvCategorias.Size = new Size(894, 650);
             dgvCategorias.TabIndex = 0;
             dgvCategorias.CellClick += dgvCategorias_CellClick;
             // 

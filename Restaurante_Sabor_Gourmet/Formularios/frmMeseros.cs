@@ -131,9 +131,13 @@ namespace Restaurante_Sabor_Gourmet.Formularios
             RenderizarTabla(filtrados);
         }
 
-     
-        //  SELECCIÓN EN GRILLA → CARGAR EN FORMULARIO
-       
+
+        // SELECCIÓN DE UN MESERO EN EL DATAGRIDVIEW
+        // Este evento se ejecuta cuando el usuario hace clic sobre una
+        // fila del DataGridView. Su función es cargar la información del
+        // mesero seleccionado en los controles del formulario para que
+        // pueda ser consultada o modificada.
+
         private void dgvMeseros_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex < 0) return;
@@ -157,9 +161,9 @@ namespace Restaurante_Sabor_Gourmet.Formularios
             CargarMetricasPorMesero(idMeseroSeleccionado);
         }
 
-        // ============================================================
+
         //  MOSTRAR / OCULTAR CONTRASEÑA
-        // ============================================================
+        
         private void btnTogglePassword_Click(object sender, EventArgs e)
         {
             contrasenaVisible = !contrasenaVisible;

@@ -113,9 +113,9 @@ namespace Restaurante_Sabor_Gourmet.ConsultasSQL
             return dt;
         }
 
-        // ══════════════════════════════════════════════════════════════
-        //  OBTENER POR ID — necesita cn.Open() + ExecuteReader
-        // ══════════════════════════════════════════════════════════════
+      
+        //  OBTENER POR ID — necesita cn.Open()  ExecuteReader
+       
         public Reservacion ObtenerPorId(int idReservacion)
         {
             Reservacion r = null;
@@ -166,9 +166,8 @@ namespace Restaurante_Sabor_Gourmet.ConsultasSQL
             return r;
         }
 
-        // ══════════════════════════════════════════════════════════════
-        //  REGISTRAR RESERVACIÓN — cn.Open() + transacción
-        // ══════════════════════════════════════════════════════════════
+        //  REGISTRAR RESERVACIÓN  cn.Open()  transacción
+    
         public bool RegistrarReservacion(Reservacion r, List<int> idMesas)
         {
             using (MySqlConnection cn = conexion.ObtenerConexion())
@@ -221,9 +220,9 @@ namespace Restaurante_Sabor_Gourmet.ConsultasSQL
             }
         }
 
-        // ══════════════════════════════════════════════════════════════
-        //  ACTUALIZAR RESERVACIÓN — cn.Open() + transacción
-        // ══════════════════════════════════════════════════════════════
+        
+        //  ACTUALIZAR RESERVACIÓN  cn.Open()  transacción
+       
         public bool ActualizarReservacion(Reservacion r, List<int> idMesas)
         {
             using (MySqlConnection cn = conexion.ObtenerConexion())
@@ -302,9 +301,9 @@ namespace Restaurante_Sabor_Gourmet.ConsultasSQL
             }
         }
 
-        // ══════════════════════════════════════════════════════════════
+        
         //  CAMBIAR ESTADO — cn.Open() + ExecuteNonQuery
-        // ══════════════════════════════════════════════════════════════
+       
         public bool CambiarEstado(int idReservacion, string nuevoEstado)
         {
             using (MySqlConnection cn = conexion.ObtenerConexion())
@@ -325,9 +324,8 @@ namespace Restaurante_Sabor_Gourmet.ConsultasSQL
             }
         }
 
-        // ══════════════════════════════════════════════════════════════
-        //  OBTENER MESAS POR RESERVACIÓN — cn.Open() + ExecuteReader
-        // ══════════════════════════════════════════════════════════════
+        //  OBTENER MESAS POR RESERVACIÓN cn.Open()  ExecuteReader
+      
         public List<int> ObtenerMesasPorReservacion(int idReservacion)
         {
             List<int> ids = new List<int>();
@@ -354,9 +352,9 @@ namespace Restaurante_Sabor_Gourmet.ConsultasSQL
             return ids;
         }
 
-        // ══════════════════════════════════════════════════════════════
-        //  OBTENER MESAS DISPONIBLES — cn.Open() + ExecuteReader
-        // ══════════════════════════════════════════════════════════════
+     
+        //  OBTENER MESAS DISPONIBLES — cn.Open()  ExecuteReader
+   
         public List<MesaResumen> ObtenerMesasDisponiblesParaReserva()
         {
             List<MesaResumen> lista = new List<MesaResumen>();
@@ -396,9 +394,8 @@ namespace Restaurante_Sabor_Gourmet.ConsultasSQL
             return lista;
         }
 
-        // ══════════════════════════════════════════════════════════════
         //  VERIFICAR CONFLICTO DE HORARIO — cn.Open() + ExecuteScalar
-        // ══════════════════════════════════════════════════════════════
+      
         public bool VerificarConflictoHorario(DateTime fecha, TimeSpan hora,
                                               List<int> idMesas, int excluirId = 0)
         {
@@ -437,9 +434,8 @@ namespace Restaurante_Sabor_Gourmet.ConsultasSQL
             }
         }
 
-        // ══════════════════════════════════════════════════════════════
-        //  OBTENER CAPACIDAD TOTAL — cn.Open() + ExecuteScalar
-        // ══════════════════════════════════════════════════════════════
+        //  OBTENER CAPACIDAD TOTAL  cn.Open()  ExecuteScalar
+  
         public int ObtenerCapacidadTotal(List<int> idMesas)
         {
             if (idMesas == null || idMesas.Count == 0) return 0;

@@ -1111,7 +1111,7 @@
             Controls.Add(pnlHistorial);
             Controls.Add(pnlBotonesInf);
             Font = new Font("Segoe UI", 9F);
-            FormBorderStyle = FormBorderStyle.FixedSingle;
+            FormBorderStyle = FormBorderStyle.None;
             MaximizeBox = false;
             MinimumSize = new Size(1100, 750);
             Name = "frmInventario";

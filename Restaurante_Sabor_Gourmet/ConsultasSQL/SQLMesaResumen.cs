@@ -13,9 +13,9 @@ namespace Restaurante_Sabor_Gourmet.ConsultasSQL
     {
         private readonly ConexionBD conexion = new ConexionBD();
 
-        // ============================================================
+       
         //  MESAS OCUPADAS (las únicas donde se puede registrar una orden)
-        // ============================================================
+      
         public List<MesaResumen> ObtenerMesasOcupadas()
         {
             List<MesaResumen> lista = new List<MesaResumen>();
@@ -65,7 +65,7 @@ namespace Restaurante_Sabor_Gourmet.ConsultasSQL
                                                       : rd.GetInt32("id_mesero_asignado_mesa"),
                             NombreZona = rd.GetString("nombre_zona"),
                             NombreMeseroAsignado = rd.GetString("nombre_mesero"),
-                            TextoComboBox = textoMesa   // ← propiedad nueva, ver abajo
+                            TextoComboBox = textoMesa   //  propiedad nueva, ver abajo
                         });
                     }
                 }

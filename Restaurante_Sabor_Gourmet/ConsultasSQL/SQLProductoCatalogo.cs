@@ -13,9 +13,9 @@ namespace Restaurante_Sabor_Gourmet.ConsultasSQL
     {
         private readonly ConexionBD conexion = new ConexionBD();
 
-        // ============================================================
+      
         //  OBTENER CATEGORÍAS (para los botones de filtro del catálogo)
-        // ============================================================
+    
         public List<(int Id, string Nombre)> ObtenerCategorias()
         {
             var lista = new List<(int, string)>();

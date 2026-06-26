@@ -8,7 +8,7 @@ namespace Restaurante_Sabor_Gourmet.Engel.clases
 {
     internal class ValidacionesCaja
     {
-        // ── CAJA — frmCaja_Arqueo ─────────────────────────────────────────────
+        //CAJA frmCaja_Arqueo 
 
         public bool ValidarArqueoAbierto(int idArqueoActivo)
         {
@@ -83,7 +83,7 @@ namespace Restaurante_Sabor_Gourmet.Engel.clases
             return true;
         }
 
-        // ── DASHBOARD — frmDashboard ──────────────────────────────────────────
+        //  DASHBOARD  frmDashboard 
 
         public bool ValidarRangoFechas(DateTime desde, DateTime hasta)
         {
@@ -97,7 +97,7 @@ namespace Restaurante_Sabor_Gourmet.Engel.clases
             return true;
         }
 
-        // ── SUPERVISIÓN — DESCUENTOS — frmSupervision ─────────────────────────
+        //  SUPERVISIÓN DESCUENTOS  frmSupervision 
 
         public bool ValidarOrdenSeleccionadaDescuento(DataGridView dgv)
         {
@@ -123,7 +123,7 @@ namespace Restaurante_Sabor_Gourmet.Engel.clases
             return true;
         }
 
-        // ── SUPERVISIÓN — PROMOCIONES — frmSupervision ────────────────────────
+        //SUPERVISIÓN  PROMOCIONES frmSupervision 
 
         public bool ValidarNombrePromocion(string nombre)
         {
