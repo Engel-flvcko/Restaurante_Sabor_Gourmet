@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics.Metrics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -14,20 +15,24 @@ namespace Restaurante_Sabor_Gourmet.Formularios
 {
     public partial class frmMeseros : Form
     {
-        // Sesión del usuario logueado (administrador/supervisor)
+        // Variables globales del formulario.
+        // Almacenan información que será utilizada durante toda la ejecución.
         private int idUsuarioSesion;
+        // Guarda el nombre del usuario que inició sesión.
         private string nombreUsuarioSesion;
 
-        // Mesero seleccionado en la grilla (0 = ninguno → modo nuevo)
+      // Almacena el ID del mesero seleccionado en el DataGridView.
+      // Si vale 0 significa que no hay ningún mesero seleccionado.
         private int idMeseroSeleccionado = 0;
 
-        // Caché en memoria para filtrar sin volver a la BD
+        // Lista en memoria que contiene todos los meseros obtenidos de la base de datos.
+        // Se utiliza para realizar búsquedas rápidas sin consultar nuevamente MySQL.
         private List<Mesero> listaMeseros = new List<Mesero>();
 
-        // Id real del rol "Mesero" en tbl_roles
-        // Verifica con: SELECT id_rol FROM tbl_roles WHERE nombre_rol = 'Mesero'
+        // Constante que representa el ID del rol "Mesero" en la base de datos.
         private const int ID_ROL_MESERO = 2;
 
+        // Controla si la contraseña se muestra o permanece oculta.
         private bool contrasenaVisible = false;
 
         public frmMeseros(int idUsuarioSesion, string nombreUsuarioSesion)
@@ -37,9 +42,9 @@ namespace Restaurante_Sabor_Gourmet.Formularios
             this.nombreUsuarioSesion = nombreUsuarioSesion;
         }
 
-        // ============================================================
-        //  CARGA INICIAL
-        // ============================================================
+        // CARGA INICIAL DEL FORMULARIO
+        // Se ejecuta una sola vez cuando se abre el formulario.
+        // Carga los datos principales y deja la interfaz lista para trabajar.
         private void frmMeseros_Load(object sender, EventArgs e)
         {
             CargarMeseros();
@@ -47,6 +52,9 @@ namespace Restaurante_Sabor_Gourmet.Formularios
             LimpiarFormulario();
         }
 
+        // CARGAR MESEROS
+        // Consulta la base de datos y obtiene todos los usuarios con
+        // el rol de Mesero para mostrarlos en el DataGridView.
         private void CargarMeseros()
         {
             try
@@ -62,6 +70,13 @@ namespace Restaurante_Sabor_Gourmet.Formularios
             }
         }
 
+        // Este método recibe una lista de objetos Mesero y muestra su
+        // información en el DataGridView.
+        // Primero limpia la tabla para evitar registros duplicados y
+        // luego agrega cada mesero como una nueva fila.
+        // Además, guarda el ID del mesero en la propiedad Tag de la fila
+        // para poder identificarlo fácilmente cuando el usuario seleccione
+        // un registro y realizar operaciones como actualizar o eliminar.
         private void RenderizarTabla(List<Mesero> lista)
         {
             dgvMeseros.Rows.Clear();
@@ -80,6 +95,13 @@ namespace Restaurante_Sabor_Gourmet.Formularios
             }
         }
 
+        // Este evento se ejecuta automáticamente cada vez que el
+        // DataGridView dibuja o actualiza una celda.
+        // Su función es cambiar el color del texto de la columna
+        // "Activo" para que el usuario identifique fácilmente el estado
+        // de cada mesero.
+        // Verde = Activo ("Sí")
+        // Rojo = Inactivo ("No")
         private void dgvMeseros_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
             if (dgvMeseros.Columns[e.ColumnIndex].Name != "colActivo" || e.Value == null) return;
@@ -89,9 +111,11 @@ namespace Restaurante_Sabor_Gourmet.Formularios
                 : Color.FromArgb(239, 68, 68);
         }
 
-        // ============================================================
-        //  BÚSQUEDA EN TIEMPO REAL
-        // ============================================================
+        // Este evento se ejecuta automáticamente cada vez que el usuario
+        // escribe, borra o modifica el texto del cuadro de búsqueda.
+        // Su función es filtrar la lista de meseros por nombre, username
+        // o teléfono y mostrar únicamente los registros que coincidan
+        // con el texto ingresado, sin volver a consultar la base de datos.
         private void txtBuscar_TextChanged(object sender, EventArgs e)
         {
             string texto = txtBuscar.Text.Trim().ToLower();
@@ -107,9 +131,9 @@ namespace Restaurante_Sabor_Gourmet.Formularios
             RenderizarTabla(filtrados);
         }
 
-        // ============================================================
+     
         //  SELECCIÓN EN GRILLA → CARGAR EN FORMULARIO
-        // ============================================================
+       
         private void dgvMeseros_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex < 0) return;
@@ -154,9 +178,10 @@ namespace Restaurante_Sabor_Gourmet.Formularios
                 : Color.FromArgb(239, 68, 68);
         }
 
-        // ============================================================
-        //  GUARDAR (nuevo mesero)
-        // ============================================================
+        // BOTÓN GUARDAR
+        // Registra un nuevo mesero en la base de datos.
+        // Antes de guardar valida la información y verifica que el
+        // nombre de usuario no exista.
         private void btnGuardar_Click(object sender, EventArgs e)
         {
             // Validación centralizada con ValidacionesOrdenes

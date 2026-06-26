@@ -175,7 +175,7 @@
             pnlDatosMesero.CustomizableEdges = customizableEdges23;
             pnlDatosMesero.FillColor = Color.White;
             pnlDatosMesero.Location = new Point(25, 25);
-            pnlDatosMesero.Margin = new Padding(4, 4, 4, 4);
+            pnlDatosMesero.Margin = new Padding(4);
             pnlDatosMesero.Name = "pnlDatosMesero";
             pnlDatosMesero.ShadowDecoration.CustomizableEdges = customizableEdges24;
             pnlDatosMesero.ShadowDecoration.Enabled = true;
@@ -190,7 +190,7 @@
             lblTituloDatos.Location = new Point(25, 19);
             lblTituloDatos.Margin = new Padding(4, 0, 4, 0);
             lblTituloDatos.Name = "lblTituloDatos";
-            lblTituloDatos.Size = new Size(233, 30);
+            lblTituloDatos.Size = new Size(237, 30);
             lblTituloDatos.TabIndex = 0;
             lblTituloDatos.Text = "👤  Datos del Mesero";
             // 
@@ -284,7 +284,7 @@
             btnTogglePassword.Font = new Font("Segoe UI", 10F);
             btnTogglePassword.ForeColor = Color.FromArgb(80, 80, 90);
             btnTogglePassword.Location = new Point(512, 319);
-            btnTogglePassword.Margin = new Padding(4, 4, 4, 4);
+            btnTogglePassword.Margin = new Padding(4);
             btnTogglePassword.Name = "btnTogglePassword";
             btnTogglePassword.ShadowDecoration.CustomizableEdges = customizableEdges8;
             btnTogglePassword.Size = new Size(50, 50);
@@ -339,7 +339,7 @@
             dtpFechaIngreso.Font = new Font("Segoe UI", 10.5F);
             dtpFechaIngreso.Format = DateTimePickerFormat.Short;
             dtpFechaIngreso.Location = new Point(25, 519);
-            dtpFechaIngreso.Margin = new Padding(4, 4, 4, 4);
+            dtpFechaIngreso.Margin = new Padding(4);
             dtpFechaIngreso.MaxDate = new DateTime(9998, 12, 31, 0, 0, 0, 0);
             dtpFechaIngreso.MinDate = new DateTime(1753, 1, 1, 0, 0, 0, 0);
             dtpFechaIngreso.Name = "dtpFechaIngreso";
@@ -366,7 +366,7 @@
             switchActivo.CheckedState.FillColor = Color.FromArgb(34, 197, 94);
             switchActivo.CustomizableEdges = customizableEdges13;
             switchActivo.Location = new Point(25, 619);
-            switchActivo.Margin = new Padding(4, 4, 4, 4);
+            switchActivo.Margin = new Padding(4);
             switchActivo.Name = "switchActivo";
             switchActivo.ShadowDecoration.CustomizableEdges = customizableEdges14;
             switchActivo.Size = new Size(62, 32);
@@ -393,10 +393,10 @@
             btnGuardar.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
             btnGuardar.ForeColor = Color.White;
             btnGuardar.Location = new Point(25, 700);
-            btnGuardar.Margin = new Padding(4, 4, 4, 4);
+            btnGuardar.Margin = new Padding(4);
             btnGuardar.Name = "btnGuardar";
             btnGuardar.ShadowDecoration.CustomizableEdges = customizableEdges16;
-            btnGuardar.Size = new Size(538, 69);
+            btnGuardar.Size = new Size(222, 69);
             btnGuardar.TabIndex = 15;
             btnGuardar.Text = "💾  Guardar";
             btnGuardar.Click += btnGuardar_Click;
@@ -408,11 +408,11 @@
             btnActualizar.FillColor = Color.FromArgb(30, 58, 138);
             btnActualizar.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
             btnActualizar.ForeColor = Color.White;
-            btnActualizar.Location = new Point(25, 781);
-            btnActualizar.Margin = new Padding(4, 4, 4, 4);
+            btnActualizar.Location = new Point(293, 700);
+            btnActualizar.Margin = new Padding(4);
             btnActualizar.Name = "btnActualizar";
             btnActualizar.ShadowDecoration.CustomizableEdges = customizableEdges18;
-            btnActualizar.Size = new Size(538, 69);
+            btnActualizar.Size = new Size(255, 69);
             btnActualizar.TabIndex = 16;
             btnActualizar.Text = "✏️  Actualizar";
             btnActualizar.Click += btnActualizar_Click;
@@ -424,11 +424,11 @@
             btnEliminar.FillColor = Color.FromArgb(120, 10, 10);
             btnEliminar.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
             btnEliminar.ForeColor = Color.White;
-            btnEliminar.Location = new Point(25, 862);
-            btnEliminar.Margin = new Padding(4, 4, 4, 4);
+            btnEliminar.Location = new Point(24, 783);
+            btnEliminar.Margin = new Padding(4);
             btnEliminar.Name = "btnEliminar";
             btnEliminar.ShadowDecoration.CustomizableEdges = customizableEdges20;
-            btnEliminar.Size = new Size(538, 69);
+            btnEliminar.Size = new Size(223, 69);
             btnEliminar.TabIndex = 17;
             btnEliminar.Text = "🗑  Eliminar";
             btnEliminar.Click += btnEliminar_Click;
@@ -440,11 +440,11 @@
             btnLimpiar.FillColor = Color.FromArgb(120, 120, 130);
             btnLimpiar.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
             btnLimpiar.ForeColor = Color.White;
-            btnLimpiar.Location = new Point(25, 944);
-            btnLimpiar.Margin = new Padding(4, 4, 4, 4);
+            btnLimpiar.Location = new Point(290, 783);
+            btnLimpiar.Margin = new Padding(4);
             btnLimpiar.Name = "btnLimpiar";
             btnLimpiar.ShadowDecoration.CustomizableEdges = customizableEdges22;
-            btnLimpiar.Size = new Size(538, 69);
+            btnLimpiar.Size = new Size(258, 69);
             btnLimpiar.TabIndex = 18;
             btnLimpiar.Text = "\U0001f9f9  Limpiar";
             btnLimpiar.Click += btnLimpiar_Click;
@@ -459,11 +459,11 @@
             pnlListaMeseros.CustomizableEdges = customizableEdges27;
             pnlListaMeseros.FillColor = Color.White;
             pnlListaMeseros.Location = new Point(638, 25);
-            pnlListaMeseros.Margin = new Padding(4, 4, 4, 4);
+            pnlListaMeseros.Margin = new Padding(4);
             pnlListaMeseros.Name = "pnlListaMeseros";
             pnlListaMeseros.ShadowDecoration.CustomizableEdges = customizableEdges28;
             pnlListaMeseros.ShadowDecoration.Enabled = true;
-            pnlListaMeseros.Size = new Size(1258, 700);
+            pnlListaMeseros.Size = new Size(1258, 382);
             pnlListaMeseros.TabIndex = 1;
             // 
             // lblListaTitulo
@@ -474,7 +474,7 @@
             lblListaTitulo.Location = new Point(25, 19);
             lblListaTitulo.Margin = new Padding(4, 0, 4, 0);
             lblListaTitulo.Name = "lblListaTitulo";
-            lblListaTitulo.Size = new Size(225, 30);
+            lblListaTitulo.Size = new Size(229, 30);
             lblListaTitulo.TabIndex = 0;
             lblListaTitulo.Text = "📋  Lista de Meseros";
             // 
@@ -522,7 +522,7 @@
             dgvMeseros.DefaultCellStyle = dataGridViewCellStyle5;
             dgvMeseros.GridColor = Color.FromArgb(230, 230, 235);
             dgvMeseros.Location = new Point(25, 81);
-            dgvMeseros.Margin = new Padding(4, 4, 4, 4);
+            dgvMeseros.Margin = new Padding(4);
             dgvMeseros.MultiSelect = false;
             dgvMeseros.Name = "dgvMeseros";
             dgvMeseros.ReadOnly = true;
@@ -530,7 +530,7 @@
             dgvMeseros.RowHeadersWidth = 51;
             dgvMeseros.RowTemplate.Height = 40;
             dgvMeseros.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvMeseros.Size = new Size(1208, 600);
+            dgvMeseros.Size = new Size(1208, 411);
             dgvMeseros.TabIndex = 2;
             dgvMeseros.CellClick += dgvMeseros_CellClick;
             dgvMeseros.CellFormatting += dgvMeseros_CellFormatting;
@@ -601,12 +601,12 @@
             pnlMetricas.Controls.Add(pnlKpiPropinas);
             pnlMetricas.CustomizableEdges = customizableEdges45;
             pnlMetricas.FillColor = Color.White;
-            pnlMetricas.Location = new Point(638, 750);
-            pnlMetricas.Margin = new Padding(4, 4, 4, 4);
+            pnlMetricas.Location = new Point(638, 444);
+            pnlMetricas.Margin = new Padding(4);
             pnlMetricas.Name = "pnlMetricas";
             pnlMetricas.ShadowDecoration.CustomizableEdges = customizableEdges46;
             pnlMetricas.ShadowDecoration.Enabled = true;
-            pnlMetricas.Size = new Size(1258, 400);
+            pnlMetricas.Size = new Size(1225, 409);
             pnlMetricas.TabIndex = 2;
             // 
             // lblMetricasTitulo
@@ -617,7 +617,7 @@
             lblMetricasTitulo.Location = new Point(25, 19);
             lblMetricasTitulo.Margin = new Padding(4, 0, 4, 0);
             lblMetricasTitulo.Name = "lblMetricasTitulo";
-            lblMetricasTitulo.Size = new Size(305, 30);
+            lblMetricasTitulo.Size = new Size(306, 30);
             lblMetricasTitulo.TabIndex = 0;
             lblMetricasTitulo.Text = "📊  Métricas de Desempeño";
             // 
@@ -633,7 +633,7 @@
             pnlKpiOrdenes.CustomizableEdges = customizableEdges31;
             pnlKpiOrdenes.FillColor = Color.White;
             pnlKpiOrdenes.Location = new Point(25, 75);
-            pnlKpiOrdenes.Margin = new Padding(4, 4, 4, 4);
+            pnlKpiOrdenes.Margin = new Padding(4);
             pnlKpiOrdenes.Name = "pnlKpiOrdenes";
             pnlKpiOrdenes.ShadowDecoration.CustomizableEdges = customizableEdges32;
             pnlKpiOrdenes.Size = new Size(288, 288);
@@ -646,7 +646,7 @@
             pnlIconOrdenes.CustomizableEdges = customizableEdges29;
             pnlIconOrdenes.FillColor = Color.FromArgb(220, 252, 231);
             pnlIconOrdenes.Location = new Point(109, 25);
-            pnlIconOrdenes.Margin = new Padding(4, 4, 4, 4);
+            pnlIconOrdenes.Margin = new Padding(4);
             pnlIconOrdenes.Name = "pnlIconOrdenes";
             pnlIconOrdenes.ShadowDecoration.CustomizableEdges = customizableEdges30;
             pnlIconOrdenes.Size = new Size(70, 70);
@@ -712,7 +712,7 @@
             pnlKpiVentas.CustomizableEdges = customizableEdges35;
             pnlKpiVentas.FillColor = Color.White;
             pnlKpiVentas.Location = new Point(338, 75);
-            pnlKpiVentas.Margin = new Padding(4, 4, 4, 4);
+            pnlKpiVentas.Margin = new Padding(4);
             pnlKpiVentas.Name = "pnlKpiVentas";
             pnlKpiVentas.ShadowDecoration.CustomizableEdges = customizableEdges36;
             pnlKpiVentas.Size = new Size(288, 288);
@@ -725,7 +725,7 @@
             pnlIconVentas.CustomizableEdges = customizableEdges33;
             pnlIconVentas.FillColor = Color.FromArgb(219, 234, 254);
             pnlIconVentas.Location = new Point(109, 25);
-            pnlIconVentas.Margin = new Padding(4, 4, 4, 4);
+            pnlIconVentas.Margin = new Padding(4);
             pnlIconVentas.Name = "pnlIconVentas";
             pnlIconVentas.ShadowDecoration.CustomizableEdges = customizableEdges34;
             pnlIconVentas.Size = new Size(70, 70);
@@ -791,7 +791,7 @@
             pnlKpiTiempo.CustomizableEdges = customizableEdges39;
             pnlKpiTiempo.FillColor = Color.White;
             pnlKpiTiempo.Location = new Point(650, 75);
-            pnlKpiTiempo.Margin = new Padding(4, 4, 4, 4);
+            pnlKpiTiempo.Margin = new Padding(4);
             pnlKpiTiempo.Name = "pnlKpiTiempo";
             pnlKpiTiempo.ShadowDecoration.CustomizableEdges = customizableEdges40;
             pnlKpiTiempo.Size = new Size(288, 288);
@@ -804,7 +804,7 @@
             pnlIconTiempo.CustomizableEdges = customizableEdges37;
             pnlIconTiempo.FillColor = Color.FromArgb(255, 237, 213);
             pnlIconTiempo.Location = new Point(109, 25);
-            pnlIconTiempo.Margin = new Padding(4, 4, 4, 4);
+            pnlIconTiempo.Margin = new Padding(4);
             pnlIconTiempo.Name = "pnlIconTiempo";
             pnlIconTiempo.ShadowDecoration.CustomizableEdges = customizableEdges38;
             pnlIconTiempo.Size = new Size(70, 70);
@@ -870,7 +870,7 @@
             pnlKpiPropinas.CustomizableEdges = customizableEdges43;
             pnlKpiPropinas.FillColor = Color.White;
             pnlKpiPropinas.Location = new Point(962, 75);
-            pnlKpiPropinas.Margin = new Padding(4, 4, 4, 4);
+            pnlKpiPropinas.Margin = new Padding(4);
             pnlKpiPropinas.Name = "pnlKpiPropinas";
             pnlKpiPropinas.ShadowDecoration.CustomizableEdges = customizableEdges44;
             pnlKpiPropinas.Size = new Size(270, 288);
@@ -883,7 +883,7 @@
             pnlIconPropinas.CustomizableEdges = customizableEdges41;
             pnlIconPropinas.FillColor = Color.FromArgb(243, 232, 255);
             pnlIconPropinas.Location = new Point(100, 25);
-            pnlIconPropinas.Margin = new Padding(4, 4, 4, 4);
+            pnlIconPropinas.Margin = new Padding(4);
             pnlIconPropinas.Name = "pnlIconPropinas";
             pnlIconPropinas.ShadowDecoration.CustomizableEdges = customizableEdges42;
             pnlIconPropinas.Size = new Size(70, 70);
@@ -949,7 +949,7 @@
             Controls.Add(pnlMetricas);
             Font = new Font("Segoe UI", 9F);
             FormBorderStyle = FormBorderStyle.FixedSingle;
-            Margin = new Padding(4, 4, 4, 4);
+            Margin = new Padding(4);
             MaximizeBox = false;
             Name = "frmMeseros";
             Text = "Gestión de Meseros";

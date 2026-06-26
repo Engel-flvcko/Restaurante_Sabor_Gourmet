@@ -127,7 +127,7 @@ namespace Restaurante_Sabor_Gourmet.ConsultasSQL
                 cn.Open();
                 string sql = @"
                     INSERT INTO tbl_usuarios
-                        (nombre_usuario, username_usuario, contrasena_usuario,
+                        (nombre_usuario, username_usuario, contraseña_usuario,
                          telefono_usuario, fecha_ingreso_usuario, activo_usuario, id_rol_usuario)
                     VALUES
                         (@nombre, @username, SHA2(@contrasena, 256),

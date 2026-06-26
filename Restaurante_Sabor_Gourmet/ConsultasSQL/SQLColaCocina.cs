@@ -13,11 +13,11 @@ namespace Restaurante_Sabor_Gourmet.ConsultasSQL
     {
         private readonly ConexionBD conexion = new ConexionBD();
 
-        // ============================================================
-        //  OBTENER COLA COMPLETA DEL DÍA
-        //  Devuelve las órdenes en orden ESTRICTO de hora_recepcion ASC.
-        //  Incluye los productos de cada orden en la propiedad Productos.
-        // ============================================================
+       
+        // Obtener cola completa del día
+        // Devuelve las órdenes en orden estricto de hora de recepción,
+        // incluyendo los productos de cada orden en la propiedad Productos.
+  
         public List<ColaCocina> ObtenerColaDelDia()
         {
             List<ColaCocina> lista = new List<ColaCocina>();
@@ -38,6 +38,8 @@ namespace Restaurante_Sabor_Gourmet.ConsultasSQL
             INNER  JOIN tbl_mesas   m ON m.id_mesa   = o.id_mesa_orden
             WHERE  DATE(c.hora_recepcion_cocina) = CURDATE()
             ORDER  BY c.hora_recepcion_cocina ASC";
+                // Trae solo las órdenes de cocina recibidas HOY, ordenadas de la más
+                // antigua a la más nueva (orden estricto de llegada → primero en entrar, primero en salir).
 
                 using (MySqlCommand cmd = new MySqlCommand(sqlCabecera, cn))
                 {
@@ -54,15 +56,19 @@ namespace Restaurante_Sabor_Gourmet.ConsultasSQL
                                 HoraInicio = rd.IsDBNull(rd.GetOrdinal("hora_inicio_cocina"))
                                                     ? (DateTime?)null
                                                     : rd.GetDateTime("hora_inicio_cocina"),
+                                // HoraInicio puede ser NULL si la orden todavía no entró en preparación
                                 HoraFinalizacion = rd.IsDBNull(rd.GetOrdinal("hora_finalizacion_cocina"))
                                                     ? (DateTime?)null
                                                     : rd.GetDateTime("hora_finalizacion_cocina"),
+                                // HoraFinalizacion puede ser NULL si aún no terminó/se entregó
                                 NumeroMesa = rd.GetInt32("numero_mesa")
                             });
                         }
                     }
                 }
 
+                // Para cada orden de la cola, se hace una segunda consulta que trae
+                // sus productos (detalle). Se reutiliza la misma conexión "cn" ya abierta.
                 foreach (ColaCocina item in lista)
                     item.Productos = ObtenerProductosPorOrden(cn, item.IdOrden);
             }
@@ -70,6 +76,10 @@ namespace Restaurante_Sabor_Gourmet.ConsultasSQL
             return lista;
         }
 
+   
+        // Trae el detalle de productos de UNA orden específica
+        // (método privado, usado internamente por ObtenerColaDelDia)
+       
         private List<DetalleOrden> ObtenerProductosPorOrden(MySqlConnection cn, int idOrden)
         {
             List<DetalleOrden> productos = new List<DetalleOrden>();
@@ -85,6 +95,7 @@ namespace Restaurante_Sabor_Gourmet.ConsultasSQL
         FROM   tbl_detalle_orden d
         INNER  JOIN tbl_productos p ON p.id_producto = d.id_producto_detalle
         WHERE  d.id_orden_detalle = @idOrden";
+            // Trae cada línea de producto pedido en la orden, junto con su nombre (vía JOIN).
 
             using (MySqlCommand cmd = new MySqlCommand(sql, cn))
             {
@@ -102,6 +113,7 @@ namespace Restaurante_Sabor_Gourmet.ConsultasSQL
                             PrecioUnitarioDetalle = rd.GetDecimal("precio_unitario_detalle"),
                             Observaciones = rd.IsDBNull(rd.GetOrdinal("observaciones_detalle"))
                                                        ? "" : rd.GetString("observaciones_detalle"),
+                            // Observaciones puede venir NULL en la BD (ej. "sin cebolla"), se convierte a "" si no hay
                             NombreProducto = rd.GetString("nombre_producto")
                         });
                     }
@@ -111,9 +123,14 @@ namespace Restaurante_Sabor_Gourmet.ConsultasSQL
             return productos;
         }
 
-
+      
+        // Cambiar el estado de una orden dentro de la cola de cocina
+        // (pendiente  en preparacion lista/entregada/cancelada)
+       
         public bool CambiarEstado(int idCocina, string estadoActual, string estadoNuevo)
         {
+            // Antes de tocar la BD, valida que el cambio de estado sea lógicamente permitido
+            // (por ejemplo, no se puede pasar de "pendiente" directo a "entregada")
             if (!ValidacionesOrdenes.TransicionEstadoCocinaValida(estadoActual, estadoNuevo))
                 return false;
 
@@ -124,6 +141,7 @@ namespace Restaurante_Sabor_Gourmet.ConsultasSQL
 
                 if (estadoNuevo == "en_preparacion")
                 {
+                    // Al empezar a preparar, se registra la hora de inicio
                     sql = @"UPDATE tbl_cola_cocina
                        SET estado_cocina      = @estado,
                            hora_inicio_cocina = NOW()
@@ -131,6 +149,7 @@ namespace Restaurante_Sabor_Gourmet.ConsultasSQL
                 }
                 else if (estadoNuevo == "lista" || estadoNuevo == "entregada" || estadoNuevo == "cancelada")
                 {
+                    // Al finalizar (de cualquier forma), se registra la hora de finalización
                     sql = @"UPDATE tbl_cola_cocina
                        SET estado_cocina           = @estado,
                            hora_finalizacion_cocina = NOW()
@@ -138,6 +157,7 @@ namespace Restaurante_Sabor_Gourmet.ConsultasSQL
                 }
                 else
                 {
+                    // Cualquier otro estado: solo se actualiza el campo de estado, sin tocar horas
                     sql = @"UPDATE tbl_cola_cocina
                        SET estado_cocina = @estado
                      WHERE id_cocina = @id";
@@ -152,6 +172,10 @@ namespace Restaurante_Sabor_Gourmet.ConsultasSQL
             }
         }
 
+       
+        // Calcula el tiempo promedio (en minutos) que tardan las órdenes
+        // entregadas HOY, desde que empezaron a prepararse hasta que terminaron
+     
         public double ObtenerTiempoPromedioMinutos()
         {
             using (MySqlConnection cn = conexion.ObtenerConexion())
@@ -164,6 +188,7 @@ namespace Restaurante_Sabor_Gourmet.ConsultasSQL
             AND    hora_inicio_cocina     IS NOT NULL
             AND    hora_finalizacion_cocina IS NOT NULL
             AND    DATE(hora_recepcion_cocina) = CURDATE()";
+                // Solo considera órdenes ya entregadas y con ambas horas registradas (evita NULLs en la resta).
 
                 using (MySqlCommand cmd = new MySqlCommand(sql, cn))
                 {
@@ -171,10 +196,15 @@ namespace Restaurante_Sabor_Gourmet.ConsultasSQL
                     return (resultado == null || resultado == DBNull.Value)
                         ? 0
                         : Convert.ToDouble(resultado);
+                    // Si no hay ninguna orden que cumpla la condición, AVG() devuelve NULL,
+                    // por eso se valida antes de convertir (si no, lanzaría una excepción).
                 }
             }
         }
 
+      
+        // Cuenta cuántas órdenes están pendientes (sin empezar) hoy
+    
         public int ObtenerTotalPendientes()
         {
             using (MySqlConnection cn = conexion.ObtenerConexion())
@@ -190,6 +220,9 @@ namespace Restaurante_Sabor_Gourmet.ConsultasSQL
             }
         }
 
+        // Cuenta cuántas órdenes llevan "retrasadas" más de X minutos
+        // (por defecto 30) sin terminar, hoy
+     
         public int ObtenerTotalRetrasadas(int minutosLimite = 30)
         {
             using (MySqlConnection cn = conexion.ObtenerConexion())
@@ -200,6 +233,8 @@ namespace Restaurante_Sabor_Gourmet.ConsultasSQL
             WHERE  estado_cocina IN ('pendiente', 'en_preparacion')
             AND    TIMESTAMPDIFF(MINUTE, hora_recepcion_cocina, NOW()) >= @minutos
             AND    DATE(hora_recepcion_cocina) = CURDATE()";
+                // Solo cuenta órdenes que SIGUEN activas (pendiente o en preparación)
+                // y que ya superaron el límite de minutos desde que llegaron.
 
                 using (MySqlCommand cmd = new MySqlCommand(sql, cn))
                 {
@@ -209,6 +244,9 @@ namespace Restaurante_Sabor_Gourmet.ConsultasSQL
             }
         }
 
+        
+        // Devuelve el top N de productos más vendidos (en unidades) del día
+    
         public List<(string Nombre, int Total)> ObtenerTopProductosHoy(int top = 3)
         {
             var lista = new List<(string, int)>();
@@ -226,6 +264,8 @@ namespace Restaurante_Sabor_Gourmet.ConsultasSQL
             GROUP  BY p.id_producto, p.nombre_producto
             ORDER  BY total_unidades DESC
             LIMIT  @top";
+                // Suma las cantidades vendidas de cada producto hoy, ordena de mayor a menor
+                // y se queda solo con los primeros "top" resultados (por defecto 3).
 
                 using (MySqlCommand cmd = new MySqlCommand(sql, cn))
                 {
