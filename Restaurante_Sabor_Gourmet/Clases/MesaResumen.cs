@@ -8,13 +8,12 @@ namespace Restaurante_Sabor_Gourmet.Clases
 {
     internal class MesaResumen
     {
-        public int IdMesa { get; set; }                  // id_mesa
-        public int NumeroMesa { get; set; }              // numero_mesa
-        public string EstadoMesa { get; set; }           // estado_mesa
-        public int? IdMeseroAsignado { get; set; }       // id_mesero_asignado (FK -> tbl_usuarios)
-                                                         // En MesaResumen.cs — agregar esta propiedad
+        public int IdMesa { get; set; }                  
+        public int NumeroMesa { get; set; }            
+        public string EstadoMesa { get; set; }          
+        public int? IdMeseroAsignado { get; set; }      
         public string TextoComboBox { get; set; }
-        public int Capacidad { get; set; }   // capacidad// Solo para mostrar en pantalla (vienen de JOIN)
+        public int Capacidad { get; set; }   
         public string NombreZona { get; set; }
         public string NombreMeseroAsignado { get; set; }
     }

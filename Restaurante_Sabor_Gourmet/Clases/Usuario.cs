@@ -11,10 +11,10 @@ namespace Restaurante_Sabor_Gourmet.Jaqueline.Clases
         public int IdUsuario { get; set; }
         public string Nombre { get; set; }
         public string Username { get; set; }
-        public string Contrasena { get; set; }   // Antes de guardarse se convierte a SHA256.
+        public string Contrasena { get; set; }   
         public string Telefono { get; set; }
         public bool Activo { get; set; }
         public int IdRol { get; set; }
-        public string NombreRol { get; set; }   // Solo para mostrar en grid (JOIN con tbl_roles)
+        public string NombreRol { get; set; }   
     }
 }

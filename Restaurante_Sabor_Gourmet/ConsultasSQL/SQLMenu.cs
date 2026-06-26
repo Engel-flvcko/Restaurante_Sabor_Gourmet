@@ -9,9 +9,7 @@ namespace Restaurante_Sabor_Gourmet.ConsultasSQL
     {
         private readonly ConexionBD conexion = new ConexionBD();
 
-        // ─────────────────────────────────────────
         // CATEGORÍAS
-        // ─────────────────────────────────────────
 
         public List<string> ObtenerCategorias()
         {

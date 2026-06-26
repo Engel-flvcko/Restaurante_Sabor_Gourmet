@@ -36,8 +36,7 @@ namespace Restaurante_Sabor_Gourmet.Engel.consultasSQL
             DataTable dt = new DataTable();
             using (MySqlConnection cn = conexion.ObtenerConexion())
             {
-                // Vista correcta: vista_stock_bajo
-                // Columnas correctas: existencia_actual, stock_minimo, unidad_medida
+               
                 string sql = @"SELECT nombre_ingrediente, existencia_actual,
                               stock_minimo, unidad_medida,
                               CASE WHEN existencia_actual = 0 THEN 'Agotado'
@@ -56,7 +55,6 @@ namespace Restaurante_Sabor_Gourmet.Engel.consultasSQL
             DataTable dt = new DataTable();
             using (MySqlConnection cn = conexion.ObtenerConexion())
             {
-                // Vista correcta: vista_stock_bajo con existencia_actual = 0
                 string sql = "SELECT nombre_ingrediente FROM vista_stock_bajo WHERE existencia_actual = 0";
                 MySqlDataAdapter da = new MySqlDataAdapter(sql, cn);
                 da.Fill(dt);
@@ -69,7 +67,6 @@ namespace Restaurante_Sabor_Gourmet.Engel.consultasSQL
             DataTable dt = new DataTable();
             using (MySqlConnection cn = conexion.ObtenerConexion())
             {
-                // Columna correcta: ganancia_estimada (no ganancia)
                 string sql = "SELECT * FROM vista_costos_produccion ORDER BY ganancia_estimada DESC";
                 MySqlDataAdapter da = new MySqlDataAdapter(sql, cn);
                 da.Fill(dt);

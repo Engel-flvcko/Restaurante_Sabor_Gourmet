@@ -76,7 +76,7 @@ namespace Restaurante_Sabor_Gourmet.Jaqueline.Clases
 
                 // ── Color de fondo según estado ───────────────────────
                 Color colorFondo = esEventos
-                    ? Color.FromArgb(130, 100, 180)   // morado para eventos
+                    ? Color.FromArgb(130, 100, 180)   
                     : ObtenerColorEstado(estado);
 
                 // Si es zona eventos, reducir opacidad visualmente
@@ -109,14 +109,14 @@ namespace Restaurante_Sabor_Gourmet.Jaqueline.Clases
                         g.DrawPath(pen, RoundedRect(rect, 12));
                 };
 
-                // ── Clip redondeado para los controles hijos ──────────
+                // Clip redondeado para los controles hijos 
                 tarjeta.Region = RoundedRegion(tarjeta.Width, tarjeta.Height, 12);
 
                 tarjeta.Controls.Add(lblIcono);
                 tarjeta.Controls.Add(lblNumero);
                 tarjeta.Controls.Add(lblEstado);
 
-                // ── Click: bloquear zona eventos ──────────────────────
+                // Click: bloquear zona eventos 
                 if (!esEventos)
                 {
                     EventHandler clickHandler = (s, e) => alSeleccionarMesa(idMesa);
@@ -125,9 +125,8 @@ namespace Restaurante_Sabor_Gourmet.Jaqueline.Clases
                     lblNumero.Click += clickHandler;
                     lblEstado.Click += clickHandler;
                 }
-                // Si es eventos: no se asigna ningún Click → no hace nada
 
-                // ── Distribuir en panel correcto ──────────────────────
+                // Distribuir en panel correcto 
                 FlowLayoutPanel destino = zona == 1 ? flpSalon
                                         : zona == 2 ? flpFamiliar
                                         : flpEventos;
@@ -135,7 +134,7 @@ namespace Restaurante_Sabor_Gourmet.Jaqueline.Clases
             }
         }
 
-        // ── Color por estado ──────────────────────────────────────────
+        //  Color por estado
         private Color ObtenerColorEstado(string estado)
         {
             switch (estado)
@@ -149,7 +148,6 @@ namespace Restaurante_Sabor_Gourmet.Jaqueline.Clases
             }
         }
 
-        // ── Helper: GraphicsPath redondeado ──────────────────────────
         private GraphicsPath RoundedRect(Rectangle bounds, int radius)
         {
             int d = radius * 2;
@@ -162,7 +160,6 @@ namespace Restaurante_Sabor_Gourmet.Jaqueline.Clases
             return path;
         }
 
-        // ── Helper: Region redondeada para clip ──────────────────────
         private Region RoundedRegion(int w, int h, int radius)
         {
             var path = RoundedRect(new Rectangle(0, 0, w - 1, h - 1), radius);
