@@ -15,10 +15,52 @@ namespace Restaurante_Sabor_Gourmet.ConsultasSQL
     {
         private readonly ConexionBD conexion = new ConexionBD();
 
-        // ══════════════════════════════════════════════════════════════
-        //  OBTENER RESERVACIONES (grilla con filtros)
-        //  Usa MySqlDataAdapter — NO necesita cn.Open()
-        // ══════════════════════════════════════════════════════════════
+        
+        public List<MesaResumen> ObtenerMesasDisponiblesParaReserva(string tipo)
+        {
+            List<MesaResumen> lista = new List<MesaResumen>();
+
+            using (MySqlConnection cn = conexion.ObtenerConexion())
+            {
+                cn.Open();
+
+                string sql = @"
+            SELECT m.id_mesa,
+                   m.numero_mesa,
+                   m.capacidad_mesa,
+                   m.estado_mesa,
+                   z.nombre_zona
+            FROM tbl_mesas m
+            JOIN tbl_zonas z ON z.id_zona = m.id_zona_mesa
+            WHERE m.estado_mesa <> 'Fuera de servicio'
+              AND z.es_eventos_zona = @esEvento
+            ORDER BY z.id_zona ASC, m.numero_mesa ASC";
+
+                using (MySqlCommand cmd = new MySqlCommand(sql, cn))
+                {
+                    // Simple → es_eventos_zona = 0 | Evento → es_eventos_zona = 1
+                    cmd.Parameters.AddWithValue("@esEvento",
+                        tipo.Equals("Evento", StringComparison.OrdinalIgnoreCase) ? 1 : 0);
+
+                    using (MySqlDataReader rd = cmd.ExecuteReader())
+                    {
+                        while (rd.Read())
+                        {
+                            lista.Add(new MesaResumen
+                            {
+                                IdMesa = rd.GetInt32("id_mesa"),
+                                NumeroMesa = rd.GetInt32("numero_mesa"),
+                                Capacidad = rd.GetInt32("capacidad_mesa"),
+                                EstadoMesa = rd.GetString("estado_mesa"),
+                                NombreZona = rd.GetString("nombre_zona")
+                            });
+                        }
+                    }
+                }
+            }
+
+            return lista;
+        }
         public DataTable ObtenerReservaciones(DateTime fecha, string buscar,
                                               string estado, string tipo)
         {

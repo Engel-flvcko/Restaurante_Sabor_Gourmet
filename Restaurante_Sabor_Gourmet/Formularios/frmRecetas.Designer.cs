@@ -197,14 +197,17 @@
             cmbCategoriaFiltro.TabIndex = 3;
             cmbCategoriaFiltro.SelectedIndexChanged += cmbCategoriaFiltro_SelectedIndexChanged;
             // 
-            // dgvProductos
+            // dgvProductos — CORRECCIONES:
+            //   AlternatingRowsDefaultCellStyle: BackColor negro → azul muy claro, ForeColor visible
+            //   DefaultCellStyle SelectionBackColor/ForeColor: blanco/blanco → azul claro / oscuro
             // 
             dgvProductos.AllowUserToAddRows = false;
             dgvProductos.AllowUserToDeleteRows = false;
+            // ▼ CORRECCIÓN: antes BackColor=Black, ForeColor=E0E0E0 → filas alternas negras
             dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = Color.Black;
-            dataGridViewCellStyle1.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle1.ForeColor = Color.FromArgb(224, 224, 224);
+            dataGridViewCellStyle1.BackColor = Color.FromArgb(235, 240, 255);
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle1.ForeColor = Color.FromArgb(30, 30, 47);
             dgvProductos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             dgvProductos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvProductos.BackgroundColor = Color.White;
@@ -222,9 +225,10 @@
             dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = SystemColors.Window;
             dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle3.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle3.SelectionBackColor = Color.White;
-            dataGridViewCellStyle3.SelectionForeColor = Color.White;
+            dataGridViewCellStyle3.ForeColor = Color.FromArgb(30, 30, 47);
+            // ▼ CORRECCIÓN: antes SelectionBackColor=White, SelectionForeColor=White → texto invisible
+            dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(220, 235, 255);
+            dataGridViewCellStyle3.SelectionForeColor = Color.FromArgb(30, 30, 47);
             dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
             dgvProductos.DefaultCellStyle = dataGridViewCellStyle3;
             dgvProductos.EnableHeadersVisualStyles = false;

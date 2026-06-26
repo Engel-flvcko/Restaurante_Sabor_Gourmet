@@ -37,17 +37,61 @@ namespace Restaurante_Sabor_Gourmet.Formularios
         private void frmReservaciones_Load(object sender, EventArgs e)
         {
             CargarCombos();
-            CargarMesasEnPanel();
-            dtpFiltroFecha.Value = DateTime.Now.AddDays(1); 
+            dtpFiltroFecha.Value = DateTime.Now.AddDays(1);
             BuscarReservaciones();
             LimpiarFormulario();
         }
        
 
+        private void CargarMesasEnPanel(string tipo = "Simple")
+        {
+            pnlMesas.Controls.Clear();
+            checksMesas.Clear();
+
+            try
+            {
+                SQLReservaciones sql = new SQLReservaciones();
+                List<MesaResumen> mesas = sql.ObtenerMesasDisponiblesParaReserva(tipo);
+
+                int col = 0, fila = 0;
+                int anchoCheck = 195, altoCheck = 24, margenH = 8, margenV = 4;
+
+                foreach (MesaResumen m in mesas)
+                {
+                    CheckBox chk = new CheckBox();
+
+                    // Indicar si la mesa está ocupada hoy para dar contexto visual
+                    string estadoLabel = m.EstadoMesa == "Disponible"
+                                         ? "" : $" [{m.EstadoMesa}]";
+                    chk.Text = $"Mesa {m.NumeroMesa} — {m.NombreZona}{estadoLabel}";
+                    chk.Tag = m.IdMesa;
+                    chk.Font = new Font("Segoe UI", 8.8F);
+                    chk.ForeColor = m.EstadoMesa == "Disponible"
+                                    ? Color.FromArgb(30, 30, 47)
+                                    : Color.FromArgb(150, 150, 160); // gris si ocupada hoy
+                    chk.Size = new Size(anchoCheck, altoCheck);
+                    chk.Location = new Point(
+                        col * (anchoCheck + margenH) + 6,
+                        fila * (altoCheck + margenV) + 6);
+                    chk.AutoSize = false;
+
+                    pnlMesas.Controls.Add(chk);
+                    checksMesas.Add(chk);
+
+                    col++;
+                    if (col >= 2) { col = 0; fila++; }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al cargar mesas: " + ex.Message,
+                    "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
         //  Poblar combos 
         private void CargarCombos()
         {
-            // Horas disponibles (de 7:00 a 22:00 cada 30 min)
             cmbHoraInicio.Items.Clear();
             for (int h = 7; h <= 22; h++)
             {
@@ -56,20 +100,17 @@ namespace Restaurante_Sabor_Gourmet.Formularios
             }
             cmbHoraInicio.SelectedIndex = 0;
 
-            // Tipo
             cmbTipo.Items.Clear();
             cmbTipo.Items.Add("Simple");
             cmbTipo.Items.Add("Evento");
             cmbTipo.SelectedIndex = 0;
 
-            // Estado — minúsculas para coincidir con ENUM de la BD
             cmbEstado.Items.Clear();
             cmbEstado.Items.Add("pendiente");
             cmbEstado.Items.Add("confirmada");
             cmbEstado.Items.Add("cancelada");
             cmbEstado.SelectedIndex = 0;
 
-            // Filtro estado
             cmbFiltroEstado.Items.Clear();
             cmbFiltroEstado.Items.Add("Todos");
             cmbFiltroEstado.Items.Add("pendiente");
@@ -77,12 +118,14 @@ namespace Restaurante_Sabor_Gourmet.Formularios
             cmbFiltroEstado.Items.Add("cancelada");
             cmbFiltroEstado.SelectedIndex = 0;
 
-            // Filtro tipo
             cmbFiltroTipo.Items.Clear();
             cmbFiltroTipo.Items.Add("Todos");
             cmbFiltroTipo.Items.Add("Simple");
             cmbFiltroTipo.Items.Add("Evento");
             cmbFiltroTipo.SelectedIndex = 0;
+
+            
+            cmbTipo_SelectedIndexChanged(null, EventArgs.Empty);
         }
 
         // Generar checkboxes de mesas 
@@ -123,6 +166,20 @@ namespace Restaurante_Sabor_Gourmet.Formularios
                 MessageBox.Show("Error al cargar mesas: " + ex.Message,
                     "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+        private void cmbTipo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string tipo = cmbTipo.SelectedItem?.ToString() ?? "Simple";
+
+            bool esEvento = tipo == "Evento";
+            txtNombreEvento.Enabled = esEvento;
+            txtNombreEvento.BackColor = esEvento
+                ? Color.White
+                : Color.FromArgb(240, 240, 248);
+            if (!esEvento) txtNombreEvento.Text = "";
+
+            // Recargar panel de mesas según el tipo seleccionado
+            CargarMesasEnPanel(tipo);
         }
 
         // Obtener IDs de mesas seleccionadas
@@ -234,18 +291,7 @@ namespace Restaurante_Sabor_Gourmet.Formularios
             btnEditar.Enabled = !estado.Equals("cancelada", StringComparison.OrdinalIgnoreCase);
             btnCancelarRes.Enabled = !estado.Equals("cancelada", StringComparison.OrdinalIgnoreCase);
             btnConfirmar.Enabled = estado.Equals("pendiente", StringComparison.OrdinalIgnoreCase);
-        }
-
-        //  TIPO , habilitar/deshabilitar campo Nombre Evento
-        private void cmbTipo_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            bool esEvento = cmbTipo.SelectedItem?.ToString() == "Evento";
-            txtNombreEvento.Enabled = esEvento;
-            txtNombreEvento.BackColor = esEvento
-                ? Color.White
-                : Color.FromArgb(240, 240, 248);
-            if (!esEvento) txtNombreEvento.Text = "";
-        }
+        }        
 
         //  GUARDAR (nuevo o actualización)
         private void btnGuardar_Click(object sender, EventArgs e)
