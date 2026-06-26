@@ -110,6 +110,22 @@ namespace Restaurante_Sabor_Gourmet.Jaqueline.Formularios
 
         private void MostrarInfoMesa(int idMesa)
         {
+            DataTable dtCheck = sqlMesas.ObtenerMesaPorId(idMesa);
+            if (dtCheck.Rows.Count == 0) return;
+
+            // Si es zona de eventos, no mostrar panel ni permitir acciones
+            // (ObtenerMesaPorId ya incluye nombre_zona, agregar es_eventos_zona)
+            // Por ahora bloqueamos por id_zona_mesa = 3
+            if (Convert.ToInt32(dtCheck.Rows[0]["id_zona_mesa"]) == 3)
+            {
+                MessageBox.Show(
+                    "Las mesas de la Zona de Eventos solo pueden\n" +
+                    "asignarse a través del módulo de Reservaciones.",
+                    "Zona exclusiva para eventos",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
             mesaSeleccionada = idMesa;
             DataTable dt = sqlMesas.ObtenerMesaPorId(idMesa);
             if (dt.Rows.Count == 0) return;
@@ -140,6 +156,8 @@ namespace Restaurante_Sabor_Gourmet.Jaqueline.Formularios
             MostrarPanelMesa();
             ConfigurarBotones(estado);
         }
+
+       
 
         private Color ObtenerColorEstado(string estado)
         {
@@ -189,9 +207,11 @@ namespace Restaurante_Sabor_Gourmet.Jaqueline.Formularios
         }
 
         //Botones según estado 
+        
         private void ConfigurarBotones(string estado)
         {
             // Ocultar todo primero
+            btnVerOrden.Visible = false;          // ← agregar esta línea
             btnAsignarMesa.Visible = false;
             btnTransferirOrden.Visible = false;
             btnSolicitarPago.Visible = false;
@@ -231,11 +251,11 @@ namespace Restaurante_Sabor_Gourmet.Jaqueline.Formularios
                     lblOrden.Visible = true;
                     lblOrdenActiva.Visible = true;
 
+                    btnVerOrden.Visible = true;           
                     btnTransferirOrden.Visible = true;
                     btnSolicitarPago.Visible = true;
                     btnUnirMesas.Visible = true;
                     btnDividirMesa.Visible = true;
-                    btnVerOrden.Visible = true;  // ← agregar
 
                     btnVerOrden.FillColor = Color.FromArgb(34, 197, 94);
                     btnTransferirOrden.FillColor = Color.FromArgb(37, 99, 235);

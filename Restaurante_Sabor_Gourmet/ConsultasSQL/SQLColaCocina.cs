@@ -80,7 +80,7 @@ namespace Restaurante_Sabor_Gourmet.ConsultasSQL
                d.id_producto_detalle,
                d.cantidad_detalle,
                d.precio_unitario_detalle,
-               d.observaciones,
+               d.observaciones_detalle,
                p.nombre_producto
         FROM   tbl_detalle_orden d
         INNER  JOIN tbl_productos p ON p.id_producto = d.id_producto_detalle
@@ -100,8 +100,8 @@ namespace Restaurante_Sabor_Gourmet.ConsultasSQL
                             IdProductoDetalle = rd.GetInt32("id_producto_detalle"),
                             CantidadDetalle = rd.GetInt32("cantidad_detalle"),
                             PrecioUnitarioDetalle = rd.GetDecimal("precio_unitario_detalle"),
-                            Observaciones = rd.IsDBNull(rd.GetOrdinal("observaciones"))
-                                                        ? "" : rd.GetString("observaciones"),
+                            Observaciones = rd.IsDBNull(rd.GetOrdinal("observaciones_detalle"))
+                                                       ? "" : rd.GetString("observaciones_detalle"),
                             NombreProducto = rd.GetString("nombre_producto")
                         });
                     }
@@ -110,6 +110,7 @@ namespace Restaurante_Sabor_Gourmet.ConsultasSQL
 
             return productos;
         }
+
 
         public bool CambiarEstado(int idCocina, string estadoActual, string estadoNuevo)
         {

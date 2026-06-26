@@ -231,15 +231,17 @@ namespace Restaurante_Sabor_Gourmet.Jaqueline.ConsultasSQL
             using (MySqlConnection conn = conexionBD.ObtenerConexion())
             {
                 string query = @"
-            SELECT m.id_mesa, m.numero_mesa, m.estado_mesa,
-                   m.capacidad_mesa, m.num_clientes_mesa,
-                   m.hora_ocupacion_mesa, m.id_mesero_asignado_mesa,
-                   z.nombre_zona,
-                   u.nombre_usuario AS nombre_mesero
-            FROM tbl_mesas m
-            INNER JOIN tbl_zonas z ON m.id_zona_mesa = z.id_zona
-            LEFT  JOIN tbl_usuarios u ON u.id_usuario = m.id_mesero_asignado_mesa
-            WHERE m.id_mesa = @idMesa";
+                    SELECT m.id_mesa, m.numero_mesa, m.estado_mesa,
+                           m.capacidad_mesa, m.num_clientes_mesa,
+                           m.hora_ocupacion_mesa, m.id_mesero_asignado_mesa,
+                           m.id_zona_mesa,                              -- ← agregar
+                           z.nombre_zona,
+                           u.nombre_usuario AS nombre_mesero
+                    FROM tbl_mesas m
+                    INNER JOIN tbl_zonas z ON m.id_zona_mesa = z.id_zona
+                    LEFT  JOIN tbl_usuarios u ON u.id_usuario = m.id_mesero_asignado_mesa
+                    WHERE m.id_mesa = @idMesa";
+                
 
                 MySqlCommand cmd = new MySqlCommand(query, conn);
                 cmd.Parameters.AddWithValue("@idMesa", idMesa);
