@@ -367,6 +367,7 @@
             btnCerrarSesion.Size = new Size(168, 41);
             btnCerrarSesion.TabIndex = 10;
             btnCerrarSesion.Text = "Cerrar sesion";
+            btnCerrarSesion.Click += btnCerrarSesion_Click;
             // 
             // PnlCentro
             // 

@@ -102,6 +102,7 @@
             txtContrasena.ShadowDecoration.CustomizableEdges = customizableEdges6;
             txtContrasena.Size = new Size(251, 49);
             txtContrasena.TabIndex = 2;
+            txtContrasena.UseSystemPasswordChar = true;
             // 
             // pnlLogin
             // 
