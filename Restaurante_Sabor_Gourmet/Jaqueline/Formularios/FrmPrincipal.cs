@@ -95,5 +95,19 @@ namespace Restaurante_Sabor_Gourmet.Jaqueline.Formularios
         {
             gestorFormularios.AbrirRecetas();
         }
+
+        private void btnCerrarSesion_Click(object sender, EventArgs e)
+        {
+            DialogResult r = MessageBox.Show(
+               "¿Desea cerrar sesión?",
+               "Cerrar sesión",
+               MessageBoxButtons.YesNo,
+               MessageBoxIcon.Question);
+
+            if (r == DialogResult.Yes)
+            {
+                this.Close();
+            }
+        }
     }
 }

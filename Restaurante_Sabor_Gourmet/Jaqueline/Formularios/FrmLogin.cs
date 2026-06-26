@@ -47,10 +47,19 @@ namespace Restaurante_Sabor_Gourmet.Jaqueline.Formularios
                 {
                     // Abrir formulario principal
                     FrmPrincipal frm = new FrmPrincipal();
-                    frm.Show();
+                    //frm.Show();
 
                     // Ocultar login
                     this.Hide();
+                    frm.ShowDialog();     // Espera hasta que se cierre el principal
+                    this.Show();          // Vuelve a mostrar el login
+
+                    // Limpiar los campos
+                    txtUsuario.Clear();
+                    txtContrasena.Clear();
+
+                    // Colocar el cursor en el usuario
+                    txtUsuario.Focus();
                 }
                 else
                 {
