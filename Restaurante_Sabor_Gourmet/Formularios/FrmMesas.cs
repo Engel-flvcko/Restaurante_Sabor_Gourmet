@@ -118,7 +118,7 @@ namespace Restaurante_Sabor_Gourmet.Jaqueline.Formularios
             return p;
         }
 
-        //  PANEL LATERAL — mostrar info al seleccionar mesa
+        //  Panel Laterla ,  mostrar info al seleccionar mesa
 
         private void MostrarInfoMesa(int idMesa)
         {
@@ -158,7 +158,7 @@ namespace Restaurante_Sabor_Gourmet.Jaqueline.Formularios
                                                 .ToString("hh:mm tt")
                                       : "-";
 
-            // Orden activa (si existe)
+            // Orden activa , si existe
             int? idOrden = sqlMesas.ObtenerOrdenActivaPorMesa(idMesa);
             lblOrdenActiva.Text = idOrden.HasValue ? "#" + idOrden.Value.ToString() : "-";
 
@@ -223,7 +223,7 @@ namespace Restaurante_Sabor_Gourmet.Jaqueline.Formularios
         private void ConfigurarBotones(string estado)
         {
             // Ocultar todo primero
-            btnVerOrden.Visible = false;          // ← agregar esta línea
+            btnVerOrden.Visible = false;          // agregar esta línea
             btnAsignarMesa.Visible = false;
             btnTransferirOrden.Visible = false;
             btnSolicitarPago.Visible = false;
@@ -239,7 +239,7 @@ namespace Restaurante_Sabor_Gourmet.Jaqueline.Formularios
             lblOrden.Visible = false;
             lblOrdenActiva.Visible = false;
 
-            // Botón Fuera de Servicio solo para Admin (rol 1) y Supervisor (rol 5)
+            // Botón Fuera de Servicio solo para Admin , rol 1 y Supervisor (rol 5)
             bool esSupervisorOAdmin = Sesion.IdRol == 1 || Sesion.IdRol == 5;
 
             switch (estado)
@@ -312,7 +312,7 @@ namespace Restaurante_Sabor_Gourmet.Jaqueline.Formularios
                 CargarTodasLasMesas();
                 MostrarInfoMesa(mesaSeleccionada);
 
-                // ── Abrir frmOrdenes pre-seleccionando la mesa recién asignada ──
+                // Abrir frmOrdenes pre-seleccionando la mesa recién asignada 
                 int idMesaParaOrden = mesaSeleccionada; // capturar antes de que el dialog la resetee
                 using (Restaurante_Sabor_Gourmet.Formularios.frmOrdenes frm =
                        new Restaurante_Sabor_Gourmet.Formularios.frmOrdenes(
@@ -321,7 +321,7 @@ namespace Restaurante_Sabor_Gourmet.Jaqueline.Formularios
                     frm.ShowDialog();
                 }
 
-                // Al volver, recargar el mapa (puede haber cambiado estado de orden)
+                // Al volver, recargar el mapa (puede haber cambiado estado de orden
                 CargarTodasLasMesas();
                 MostrarInfoMesa(mesaSeleccionada);
             }
@@ -332,7 +332,7 @@ namespace Restaurante_Sabor_Gourmet.Jaqueline.Formularios
             }
         }
 
-        // Solicitar Pago (Cerrar Cuenta)
+        // Solicitar Pago Cerrar Cuenta
         private void btnSolicitarPago_Click(object sender, EventArgs e)
         {
             if (mesaSeleccionada == -1) return;
@@ -345,7 +345,7 @@ namespace Restaurante_Sabor_Gourmet.Jaqueline.Formularios
                 return;
             }
 
-            // ── Validar que todos los ítems ya fueron entregados ──────────
+            // Validar que todos los ítems ya fueron entregados 
             if (sqlMesas.OrdenTieneItemsPendientesEnCocina(idOrden.Value))
             {
                 MessageBox.Show(
@@ -357,7 +357,7 @@ namespace Restaurante_Sabor_Gourmet.Jaqueline.Formularios
                     MessageBoxIcon.Warning);
                 return;
             }
-            // ─────────────────────────────────────────────────────────────
+           
 
             DialogResult resp = MessageBox.Show(
                 "¿Solicitar cierre de cuenta para la Mesa " + mesaSeleccionada + "?",
@@ -464,7 +464,7 @@ namespace Restaurante_Sabor_Gourmet.Jaqueline.Formularios
             }
         }
 
-        // Dividir Mesa → abre popup 
+        // Dividir Mesa , abre popup 
         private void btnDividirMesa_Click(object sender, EventArgs e)
         {
             if (mesaSeleccionada == -1) return;
@@ -480,7 +480,7 @@ namespace Restaurante_Sabor_Gourmet.Jaqueline.Formularios
             }
         }
 
-        private void btnVerOrden_Click(object sender, EventArgs e)
+        private void btnVerOrden_Click(object sender, EventArgs e) 
         {
             if (mesaSeleccionada == -1) return;
 

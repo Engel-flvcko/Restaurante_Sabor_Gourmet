@@ -15,11 +15,11 @@ namespace Restaurante_Sabor_Gourmet.Jaqueline.ConsultasSQL
 
         private ConexionBD conexionBD = new ConexionBD();
 
-        // Todas las mesas (para dibujar el mapa)
+        // Todas las mesas ,para dibujar el mapa
 
-        // Detalle de una mesa (para el panel lateral)
+        // Detalle de una mesa ,para el panel lateral
 
-        public bool OrdenTieneItemsPendientesEnCocina(int idOrden)
+        public bool OrdenTieneItemsPendientesEnCocina(int idOrden) // Verifica si una orden aún tiene platillos pendientes en cocina
         {
             using (MySqlConnection conn = conexionBD.ObtenerConexion())
             {
@@ -34,11 +34,11 @@ namespace Restaurante_Sabor_Gourmet.Jaqueline.ConsultasSQL
                 return Convert.ToInt32(cmd.ExecuteScalar()) > 0;
             }
         }
-        public int? ObtenerOrdenActivaPorMesa(int idMesa)
+        public int? ObtenerOrdenActivaPorMesa(int idMesa) // Obtiene el ID de la orden activa asociada a una mesa
         {
             using (MySqlConnection conn = conexionBD.ObtenerConexion())
             {
-                conn.Open(); //  CRÍTICO
+                conn.Open(); 
                 string query = @"
             SELECT id_orden FROM tbl_ordenes
             WHERE id_mesa_orden  = @idMesa
@@ -55,7 +55,7 @@ namespace Restaurante_Sabor_Gourmet.Jaqueline.ConsultasSQL
         }
 
         //  unir mesas
-        public bool UnirMesas(int idMesa, int idMesaAdyacente)
+        public bool UnirMesas(int idMesa, int idMesaAdyacente) // Une dos mesas, las marca como ocupadas y registra la hora de ocupación.
         {
             using (MySqlConnection conn = conexionBD.ObtenerConexion())
             {
@@ -86,7 +86,7 @@ namespace Restaurante_Sabor_Gourmet.Jaqueline.ConsultasSQL
             }
         }
 
-        // OBTENER MESAS UNIDAS 
+        // Obtener mesas unidas 
         public DataTable ObtenerMesasUnidas(int idMesa)
         {
             DataTable dt = new DataTable();
@@ -151,7 +151,7 @@ namespace Restaurante_Sabor_Gourmet.Jaqueline.ConsultasSQL
             }
         }
 
-        // MESAS ADYACENTES DISPONIBLES (excluye la ya unida) 
+        // Mesas adyacentes  , excluye la mesa ya unida
         public DataTable ObtenerMesasAdyacentesDisponibles(int idMesa)
         {
             DataTable dt = new DataTable();
@@ -173,11 +173,12 @@ namespace Restaurante_Sabor_Gourmet.Jaqueline.ConsultasSQL
             return dt;
         }
 
-        public bool AsignarMesa(int idMesa, int idMesero)
+        // Asigna un mesero a una mesa disponible, la marca como ocupada y registra la hora de inicio.
+        public bool AsignarMesa(int idMesa, int idMesero) 
         {
             using (MySqlConnection conn = conexionBD.ObtenerConexion())
             {
-                conn.Open(); // agregar
+                conn.Open(); 
                 string query = @"
             UPDATE tbl_mesas
             SET estado_mesa              = 'Ocupada',
@@ -193,11 +194,13 @@ namespace Restaurante_Sabor_Gourmet.Jaqueline.ConsultasSQL
                 return cmd.ExecuteNonQuery() > 0;
             }
         }
+
+        // Cambia el estado de una orden de abierta a pendiente de pago.
         public bool CerrarCuenta(int idOrden)
         {
             using (MySqlConnection conn = conexionBD.ObtenerConexion())
             {
-                conn.Open(); // agregar
+                conn.Open(); 
                 string query = @"
             UPDATE tbl_ordenes
             SET estado_orden = 'pendiente_pago'
@@ -210,11 +213,12 @@ namespace Restaurante_Sabor_Gourmet.Jaqueline.ConsultasSQL
             }
         }
 
+        // Libera una mesa, elimina el mesero asignado, borra la hora de ocupación y reinicia el número de clientes.
         public bool LiberarMesa(int idMesa)
         {
             using (MySqlConnection conn = conexionBD.ObtenerConexion())
             {
-                conn.Open(); // agregar
+                conn.Open();
                 string query = @"
             UPDATE tbl_mesas
             SET estado_mesa             = 'Disponible',
@@ -229,11 +233,12 @@ namespace Restaurante_Sabor_Gourmet.Jaqueline.ConsultasSQL
             }
         }
 
+        // 
         public bool CambiarEstado(int idMesa, string nuevoEstado)
         {
             using (MySqlConnection conn = conexionBD.ObtenerConexion())
             {
-                conn.Open(); //  agregar
+                conn.Open(); 
                 string query = "UPDATE tbl_mesas SET estado_mesa = @estado WHERE id_mesa = @id";
                 MySqlCommand cmd = new MySqlCommand(query, conn);
                 cmd.Parameters.AddWithValue("@estado", nuevoEstado);
@@ -241,6 +246,8 @@ namespace Restaurante_Sabor_Gourmet.Jaqueline.ConsultasSQL
                 return cmd.ExecuteNonQuery() > 0;
             }
         }
+
+        // Obtiene toda la información de una mesa específica, incluyendo zona y mesero asignado.
         public DataTable ObtenerMesaPorId(int idMesa)
         {
             DataTable dt = new DataTable();
@@ -320,8 +327,8 @@ namespace Restaurante_Sabor_Gourmet.Jaqueline.ConsultasSQL
             }
         }
 
-        
 
+        // Obtiene el listado de todas las mesas con su número, estado y zona para mostrarlas en el mapa del restaurante.
         public DataTable ObtenerMesas()
         {
             DataTable dt = new DataTable();
@@ -340,7 +347,7 @@ namespace Restaurante_Sabor_Gourmet.Jaqueline.ConsultasSQL
             return dt;
         }
 
-        //  Detalle de una mesa (para el panel lateral) 
+        //  Detalle de una mesa , para el panel lateral 
 
         // Mesas disponibles para unir / transferir 
         public DataTable ObtenerMesasDisponibles(int excluirIdMesa = 0)

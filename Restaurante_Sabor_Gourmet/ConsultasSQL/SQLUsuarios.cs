@@ -14,9 +14,9 @@ namespace Restaurante_Sabor_Gourmet.Jaqueline.ConsultasSQL
     {
         ConexionBD conexion = new ConexionBD();
 
-        public bool IniciarSesion(string username, string contraseña)
+        public bool IniciarSesion(string username, string contraseña) // Verifica que un usuario ha iniciado sesion
         {
-            string hash = HashSHA256(contraseña);
+            string hash = HashSHA256(contraseña); // Encripta la contraseña 
 
             using (MySqlConnection cn = conexion.ObtenerConexion())
             {
@@ -34,7 +34,7 @@ namespace Restaurante_Sabor_Gourmet.Jaqueline.ConsultasSQL
                 MySqlCommand cmd = new MySqlCommand(sql, cn);
                 cmd.Parameters.AddWithValue("@username", username);
                 cmd.Parameters.AddWithValue("@clave", hash);
-                //cmd.Parameters.AddWithValue("@clave", hash);
+               
 
                 using (MySqlDataReader dr = cmd.ExecuteReader())
                 {
