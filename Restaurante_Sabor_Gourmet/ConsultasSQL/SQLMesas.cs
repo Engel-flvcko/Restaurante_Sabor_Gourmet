@@ -15,9 +15,9 @@ namespace Restaurante_Sabor_Gourmet.Jaqueline.ConsultasSQL
 
         private ConexionBD conexionBD = new ConexionBD();
 
-        // ── Todas las mesas (para dibujar el mapa)
+        // Todas las mesas (para dibujar el mapa)
 
-        // ── Detalle de una mesa (para el panel lateral) ───────────────
+        // Detalle de una mesa (para el panel lateral)
 
         public bool OrdenTieneItemsPendientesEnCocina(int idOrden)
         {
@@ -38,7 +38,7 @@ namespace Restaurante_Sabor_Gourmet.Jaqueline.ConsultasSQL
         {
             using (MySqlConnection conn = conexionBD.ObtenerConexion())
             {
-                conn.Open(); // ← CRÍTICO
+                conn.Open(); //  CRÍTICO
                 string query = @"
             SELECT id_orden FROM tbl_ordenes
             WHERE id_mesa_orden  = @idMesa
@@ -54,7 +54,7 @@ namespace Restaurante_Sabor_Gourmet.Jaqueline.ConsultasSQL
             }
         }
 
-        // ── UNIR ──────────────────────────────────────────────────────
+        //  unir mesas
         public bool UnirMesas(int idMesa, int idMesaAdyacente)
         {
             using (MySqlConnection conn = conexionBD.ObtenerConexion())
@@ -86,7 +86,7 @@ namespace Restaurante_Sabor_Gourmet.Jaqueline.ConsultasSQL
             }
         }
 
-        // ── OBTENER MESAS UNIDAS ──────────────────────────────────────
+        // OBTENER MESAS UNIDAS 
         public DataTable ObtenerMesasUnidas(int idMesa)
         {
             DataTable dt = new DataTable();
@@ -107,7 +107,7 @@ namespace Restaurante_Sabor_Gourmet.Jaqueline.ConsultasSQL
             return dt;
         }
 
-        // ── DIVIDIR ───────────────────────────────────────────────────
+        // dividir mesas 
         public bool DividirMesas(int idMesa, int idMesaAdyacente)
         {
             using (MySqlConnection conn = conexionBD.ObtenerConexion())
@@ -151,7 +151,7 @@ namespace Restaurante_Sabor_Gourmet.Jaqueline.ConsultasSQL
             }
         }
 
-        // ── MESAS ADYACENTES DISPONIBLES (excluye la ya unida) ───────
+        // MESAS ADYACENTES DISPONIBLES (excluye la ya unida) 
         public DataTable ObtenerMesasAdyacentesDisponibles(int idMesa)
         {
             DataTable dt = new DataTable();
@@ -177,7 +177,7 @@ namespace Restaurante_Sabor_Gourmet.Jaqueline.ConsultasSQL
         {
             using (MySqlConnection conn = conexionBD.ObtenerConexion())
             {
-                conn.Open(); // ← agregar
+                conn.Open(); // agregar
                 string query = @"
             UPDATE tbl_mesas
             SET estado_mesa              = 'Ocupada',
@@ -197,7 +197,7 @@ namespace Restaurante_Sabor_Gourmet.Jaqueline.ConsultasSQL
         {
             using (MySqlConnection conn = conexionBD.ObtenerConexion())
             {
-                conn.Open(); // ← agregar
+                conn.Open(); // agregar
                 string query = @"
             UPDATE tbl_ordenes
             SET estado_orden = 'pendiente_pago'
@@ -214,7 +214,7 @@ namespace Restaurante_Sabor_Gourmet.Jaqueline.ConsultasSQL
         {
             using (MySqlConnection conn = conexionBD.ObtenerConexion())
             {
-                conn.Open(); // ← agregar
+                conn.Open(); // agregar
                 string query = @"
             UPDATE tbl_mesas
             SET estado_mesa             = 'Disponible',
@@ -233,7 +233,7 @@ namespace Restaurante_Sabor_Gourmet.Jaqueline.ConsultasSQL
         {
             using (MySqlConnection conn = conexionBD.ObtenerConexion())
             {
-                conn.Open(); // ← agregar
+                conn.Open(); //  agregar
                 string query = "UPDATE tbl_mesas SET estado_mesa = @estado WHERE id_mesa = @id";
                 MySqlCommand cmd = new MySqlCommand(query, conn);
                 cmd.Parameters.AddWithValue("@estado", nuevoEstado);
@@ -266,7 +266,7 @@ namespace Restaurante_Sabor_Gourmet.Jaqueline.ConsultasSQL
             return dt;
         }
 
-        // ── Transferir orden a otra mesa ──────────────────────────────
+        // Transferir orden a otra mesa
         public bool TransferirOrden(int idOrden, int idMesaOrigen, int idMesaDestino)
         {
             using (MySqlConnection conn = conexionBD.ObtenerConexion())
@@ -340,10 +340,9 @@ namespace Restaurante_Sabor_Gourmet.Jaqueline.ConsultasSQL
             return dt;
         }
 
-        // ── Detalle de una mesa (para el panel lateral) ───────────────
+        //  Detalle de una mesa (para el panel lateral) 
 
-        // ── Mesas disponibles para unir / transferir ──────────────────
-
+        // Mesas disponibles para unir / transferir 
         public DataTable ObtenerMesasDisponibles(int excluirIdMesa = 0)
         {
             DataTable dt = new DataTable();

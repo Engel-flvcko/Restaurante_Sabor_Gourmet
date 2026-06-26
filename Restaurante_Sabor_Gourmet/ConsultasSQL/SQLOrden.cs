@@ -13,11 +13,10 @@ namespace Restaurante_Sabor_Gourmet.ConsultasSQL
     {
         private readonly ConexionBD conexion = new ConexionBD();
 
-        // ============================================================
+      
         //  VERIFICAR SI UNA MESA YA TIENE ORDEN ABIERTA
         //  Útil para saber si cargar el detalle existente o crear una nueva.
-        // ============================================================
-
+  
         public Orden ObtenerOrdenAbiertaPorMesa(int idMesa)
         {
             Orden orden = null;
