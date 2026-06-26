@@ -19,7 +19,7 @@ namespace Restaurante_Sabor_Gourmet.ConsultasSQL
             using (MySqlConnection cn = conexion.ObtenerConexion())
             {
                 cn.Open();
-                string sql = "SELECT COUNT(*) FROM tbl_recetas WHERE id_ingrediente = @id";
+                string sql = "SELECT COUNT(*) FROM tbl_recetas WHERE id_ingrediente_receta = @id";
                 using (MySqlCommand cmd = new MySqlCommand(sql, cn))
                 {
                     cmd.Parameters.AddWithValue("@id", idIngrediente);
