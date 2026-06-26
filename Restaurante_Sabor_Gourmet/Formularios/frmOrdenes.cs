@@ -15,6 +15,18 @@ namespace Restaurante_Sabor_Gourmet.Formularios
     public partial class frmOrdenes : Form
     {
         // Sesión del mesero logueado , la recibe del frmPrincipal de Persona 1
+
+        // ── Campo nuevo ───────────────────────────────────────────────
+        private int idMesaPreseleccionada = 0;
+
+        // ── Constructor: agrega el parámetro opcional ─────────────────
+        public frmOrdenes(int idMeseroSesion, string nombreMeseroSesion, int idMesaPreseleccionada = 0)
+        {
+            InitializeComponent();
+            this.idMeseroSesion = idMeseroSesion;
+            this.nombreMeseroSesion = nombreMeseroSesion;
+            this.idMesaPreseleccionada = idMesaPreseleccionada;
+        }
         private int idMeseroSesion;
         private string nombreMeseroSesion;
 
@@ -27,20 +39,13 @@ namespace Restaurante_Sabor_Gourmet.Formularios
         // Caché de mesas ocupadas para consultar datos sin volver a la BD
         private List<MesaResumen> mesasOcupadas = new List<MesaResumen>();
 
-        public frmOrdenes(int idMeseroSesion, string nombreMeseroSesion)
-        {
-            InitializeComponent();
-            this.idMeseroSesion = idMeseroSesion;
-            this.nombreMeseroSesion = nombreMeseroSesion;
-        }
-
+        
         private void frmOrdenes_Load(object sender, EventArgs e)
         {
             CargarMesasOcupadas();
             CargarCategoriasDinamicas();
         }
 
-        //  carga de mesas
         private void CargarMesasOcupadas()
         {
             try
@@ -48,7 +53,6 @@ namespace Restaurante_Sabor_Gourmet.Formularios
                 SQLMesaResumen sql = new SQLMesaResumen();
                 mesasOcupadas = sql.ObtenerMesasOcupadas();
 
-                // Construir DataTable para el ComboBox
                 DataTable dt = new DataTable();
                 dt.Columns.Add("id_mesa", typeof(int));
                 dt.Columns.Add("texto_mesa", typeof(string));
@@ -61,8 +65,21 @@ namespace Restaurante_Sabor_Gourmet.Formularios
                 cbxMesa.DisplayMember = "texto_mesa";
                 cbxMesa.ValueMember = "id_mesa";
 
-                // Limpiar info mientras no haya selección real
                 LimpiarInfoMesa();
+
+                // ── PRE-SELECCIONAR mesa si viene desde FrmMesas ──────────
+                if (idMesaPreseleccionada > 0)
+                {
+                    foreach (DataRow fila in dt.Rows)
+                    {
+                        if (Convert.ToInt32(fila["id_mesa"]) == idMesaPreseleccionada)
+                        {
+                            cbxMesa.SelectedValue = idMesaPreseleccionada;
+                            break;
+                        }
+                    }
+                }
+                // ─────────────────────────────────────────────────────────
             }
             catch (Exception ex)
             {
@@ -485,6 +502,7 @@ namespace Restaurante_Sabor_Gourmet.Formularios
                 return;
             }
 
+
             DialogResult resp = MessageBox.Show(
                 "¿Enviar esta orden a cocina? Ya no podrás modificarla después.",
                 "Confirmar envío", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
@@ -506,10 +524,15 @@ namespace Restaurante_Sabor_Gourmet.Formularios
                 {
                     idOrdenActual = idGenerado;
                     ordenEnviadaACocina = true;
-                    ActualizarEstadoOrden("abierta"); // sigue abierta hasta CerrarCuenta
+                    ActualizarEstadoOrden("abierta");
 
                     MessageBox.Show("Orden #" + idGenerado + " enviada a cocina correctamente.",
                         "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    // ── Cerrar el formulario al terminar ──────────────────────
+                    this.DialogResult = DialogResult.OK;
+                    this.Close();
+                    // ─────────────────────────────────────────────────────────
                 }
                 else
                 {

@@ -280,6 +280,7 @@ namespace Restaurante_Sabor_Gourmet.Jaqueline.Formularios
         // ══════════════════════════════════════════════════════════════
 
         // ── Asignar Mesa ──────────────────────────────────────────────
+
         private void btnAsignarMesa_Click(object sender, EventArgs e)
         {
             if (mesaSeleccionada == -1) return;
@@ -287,6 +288,19 @@ namespace Restaurante_Sabor_Gourmet.Jaqueline.Formularios
             bool ok = sqlMesas.AsignarMesa(mesaSeleccionada, Sesion.IdUsuario);
             if (ok)
             {
+                CargarTodasLasMesas();
+                MostrarInfoMesa(mesaSeleccionada);
+
+                // ── Abrir frmOrdenes pre-seleccionando la mesa recién asignada ──
+                int idMesaParaOrden = mesaSeleccionada; // capturar antes de que el dialog la resetee
+                using (Restaurante_Sabor_Gourmet.Formularios.frmOrdenes frm =
+                       new Restaurante_Sabor_Gourmet.Formularios.frmOrdenes(
+                           Sesion.IdUsuario, Sesion.NombreUsuario, idMesaParaOrden))
+                {
+                    frm.ShowDialog();
+                }
+
+                // Al volver, recargar el mapa (puede haber cambiado estado de orden)
                 CargarTodasLasMesas();
                 MostrarInfoMesa(mesaSeleccionada);
             }
@@ -380,6 +394,18 @@ namespace Restaurante_Sabor_Gourmet.Jaqueline.Formularios
             {
                 if (popup.ShowDialog() == DialogResult.OK)
                 {
+                    CargarTodasLasMesas();
+                    MostrarInfoMesa(mesaSeleccionada);
+
+                    // Abrir frmOrdenes pre-seleccionando la mesa principal
+                    int idMesaParaOrden = mesaSeleccionada;
+                    using (Restaurante_Sabor_Gourmet.Formularios.frmOrdenes frm =
+                           new Restaurante_Sabor_Gourmet.Formularios.frmOrdenes(
+                               Sesion.IdUsuario, Sesion.NombreUsuario, idMesaParaOrden))
+                    {
+                        frm.ShowDialog();
+                    }
+
                     CargarTodasLasMesas();
                     MostrarInfoMesa(mesaSeleccionada);
                 }

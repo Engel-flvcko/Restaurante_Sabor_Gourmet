@@ -38,6 +38,125 @@ namespace Restaurante_Sabor_Gourmet.Jaqueline.ConsultasSQL
             }
         }
 
+        // ── UNIR ──────────────────────────────────────────────────────
+        public bool UnirMesas(int idMesa, int idMesaAdyacente)
+        {
+            using (MySqlConnection conn = conexionBD.ObtenerConexion())
+            {
+                conn.Open();
+                using (MySqlTransaction tr = conn.BeginTransaction())
+                {
+                    try
+                    {
+                        // Marcar la unión en ambas mesas
+                        string sqlUnir = @"
+                    UPDATE tbl_mesas
+                    SET unida_con_mesa   = CASE WHEN id_mesa = @a THEN @b ELSE @a END,
+                        estado_mesa      = 'Ocupada',
+                        hora_ocupacion_mesa = NOW()
+                    WHERE id_mesa IN (@a, @b)";
+                        using (MySqlCommand cmd = new MySqlCommand(sqlUnir, conn, tr))
+                        {
+                            cmd.Parameters.AddWithValue("@a", idMesa);
+                            cmd.Parameters.AddWithValue("@b", idMesaAdyacente);
+                            cmd.ExecuteNonQuery();
+                        }
+
+                        tr.Commit();
+                        return true;
+                    }
+                    catch { tr.Rollback(); return false; }
+                }
+            }
+        }
+
+        // ── OBTENER MESAS UNIDAS ──────────────────────────────────────
+        public DataTable ObtenerMesasUnidas(int idMesa)
+        {
+            DataTable dt = new DataTable();
+            using (MySqlConnection conn = conexionBD.ObtenerConexion())
+            {
+                string query = @"
+            SELECT m.id_mesa, m.numero_mesa, z.nombre_zona
+            FROM tbl_mesas m
+            INNER JOIN tbl_zonas z ON z.id_zona = m.id_zona_mesa
+            WHERE m.id_mesa = (
+                SELECT unida_con_mesa FROM tbl_mesas WHERE id_mesa = @idMesa
+            )
+            AND m.id_mesa IS NOT NULL";
+                MySqlCommand cmd = new MySqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@idMesa", idMesa);
+                new MySqlDataAdapter(cmd).Fill(dt);
+            }
+            return dt;
+        }
+
+        // ── DIVIDIR ───────────────────────────────────────────────────
+        public bool DividirMesas(int idMesa, int idMesaAdyacente)
+        {
+            using (MySqlConnection conn = conexionBD.ObtenerConexion())
+            {
+                conn.Open();
+                using (MySqlTransaction tr = conn.BeginTransaction())
+                {
+                    try
+                    {
+                        // Limpiar el flag en ambas mesas
+                        string sqlLimpiar = @"
+                    UPDATE tbl_mesas
+                    SET unida_con_mesa = NULL
+                    WHERE id_mesa IN (@a, @b)";
+                        using (MySqlCommand cmd = new MySqlCommand(sqlLimpiar, conn, tr))
+                        {
+                            cmd.Parameters.AddWithValue("@a", idMesa);
+                            cmd.Parameters.AddWithValue("@b", idMesaAdyacente);
+                            cmd.ExecuteNonQuery();
+                        }
+
+                        // Liberar la mesa que se separa
+                        string sqlLiberar = @"
+                    UPDATE tbl_mesas
+                    SET estado_mesa             = 'Disponible',
+                        id_mesero_asignado_mesa = NULL,
+                        hora_ocupacion_mesa     = NULL,
+                        num_clientes_mesa       = 0
+                    WHERE id_mesa = @b";
+                        using (MySqlCommand cmd = new MySqlCommand(sqlLiberar, conn, tr))
+                        {
+                            cmd.Parameters.AddWithValue("@b", idMesaAdyacente);
+                            cmd.ExecuteNonQuery();
+                        }
+
+                        tr.Commit();
+                        return true;
+                    }
+                    catch { tr.Rollback(); return false; }
+                }
+            }
+        }
+
+        // ── MESAS ADYACENTES DISPONIBLES (excluye la ya unida) ───────
+        public DataTable ObtenerMesasAdyacentesDisponibles(int idMesa)
+        {
+            DataTable dt = new DataTable();
+            using (MySqlConnection conn = conexionBD.ObtenerConexion())
+            {
+                string query = @"
+            SELECT m.id_mesa, m.numero_mesa, z.nombre_zona, m.estado_mesa
+            FROM tbl_mesas_adyacentes ma
+            INNER JOIN tbl_mesas m ON m.id_mesa = ma.id_mesa_adyacente_adyacentes
+            INNER JOIN tbl_zonas z ON z.id_zona  = m.id_zona_mesa
+            WHERE ma.id_mesa_adyacentes = @idMesa
+              AND m.estado_mesa         = 'Disponible'
+              AND m.unida_con_mesa      IS NULL
+            ORDER BY m.numero_mesa ASC";
+                MySqlCommand cmd = new MySqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@idMesa", idMesa);
+                new MySqlDataAdapter(cmd).Fill(dt);
+            }
+            return dt;
+        }
+
         public bool AsignarMesa(int idMesa, int idMesero)
         {
             using (MySqlConnection conn = conexionBD.ObtenerConexion())
@@ -55,128 +174,6 @@ namespace Restaurante_Sabor_Gourmet.Jaqueline.ConsultasSQL
                 MySqlCommand cmd = new MySqlCommand(query, conn);
                 cmd.Parameters.AddWithValue("@idMesa", idMesa);
                 cmd.Parameters.AddWithValue("@idMesero", idMesero);
-                return cmd.ExecuteNonQuery() > 0;
-            }
-        }
-        public DataTable ObtenerMesasAdyacentesDisponibles(int idMesa)
-        {
-            DataTable dt = new DataTable();
-            using (MySqlConnection conn = conexionBD.ObtenerConexion())
-            {
-                string query = @"
-            SELECT m.id_mesa, m.numero_mesa, z.nombre_zona, m.estado_mesa
-            FROM tbl_mesas_adyacentes ma
-            INNER JOIN tbl_mesas m ON m.id_mesa = ma.id_mesa_adyacente_adyacentes
-            INNER JOIN tbl_zonas z ON z.id_zona = m.id_zona_mesa
-            WHERE ma.id_mesa_adyacentes = @idMesa
-              AND m.estado_mesa = 'Disponible'
-            ORDER BY m.numero_mesa ASC";
-
-                MySqlCommand cmd = new MySqlCommand(query, conn);
-                cmd.Parameters.AddWithValue("@idMesa", idMesa);
-                new MySqlDataAdapter(cmd).Fill(dt);
-            }
-            return dt;
-        }
-
-        public bool UnirMesas(int idMesa, int idMesaAdyacente)
-        {
-            using (MySqlConnection conn = conexionBD.ObtenerConexion())
-            {
-                conn.Open();
-                using (MySqlTransaction tr = conn.BeginTransaction())
-                {
-                    try
-                    {
-                        string sqlCheck = @"
-                    SELECT COUNT(*) FROM tbl_mesas_adyacentes
-                    WHERE id_mesa_adyacentes = @a 
-                      AND id_mesa_adyacente_adyacentes = @b";
-
-                        int existe;
-                        using (MySqlCommand cmd = new MySqlCommand(sqlCheck, conn, tr))
-                        {
-                            cmd.Parameters.AddWithValue("@a", idMesa);
-                            cmd.Parameters.AddWithValue("@b", idMesaAdyacente);
-                            existe = Convert.ToInt32(cmd.ExecuteScalar());
-                        }
-
-                        if (existe == 0)
-                        {
-                            string sqlIns = @"
-                        INSERT IGNORE INTO tbl_mesas_adyacentes
-                            (id_mesa_adyacentes, id_mesa_adyacente_adyacentes)
-                        VALUES (@a,@b), (@b,@a)";
-                            using (MySqlCommand cmd = new MySqlCommand(sqlIns, conn, tr))
-                            {
-                                cmd.Parameters.AddWithValue("@a", idMesa);
-                                cmd.Parameters.AddWithValue("@b", idMesaAdyacente);
-                                cmd.ExecuteNonQuery();
-                            }
-                        }
-
-                        // Ocupar mesa adyacente
-                        string sqlOcuparAdyacente = @"
-                    UPDATE tbl_mesas
-                    SET estado_mesa = 'Ocupada',
-                        hora_ocupacion_mesa = NOW()
-                    WHERE id_mesa = @b";
-                        using (MySqlCommand cmd = new MySqlCommand(sqlOcuparAdyacente, conn, tr))
-                        {
-                            cmd.Parameters.AddWithValue("@b", idMesaAdyacente);
-                            cmd.ExecuteNonQuery();
-                        }
-
-                        // ← ESTO FALTABA: ocupar también la mesa principal
-                        string sqlOcuparPrincipal = @"
-                    UPDATE tbl_mesas
-                    SET estado_mesa = 'Ocupada',
-                        hora_ocupacion_mesa = NOW()
-                    WHERE id_mesa = @a";
-                        using (MySqlCommand cmd = new MySqlCommand(sqlOcuparPrincipal, conn, tr))
-                        {
-                            cmd.Parameters.AddWithValue("@a", idMesa);
-                            cmd.ExecuteNonQuery();
-                        }
-
-                        tr.Commit();
-                        return true;
-                    }
-                    catch { tr.Rollback(); return false; }
-                }
-            }
-        }
-        public DataTable ObtenerMesasUnidas(int idMesa)
-        {
-            DataTable dt = new DataTable();
-            using (MySqlConnection conn = conexionBD.ObtenerConexion())
-            {
-                string query = @"
-            SELECT m.id_mesa, m.numero_mesa, z.nombre_zona
-            FROM tbl_mesas_adyacentes ma
-            INNER JOIN tbl_mesas m ON m.id_mesa = ma.id_mesa_adyacente_adyacentes
-            INNER JOIN tbl_zonas z ON z.id_zona = m.id_zona_mesa
-            WHERE ma.id_mesa_adyacentes = @idMesa";
-
-                MySqlCommand cmd = new MySqlCommand(query, conn);
-                cmd.Parameters.AddWithValue("@idMesa", idMesa);
-                new MySqlDataAdapter(cmd).Fill(dt);
-            }
-            return dt;
-        }
-
-        public bool DividirMesas(int idMesa, int idMesaAdyacente)
-        {
-            using (MySqlConnection conn = conexionBD.ObtenerConexion())
-            {
-                conn.Open();
-                string query = @"
-            DELETE FROM tbl_mesas_adyacentes
-            WHERE (id_mesa_adyacentes = @a AND id_mesa_adyacente_adyacentes = @b)
-               OR (id_mesa_adyacentes = @b AND id_mesa_adyacente_adyacentes = @a)";
-                MySqlCommand cmd = new MySqlCommand(query, conn);
-                cmd.Parameters.AddWithValue("@a", idMesa);
-                cmd.Parameters.AddWithValue("@b", idMesaAdyacente);
                 return cmd.ExecuteNonQuery() > 0;
             }
         }
