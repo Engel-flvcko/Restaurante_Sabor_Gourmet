@@ -32,8 +32,8 @@
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges23 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges24 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges27 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges28 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges7 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
@@ -52,8 +52,12 @@
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges20 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges21 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges22 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges23 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges24 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges25 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges26 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges29 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges30 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             PnlSuperior = new Guna.UI2.WinForms.Guna2Panel();
             lblRolUsuario = new Guna.UI2.WinForms.Guna2HtmlLabel();
             lblNombreUsuario = new Guna.UI2.WinForms.Guna2HtmlLabel();
@@ -66,10 +70,12 @@
             btnMenu = new Guna.UI2.WinForms.Guna2Button();
             btnInventario = new Guna.UI2.WinForms.Guna2Button();
             btnUsuarios = new Guna.UI2.WinForms.Guna2Button();
-            btnOrdenes = new Guna.UI2.WinForms.Guna2Button();
+            btnAbrirRecetas = new Guna.UI2.WinForms.Guna2Button();
             btnCaja = new Guna.UI2.WinForms.Guna2Button();
             btnReservaciones = new Guna.UI2.WinForms.Guna2Button();
-            btnReportes = new Guna.UI2.WinForms.Guna2Button();
+            btnAbrirMeseros = new Guna.UI2.WinForms.Guna2Button();
+            guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
+            btnCerrarSesion = new Guna.UI2.WinForms.Guna2Button();
             PnlCentro = new Guna.UI2.WinForms.Guna2Panel();
             PnlSuperior.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)picLogo).BeginInit();
@@ -88,7 +94,7 @@
             PnlSuperior.Location = new Point(0, 0);
             PnlSuperior.Name = "PnlSuperior";
             PnlSuperior.ShadowDecoration.CustomizableEdges = customizableEdges4;
-            PnlSuperior.Size = new Size(1205, 111);
+            PnlSuperior.Size = new Size(1350, 111);
             PnlSuperior.TabIndex = 0;
             // 
             // lblRolUsuario
@@ -135,12 +141,12 @@
             // PnlIzquierdo
             // 
             PnlIzquierdo.Controls.Add(flpIzquierdo);
-            PnlIzquierdo.CustomizableEdges = customizableEdges23;
+            PnlIzquierdo.CustomizableEdges = customizableEdges27;
             PnlIzquierdo.Dock = DockStyle.Left;
             PnlIzquierdo.Location = new Point(0, 111);
             PnlIzquierdo.Name = "PnlIzquierdo";
-            PnlIzquierdo.ShadowDecoration.CustomizableEdges = customizableEdges24;
-            PnlIzquierdo.Size = new Size(228, 821);
+            PnlIzquierdo.ShadowDecoration.CustomizableEdges = customizableEdges28;
+            PnlIzquierdo.Size = new Size(228, 907);
             PnlIzquierdo.TabIndex = 1;
             // 
             // flpIzquierdo
@@ -151,16 +157,18 @@
             flpIzquierdo.Controls.Add(btnMenu);
             flpIzquierdo.Controls.Add(btnInventario);
             flpIzquierdo.Controls.Add(btnUsuarios);
-            flpIzquierdo.Controls.Add(btnOrdenes);
+            flpIzquierdo.Controls.Add(btnAbrirRecetas);
             flpIzquierdo.Controls.Add(btnCaja);
             flpIzquierdo.Controls.Add(btnReservaciones);
-            flpIzquierdo.Controls.Add(btnReportes);
+            flpIzquierdo.Controls.Add(btnAbrirMeseros);
+            flpIzquierdo.Controls.Add(guna2Button1);
+            flpIzquierdo.Controls.Add(btnCerrarSesion);
             flpIzquierdo.Dock = DockStyle.Fill;
             flpIzquierdo.FlowDirection = FlowDirection.TopDown;
             flpIzquierdo.Location = new Point(0, 0);
             flpIzquierdo.Name = "flpIzquierdo";
             flpIzquierdo.Padding = new Padding(10, 35, 10, 10);
-            flpIzquierdo.Size = new Size(228, 821);
+            flpIzquierdo.Size = new Size(228, 907);
             flpIzquierdo.TabIndex = 0;
             flpIzquierdo.WrapContents = false;
             // 
@@ -254,23 +262,23 @@
             btnUsuarios.Text = "Usuarios";
             btnUsuarios.Click += btnUsuarios_Click;
             // 
-            // btnOrdenes
+            // btnAbrirRecetas
             // 
-            btnOrdenes.CustomizableEdges = customizableEdges15;
-            btnOrdenes.DisabledState.BorderColor = Color.DarkGray;
-            btnOrdenes.DisabledState.CustomBorderColor = Color.DarkGray;
-            btnOrdenes.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
-            btnOrdenes.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-            btnOrdenes.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnOrdenes.ForeColor = Color.White;
-            btnOrdenes.Location = new Point(35, 405);
-            btnOrdenes.Margin = new Padding(25, 25, 25, 5);
-            btnOrdenes.Name = "btnOrdenes";
-            btnOrdenes.ShadowDecoration.CustomizableEdges = customizableEdges16;
-            btnOrdenes.Size = new Size(168, 41);
-            btnOrdenes.TabIndex = 5;
-            btnOrdenes.Text = "Ordenes";
-            btnOrdenes.Click += btnOrdenes_Click;
+            btnAbrirRecetas.CustomizableEdges = customizableEdges15;
+            btnAbrirRecetas.DisabledState.BorderColor = Color.DarkGray;
+            btnAbrirRecetas.DisabledState.CustomBorderColor = Color.DarkGray;
+            btnAbrirRecetas.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            btnAbrirRecetas.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            btnAbrirRecetas.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnAbrirRecetas.ForeColor = Color.White;
+            btnAbrirRecetas.Location = new Point(35, 405);
+            btnAbrirRecetas.Margin = new Padding(25, 25, 25, 5);
+            btnAbrirRecetas.Name = "btnAbrirRecetas";
+            btnAbrirRecetas.ShadowDecoration.CustomizableEdges = customizableEdges16;
+            btnAbrirRecetas.Size = new Size(168, 41);
+            btnAbrirRecetas.TabIndex = 5;
+            btnAbrirRecetas.Text = "Recetas ";
+            btnAbrirRecetas.Click += btnAbrirRecetas_Click;
             // 
             // btnCaja
             // 
@@ -308,40 +316,74 @@
             btnReservaciones.Text = "Reservaciones";
             btnReservaciones.Click += btnReservaciones_Click;
             // 
-            // btnReportes
+            // btnAbrirMeseros
             // 
-            btnReportes.CustomizableEdges = customizableEdges21;
-            btnReportes.DisabledState.BorderColor = Color.DarkGray;
-            btnReportes.DisabledState.CustomBorderColor = Color.DarkGray;
-            btnReportes.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
-            btnReportes.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-            btnReportes.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnReportes.ForeColor = Color.White;
-            btnReportes.Location = new Point(35, 618);
-            btnReportes.Margin = new Padding(25, 25, 25, 5);
-            btnReportes.Name = "btnReportes";
-            btnReportes.ShadowDecoration.CustomizableEdges = customizableEdges22;
-            btnReportes.Size = new Size(168, 41);
-            btnReportes.TabIndex = 8;
-            btnReportes.Text = "Reportes";
-            btnReportes.Click += btnReportes_Click;
+            btnAbrirMeseros.CustomizableEdges = customizableEdges21;
+            btnAbrirMeseros.DisabledState.BorderColor = Color.DarkGray;
+            btnAbrirMeseros.DisabledState.CustomBorderColor = Color.DarkGray;
+            btnAbrirMeseros.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            btnAbrirMeseros.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            btnAbrirMeseros.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnAbrirMeseros.ForeColor = Color.White;
+            btnAbrirMeseros.Location = new Point(35, 618);
+            btnAbrirMeseros.Margin = new Padding(25, 25, 25, 5);
+            btnAbrirMeseros.Name = "btnAbrirMeseros";
+            btnAbrirMeseros.ShadowDecoration.CustomizableEdges = customizableEdges22;
+            btnAbrirMeseros.Size = new Size(168, 37);
+            btnAbrirMeseros.TabIndex = 8;
+            btnAbrirMeseros.Text = "Meseros";
+            btnAbrirMeseros.Click += btnReportes_Click;
+            // 
+            // guna2Button1
+            // 
+            guna2Button1.CustomizableEdges = customizableEdges23;
+            guna2Button1.DisabledState.BorderColor = Color.DarkGray;
+            guna2Button1.DisabledState.CustomBorderColor = Color.DarkGray;
+            guna2Button1.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            guna2Button1.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            guna2Button1.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            guna2Button1.ForeColor = Color.White;
+            guna2Button1.Location = new Point(35, 685);
+            guna2Button1.Margin = new Padding(25, 25, 25, 5);
+            guna2Button1.Name = "guna2Button1";
+            guna2Button1.ShadowDecoration.CustomizableEdges = customizableEdges24;
+            guna2Button1.Size = new Size(168, 41);
+            guna2Button1.TabIndex = 9;
+            guna2Button1.Text = "Reportes";
+            // 
+            // btnCerrarSesion
+            // 
+            btnCerrarSesion.CustomizableEdges = customizableEdges25;
+            btnCerrarSesion.DisabledState.BorderColor = Color.DarkGray;
+            btnCerrarSesion.DisabledState.CustomBorderColor = Color.DarkGray;
+            btnCerrarSesion.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            btnCerrarSesion.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            btnCerrarSesion.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnCerrarSesion.ForeColor = Color.White;
+            btnCerrarSesion.Location = new Point(35, 756);
+            btnCerrarSesion.Margin = new Padding(25, 25, 25, 5);
+            btnCerrarSesion.Name = "btnCerrarSesion";
+            btnCerrarSesion.ShadowDecoration.CustomizableEdges = customizableEdges26;
+            btnCerrarSesion.Size = new Size(168, 41);
+            btnCerrarSesion.TabIndex = 10;
+            btnCerrarSesion.Text = "Cerrar sesion";
             // 
             // PnlCentro
             // 
             PnlCentro.AutoScroll = true;
-            PnlCentro.CustomizableEdges = customizableEdges25;
+            PnlCentro.CustomizableEdges = customizableEdges29;
             PnlCentro.Dock = DockStyle.Fill;
             PnlCentro.Location = new Point(228, 111);
             PnlCentro.Name = "PnlCentro";
-            PnlCentro.ShadowDecoration.CustomizableEdges = customizableEdges26;
-            PnlCentro.Size = new Size(977, 821);
+            PnlCentro.ShadowDecoration.CustomizableEdges = customizableEdges30;
+            PnlCentro.Size = new Size(1122, 907);
             PnlCentro.TabIndex = 2;
             // 
             // FrmPrincipal
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1205, 932);
+            ClientSize = new Size(1350, 1018);
             Controls.Add(PnlCentro);
             Controls.Add(PnlIzquierdo);
             Controls.Add(PnlSuperior);
@@ -368,13 +410,15 @@
         private Guna.UI2.WinForms.Guna2Button btnMenu;
         private Guna.UI2.WinForms.Guna2Button btnInventario;
         private Guna.UI2.WinForms.Guna2Button btnUsuarios;
-        private Guna.UI2.WinForms.Guna2Button btnOrdenes;
+        private Guna.UI2.WinForms.Guna2Button btnAbrirRecetas;
         private Guna.UI2.WinForms.Guna2Button btnCaja;
         private Guna.UI2.WinForms.Guna2Button btnReservaciones;
-        private Guna.UI2.WinForms.Guna2Button btnReportes;
+        private Guna.UI2.WinForms.Guna2Button btnAbrirMeseros;
         private Guna.UI2.WinForms.Guna2PictureBox picLogo;
         private Guna.UI2.WinForms.Guna2HtmlLabel lblTituloRestaurant;
         private Guna.UI2.WinForms.Guna2HtmlLabel lblRolUsuario;
         private Guna.UI2.WinForms.Guna2HtmlLabel lblNombreUsuario;
+        private Guna.UI2.WinForms.Guna2Button guna2Button1;
+        private Guna.UI2.WinForms.Guna2Button btnCerrarSesion;
     }
 }

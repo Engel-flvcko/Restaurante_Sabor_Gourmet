@@ -23,9 +23,7 @@ namespace Restaurante_Sabor_Gourmet.Jaqueline.Formularios
             InitializeComponent();
         }
 
-        // ══════════════════════════════════════════════════════════════
-        //  CARGA INICIAL
-        // ══════════════════════════════════════════════════════════════
+        //  Carga inicial
         private void FrmMesas_Load(object sender, EventArgs e)
         {
             AgregarTitulosZonas();
@@ -35,14 +33,14 @@ namespace Restaurante_Sabor_Gourmet.Jaqueline.Formularios
             CargarTodasLasMesas();
         }
 
-        // ── Cargar (o recargar) mesas en los 3 paneles ────────────────
+        // Cargar mesas en los 3 paneles 
         private void CargarTodasLasMesas()
         {
             InsertarMesas ui = new InsertarMesas();
             ui.CargarMesas(flpSalon, flpFamiliar, flpEventos, MostrarInfoMesa);
         }
 
-        // ── Títulos de zona encima de cada FlowLayoutPanel ────────────
+        // Títulos de zona encima de cada FlowLayoutPanel 
         private void AgregarTitulosZonas()
         {
             AgregarTitulo("SALÓN PRINCIPAL", pnlSalonPrincipal);
@@ -65,9 +63,7 @@ namespace Restaurante_Sabor_Gourmet.Jaqueline.Formularios
             contenedor.Controls.SetChildIndex(lbl, 0);
         }
 
-        // ══════════════════════════════════════════════════════════════
         //  LEYENDA
-        // ══════════════════════════════════════════════════════════════
         private void ConfigurarLeyendaPanel()
         {
             flpLeyenda.FlowDirection = FlowDirection.LeftToRight;
@@ -110,9 +106,8 @@ namespace Restaurante_Sabor_Gourmet.Jaqueline.Formularios
             return p;
         }
 
-        // ══════════════════════════════════════════════════════════════
         //  PANEL LATERAL — mostrar info al seleccionar mesa
-        // ══════════════════════════════════════════════════════════════
+
         private void MostrarInfoMesa(int idMesa)
         {
             mesaSeleccionada = idMesa;
@@ -159,7 +154,7 @@ namespace Restaurante_Sabor_Gourmet.Jaqueline.Formularios
             }
         }
 
-        // ── Visibilidad del panel lateral ─────────────────────────────
+        // Visibilidad del panel lateral 
         private void OcultarPanelMesa()
         {
             lblInfoMesa.Visible = false;
@@ -193,7 +188,7 @@ namespace Restaurante_Sabor_Gourmet.Jaqueline.Formularios
             flowLayoutPanel1.Visible = true;
         }
 
-        // ── Botones según estado ───────────────────────────────────────
+        //Botones según estado 
         private void ConfigurarBotones(string estado)
         {
             // Ocultar todo primero
@@ -271,11 +266,9 @@ namespace Restaurante_Sabor_Gourmet.Jaqueline.Formularios
             }
         }
 
-        // ══════════════════════════════════════════════════════════════
-        //  EVENTOS DE BOTONES
-        // ══════════════════════════════════════════════════════════════
+        //  Eventos de los botones
 
-        // ── Asignar Mesa ──────────────────────────────────────────────
+        // Asignar Mesa
 
         private void btnAsignarMesa_Click(object sender, EventArgs e)
         {
@@ -307,7 +300,7 @@ namespace Restaurante_Sabor_Gourmet.Jaqueline.Formularios
             }
         }
 
-        // ── Solicitar Pago (Cerrar Cuenta) ────────────────────────────
+        // Solicitar Pago (Cerrar Cuenta)
         private void btnSolicitarPago_Click(object sender, EventArgs e)
         {
             if (mesaSeleccionada == -1) return;
@@ -341,7 +334,7 @@ namespace Restaurante_Sabor_Gourmet.Jaqueline.Formularios
             }
         }
 
-        // ── Liberar Mesa ──────────────────────────────────────────────
+        // Liberar Mesa
         private void btnLiberarMesa_Click(object sender, EventArgs e)
         {
             if (mesaSeleccionada == -1) return;
@@ -361,7 +354,7 @@ namespace Restaurante_Sabor_Gourmet.Jaqueline.Formularios
             }
         }
 
-        // ── Fuera de Servicio ─────────────────────────────────────────
+        //  Fuera de Servicio
         private void btnMesaFueraServicio_Click(object sender, EventArgs e)
         {
             if (mesaSeleccionada == -1) return;
@@ -380,7 +373,7 @@ namespace Restaurante_Sabor_Gourmet.Jaqueline.Formularios
             }
         }
 
-        // ── Unir Mesas → abre popup ───────────────────────────────────
+        // Unir Mesas abre popup 
         private void btnUnirMesas_Click(object sender, EventArgs e)
         {
             if (mesaSeleccionada == -1) return;
@@ -408,7 +401,7 @@ namespace Restaurante_Sabor_Gourmet.Jaqueline.Formularios
             }
         }
 
-        // ── Transferir Orden → abre popup ────────────────────────────
+        // Transferir Orden , abre popup 
         private void btnTransferirOrden_Click(object sender, EventArgs e)
         {
             if (mesaSeleccionada == -1) return;
@@ -425,7 +418,7 @@ namespace Restaurante_Sabor_Gourmet.Jaqueline.Formularios
             }
         }
 
-        // ── Dividir Mesa → abre popup ─────────────────────────────────
+        // Dividir Mesa → abre popup 
         private void btnDividirMesa_Click(object sender, EventArgs e)
         {
             if (mesaSeleccionada == -1) return;
