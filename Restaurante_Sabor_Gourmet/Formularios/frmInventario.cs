@@ -62,7 +62,7 @@ namespace Restaurante_Sabor_Gourmet.Vane
         }
 
       
-        // CARGAR INGREDIENTES Y KPI CARDS
+        // CARGAR INGREDIENTES 
      
         private void CargarIngredientes()
         {
@@ -124,13 +124,13 @@ namespace Restaurante_Sabor_Gourmet.Vane
                                 i.BajoStock ? "⚠ Stock bajo" : "✔ Normal";
 
                 int idx = dgvIngredientes.Rows.Add(
-                    i.IdIngrediente,          // colCodigo  → usa ID como código
-                    i.NombreIngrediente,      // colIngrediente
-                    i.UnidadMedida,           // colUnidad
-                    i.Existencia.ToString("F2"),   // colExistencia
-                    i.StockMinimo.ToString("F2"),   // colStockMinimo
-                    i.CostoUnitario.ToString("F2"), // colCostoUnit
-                    estado                    // colEstado
+                    i.IdIngrediente,         
+                    i.NombreIngrediente,      
+                    i.UnidadMedida,           
+                    i.Existencia.ToString("F2"),   
+                    i.StockMinimo.ToString("F2"),   
+                    i.CostoUnitario.ToString("F2"), 
+                    estado                    
                 );
 
                 dgvIngredientes.Rows[idx].Tag = i.IdIngrediente;
@@ -277,7 +277,6 @@ namespace Restaurante_Sabor_Gourmet.Vane
             idIngredienteSeleccionado = Convert.ToInt32(fila.Tag);
             nombreIngSeleccionado     = fila.Cells["colIngrediente"].Value?.ToString();
 
-            // Buscar ingrediente completo
             Ingrediente ing = todosLosIngredientes.Find(
                 i => i.IdIngrediente == idIngredienteSeleccionado);
 
@@ -464,7 +463,8 @@ namespace Restaurante_Sabor_Gourmet.Vane
                 return;
             }
 
-            Ingrediente actual = todosLosIngredientes.Find(i => i.IdIngrediente == idIngredienteSeleccionado);
+            Ingrediente actual = todosLosIngredientes.Find(
+                i => i.IdIngrediente == idIngredienteSeleccionado);
             if (actual == null) return;
 
             bool tieneReceta = sqlInv.EstaEnReceta(idIngredienteSeleccionado);
@@ -484,7 +484,7 @@ namespace Restaurante_Sabor_Gourmet.Vane
             else
             {
                 MessageBox.Show("Este ingrediente está en recetas.\n" +
-                    "Solo se editará Stock Mínimo y Costo Unitario.",
+                    "Solo se editará Stock Mínimo, Costo Unitario y Existencia.",
                     "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
 
@@ -498,14 +498,13 @@ namespace Restaurante_Sabor_Gourmet.Vane
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
-
             stockStr = stockStr.Replace(',', '.');
             if (!decimal.TryParse(stockStr,
                     System.Globalization.NumberStyles.Any,
                     System.Globalization.CultureInfo.InvariantCulture,
                     out decimal nuevoStock) || nuevoStock < 0)
             {
-                MessageBox.Show("Stock mínimo inválido. Ingresa un número mayor o igual a 0.",
+                MessageBox.Show("Stock mínimo inválido.",
                     "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
@@ -521,22 +520,48 @@ namespace Restaurante_Sabor_Gourmet.Vane
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
-
             costoStr = costoStr.Replace(',', '.');
             if (!decimal.TryParse(costoStr,
                     System.Globalization.NumberStyles.Any,
                     System.Globalization.CultureInfo.InvariantCulture,
                     out decimal nuevoCosto) || nuevoCosto < 0)
             {
-                MessageBox.Show("Costo unitario inválido. Ingresa un número mayor o igual a 0.",
+                MessageBox.Show("Costo unitario inválido.",
                     "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
             actual.CostoUnitario = nuevoCosto;
 
-            // ── Guardar ───────────────────────────────────────────────────
-            bool ok = sqlInv.ActualizarIngrediente(actual);
-            if (ok)
+            string existenciaStr = Microsoft.VisualBasic.Interaction.InputBox(
+                "Existencia actual\n(corrige si el conteo físico difiere del sistema):",
+                "Editar Ingrediente",
+                actual.Existencia.ToString("F2"));
+
+            if (string.IsNullOrWhiteSpace(existenciaStr))
+            {
+                MessageBox.Show("Edición cancelada.", "Aviso",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            existenciaStr = existenciaStr.Replace(',', '.');
+            if (!decimal.TryParse(existenciaStr,
+                    System.Globalization.NumberStyles.Any,
+                    System.Globalization.CultureInfo.InvariantCulture,
+                    out decimal nuevaExistencia) || nuevaExistencia < 0)
+            {
+                MessageBox.Show("Existencia inválida. Debe ser un número mayor o igual a 0.",
+                    "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            bool okDatos = sqlInv.ActualizarIngrediente(actual);
+
+            bool okExistencia = true;
+            if (nuevaExistencia != actual.Existencia)
+                okExistencia = sqlInv.ActualizarExistencia(
+                    idIngredienteSeleccionado, nuevaExistencia);
+
+            if (okDatos && okExistencia)
             {
                 MessageBox.Show("Ingrediente actualizado correctamente.",
                     "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -544,14 +569,12 @@ namespace Restaurante_Sabor_Gourmet.Vane
             }
             else
             {
-                MessageBox.Show("No se pudo actualizar el ingrediente.",
+                MessageBox.Show("Hubo un problema al guardar algunos campos.",
                     "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
-        // ─────────────────────────────────────────
         // BOTÓN ELIMINAR INGREDIENTE
-        // ─────────────────────────────────────────
         private void btnEliminar_Click(object sender, EventArgs e)
         {
             if (idIngredienteSeleccionado == 0) return;
@@ -586,17 +609,12 @@ namespace Restaurante_Sabor_Gourmet.Vane
             }
         }
 
-        // ─────────────────────────────────────────
         // BOTÓN ACTUALIZAR
-        // ─────────────────────────────────────────
         private void btnActualizar_Click(object sender, EventArgs e)
         {
             CargarTodo();
         }
 
-        // ─────────────────────────────────────────
-        // HELPERS
-        // ─────────────────────────────────────────
         private bool ValidarMovimiento()
         {
             if (nudCantidad.Value <= 0)

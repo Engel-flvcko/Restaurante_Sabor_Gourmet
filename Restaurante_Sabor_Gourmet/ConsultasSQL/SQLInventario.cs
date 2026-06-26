@@ -41,6 +41,22 @@ namespace Restaurante_Sabor_Gourmet.ConsultasSQL
                 }
             }
         }
+        public bool ActualizarExistencia(int idIngrediente, decimal nuevaExistencia)
+        {
+            using (MySqlConnection cn = conexion.ObtenerConexion())
+            {
+                cn.Open();
+                string sql = @"UPDATE tbl_ingredientes
+                       SET existencia_ingrediente = @existencia
+                       WHERE id_ingrediente = @id";
+                using (MySqlCommand cmd = new MySqlCommand(sql, cn))
+                {
+                    cmd.Parameters.AddWithValue("@existencia", nuevaExistencia);
+                    cmd.Parameters.AddWithValue("@id", idIngrediente);
+                    return cmd.ExecuteNonQuery() > 0;
+                }
+            }
+        }
 
         public List<MovimientoInventario> ObtenerMovimientos()
         {
