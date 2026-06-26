@@ -47,6 +47,7 @@
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges35 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges36 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges15 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges16 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges17 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
@@ -67,19 +68,19 @@
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges32 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges33 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges34 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges36 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges43 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges44 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges37 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges38 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges45 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges46 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges39 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges40 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges41 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges42 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges43 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges44 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             tabMenu = new TabControl();
             tabProductos = new TabPage();
             pnlCardTotal = new Guna.UI2.WinForms.Guna2Panel();
@@ -447,14 +448,14 @@
             tglSoloDisponibles.TabIndex = 2;
             tglSoloDisponibles.CheckedChanged += tglSoloDisponibles_CheckedChanged;
             // 
-            // dgvProductos
+            // dgvProductos — CORRECCIÓN: SelectionForeColor blanco → texto oscuro visible
             // 
             dgvProductos.AllowUserToAddRows = false;
             dgvProductos.AllowUserToDeleteRows = false;
             dgvProductos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvProductos.BackgroundColor = Color.White;
             dgvProductos.BorderStyle = BorderStyle.None;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.TopCenter;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = Color.Silver;
             dataGridViewCellStyle1.Font = new Font("Segoe UI", 9.5F, FontStyle.Bold);
             dataGridViewCellStyle1.ForeColor = Color.Black;
@@ -468,9 +469,10 @@
             dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle4.BackColor = SystemColors.Window;
             dataGridViewCellStyle4.Font = new Font("Segoe UI", 9.5F);
-            dataGridViewCellStyle4.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle4.SelectionBackColor = Color.White;
-            dataGridViewCellStyle4.SelectionForeColor = Color.White;
+            dataGridViewCellStyle4.ForeColor = Color.FromArgb(30, 30, 47);
+            // ▼ CORRECCIÓN: antes era Color.White / Color.White → letra invisible al seleccionar
+            dataGridViewCellStyle4.SelectionBackColor = Color.FromArgb(220, 235, 255);
+            dataGridViewCellStyle4.SelectionForeColor = Color.FromArgb(30, 30, 47);
             dataGridViewCellStyle4.WrapMode = DataGridViewTriState.False;
             dgvProductos.DefaultCellStyle = dataGridViewCellStyle4;
             dgvProductos.EnableHeadersVisualStyles = false;
@@ -565,12 +567,12 @@
             pnlFormProducto.Controls.Add(tglDisponible);
             pnlFormProducto.Controls.Add(lblDisponibleTexto);
             pnlFormProducto.Controls.Add(btnNuevoProducto);
-            pnlFormProducto.CustomizableEdges = customizableEdges35;
+            pnlFormProducto.CustomizableEdges = customizableEdges37;
             pnlFormProducto.Location = new Point(951, 133);
             pnlFormProducto.Margin = new Padding(3, 4, 3, 4);
             pnlFormProducto.Name = "pnlFormProducto";
             pnlFormProducto.ShadowDecoration.Color = Color.FromArgb(20, 0, 0, 0);
-            pnlFormProducto.ShadowDecoration.CustomizableEdges = customizableEdges34;
+            pnlFormProducto.ShadowDecoration.CustomizableEdges = customizableEdges36;
             pnlFormProducto.ShadowDecoration.Depth = 4;
             pnlFormProducto.ShadowDecoration.Enabled = true;
             pnlFormProducto.Size = new Size(550, 587);
@@ -848,7 +850,7 @@
             // 
             btnNuevoProducto.BorderRadius = 8;
             btnNuevoProducto.Cursor = Cursors.Hand;
-            btnNuevoProducto.CustomizableEdges = customizableEdges33;
+            btnNuevoProducto.CustomizableEdges = customizableEdges35;
             btnNuevoProducto.FillColor = Color.FromArgb(34, 197, 94);
             btnNuevoProducto.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             btnNuevoProducto.ForeColor = Color.White;
@@ -856,7 +858,7 @@
             btnNuevoProducto.Location = new Point(16, 527);
             btnNuevoProducto.Margin = new Padding(3, 4, 3, 4);
             btnNuevoProducto.Name = "btnNuevoProducto";
-            btnNuevoProducto.ShadowDecoration.CustomizableEdges = customizableEdges34;
+            btnNuevoProducto.ShadowDecoration.CustomizableEdges = customizableEdges36;
             btnNuevoProducto.Size = new Size(113, 51);
             btnNuevoProducto.TabIndex = 7;
             btnNuevoProducto.Text = "Nuevo";
@@ -881,12 +883,12 @@
             pnlListaCategorias.BorderRadius = 12;
             pnlListaCategorias.Controls.Add(lblCatListaTitulo);
             pnlListaCategorias.Controls.Add(dgvCategorias);
-            pnlListaCategorias.CustomizableEdges = customizableEdges35;
+            pnlListaCategorias.CustomizableEdges = customizableEdges37;
             pnlListaCategorias.Location = new Point(11, 13);
             pnlListaCategorias.Margin = new Padding(3, 4, 3, 4);
             pnlListaCategorias.Name = "pnlListaCategorias";
             pnlListaCategorias.ShadowDecoration.Color = Color.FromArgb(20, 0, 0, 0);
-            pnlListaCategorias.ShadowDecoration.CustomizableEdges = customizableEdges36;
+            pnlListaCategorias.ShadowDecoration.CustomizableEdges = customizableEdges38;
             pnlListaCategorias.ShadowDecoration.Depth = 4;
             pnlListaCategorias.ShadowDecoration.Enabled = true;
             pnlListaCategorias.Size = new Size(926, 760);
@@ -903,34 +905,37 @@
             lblCatListaTitulo.TabIndex = 0;
             lblCatListaTitulo.Text = "Lista de Categorías";
             // 
-            // dgvCategorias
+            // dgvCategorias — CORRECCIONES: fondo negro → blanco, letra invisible → oscura,
+            //                 EnableHeadersVisualStyles = false agregado
             // 
             dgvCategorias.AllowUserToAddRows = false;
             dgvCategorias.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle5.BackColor = Color.Transparent;
-            dgvCategorias.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
             dgvCategorias.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvCategorias.BackgroundColor = Color.White;
             dgvCategorias.BorderStyle = BorderStyle.None;
-            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = Color.FromArgb(30, 30, 47);
-            dataGridViewCellStyle6.Font = new Font("Segoe UI", 9.5F, FontStyle.Bold);
-            dataGridViewCellStyle6.ForeColor = Color.White;
-            dataGridViewCellStyle6.SelectionBackColor = Color.FromArgb(30, 30, 47);
-            dataGridViewCellStyle6.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.True;
-            dgvCategorias.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = Color.FromArgb(30, 30, 47);
+            dataGridViewCellStyle5.Font = new Font("Segoe UI", 9.5F, FontStyle.Bold);
+            dataGridViewCellStyle5.ForeColor = Color.White;
+            dataGridViewCellStyle5.SelectionBackColor = Color.FromArgb(30, 30, 47);
+            dataGridViewCellStyle5.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.True;
+            dgvCategorias.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             dgvCategorias.ColumnHeadersHeight = 38;
             dgvCategorias.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             dgvCategorias.Columns.AddRange(new DataGridViewColumn[] { colCatId, colCatNombre, colCatProductos });
-            dataGridViewCellStyle8.Alignment = DataGridViewContentAlignment.TopCenter;
-            dataGridViewCellStyle8.BackColor = SystemColors.InactiveCaptionText;
-            dataGridViewCellStyle8.Font = new Font("Segoe UI", 9.5F);
-            dataGridViewCellStyle8.ForeColor = SystemColors.ButtonFace;
-            dataGridViewCellStyle8.SelectionBackColor = Color.FromArgb(220, 235, 255);
-            dataGridViewCellStyle8.SelectionForeColor = Color.FromArgb(30, 30, 47);
-            dataGridViewCellStyle8.WrapMode = DataGridViewTriState.False;
-            dgvCategorias.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            // ▼ CORRECCIÓN: antes era SystemColors.InactiveCaptionText (negro) → ahora blanco
+            dataGridViewCellStyle7.BackColor = Color.White;
+            dataGridViewCellStyle7.Font = new Font("Segoe UI", 9.5F);
+            // ▼ CORRECCIÓN: antes era SystemColors.ButtonFace (casi blanco) → ahora oscuro legible
+            dataGridViewCellStyle7.ForeColor = Color.FromArgb(30, 30, 47);
+            dataGridViewCellStyle7.SelectionBackColor = Color.FromArgb(220, 235, 255);
+            dataGridViewCellStyle7.SelectionForeColor = Color.FromArgb(30, 30, 47);
+            dataGridViewCellStyle7.WrapMode = DataGridViewTriState.False;
+            dgvCategorias.DefaultCellStyle = dataGridViewCellStyle7;
+            // ▼ CORRECCIÓN: faltaba esta línea — sin ella el header ignora su estilo de color
+            dgvCategorias.EnableHeadersVisualStyles = false;
             dgvCategorias.GridColor = Color.FromArgb(230, 230, 245);
             dgvCategorias.Location = new Point(11, 59);
             dgvCategorias.Margin = new Padding(3, 4, 3, 4);
@@ -965,8 +970,8 @@
             // colCatProductos
             // 
             colCatProductos.DataPropertyName = "total_productos";
-            dataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            colCatProductos.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            colCatProductos.DefaultCellStyle = dataGridViewCellStyle6;
             colCatProductos.HeaderText = "Total Productos";
             colCatProductos.MinimumWidth = 6;
             colCatProductos.Name = "colCatProductos";
@@ -981,12 +986,12 @@
             pnlFormCategoria.Controls.Add(txtNombreCategoria);
             pnlFormCategoria.Controls.Add(btnEliminarCategoria);
             pnlFormCategoria.Controls.Add(btnNuevaCategoria);
-            pnlFormCategoria.CustomizableEdges = customizableEdges43;
+            pnlFormCategoria.CustomizableEdges = customizableEdges45;
             pnlFormCategoria.Location = new Point(951, 13);
             pnlFormCategoria.Margin = new Padding(3, 4, 3, 4);
             pnlFormCategoria.Name = "pnlFormCategoria";
             pnlFormCategoria.ShadowDecoration.Color = Color.FromArgb(20, 0, 0, 0);
-            pnlFormCategoria.ShadowDecoration.CustomizableEdges = customizableEdges44;
+            pnlFormCategoria.ShadowDecoration.CustomizableEdges = customizableEdges46;
             pnlFormCategoria.ShadowDecoration.Depth = 4;
             pnlFormCategoria.ShadowDecoration.Enabled = true;
             pnlFormCategoria.Size = new Size(566, 284);
@@ -1018,7 +1023,7 @@
             // 
             txtNombreCategoria.BorderColor = Color.FromArgb(200, 200, 220);
             txtNombreCategoria.BorderRadius = 8;
-            txtNombreCategoria.CustomizableEdges = customizableEdges37;
+            txtNombreCategoria.CustomizableEdges = customizableEdges39;
             txtNombreCategoria.DefaultText = "";
             txtNombreCategoria.Font = new Font("Segoe UI", 10F);
             txtNombreCategoria.ForeColor = Color.FromArgb(60, 60, 80);
@@ -1027,7 +1032,7 @@
             txtNombreCategoria.Name = "txtNombreCategoria";
             txtNombreCategoria.PlaceholderText = "";
             txtNombreCategoria.SelectedText = "";
-            txtNombreCategoria.ShadowDecoration.CustomizableEdges = customizableEdges38;
+            txtNombreCategoria.ShadowDecoration.CustomizableEdges = customizableEdges40;
             txtNombreCategoria.Size = new Size(528, 48);
             txtNombreCategoria.TabIndex = 0;
             // 
@@ -1035,7 +1040,7 @@
             // 
             btnEliminarCategoria.BorderRadius = 8;
             btnEliminarCategoria.Cursor = Cursors.Hand;
-            btnEliminarCategoria.CustomizableEdges = customizableEdges39;
+            btnEliminarCategoria.CustomizableEdges = customizableEdges41;
             btnEliminarCategoria.FillColor = Color.FromArgb(120, 10, 10);
             btnEliminarCategoria.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             btnEliminarCategoria.ForeColor = Color.White;
@@ -1043,7 +1048,7 @@
             btnEliminarCategoria.Location = new Point(385, 176);
             btnEliminarCategoria.Margin = new Padding(3, 4, 3, 4);
             btnEliminarCategoria.Name = "btnEliminarCategoria";
-            btnEliminarCategoria.ShadowDecoration.CustomizableEdges = customizableEdges40;
+            btnEliminarCategoria.ShadowDecoration.CustomizableEdges = customizableEdges42;
             btnEliminarCategoria.Size = new Size(149, 51);
             btnEliminarCategoria.TabIndex = 2;
             btnEliminarCategoria.Text = "  Eliminar";
@@ -1053,7 +1058,7 @@
             // 
             btnNuevaCategoria.BorderRadius = 8;
             btnNuevaCategoria.Cursor = Cursors.Hand;
-            btnNuevaCategoria.CustomizableEdges = customizableEdges41;
+            btnNuevaCategoria.CustomizableEdges = customizableEdges43;
             btnNuevaCategoria.FillColor = Color.FromArgb(30, 58, 138);
             btnNuevaCategoria.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             btnNuevaCategoria.ForeColor = Color.White;
@@ -1061,7 +1066,7 @@
             btnNuevaCategoria.Location = new Point(16, 176);
             btnNuevaCategoria.Margin = new Padding(3, 4, 3, 4);
             btnNuevaCategoria.Name = "btnNuevaCategoria";
-            btnNuevaCategoria.ShadowDecoration.CustomizableEdges = customizableEdges42;
+            btnNuevaCategoria.ShadowDecoration.CustomizableEdges = customizableEdges44;
             btnNuevaCategoria.Size = new Size(187, 51);
             btnNuevaCategoria.TabIndex = 4;
             btnNuevaCategoria.Text = "Nueva Categoría";
@@ -1075,7 +1080,7 @@
             ClientSize = new Size(1598, 875);
             Controls.Add(tabMenu);
             Font = new Font("Segoe UI", 9F);
-            FormBorderStyle = FormBorderStyle.None;
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             Margin = new Padding(3, 4, 3, 4);
             MaximizeBox = false;
             Name = "frmMenu";
