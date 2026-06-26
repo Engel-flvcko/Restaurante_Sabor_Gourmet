@@ -38,9 +38,11 @@ namespace Restaurante_Sabor_Gourmet.Formularios
         {
             CargarCombos();
             CargarMesasEnPanel();
+            dtpFiltroFecha.Value = DateTime.Now.AddDays(1); 
             BuscarReservaciones();
             LimpiarFormulario();
         }
+       
 
         //  Poblar combos 
         private void CargarCombos()

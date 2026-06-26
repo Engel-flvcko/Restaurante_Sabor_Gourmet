@@ -50,7 +50,7 @@ namespace Restaurante_Sabor_Gourmet.ConsultasSQL
                         u.nombre_usuario
                     FROM tbl_reservaciones r
                     JOIN tbl_usuarios u ON u.id_usuario = r.id_empleado_reservacion
-                    WHERE r.fecha_reservacion = @fecha
+                    WHERE (@fecha = '0001-01-01' OR r.fecha_reservacion = @fecha)
                       AND (@buscar = '' OR r.nombre_cliente_reservacion  LIKE @buscarLike
                                        OR r.telefono_cliente_reservacion LIKE @buscarLike)
                       AND (@estado = '' OR r.estado_reservacion = @estado)
