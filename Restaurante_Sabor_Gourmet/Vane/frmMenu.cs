@@ -15,9 +15,7 @@ namespace Restaurante_Sabor_Gourmet.Vane
     public partial class frmMenu : Form
     {
 
-        // ─────────────────────────────────────────
         // VARIABLES DE ESTADO
-        // ─────────────────────────────────────────
         private int idUsuarioSesion;
         private string nombreUsuarioSesion;
 
@@ -31,9 +29,8 @@ namespace Restaurante_Sabor_Gourmet.Vane
 
         private readonly SQLMenu sqlMenu = new SQLMenu();
 
-        // ─────────────────────────────────────────
+
         // CONSTRUCTOR
-        // ─────────────────────────────────────────
         public frmMenu(int idUsuarioSesion, string nombreUsuarioSesion)
         {
             InitializeComponent();
@@ -41,12 +38,10 @@ namespace Restaurante_Sabor_Gourmet.Vane
             this.nombreUsuarioSesion = nombreUsuarioSesion;
         }
 
-        // ─────────────────────────────────────────
         // CARGA INICIAL
-        // ─────────────────────────────────────────
         private void frmMenu_Load(object sender, EventArgs e)
         {
-            lblNombreUsuario.Text = nombreUsuarioSesion;
+      
 
             CargarCategoriasEnCombos();
             CargarProductos();
@@ -61,11 +56,7 @@ namespace Restaurante_Sabor_Gourmet.Vane
             txtNombreCategoria.Text = "";
 
         }
-
-        // ════════════════════════════════════════════════════
         // SECCIÓN PRODUCTOS
-        // ════════════════════════════════════════════════════
-
         private void CargarCategoriasEnCombos()
         {
             cmbFiltroCategoria.Items.Clear();

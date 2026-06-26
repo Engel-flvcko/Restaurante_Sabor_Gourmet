@@ -31,6 +31,7 @@
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmPrincipal));
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges27 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges28 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
@@ -94,14 +95,14 @@
             PnlSuperior.Location = new Point(0, 0);
             PnlSuperior.Name = "PnlSuperior";
             PnlSuperior.ShadowDecoration.CustomizableEdges = customizableEdges4;
-            PnlSuperior.Size = new Size(1350, 111);
+            PnlSuperior.Size = new Size(1466, 111);
             PnlSuperior.TabIndex = 0;
             // 
             // lblRolUsuario
             // 
             lblRolUsuario.BackColor = Color.Transparent;
             lblRolUsuario.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblRolUsuario.Location = new Point(1031, 67);
+            lblRolUsuario.Location = new Point(1284, 67);
             lblRolUsuario.Name = "lblRolUsuario";
             lblRolUsuario.Size = new Size(35, 30);
             lblRolUsuario.TabIndex = 2;
@@ -111,7 +112,7 @@
             // 
             lblNombreUsuario.BackColor = Color.Transparent;
             lblNombreUsuario.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblNombreUsuario.Location = new Point(1031, 24);
+            lblNombreUsuario.Location = new Point(1284, 13);
             lblNombreUsuario.Name = "lblNombreUsuario";
             lblNombreUsuario.Size = new Size(35, 30);
             lblNombreUsuario.TabIndex = 1;
@@ -130,11 +131,13 @@
             // picLogo
             // 
             picLogo.CustomizableEdges = customizableEdges1;
+            picLogo.Image = (Image)resources.GetObject("picLogo.Image");
             picLogo.ImageRotate = 0F;
             picLogo.Location = new Point(68, 13);
             picLogo.Name = "picLogo";
             picLogo.ShadowDecoration.CustomizableEdges = customizableEdges2;
             picLogo.Size = new Size(97, 84);
+            picLogo.SizeMode = PictureBoxSizeMode.Zoom;
             picLogo.TabIndex = 0;
             picLogo.TabStop = false;
             // 
@@ -174,11 +177,13 @@
             // 
             // btnMesas
             // 
+            btnMesas.BorderRadius = 10;
             btnMesas.CustomizableEdges = customizableEdges5;
             btnMesas.DisabledState.BorderColor = Color.DarkGray;
             btnMesas.DisabledState.CustomBorderColor = Color.DarkGray;
             btnMesas.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
             btnMesas.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            btnMesas.FillColor = Color.FromArgb(30, 58, 138);
             btnMesas.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnMesas.ForeColor = Color.White;
             btnMesas.Location = new Point(35, 50);
@@ -192,11 +197,13 @@
             // 
             // btnCocina
             // 
+            btnCocina.BorderRadius = 10;
             btnCocina.CustomizableEdges = customizableEdges7;
             btnCocina.DisabledState.BorderColor = Color.DarkGray;
             btnCocina.DisabledState.CustomBorderColor = Color.DarkGray;
             btnCocina.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
             btnCocina.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            btnCocina.FillColor = Color.FromArgb(30, 58, 138);
             btnCocina.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnCocina.ForeColor = Color.White;
             btnCocina.Location = new Point(35, 121);
@@ -210,11 +217,13 @@
             // 
             // btnMenu
             // 
+            btnMenu.BorderRadius = 10;
             btnMenu.CustomizableEdges = customizableEdges9;
             btnMenu.DisabledState.BorderColor = Color.DarkGray;
             btnMenu.DisabledState.CustomBorderColor = Color.DarkGray;
             btnMenu.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
             btnMenu.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            btnMenu.FillColor = Color.FromArgb(30, 58, 138);
             btnMenu.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnMenu.ForeColor = Color.White;
             btnMenu.Location = new Point(35, 192);
@@ -228,11 +237,13 @@
             // 
             // btnInventario
             // 
+            btnInventario.BorderRadius = 10;
             btnInventario.CustomizableEdges = customizableEdges11;
             btnInventario.DisabledState.BorderColor = Color.DarkGray;
             btnInventario.DisabledState.CustomBorderColor = Color.DarkGray;
             btnInventario.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
             btnInventario.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            btnInventario.FillColor = Color.FromArgb(30, 58, 138);
             btnInventario.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnInventario.ForeColor = Color.White;
             btnInventario.Location = new Point(35, 263);
@@ -246,11 +257,13 @@
             // 
             // btnUsuarios
             // 
+            btnUsuarios.BorderRadius = 10;
             btnUsuarios.CustomizableEdges = customizableEdges13;
             btnUsuarios.DisabledState.BorderColor = Color.DarkGray;
             btnUsuarios.DisabledState.CustomBorderColor = Color.DarkGray;
             btnUsuarios.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
             btnUsuarios.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            btnUsuarios.FillColor = Color.FromArgb(30, 58, 138);
             btnUsuarios.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnUsuarios.ForeColor = Color.White;
             btnUsuarios.Location = new Point(35, 334);
@@ -264,11 +277,13 @@
             // 
             // btnAbrirRecetas
             // 
+            btnAbrirRecetas.BorderRadius = 10;
             btnAbrirRecetas.CustomizableEdges = customizableEdges15;
             btnAbrirRecetas.DisabledState.BorderColor = Color.DarkGray;
             btnAbrirRecetas.DisabledState.CustomBorderColor = Color.DarkGray;
             btnAbrirRecetas.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
             btnAbrirRecetas.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            btnAbrirRecetas.FillColor = Color.FromArgb(30, 58, 138);
             btnAbrirRecetas.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnAbrirRecetas.ForeColor = Color.White;
             btnAbrirRecetas.Location = new Point(35, 405);
@@ -282,11 +297,13 @@
             // 
             // btnCaja
             // 
+            btnCaja.BorderRadius = 10;
             btnCaja.CustomizableEdges = customizableEdges17;
             btnCaja.DisabledState.BorderColor = Color.DarkGray;
             btnCaja.DisabledState.CustomBorderColor = Color.DarkGray;
             btnCaja.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
             btnCaja.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            btnCaja.FillColor = Color.FromArgb(30, 58, 138);
             btnCaja.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnCaja.ForeColor = Color.White;
             btnCaja.Location = new Point(35, 476);
@@ -300,11 +317,13 @@
             // 
             // btnReservaciones
             // 
+            btnReservaciones.BorderRadius = 10;
             btnReservaciones.CustomizableEdges = customizableEdges19;
             btnReservaciones.DisabledState.BorderColor = Color.DarkGray;
             btnReservaciones.DisabledState.CustomBorderColor = Color.DarkGray;
             btnReservaciones.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
             btnReservaciones.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            btnReservaciones.FillColor = Color.FromArgb(30, 58, 138);
             btnReservaciones.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnReservaciones.ForeColor = Color.White;
             btnReservaciones.Location = new Point(35, 547);
@@ -318,11 +337,13 @@
             // 
             // btnAbrirMeseros
             // 
+            btnAbrirMeseros.BorderRadius = 10;
             btnAbrirMeseros.CustomizableEdges = customizableEdges21;
             btnAbrirMeseros.DisabledState.BorderColor = Color.DarkGray;
             btnAbrirMeseros.DisabledState.CustomBorderColor = Color.DarkGray;
             btnAbrirMeseros.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
             btnAbrirMeseros.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            btnAbrirMeseros.FillColor = Color.FromArgb(30, 58, 138);
             btnAbrirMeseros.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnAbrirMeseros.ForeColor = Color.White;
             btnAbrirMeseros.Location = new Point(35, 618);
@@ -336,11 +357,13 @@
             // 
             // guna2Button1
             // 
+            guna2Button1.BorderRadius = 10;
             guna2Button1.CustomizableEdges = customizableEdges23;
             guna2Button1.DisabledState.BorderColor = Color.DarkGray;
             guna2Button1.DisabledState.CustomBorderColor = Color.DarkGray;
             guna2Button1.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
             guna2Button1.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            guna2Button1.FillColor = Color.FromArgb(30, 58, 138);
             guna2Button1.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             guna2Button1.ForeColor = Color.White;
             guna2Button1.Location = new Point(35, 685);
@@ -353,11 +376,13 @@
             // 
             // btnCerrarSesion
             // 
+            btnCerrarSesion.BorderRadius = 10;
             btnCerrarSesion.CustomizableEdges = customizableEdges25;
             btnCerrarSesion.DisabledState.BorderColor = Color.DarkGray;
             btnCerrarSesion.DisabledState.CustomBorderColor = Color.DarkGray;
             btnCerrarSesion.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
             btnCerrarSesion.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            btnCerrarSesion.FillColor = Color.FromArgb(30, 58, 138);
             btnCerrarSesion.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnCerrarSesion.ForeColor = Color.White;
             btnCerrarSesion.Location = new Point(35, 756);
@@ -377,14 +402,14 @@
             PnlCentro.Location = new Point(228, 111);
             PnlCentro.Name = "PnlCentro";
             PnlCentro.ShadowDecoration.CustomizableEdges = customizableEdges30;
-            PnlCentro.Size = new Size(1122, 907);
+            PnlCentro.Size = new Size(1238, 907);
             PnlCentro.TabIndex = 2;
             // 
             // FrmPrincipal
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1350, 1018);
+            ClientSize = new Size(1466, 1018);
             Controls.Add(PnlCentro);
             Controls.Add(PnlIzquierdo);
             Controls.Add(PnlSuperior);

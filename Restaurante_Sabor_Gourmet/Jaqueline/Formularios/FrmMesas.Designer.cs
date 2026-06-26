@@ -57,8 +57,8 @@
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges25 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges26 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             pnlInfoMesas = new Guna.UI2.WinForms.Guna2Panel();
-            btnVerOrden = new Guna.UI2.WinForms.Guna2Button();
             flowLayoutPanel1 = new FlowLayoutPanel();
+            btnVerOrden = new Guna.UI2.WinForms.Guna2Button();
             btnAsignarMesa = new Guna.UI2.WinForms.Guna2Button();
             btnTransferirOrden = new Guna.UI2.WinForms.Guna2Button();
             btnSolicitarPago = new Guna.UI2.WinForms.Guna2Button();
@@ -123,27 +123,8 @@
             pnlInfoMesas.Name = "pnlInfoMesas";
             pnlInfoMesas.Padding = new Padding(15);
             pnlInfoMesas.ShadowDecoration.CustomizableEdges = customizableEdges18;
-            pnlInfoMesas.Size = new Size(379, 1036);
+            pnlInfoMesas.Size = new Size(379, 1080);
             pnlInfoMesas.TabIndex = 0;
-            // 
-            // btnVerOrden
-            // 
-            btnVerOrden.BorderRadius = 5;
-            btnVerOrden.CustomizableEdges = customizableEdges1;
-            btnVerOrden.DisabledState.BorderColor = Color.DarkGray;
-            btnVerOrden.DisabledState.CustomBorderColor = Color.DarkGray;
-            btnVerOrden.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
-            btnVerOrden.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-            btnVerOrden.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnVerOrden.ForeColor = Color.White;
-            btnVerOrden.Location = new Point(5, 15);
-            btnVerOrden.Margin = new Padding(5, 15, 15, 5);
-            btnVerOrden.Name = "btnVerOrden";
-            btnVerOrden.ShadowDecoration.CustomizableEdges = customizableEdges2;
-            btnVerOrden.Size = new Size(240, 40);
-            btnVerOrden.TabIndex = 17;
-            btnVerOrden.Text = "Ver orden";
-            btnVerOrden.Click += btnVerOrden_Click;
             // 
             // flowLayoutPanel1
             // 
@@ -161,6 +142,26 @@
             flowLayoutPanel1.Size = new Size(250, 496);
             flowLayoutPanel1.TabIndex = 16;
             // 
+            // btnVerOrden
+            // 
+            btnVerOrden.BorderRadius = 5;
+            btnVerOrden.CustomizableEdges = customizableEdges1;
+            btnVerOrden.DisabledState.BorderColor = Color.DarkGray;
+            btnVerOrden.DisabledState.CustomBorderColor = Color.DarkGray;
+            btnVerOrden.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            btnVerOrden.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            btnVerOrden.FillColor = Color.FromArgb(30, 58, 138);
+            btnVerOrden.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnVerOrden.ForeColor = Color.White;
+            btnVerOrden.Location = new Point(5, 15);
+            btnVerOrden.Margin = new Padding(5, 15, 15, 5);
+            btnVerOrden.Name = "btnVerOrden";
+            btnVerOrden.ShadowDecoration.CustomizableEdges = customizableEdges2;
+            btnVerOrden.Size = new Size(240, 40);
+            btnVerOrden.TabIndex = 17;
+            btnVerOrden.Text = "Ver orden";
+            btnVerOrden.Click += btnVerOrden_Click;
+            // 
             // btnAsignarMesa
             // 
             btnAsignarMesa.BorderRadius = 5;
@@ -169,6 +170,7 @@
             btnAsignarMesa.DisabledState.CustomBorderColor = Color.DarkGray;
             btnAsignarMesa.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
             btnAsignarMesa.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            btnAsignarMesa.FillColor = Color.FromArgb(30, 58, 138);
             btnAsignarMesa.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnAsignarMesa.ForeColor = Color.White;
             btnAsignarMesa.Location = new Point(5, 75);
@@ -188,6 +190,7 @@
             btnTransferirOrden.DisabledState.CustomBorderColor = Color.DarkGray;
             btnTransferirOrden.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
             btnTransferirOrden.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            btnTransferirOrden.FillColor = Color.FromArgb(30, 58, 138);
             btnTransferirOrden.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnTransferirOrden.ForeColor = Color.White;
             btnTransferirOrden.Location = new Point(5, 135);
@@ -207,6 +210,7 @@
             btnSolicitarPago.DisabledState.CustomBorderColor = Color.DarkGray;
             btnSolicitarPago.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
             btnSolicitarPago.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            btnSolicitarPago.FillColor = Color.FromArgb(30, 58, 138);
             btnSolicitarPago.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnSolicitarPago.ForeColor = Color.White;
             btnSolicitarPago.Location = new Point(5, 195);
@@ -226,6 +230,7 @@
             btnUnirMesas.DisabledState.CustomBorderColor = Color.DarkGray;
             btnUnirMesas.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
             btnUnirMesas.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            btnUnirMesas.FillColor = Color.FromArgb(30, 58, 138);
             btnUnirMesas.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnUnirMesas.ForeColor = Color.White;
             btnUnirMesas.Location = new Point(5, 255);
@@ -245,6 +250,7 @@
             btnDividirMesa.DisabledState.CustomBorderColor = Color.DarkGray;
             btnDividirMesa.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
             btnDividirMesa.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            btnDividirMesa.FillColor = Color.FromArgb(30, 58, 138);
             btnDividirMesa.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnDividirMesa.ForeColor = Color.White;
             btnDividirMesa.Location = new Point(5, 320);
@@ -264,6 +270,7 @@
             btnLiberarMesa.DisabledState.CustomBorderColor = Color.DarkGray;
             btnLiberarMesa.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
             btnLiberarMesa.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            btnLiberarMesa.FillColor = Color.FromArgb(30, 58, 138);
             btnLiberarMesa.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnLiberarMesa.ForeColor = Color.White;
             btnLiberarMesa.Location = new Point(5, 385);
@@ -283,6 +290,7 @@
             btnMesaFueraServicio.DisabledState.CustomBorderColor = Color.DarkGray;
             btnMesaFueraServicio.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
             btnMesaFueraServicio.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            btnMesaFueraServicio.FillColor = Color.FromArgb(30, 58, 138);
             btnMesaFueraServicio.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnMesaFueraServicio.ForeColor = Color.White;
             btnMesaFueraServicio.Location = new Point(5, 450);
@@ -398,7 +406,7 @@
             // 
             lblEstadoMesa.BackColor = Color.Transparent;
             lblEstadoMesa.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblEstadoMesa.Location = new Point(221, 94);
+            lblEstadoMesa.Location = new Point(277, 94);
             lblEstadoMesa.Name = "lblEstadoMesa";
             lblEstadoMesa.Size = new Size(59, 30);
             lblEstadoMesa.TabIndex = 3;
@@ -408,7 +416,7 @@
             // 
             lblEstado.BackColor = Color.Transparent;
             lblEstado.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblEstado.Location = new Point(128, 94);
+            lblEstado.Location = new Point(193, 94);
             lblEstado.Name = "lblEstado";
             lblEstado.Size = new Size(68, 30);
             lblEstado.TabIndex = 2;
@@ -422,7 +430,7 @@
             lblNumMesa.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblNumMesa.Location = new Point(30, 94);
             lblNumMesa.Name = "lblNumMesa";
-            lblNumMesa.Size = new Size(41, 30);
+            lblNumMesa.Size = new Size(122, 30);
             lblNumMesa.TabIndex = 1;
             lblNumMesa.Text = "0";
             // 
@@ -449,17 +457,17 @@
             guna2Panel1.Location = new Point(10, 10);
             guna2Panel1.Name = "guna2Panel1";
             guna2Panel1.ShadowDecoration.CustomizableEdges = customizableEdges28;
-            guna2Panel1.Size = new Size(1386, 1036);
+            guna2Panel1.Size = new Size(1386, 1080);
             guna2Panel1.TabIndex = 1;
             // 
             // pnlLeyenda
             // 
             pnlLeyenda.Controls.Add(flpLeyenda);
             pnlLeyenda.CustomizableEdges = customizableEdges19;
-            pnlLeyenda.Location = new Point(27, 906);
+            pnlLeyenda.Location = new Point(27, 936);
             pnlLeyenda.Name = "pnlLeyenda";
             pnlLeyenda.ShadowDecoration.CustomizableEdges = customizableEdges20;
-            pnlLeyenda.Size = new Size(956, 104);
+            pnlLeyenda.Size = new Size(956, 93);
             pnlLeyenda.TabIndex = 4;
             // 
             // flpLeyenda
@@ -467,7 +475,7 @@
             flpLeyenda.Dock = DockStyle.Fill;
             flpLeyenda.Location = new Point(0, 0);
             flpLeyenda.Name = "flpLeyenda";
-            flpLeyenda.Size = new Size(956, 104);
+            flpLeyenda.Size = new Size(956, 93);
             flpLeyenda.TabIndex = 0;
             // 
             // pnlZonaEventos
@@ -477,7 +485,7 @@
             pnlZonaEventos.Location = new Point(513, 391);
             pnlZonaEventos.Name = "pnlZonaEventos";
             pnlZonaEventos.ShadowDecoration.CustomizableEdges = customizableEdges22;
-            pnlZonaEventos.Size = new Size(470, 449);
+            pnlZonaEventos.Size = new Size(470, 512);
             pnlZonaEventos.TabIndex = 3;
             // 
             // flpEventos
@@ -485,7 +493,7 @@
             flpEventos.Dock = DockStyle.Fill;
             flpEventos.Location = new Point(0, 0);
             flpEventos.Name = "flpEventos";
-            flpEventos.Size = new Size(470, 449);
+            flpEventos.Size = new Size(470, 512);
             flpEventos.TabIndex = 0;
             // 
             // pnlZonaFamiliar
@@ -495,7 +503,7 @@
             pnlZonaFamiliar.Location = new Point(26, 391);
             pnlZonaFamiliar.Name = "pnlZonaFamiliar";
             pnlZonaFamiliar.ShadowDecoration.CustomizableEdges = customizableEdges24;
-            pnlZonaFamiliar.Size = new Size(470, 449);
+            pnlZonaFamiliar.Size = new Size(470, 512);
             pnlZonaFamiliar.TabIndex = 2;
             // 
             // flpFamiliar
@@ -503,7 +511,7 @@
             flpFamiliar.Dock = DockStyle.Fill;
             flpFamiliar.Location = new Point(0, 0);
             flpFamiliar.Name = "flpFamiliar";
-            flpFamiliar.Size = new Size(470, 449);
+            flpFamiliar.Size = new Size(470, 512);
             flpFamiliar.TabIndex = 0;
             // 
             // pnlSalonPrincipal
@@ -529,7 +537,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1406, 1056);
+            ClientSize = new Size(1406, 1100);
             Controls.Add(guna2Panel1);
             FormBorderStyle = FormBorderStyle.None;
             Name = "FrmMesas";

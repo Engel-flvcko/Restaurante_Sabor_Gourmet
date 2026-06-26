@@ -34,22 +34,22 @@
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges13 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges14 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges7 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges15 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges16 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges9 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges10 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges11 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges12 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges13 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges14 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges37 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges38 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges35 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges36 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges15 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges16 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges17 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges18 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges19 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
@@ -68,27 +68,19 @@
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges32 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges33 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges34 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges35 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges36 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges39 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges40 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges37 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges38 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges47 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges48 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges45 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges46 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges39 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges40 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges41 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges42 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges43 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges44 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges45 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges46 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            pnlTopBar = new Guna.UI2.WinForms.Guna2Panel();
-            picIconoApp = new PictureBox();
-            lblTituloForm = new Label();
-            lblSubtitulo = new Label();
-            picAvatarUsuario = new PictureBox();
-            lblNombreUsuario = new Label();
             tabMenu = new TabControl();
             tabProductos = new TabPage();
             pnlCardTotal = new Guna.UI2.WinForms.Guna2Panel();
@@ -151,9 +143,6 @@
             txtNombreCategoria = new Guna.UI2.WinForms.Guna2TextBox();
             btnEliminarCategoria = new Guna.UI2.WinForms.Guna2Button();
             btnNuevaCategoria = new Guna.UI2.WinForms.Guna2Button();
-            pnlTopBar.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)picIconoApp).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)picAvatarUsuario).BeginInit();
             tabMenu.SuspendLayout();
             tabProductos.SuspendLayout();
             pnlCardTotal.SuspendLayout();
@@ -171,95 +160,21 @@
             pnlFormCategoria.SuspendLayout();
             SuspendLayout();
             // 
-            // pnlTopBar
-            // 
-            pnlTopBar.BackColor = Color.FromArgb(30, 30, 47);
-            pnlTopBar.Controls.Add(picIconoApp);
-            pnlTopBar.Controls.Add(lblTituloForm);
-            pnlTopBar.Controls.Add(lblSubtitulo);
-            pnlTopBar.Controls.Add(picAvatarUsuario);
-            pnlTopBar.Controls.Add(lblNombreUsuario);
-            pnlTopBar.CustomizableEdges = customizableEdges1;
-            pnlTopBar.Dock = DockStyle.Top;
-            pnlTopBar.Location = new Point(0, 0);
-            pnlTopBar.Margin = new Padding(3, 4, 3, 4);
-            pnlTopBar.Name = "pnlTopBar";
-            pnlTopBar.ShadowDecoration.CustomizableEdges = customizableEdges2;
-            pnlTopBar.Size = new Size(1561, 93);
-            pnlTopBar.TabIndex = 0;
-            // 
-            // picIconoApp
-            // 
-            picIconoApp.BackColor = Color.Transparent;
-            picIconoApp.Location = new Point(17, 17);
-            picIconoApp.Margin = new Padding(3, 4, 3, 4);
-            picIconoApp.Name = "picIconoApp";
-            picIconoApp.Size = new Size(50, 59);
-            picIconoApp.SizeMode = PictureBoxSizeMode.Zoom;
-            picIconoApp.TabIndex = 0;
-            picIconoApp.TabStop = false;
-            // 
-            // lblTituloForm
-            // 
-            lblTituloForm.AutoSize = true;
-            lblTituloForm.BackColor = Color.Transparent;
-            lblTituloForm.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
-            lblTituloForm.ForeColor = Color.White;
-            lblTituloForm.Location = new Point(78, 16);
-            lblTituloForm.Name = "lblTituloForm";
-            lblTituloForm.Size = new Size(209, 32);
-            lblTituloForm.TabIndex = 1;
-            lblTituloForm.Text = "Gestión de Menú";
-            // 
-            // lblSubtitulo
-            // 
-            lblSubtitulo.AutoSize = true;
-            lblSubtitulo.BackColor = Color.Transparent;
-            lblSubtitulo.Font = new Font("Segoe UI", 9F);
-            lblSubtitulo.ForeColor = Color.FromArgb(180, 180, 200);
-            lblSubtitulo.Location = new Point(80, 53);
-            lblSubtitulo.Name = "lblSubtitulo";
-            lblSubtitulo.Size = new Size(145, 20);
-            lblSubtitulo.TabIndex = 2;
-            lblSubtitulo.Text = "Sabor Gourmet FMO";
-            // 
-            // picAvatarUsuario
-            // 
-            picAvatarUsuario.BackColor = Color.Transparent;
-            picAvatarUsuario.Location = new Point(1451, 24);
-            picAvatarUsuario.Margin = new Padding(3, 4, 3, 4);
-            picAvatarUsuario.Name = "picAvatarUsuario";
-            picAvatarUsuario.Size = new Size(39, 45);
-            picAvatarUsuario.SizeMode = PictureBoxSizeMode.Zoom;
-            picAvatarUsuario.TabIndex = 3;
-            picAvatarUsuario.TabStop = false;
-            // 
-            // lblNombreUsuario
-            // 
-            lblNombreUsuario.AutoSize = true;
-            lblNombreUsuario.BackColor = Color.Transparent;
-            lblNombreUsuario.Font = new Font("Segoe UI", 10F);
-            lblNombreUsuario.ForeColor = Color.White;
-            lblNombreUsuario.Location = new Point(1354, 35);
-            lblNombreUsuario.Name = "lblNombreUsuario";
-            lblNombreUsuario.Size = new Size(118, 23);
-            lblNombreUsuario.TabIndex = 4;
-            lblNombreUsuario.Text = "Administrador";
-            // 
             // tabMenu
             // 
             tabMenu.Controls.Add(tabProductos);
             tabMenu.Controls.Add(tabCategorias);
             tabMenu.Font = new Font("Segoe UI", 10F);
-            tabMenu.Location = new Point(14, 107);
+            tabMenu.Location = new Point(12, 22);
             tabMenu.Margin = new Padding(3, 4, 3, 4);
             tabMenu.Name = "tabMenu";
             tabMenu.SelectedIndex = 0;
-            tabMenu.Size = new Size(1534, 765);
+            tabMenu.Size = new Size(1534, 788);
             tabMenu.TabIndex = 1;
             // 
             // tabProductos
             // 
+            tabProductos.AutoScroll = true;
             tabProductos.BackColor = Color.FromArgb(240, 240, 248);
             tabProductos.Controls.Add(pnlCardTotal);
             tabProductos.Controls.Add(pnlCardDisponibles);
@@ -270,7 +185,7 @@
             tabProductos.Location = new Point(4, 32);
             tabProductos.Margin = new Padding(3, 4, 3, 4);
             tabProductos.Name = "tabProductos";
-            tabProductos.Size = new Size(1526, 729);
+            tabProductos.Size = new Size(1526, 752);
             tabProductos.TabIndex = 0;
             tabProductos.Text = "  Productos";
             // 
@@ -281,12 +196,12 @@
             pnlCardTotal.Controls.Add(picCardTotal);
             pnlCardTotal.Controls.Add(lblCardTotalTitulo);
             pnlCardTotal.Controls.Add(lblCardTotalValor);
-            pnlCardTotal.CustomizableEdges = customizableEdges3;
+            pnlCardTotal.CustomizableEdges = customizableEdges1;
             pnlCardTotal.Location = new Point(11, 13);
             pnlCardTotal.Margin = new Padding(3, 4, 3, 4);
             pnlCardTotal.Name = "pnlCardTotal";
             pnlCardTotal.ShadowDecoration.Color = Color.FromArgb(20, 0, 0, 0);
-            pnlCardTotal.ShadowDecoration.CustomizableEdges = customizableEdges4;
+            pnlCardTotal.ShadowDecoration.CustomizableEdges = customizableEdges2;
             pnlCardTotal.ShadowDecoration.Depth = 4;
             pnlCardTotal.ShadowDecoration.Enabled = true;
             pnlCardTotal.Size = new Size(474, 107);
@@ -294,7 +209,7 @@
             // 
             // picCardTotal
             // 
-            picCardTotal.BackColor = Color.FromArgb(168, 85, 247);
+            picCardTotal.BackColor = Color.FromArgb(30, 58, 138);
             picCardTotal.Location = new Point(14, 19);
             picCardTotal.Margin = new Padding(3, 4, 3, 4);
             picCardTotal.Name = "picCardTotal";
@@ -318,7 +233,7 @@
             // 
             lblCardTotalValor.AutoSize = true;
             lblCardTotalValor.Font = new Font("Segoe UI", 22F, FontStyle.Bold);
-            lblCardTotalValor.ForeColor = Color.FromArgb(168, 85, 247);
+            lblCardTotalValor.ForeColor = Color.FromArgb(30, 58, 138);
             lblCardTotalValor.Location = new Point(80, 48);
             lblCardTotalValor.Name = "lblCardTotalValor";
             lblCardTotalValor.Size = new Size(43, 50);
@@ -332,12 +247,12 @@
             pnlCardDisponibles.Controls.Add(picCardDisponibles);
             pnlCardDisponibles.Controls.Add(lblCardDispTitulo);
             pnlCardDisponibles.Controls.Add(lblCardDispValor);
-            pnlCardDisponibles.CustomizableEdges = customizableEdges5;
+            pnlCardDisponibles.CustomizableEdges = customizableEdges3;
             pnlCardDisponibles.Location = new Point(503, 13);
             pnlCardDisponibles.Margin = new Padding(3, 4, 3, 4);
             pnlCardDisponibles.Name = "pnlCardDisponibles";
             pnlCardDisponibles.ShadowDecoration.Color = Color.FromArgb(20, 0, 0, 0);
-            pnlCardDisponibles.ShadowDecoration.CustomizableEdges = customizableEdges6;
+            pnlCardDisponibles.ShadowDecoration.CustomizableEdges = customizableEdges4;
             pnlCardDisponibles.ShadowDecoration.Depth = 4;
             pnlCardDisponibles.ShadowDecoration.Enabled = true;
             pnlCardDisponibles.Size = new Size(474, 107);
@@ -345,7 +260,7 @@
             // 
             // picCardDisponibles
             // 
-            picCardDisponibles.BackColor = Color.FromArgb(34, 197, 94);
+            picCardDisponibles.BackColor = Color.FromArgb(0, 80, 40);
             picCardDisponibles.Location = new Point(14, 19);
             picCardDisponibles.Margin = new Padding(3, 4, 3, 4);
             picCardDisponibles.Name = "picCardDisponibles";
@@ -369,7 +284,7 @@
             // 
             lblCardDispValor.AutoSize = true;
             lblCardDispValor.Font = new Font("Segoe UI", 22F, FontStyle.Bold);
-            lblCardDispValor.ForeColor = Color.FromArgb(34, 197, 94);
+            lblCardDispValor.ForeColor = Color.FromArgb(0, 80, 40);
             lblCardDispValor.Location = new Point(80, 48);
             lblCardDispValor.Name = "lblCardDispValor";
             lblCardDispValor.Size = new Size(43, 50);
@@ -383,12 +298,12 @@
             pnlCardNoDisponibles.Controls.Add(picCardNoDisp);
             pnlCardNoDisponibles.Controls.Add(lblCardNoDispTitulo);
             pnlCardNoDisponibles.Controls.Add(lblCardNoDispValor);
-            pnlCardNoDisponibles.CustomizableEdges = customizableEdges7;
+            pnlCardNoDisponibles.CustomizableEdges = customizableEdges5;
             pnlCardNoDisponibles.Location = new Point(994, 13);
             pnlCardNoDisponibles.Margin = new Padding(3, 4, 3, 4);
             pnlCardNoDisponibles.Name = "pnlCardNoDisponibles";
             pnlCardNoDisponibles.ShadowDecoration.Color = Color.FromArgb(20, 0, 0, 0);
-            pnlCardNoDisponibles.ShadowDecoration.CustomizableEdges = customizableEdges8;
+            pnlCardNoDisponibles.ShadowDecoration.CustomizableEdges = customizableEdges6;
             pnlCardNoDisponibles.ShadowDecoration.Depth = 4;
             pnlCardNoDisponibles.ShadowDecoration.Enabled = true;
             pnlCardNoDisponibles.Size = new Size(520, 107);
@@ -396,7 +311,7 @@
             // 
             // picCardNoDisp
             // 
-            picCardNoDisp.BackColor = Color.FromArgb(239, 68, 68);
+            picCardNoDisp.BackColor = Color.FromArgb(120, 10, 10);
             picCardNoDisp.Location = new Point(14, 19);
             picCardNoDisp.Margin = new Padding(3, 4, 3, 4);
             picCardNoDisp.Name = "picCardNoDisp";
@@ -420,7 +335,7 @@
             // 
             lblCardNoDispValor.AutoSize = true;
             lblCardNoDispValor.Font = new Font("Segoe UI", 22F, FontStyle.Bold);
-            lblCardNoDispValor.ForeColor = Color.FromArgb(239, 68, 68);
+            lblCardNoDispValor.ForeColor = Color.FromArgb(120, 10, 10);
             lblCardNoDispValor.Location = new Point(80, 48);
             lblCardNoDispValor.Name = "lblCardNoDispValor";
             lblCardNoDispValor.Size = new Size(43, 50);
@@ -438,15 +353,15 @@
             pnlListaProductos.Controls.Add(lblSoloDisponibles);
             pnlListaProductos.Controls.Add(tglSoloDisponibles);
             pnlListaProductos.Controls.Add(dgvProductos);
-            pnlListaProductos.CustomizableEdges = customizableEdges15;
+            pnlListaProductos.CustomizableEdges = customizableEdges13;
             pnlListaProductos.Location = new Point(11, 133);
             pnlListaProductos.Margin = new Padding(3, 4, 3, 4);
             pnlListaProductos.Name = "pnlListaProductos";
             pnlListaProductos.ShadowDecoration.Color = Color.FromArgb(20, 0, 0, 0);
-            pnlListaProductos.ShadowDecoration.CustomizableEdges = customizableEdges16;
+            pnlListaProductos.ShadowDecoration.CustomizableEdges = customizableEdges14;
             pnlListaProductos.ShadowDecoration.Depth = 4;
             pnlListaProductos.ShadowDecoration.Enabled = true;
-            pnlListaProductos.Size = new Size(926, 587);
+            pnlListaProductos.Size = new Size(950, 587);
             pnlListaProductos.TabIndex = 3;
             // 
             // lblListaTitulo
@@ -464,7 +379,7 @@
             // 
             txtBuscarProducto.BorderColor = Color.FromArgb(200, 200, 220);
             txtBuscarProducto.BorderRadius = 8;
-            txtBuscarProducto.CustomizableEdges = customizableEdges9;
+            txtBuscarProducto.CustomizableEdges = customizableEdges7;
             txtBuscarProducto.DefaultText = "";
             txtBuscarProducto.DisabledState.FillColor = Color.FromArgb(240, 240, 248);
             txtBuscarProducto.Font = new Font("Segoe UI", 10F);
@@ -474,7 +389,7 @@
             txtBuscarProducto.Name = "txtBuscarProducto";
             txtBuscarProducto.PlaceholderText = "Buscar producto...";
             txtBuscarProducto.SelectedText = "";
-            txtBuscarProducto.ShadowDecoration.CustomizableEdges = customizableEdges10;
+            txtBuscarProducto.ShadowDecoration.CustomizableEdges = customizableEdges8;
             txtBuscarProducto.Size = new Size(251, 48);
             txtBuscarProducto.TabIndex = 0;
             txtBuscarProducto.TextChanged += txtBuscarProducto_TextChanged;
@@ -494,7 +409,7 @@
             // 
             cmbFiltroCategoria.BackColor = Color.Transparent;
             cmbFiltroCategoria.BorderRadius = 8;
-            cmbFiltroCategoria.CustomizableEdges = customizableEdges11;
+            cmbFiltroCategoria.CustomizableEdges = customizableEdges9;
             cmbFiltroCategoria.DrawMode = DrawMode.OwnerDrawFixed;
             cmbFiltroCategoria.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbFiltroCategoria.FocusedColor = Color.Empty;
@@ -504,7 +419,7 @@
             cmbFiltroCategoria.Location = new Point(446, 56);
             cmbFiltroCategoria.Margin = new Padding(3, 4, 3, 4);
             cmbFiltroCategoria.Name = "cmbFiltroCategoria";
-            cmbFiltroCategoria.ShadowDecoration.CustomizableEdges = customizableEdges12;
+            cmbFiltroCategoria.ShadowDecoration.CustomizableEdges = customizableEdges10;
             cmbFiltroCategoria.Size = new Size(239, 36);
             cmbFiltroCategoria.TabIndex = 1;
             cmbFiltroCategoria.SelectedIndexChanged += cmbFiltroCategoria_SelectedIndexChanged;
@@ -524,11 +439,11 @@
             // 
             tglSoloDisponibles.CheckedState.FillColor = Color.FromArgb(34, 197, 94);
             tglSoloDisponibles.Cursor = Cursors.Hand;
-            tglSoloDisponibles.CustomizableEdges = customizableEdges13;
+            tglSoloDisponibles.CustomizableEdges = customizableEdges11;
             tglSoloDisponibles.Location = new Point(834, 63);
             tglSoloDisponibles.Margin = new Padding(3, 4, 3, 4);
             tglSoloDisponibles.Name = "tglSoloDisponibles";
-            tglSoloDisponibles.ShadowDecoration.CustomizableEdges = customizableEdges14;
+            tglSoloDisponibles.ShadowDecoration.CustomizableEdges = customizableEdges12;
             tglSoloDisponibles.Size = new Size(63, 35);
             tglSoloDisponibles.TabIndex = 2;
             tglSoloDisponibles.CheckedChanged += tglSoloDisponibles_CheckedChanged;
@@ -537,12 +452,13 @@
             // 
             dgvProductos.AllowUserToAddRows = false;
             dgvProductos.AllowUserToDeleteRows = false;
+            dgvProductos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvProductos.BackgroundColor = Color.White;
             dgvProductos.BorderStyle = BorderStyle.None;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = Color.FromArgb(30, 30, 47);
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.TopCenter;
+            dataGridViewCellStyle1.BackColor = Color.Silver;
             dataGridViewCellStyle1.Font = new Font("Segoe UI", 9.5F, FontStyle.Bold);
-            dataGridViewCellStyle1.ForeColor = Color.White;
+            dataGridViewCellStyle1.ForeColor = Color.Black;
             dataGridViewCellStyle1.SelectionBackColor = Color.FromArgb(30, 30, 47);
             dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
@@ -554,8 +470,8 @@
             dataGridViewCellStyle4.BackColor = SystemColors.Window;
             dataGridViewCellStyle4.Font = new Font("Segoe UI", 9.5F);
             dataGridViewCellStyle4.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle4.SelectionBackColor = Color.FromArgb(220, 235, 255);
-            dataGridViewCellStyle4.SelectionForeColor = Color.FromArgb(30, 30, 47);
+            dataGridViewCellStyle4.SelectionBackColor = Color.White;
+            dataGridViewCellStyle4.SelectionForeColor = Color.White;
             dataGridViewCellStyle4.WrapMode = DataGridViewTriState.False;
             dgvProductos.DefaultCellStyle = dataGridViewCellStyle4;
             dgvProductos.EnableHeadersVisualStyles = false;
@@ -569,7 +485,7 @@
             dgvProductos.RowHeadersWidth = 51;
             dgvProductos.RowTemplate.Height = 34;
             dgvProductos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvProductos.Size = new Size(899, 447);
+            dgvProductos.Size = new Size(920, 447);
             dgvProductos.TabIndex = 3;
             dgvProductos.CellClick += dgvProductos_CellClick;
             // 
@@ -580,7 +496,6 @@
             colCodigo.MinimumWidth = 6;
             colCodigo.Name = "colCodigo";
             colCodigo.ReadOnly = true;
-            colCodigo.Width = 125;
             // 
             // colNombre
             // 
@@ -589,7 +504,6 @@
             colNombre.MinimumWidth = 6;
             colNombre.Name = "colNombre";
             colNombre.ReadOnly = true;
-            colNombre.Width = 225;
             // 
             // colCategoria
             // 
@@ -598,7 +512,6 @@
             colCategoria.MinimumWidth = 6;
             colCategoria.Name = "colCategoria";
             colCategoria.ReadOnly = true;
-            colCategoria.Width = 160;
             // 
             // colPrecio
             // 
@@ -610,7 +523,6 @@
             colPrecio.MinimumWidth = 6;
             colPrecio.Name = "colPrecio";
             colPrecio.ReadOnly = true;
-            colPrecio.Width = 125;
             // 
             // colTiempoPrep
             // 
@@ -619,7 +531,6 @@
             colTiempoPrep.MinimumWidth = 6;
             colTiempoPrep.Name = "colTiempoPrep";
             colTiempoPrep.ReadOnly = true;
-            colTiempoPrep.Width = 170;
             // 
             // colDisponible
             // 
@@ -630,7 +541,6 @@
             colDisponible.MinimumWidth = 6;
             colDisponible.Name = "colDisponible";
             colDisponible.ReadOnly = true;
-            colDisponible.Width = 110;
             // 
             // pnlFormProducto
             // 
@@ -656,31 +566,31 @@
             pnlFormProducto.Controls.Add(tglDisponible);
             pnlFormProducto.Controls.Add(lblDisponibleTexto);
             pnlFormProducto.Controls.Add(btnGuardar);
-            pnlFormProducto.CustomizableEdges = customizableEdges37;
-            pnlFormProducto.Location = new Point(951, 133);
+            pnlFormProducto.CustomizableEdges = customizableEdges35;
+            pnlFormProducto.Location = new Point(967, 133);
             pnlFormProducto.Margin = new Padding(3, 4, 3, 4);
             pnlFormProducto.Name = "pnlFormProducto";
             pnlFormProducto.ShadowDecoration.Color = Color.FromArgb(20, 0, 0, 0);
-            pnlFormProducto.ShadowDecoration.CustomizableEdges = customizableEdges38;
+            pnlFormProducto.ShadowDecoration.CustomizableEdges = customizableEdges36;
             pnlFormProducto.ShadowDecoration.Depth = 4;
             pnlFormProducto.ShadowDecoration.Enabled = true;
-            pnlFormProducto.Size = new Size(566, 587);
+            pnlFormProducto.Size = new Size(550, 587);
             pnlFormProducto.TabIndex = 4;
             // 
             // btnActualizarLista
             // 
             btnActualizarLista.BorderRadius = 8;
             btnActualizarLista.Cursor = Cursors.Hand;
-            btnActualizarLista.CustomizableEdges = customizableEdges17;
+            btnActualizarLista.CustomizableEdges = customizableEdges15;
             btnActualizarLista.FillColor = Color.FromArgb(220, 220, 235);
             btnActualizarLista.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             btnActualizarLista.ForeColor = Color.FromArgb(60, 60, 80);
             btnActualizarLista.HoverState.FillColor = Color.FromArgb(200, 200, 215);
-            btnActualizarLista.Location = new Point(422, 523);
+            btnActualizarLista.Location = new Point(405, 525);
             btnActualizarLista.Margin = new Padding(3, 4, 3, 4);
             btnActualizarLista.Name = "btnActualizarLista";
-            btnActualizarLista.ShadowDecoration.CustomizableEdges = customizableEdges18;
-            btnActualizarLista.Size = new Size(141, 53);
+            btnActualizarLista.ShadowDecoration.CustomizableEdges = customizableEdges16;
+            btnActualizarLista.Size = new Size(121, 53);
             btnActualizarLista.TabIndex = 2;
             btnActualizarLista.Text = "  Actualizar";
             btnActualizarLista.Click += btnActualizarLista_Click;
@@ -700,15 +610,15 @@
             // 
             btnEditar.BorderRadius = 8;
             btnEditar.Cursor = Cursors.Hand;
-            btnEditar.CustomizableEdges = customizableEdges19;
-            btnEditar.FillColor = Color.FromArgb(249, 115, 22);
+            btnEditar.CustomizableEdges = customizableEdges17;
+            btnEditar.FillColor = Color.FromArgb(30, 58, 138);
             btnEditar.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             btnEditar.ForeColor = Color.White;
             btnEditar.HoverState.FillColor = Color.FromArgb(234, 88, 12);
-            btnEditar.Location = new Point(154, 525);
+            btnEditar.Location = new Point(145, 525);
             btnEditar.Margin = new Padding(3, 4, 3, 4);
             btnEditar.Name = "btnEditar";
-            btnEditar.ShadowDecoration.CustomizableEdges = customizableEdges20;
+            btnEditar.ShadowDecoration.CustomizableEdges = customizableEdges18;
             btnEditar.Size = new Size(113, 53);
             btnEditar.TabIndex = 1;
             btnEditar.Text = "  Editar";
@@ -729,7 +639,7 @@
             // 
             txtCodigo.BorderColor = Color.FromArgb(200, 200, 220);
             txtCodigo.BorderRadius = 8;
-            txtCodigo.CustomizableEdges = customizableEdges21;
+            txtCodigo.CustomizableEdges = customizableEdges19;
             txtCodigo.DefaultText = "";
             txtCodigo.Font = new Font("Segoe UI", 10F);
             txtCodigo.ForeColor = Color.FromArgb(60, 60, 80);
@@ -739,7 +649,7 @@
             txtCodigo.PlaceholderText = "";
             txtCodigo.ReadOnly = true;
             txtCodigo.SelectedText = "";
-            txtCodigo.ShadowDecoration.CustomizableEdges = customizableEdges22;
+            txtCodigo.ShadowDecoration.CustomizableEdges = customizableEdges20;
             txtCodigo.Size = new Size(528, 48);
             txtCodigo.TabIndex = 0;
             // 
@@ -758,7 +668,7 @@
             // 
             txtNombreProducto.BorderColor = Color.FromArgb(200, 200, 220);
             txtNombreProducto.BorderRadius = 8;
-            txtNombreProducto.CustomizableEdges = customizableEdges23;
+            txtNombreProducto.CustomizableEdges = customizableEdges21;
             txtNombreProducto.DefaultText = "";
             txtNombreProducto.Font = new Font("Segoe UI", 10F);
             txtNombreProducto.ForeColor = Color.FromArgb(60, 60, 80);
@@ -767,7 +677,7 @@
             txtNombreProducto.Name = "txtNombreProducto";
             txtNombreProducto.PlaceholderText = "";
             txtNombreProducto.SelectedText = "";
-            txtNombreProducto.ShadowDecoration.CustomizableEdges = customizableEdges24;
+            txtNombreProducto.ShadowDecoration.CustomizableEdges = customizableEdges22;
             txtNombreProducto.Size = new Size(528, 48);
             txtNombreProducto.TabIndex = 1;
             // 
@@ -775,15 +685,15 @@
             // 
             btnEliminar.BorderRadius = 8;
             btnEliminar.Cursor = Cursors.Hand;
-            btnEliminar.CustomizableEdges = customizableEdges25;
-            btnEliminar.FillColor = Color.FromArgb(239, 68, 68);
+            btnEliminar.CustomizableEdges = customizableEdges23;
+            btnEliminar.FillColor = Color.FromArgb(120, 10, 10);
             btnEliminar.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             btnEliminar.ForeColor = Color.White;
             btnEliminar.HoverState.FillColor = Color.FromArgb(185, 28, 28);
-            btnEliminar.Location = new Point(289, 525);
+            btnEliminar.Location = new Point(273, 527);
             btnEliminar.Margin = new Padding(3, 4, 3, 4);
             btnEliminar.Name = "btnEliminar";
-            btnEliminar.ShadowDecoration.CustomizableEdges = customizableEdges26;
+            btnEliminar.ShadowDecoration.CustomizableEdges = customizableEdges24;
             btnEliminar.Size = new Size(113, 51);
             btnEliminar.TabIndex = 8;
             btnEliminar.Text = "  Eliminar";
@@ -829,7 +739,7 @@
             // 
             cmbCategoria.BackColor = Color.Transparent;
             cmbCategoria.BorderRadius = 8;
-            cmbCategoria.CustomizableEdges = customizableEdges27;
+            cmbCategoria.CustomizableEdges = customizableEdges25;
             cmbCategoria.DrawMode = DrawMode.OwnerDrawFixed;
             cmbCategoria.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbCategoria.FocusedColor = Color.Empty;
@@ -839,7 +749,7 @@
             cmbCategoria.Location = new Point(16, 376);
             cmbCategoria.Margin = new Padding(3, 4, 3, 4);
             cmbCategoria.Name = "cmbCategoria";
-            cmbCategoria.ShadowDecoration.CustomizableEdges = customizableEdges28;
+            cmbCategoria.ShadowDecoration.CustomizableEdges = customizableEdges26;
             cmbCategoria.Size = new Size(251, 36);
             cmbCategoria.TabIndex = 3;
             cmbCategoria.SelectedIndexChanged += cmbCategoria_SelectedIndexChanged;
@@ -859,7 +769,7 @@
             // 
             txtPrecio.BorderColor = Color.FromArgb(200, 200, 220);
             txtPrecio.BorderRadius = 8;
-            txtPrecio.CustomizableEdges = customizableEdges29;
+            txtPrecio.CustomizableEdges = customizableEdges27;
             txtPrecio.DefaultText = "";
             txtPrecio.Font = new Font("Segoe UI", 10F);
             txtPrecio.ForeColor = Color.FromArgb(60, 60, 80);
@@ -868,7 +778,7 @@
             txtPrecio.Name = "txtPrecio";
             txtPrecio.PlaceholderText = "";
             txtPrecio.SelectedText = "";
-            txtPrecio.ShadowDecoration.CustomizableEdges = customizableEdges30;
+            txtPrecio.ShadowDecoration.CustomizableEdges = customizableEdges28;
             txtPrecio.Size = new Size(261, 36);
             txtPrecio.TabIndex = 4;
             // 
@@ -887,7 +797,7 @@
             // 
             txtTiempoPrep.BorderColor = Color.FromArgb(200, 200, 220);
             txtTiempoPrep.BorderRadius = 8;
-            txtTiempoPrep.CustomizableEdges = customizableEdges31;
+            txtTiempoPrep.CustomizableEdges = customizableEdges29;
             txtTiempoPrep.DefaultText = "";
             txtTiempoPrep.Font = new Font("Segoe UI", 10F);
             txtTiempoPrep.ForeColor = Color.FromArgb(60, 60, 80);
@@ -896,7 +806,7 @@
             txtTiempoPrep.Name = "txtTiempoPrep";
             txtTiempoPrep.PlaceholderText = "";
             txtTiempoPrep.SelectedText = "";
-            txtTiempoPrep.ShadowDecoration.CustomizableEdges = customizableEdges32;
+            txtTiempoPrep.ShadowDecoration.CustomizableEdges = customizableEdges30;
             txtTiempoPrep.Size = new Size(217, 48);
             txtTiempoPrep.TabIndex = 5;
             // 
@@ -915,11 +825,11 @@
             // 
             tglDisponible.CheckedState.FillColor = Color.FromArgb(34, 197, 94);
             tglDisponible.Cursor = Cursors.Hand;
-            tglDisponible.CustomizableEdges = customizableEdges33;
+            tglDisponible.CustomizableEdges = customizableEdges31;
             tglDisponible.Location = new Point(289, 467);
             tglDisponible.Margin = new Padding(3, 4, 3, 4);
             tglDisponible.Name = "tglDisponible";
-            tglDisponible.ShadowDecoration.CustomizableEdges = customizableEdges34;
+            tglDisponible.ShadowDecoration.CustomizableEdges = customizableEdges32;
             tglDisponible.Size = new Size(63, 35);
             tglDisponible.TabIndex = 6;
             tglDisponible.CheckedChanged += tglDisponible_CheckedChanged;
@@ -939,15 +849,15 @@
             // 
             btnGuardar.BorderRadius = 8;
             btnGuardar.Cursor = Cursors.Hand;
-            btnGuardar.CustomizableEdges = customizableEdges35;
-            btnGuardar.FillColor = Color.FromArgb(34, 197, 94);
+            btnGuardar.CustomizableEdges = customizableEdges33;
+            btnGuardar.FillColor = Color.FromArgb(0, 80, 40);
             btnGuardar.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             btnGuardar.ForeColor = Color.White;
             btnGuardar.HoverState.FillColor = Color.FromArgb(22, 163, 74);
             btnGuardar.Location = new Point(16, 527);
             btnGuardar.Margin = new Padding(3, 4, 3, 4);
             btnGuardar.Name = "btnGuardar";
-            btnGuardar.ShadowDecoration.CustomizableEdges = customizableEdges36;
+            btnGuardar.ShadowDecoration.CustomizableEdges = customizableEdges34;
             btnGuardar.Size = new Size(113, 51);
             btnGuardar.TabIndex = 7;
             btnGuardar.Text = "  Guardar";
@@ -962,7 +872,7 @@
             tabCategorias.Location = new Point(4, 32);
             tabCategorias.Margin = new Padding(3, 4, 3, 4);
             tabCategorias.Name = "tabCategorias";
-            tabCategorias.Size = new Size(1526, 729);
+            tabCategorias.Size = new Size(1526, 752);
             tabCategorias.TabIndex = 1;
             tabCategorias.Text = "  Categorías";
             // 
@@ -972,12 +882,12 @@
             pnlListaCategorias.BorderRadius = 12;
             pnlListaCategorias.Controls.Add(lblCatListaTitulo);
             pnlListaCategorias.Controls.Add(dgvCategorias);
-            pnlListaCategorias.CustomizableEdges = customizableEdges39;
+            pnlListaCategorias.CustomizableEdges = customizableEdges37;
             pnlListaCategorias.Location = new Point(11, 13);
             pnlListaCategorias.Margin = new Padding(3, 4, 3, 4);
             pnlListaCategorias.Name = "pnlListaCategorias";
             pnlListaCategorias.ShadowDecoration.Color = Color.FromArgb(20, 0, 0, 0);
-            pnlListaCategorias.ShadowDecoration.CustomizableEdges = customizableEdges40;
+            pnlListaCategorias.ShadowDecoration.CustomizableEdges = customizableEdges38;
             pnlListaCategorias.ShadowDecoration.Depth = 4;
             pnlListaCategorias.ShadowDecoration.Enabled = true;
             pnlListaCategorias.Size = new Size(926, 760);
@@ -998,6 +908,7 @@
             // 
             dgvCategorias.AllowUserToAddRows = false;
             dgvCategorias.AllowUserToDeleteRows = false;
+            dgvCategorias.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvCategorias.BackgroundColor = Color.White;
             dgvCategorias.BorderStyle = BorderStyle.None;
             dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
@@ -1011,15 +922,14 @@
             dgvCategorias.ColumnHeadersHeight = 38;
             dgvCategorias.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             dgvCategorias.Columns.AddRange(new DataGridViewColumn[] { colCatId, colCatNombre, colCatProductos });
-            dataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = SystemColors.Window;
+            dataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.TopCenter;
+            dataGridViewCellStyle7.BackColor = SystemColors.InactiveCaptionText;
             dataGridViewCellStyle7.Font = new Font("Segoe UI", 9.5F);
-            dataGridViewCellStyle7.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle7.ForeColor = SystemColors.ButtonFace;
             dataGridViewCellStyle7.SelectionBackColor = Color.FromArgb(220, 235, 255);
             dataGridViewCellStyle7.SelectionForeColor = Color.FromArgb(30, 30, 47);
             dataGridViewCellStyle7.WrapMode = DataGridViewTriState.False;
             dgvCategorias.DefaultCellStyle = dataGridViewCellStyle7;
-            dgvCategorias.EnableHeadersVisualStyles = false;
             dgvCategorias.GridColor = Color.FromArgb(230, 230, 245);
             dgvCategorias.Location = new Point(11, 59);
             dgvCategorias.Margin = new Padding(3, 4, 3, 4);
@@ -1030,7 +940,7 @@
             dgvCategorias.RowHeadersWidth = 51;
             dgvCategorias.RowTemplate.Height = 34;
             dgvCategorias.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvCategorias.Size = new Size(903, 677);
+            dgvCategorias.Size = new Size(801, 677);
             dgvCategorias.TabIndex = 0;
             dgvCategorias.CellClick += dgvCategorias_CellClick;
             // 
@@ -1041,7 +951,6 @@
             colCatId.MinimumWidth = 6;
             colCatId.Name = "colCatId";
             colCatId.ReadOnly = true;
-            colCatId.Width = 60;
             // 
             // colCatNombre
             // 
@@ -1061,7 +970,6 @@
             colCatProductos.MinimumWidth = 6;
             colCatProductos.Name = "colCatProductos";
             colCatProductos.ReadOnly = true;
-            colCatProductos.Width = 130;
             // 
             // pnlFormCategoria
             // 
@@ -1072,12 +980,12 @@
             pnlFormCategoria.Controls.Add(txtNombreCategoria);
             pnlFormCategoria.Controls.Add(btnEliminarCategoria);
             pnlFormCategoria.Controls.Add(btnNuevaCategoria);
-            pnlFormCategoria.CustomizableEdges = customizableEdges47;
+            pnlFormCategoria.CustomizableEdges = customizableEdges45;
             pnlFormCategoria.Location = new Point(951, 13);
             pnlFormCategoria.Margin = new Padding(3, 4, 3, 4);
             pnlFormCategoria.Name = "pnlFormCategoria";
             pnlFormCategoria.ShadowDecoration.Color = Color.FromArgb(20, 0, 0, 0);
-            pnlFormCategoria.ShadowDecoration.CustomizableEdges = customizableEdges48;
+            pnlFormCategoria.ShadowDecoration.CustomizableEdges = customizableEdges46;
             pnlFormCategoria.ShadowDecoration.Depth = 4;
             pnlFormCategoria.ShadowDecoration.Enabled = true;
             pnlFormCategoria.Size = new Size(566, 284);
@@ -1109,7 +1017,7 @@
             // 
             txtNombreCategoria.BorderColor = Color.FromArgb(200, 200, 220);
             txtNombreCategoria.BorderRadius = 8;
-            txtNombreCategoria.CustomizableEdges = customizableEdges41;
+            txtNombreCategoria.CustomizableEdges = customizableEdges39;
             txtNombreCategoria.DefaultText = "";
             txtNombreCategoria.Font = new Font("Segoe UI", 10F);
             txtNombreCategoria.ForeColor = Color.FromArgb(60, 60, 80);
@@ -1118,7 +1026,7 @@
             txtNombreCategoria.Name = "txtNombreCategoria";
             txtNombreCategoria.PlaceholderText = "";
             txtNombreCategoria.SelectedText = "";
-            txtNombreCategoria.ShadowDecoration.CustomizableEdges = customizableEdges42;
+            txtNombreCategoria.ShadowDecoration.CustomizableEdges = customizableEdges40;
             txtNombreCategoria.Size = new Size(528, 48);
             txtNombreCategoria.TabIndex = 0;
             // 
@@ -1126,15 +1034,15 @@
             // 
             btnEliminarCategoria.BorderRadius = 8;
             btnEliminarCategoria.Cursor = Cursors.Hand;
-            btnEliminarCategoria.CustomizableEdges = customizableEdges43;
-            btnEliminarCategoria.FillColor = Color.FromArgb(239, 68, 68);
+            btnEliminarCategoria.CustomizableEdges = customizableEdges41;
+            btnEliminarCategoria.FillColor = Color.FromArgb(120, 10, 10);
             btnEliminarCategoria.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             btnEliminarCategoria.ForeColor = Color.White;
             btnEliminarCategoria.HoverState.FillColor = Color.FromArgb(185, 28, 28);
             btnEliminarCategoria.Location = new Point(385, 176);
             btnEliminarCategoria.Margin = new Padding(3, 4, 3, 4);
             btnEliminarCategoria.Name = "btnEliminarCategoria";
-            btnEliminarCategoria.ShadowDecoration.CustomizableEdges = customizableEdges44;
+            btnEliminarCategoria.ShadowDecoration.CustomizableEdges = customizableEdges42;
             btnEliminarCategoria.Size = new Size(149, 51);
             btnEliminarCategoria.TabIndex = 2;
             btnEliminarCategoria.Text = "  Eliminar";
@@ -1144,15 +1052,15 @@
             // 
             btnNuevaCategoria.BorderRadius = 8;
             btnNuevaCategoria.Cursor = Cursors.Hand;
-            btnNuevaCategoria.CustomizableEdges = customizableEdges45;
-            btnNuevaCategoria.FillColor = Color.FromArgb(37, 99, 235);
+            btnNuevaCategoria.CustomizableEdges = customizableEdges43;
+            btnNuevaCategoria.FillColor = Color.FromArgb(30, 58, 138);
             btnNuevaCategoria.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             btnNuevaCategoria.ForeColor = Color.White;
             btnNuevaCategoria.HoverState.FillColor = Color.FromArgb(29, 78, 216);
             btnNuevaCategoria.Location = new Point(16, 176);
             btnNuevaCategoria.Margin = new Padding(3, 4, 3, 4);
             btnNuevaCategoria.Name = "btnNuevaCategoria";
-            btnNuevaCategoria.ShadowDecoration.CustomizableEdges = customizableEdges46;
+            btnNuevaCategoria.ShadowDecoration.CustomizableEdges = customizableEdges44;
             btnNuevaCategoria.Size = new Size(187, 51);
             btnNuevaCategoria.TabIndex = 4;
             btnNuevaCategoria.Text = "Nueva Categoría";
@@ -1162,10 +1070,9 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.FromArgb(240, 240, 248);
-            ClientSize = new Size(1561, 875);
+            BackColor = Color.WhiteSmoke;
+            ClientSize = new Size(1598, 875);
             Controls.Add(tabMenu);
-            Controls.Add(pnlTopBar);
             Font = new Font("Segoe UI", 9F);
             FormBorderStyle = FormBorderStyle.FixedSingle;
             Margin = new Padding(3, 4, 3, 4);
@@ -1174,10 +1081,6 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Gestión de Menú - Sabor Gourmet FMO";
             Load += frmMenu_Load;
-            pnlTopBar.ResumeLayout(false);
-            pnlTopBar.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)picIconoApp).EndInit();
-            ((System.ComponentModel.ISupportInitialize)picAvatarUsuario).EndInit();
             tabMenu.ResumeLayout(false);
             tabProductos.ResumeLayout(false);
             pnlCardTotal.ResumeLayout(false);
@@ -1204,14 +1107,6 @@
         }
 
         #endregion
-
-        // ── TOP BAR
-        private Guna.UI2.WinForms.Guna2Panel pnlTopBar;
-        private System.Windows.Forms.PictureBox picIconoApp;
-        private System.Windows.Forms.Label lblTituloForm;
-        private System.Windows.Forms.Label lblSubtitulo;
-        private System.Windows.Forms.PictureBox picAvatarUsuario;
-        private System.Windows.Forms.Label lblNombreUsuario;
 
         // ── TABS
         private System.Windows.Forms.TabControl tabMenu;
