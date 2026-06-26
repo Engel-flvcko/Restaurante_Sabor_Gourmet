@@ -14,12 +14,11 @@ namespace Restaurante_Sabor_Gourmet.Formularios
 {
     public partial class frmOrdenes : Form
     {
-        // Sesión del mesero logueado , la recibe del frmPrincipal de Persona 1
+        // Sesión del mesero logueado 
 
-        // ── Campo nuevo ───────────────────────────────────────────────
         private int idMesaPreseleccionada = 0;
 
-        // ── Constructor: agrega el parámetro opcional ─────────────────
+        // Constructor: agrega el parámetro opcional 
         public frmOrdenes(int idMeseroSesion, string nombreMeseroSesion, int idMesaPreseleccionada = 0)
         {
             InitializeComponent();
@@ -66,7 +65,7 @@ namespace Restaurante_Sabor_Gourmet.Formularios
 
                 LimpiarInfoMesa();
 
-                // ── PRE-SELECCIONAR mesa si viene desde FrmMesas ──────────
+                // PRE-SELECCIONAR mesa si viene desde FrmMesas 
 
                 if (idMesaPreseleccionada > 0)
                 {
@@ -100,7 +99,7 @@ namespace Restaurante_Sabor_Gourmet.Formularios
         private void cbxMesa_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (cbxMesa.SelectedValue == null) return;
-            if (cbxMesa.SelectedValue is DataRowView) return; // ← evita el crash al cargar
+            if (cbxMesa.SelectedValue is DataRowView) return; 
 
             idMesaSeleccionada = Convert.ToInt32(cbxMesa.SelectedValue);
 
@@ -255,12 +254,12 @@ namespace Restaurante_Sabor_Gourmet.Formularios
                 case "abierta":
                     lblEstadoOrden.FillColor = Color.FromArgb(37, 99, 235);
                     lblEstadoOrdenTexto.Text = "● ABIERTA";
-                    ordenEnviadaACocina = false; // ← sigue editable
+                    ordenEnviadaACocina = false; // sigue editable
                     break;
                 case "pendiente_pago":
                     lblEstadoOrden.FillColor = Color.FromArgb(249, 115, 22);
                     lblEstadoOrdenTexto.Text = "● PENDIENTE DE PAGO";
-                    ordenEnviadaACocina = true; // ← ahora sí bloquear
+                    ordenEnviadaACocina = true; // ahora sí bloquear
                     break;
                 case "pagada":
                     lblEstadoOrden.FillColor = Color.FromArgb(34, 197, 94);
