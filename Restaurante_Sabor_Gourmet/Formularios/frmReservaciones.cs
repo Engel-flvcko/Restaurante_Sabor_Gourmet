@@ -14,18 +14,18 @@ namespace Restaurante_Sabor_Gourmet.Formularios
 {
     public partial class frmReservaciones : Form
     {
-        // ── Sesión ─────────────────────────────────────────────────────
+        // Sesión
         private int idUsuarioSesion;
         private string nombreUsuarioSesion;
 
-        // ── Estado interno ─────────────────────────────────────────────
+        //  Estado interno 
         private int idReservacionSeleccionada = 0;
         private bool modoEdicion = false;
 
         // Caché de checkboxes de mesas generados dinámicamente
         private List<CheckBox> checksMesas = new List<CheckBox>();
 
-        // ── Constructor ────────────────────────────────────────────────
+        // Constructor 
         public frmReservaciones(int idUsuarioSesion, string nombreUsuarioSesion)
         {
             InitializeComponent();
@@ -33,9 +33,7 @@ namespace Restaurante_Sabor_Gourmet.Formularios
             this.nombreUsuarioSesion = nombreUsuarioSesion;
         }
 
-        // ══════════════════════════════════════════════════════════════
         //  CARGA INICIAL
-        // ══════════════════════════════════════════════════════════════
         private void frmReservaciones_Load(object sender, EventArgs e)
         {
             CargarCombos();
@@ -44,7 +42,7 @@ namespace Restaurante_Sabor_Gourmet.Formularios
             LimpiarFormulario();
         }
 
-        // ── Poblar combos ──────────────────────────────────────────────
+        //  Poblar combos 
         private void CargarCombos()
         {
             // Horas disponibles (de 7:00 a 22:00 cada 30 min)
@@ -85,7 +83,7 @@ namespace Restaurante_Sabor_Gourmet.Formularios
             cmbFiltroTipo.SelectedIndex = 0;
         }
 
-        // ── Generar checkboxes de mesas ────────────────────────────────
+        // Generar checkboxes de mesas 
         private void CargarMesasEnPanel()
         {
             pnlMesas.Controls.Clear();
@@ -125,7 +123,7 @@ namespace Restaurante_Sabor_Gourmet.Formularios
             }
         }
 
-        // ── Obtener IDs de mesas seleccionadas ────────────────────────
+        // Obtener IDs de mesas seleccionadas
         private List<int> ObtenerMesasSeleccionadas()
         {
             List<int> ids = new List<int>();
@@ -220,10 +218,7 @@ namespace Restaurante_Sabor_Gourmet.Formularios
                 e.FormattingApplied = true;
             }
         }
-
-        // ══════════════════════════════════════════════════════════════
         //  SELECCIÓN EN GRILLA
-        // ══════════════════════════════════════════════════════════════
         private void dgvReservaciones_CellClick(object sender,
             DataGridViewCellEventArgs e)
         {
@@ -239,9 +234,7 @@ namespace Restaurante_Sabor_Gourmet.Formularios
             btnConfirmar.Enabled = estado.Equals("pendiente", StringComparison.OrdinalIgnoreCase);
         }
 
-        // ══════════════════════════════════════════════════════════════
-        //  TIPO → habilitar/deshabilitar campo Nombre Evento
-        // ══════════════════════════════════════════════════════════════
+        //  TIPO , habilitar/deshabilitar campo Nombre Evento
         private void cmbTipo_SelectedIndexChanged(object sender, EventArgs e)
         {
             bool esEvento = cmbTipo.SelectedItem?.ToString() == "Evento";
@@ -252,9 +245,7 @@ namespace Restaurante_Sabor_Gourmet.Formularios
             if (!esEvento) txtNombreEvento.Text = "";
         }
 
-        // ══════════════════════════════════════════════════════════════
         //  GUARDAR (nuevo o actualización)
-        // ══════════════════════════════════════════════════════════════
         private void btnGuardar_Click(object sender, EventArgs e)
         {
             if (!ValidarFormulario()) return;
