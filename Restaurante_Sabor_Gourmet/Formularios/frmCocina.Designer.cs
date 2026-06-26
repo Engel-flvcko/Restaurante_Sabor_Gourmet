@@ -609,6 +609,7 @@
             // 
             AutoScaleDimensions = new SizeF(120F, 120F);
             AutoScaleMode = AutoScaleMode.Dpi;
+            AutoScroll = true;
             BackColor = Color.FromArgb(240, 240, 248);
             ClientSize = new Size(1490, 1055);
             Controls.Add(pnlKpiTiempoProm);
