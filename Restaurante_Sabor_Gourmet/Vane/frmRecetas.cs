@@ -14,9 +14,9 @@ namespace Restaurante_Sabor_Gourmet.Vane
 {
     public partial class frmRecetas : Form
     {
-        // ─────────────────────────────────────────
+   
         // VARIABLES DE ESTADO
-        // ─────────────────────────────────────────
+     
         private int idUsuarioSesion;
         private string nombreUsuarioSesion;
 
@@ -31,19 +31,18 @@ namespace Restaurante_Sabor_Gourmet.Vane
         private readonly SQLInventario sqlInv = new SQLInventario();
         private readonly SQLMenu sqlMenu = new SQLMenu();
 
-        // Mapa nombre→id para ingredientes del combo
+        // Mapa nombre,id para ingredientes del combo
         private Dictionary<string, int> mapaIngredientes = new Dictionary<string, int>();
-        // Mapa nombre→costoUnitario para el análisis de costo
+        // Mapa nombre,costoUnitario para el análisis de costo
         private Dictionary<string, decimal> mapaCostos = new Dictionary<string, decimal>();
-        // Mapa nombre→unidadMedida para autocompletar
+        // Mapa nombre,unidadMedida para autocompletar
         private Dictionary<string, string> mapaUnidades = new Dictionary<string, string>();
 
         // Lista de productos para la grilla izquierda
         private List<ProductoCatalogo> todosLosProductos = new List<ProductoCatalogo>();
 
-        // ─────────────────────────────────────────
         // CONSTRUCTORES
-        // ─────────────────────────────────────────
+    
 
         // Desde frmPrincipal (sin preselección)
         public frmRecetas(int idUsuarioSesion, string nombreUsuarioSesion)
@@ -62,9 +61,8 @@ namespace Restaurante_Sabor_Gourmet.Vane
             this.nombreProductoActual  = nombreProducto;
         }
 
-        // ─────────────────────────────────────────
         // CARGA INICIAL
-        // ─────────────────────────────────────────
+ 
         private void frmRecetas_Load(object sender, EventArgs e)
         {
            
@@ -78,9 +76,8 @@ namespace Restaurante_Sabor_Gourmet.Vane
                 SeleccionarProductoEnGrilla(idProductoActual);
         }
 
-        // ─────────────────────────────────────────
         // CARGAR CATEGORÍAS EN COMBO FILTRO
-        // ─────────────────────────────────────────
+   
         private void CargarCategoriasFiltro()
         {
             cmbCategoriaFiltro.Items.Clear();
@@ -93,9 +90,9 @@ namespace Restaurante_Sabor_Gourmet.Vane
             cmbCategoriaFiltro.SelectedIndex = 0;
         }
 
-        // ─────────────────────────────────────────
+      
         // CARGAR INGREDIENTES EN COMBO + MAPAS
-        // ─────────────────────────────────────────
+      
         private void CargarIngredientesCombo()
         {
             cmbIngrediente.Items.Clear();
@@ -116,9 +113,9 @@ namespace Restaurante_Sabor_Gourmet.Vane
                 cmbIngrediente.SelectedIndex = 0;
         }
 
-        // ─────────────────────────────────────────
+  
         // CARGAR GRILLA DE PRODUCTOS
-        // ─────────────────────────────────────────
+     
         private void CargarGrillaProductos()
         {
             todosLosProductos = sqlMenu.ObtenerTodosLosProductos();
@@ -159,9 +156,9 @@ namespace Restaurante_Sabor_Gourmet.Vane
             lblTotalProductos.Text = $"Total productos: {contador}";
         }
 
-        // ─────────────────────────────────────────
+  
         // SELECCIONAR PRODUCTO EN GRILLA (desde frmMenu)
-        // ─────────────────────────────────────────
+      
         private void SeleccionarProductoEnGrilla(int idProducto)
         {
             foreach (DataGridViewRow fila in dgvProductos.Rows)
@@ -177,9 +174,8 @@ namespace Restaurante_Sabor_Gourmet.Vane
             }
         }
 
-        // ─────────────────────────────────────────
         // FILTROS PANEL PRODUCTO
-        // ─────────────────────────────────────────
+      
         private void txtBuscarProducto_TextChanged(object sender, EventArgs e)
         {
             FiltrarYMostrarProductos();
@@ -190,9 +186,9 @@ namespace Restaurante_Sabor_Gourmet.Vane
             FiltrarYMostrarProductos();
         }
 
-        // ─────────────────────────────────────────
+    
         // SELECCIÓN EN GRILLA PRODUCTOS
-        // ─────────────────────────────────────────
+     
         private void dgvProductos_SelectionChanged(object sender, EventArgs e)
         {
             if (dgvProductos.SelectedRows.Count == 0) return;
@@ -202,9 +198,9 @@ namespace Restaurante_Sabor_Gourmet.Vane
                 CargarRecetaDeProducto(id);
         }
 
-        // ─────────────────────────────────────────
+    
         // CARGAR RECETA DEL PRODUCTO SELECCIONADO
-        // ─────────────────────────────────────────
+       
         private void CargarRecetaDeProducto(int idProducto)
         {
             idProductoActual = idProducto;
@@ -241,9 +237,8 @@ namespace Restaurante_Sabor_Gourmet.Vane
             LimpiarFormularioAgregar();
         }
 
-        // ─────────────────────────────────────────
         // CAMBIO DE INGREDIENTE EN COMBO — autocompleta unidad
-        // ─────────────────────────────────────────
+   
         private void cmbIngrediente_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (cmbIngrediente.SelectedItem == null) return;
@@ -270,9 +265,8 @@ namespace Restaurante_Sabor_Gourmet.Vane
             return false;
         }
 
-        // ─────────────────────────────────────────
         // BOTÓN AGREGAR A RECETA
-        // ─────────────────────────────────────────
+       
         private void btnAgregarReceta_Click(object sender, EventArgs e)
         {
             if (idProductoActual == 0)
@@ -328,9 +322,8 @@ namespace Restaurante_Sabor_Gourmet.Vane
             }
         }
 
-        // ─────────────────────────────────────────
         // BOTÓN ELIMINAR EN GRILLA RECETA (colAcciones)
-        // ─────────────────────────────────────────
+      
         private void dgvReceta_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex < 0) return;
@@ -362,10 +355,10 @@ namespace Restaurante_Sabor_Gourmet.Vane
             FiltrarYMostrarProductos();
         }
 
-        // ─────────────────────────────────────────
+        
         // ANÁLISIS DE COSTO
         // Se calcula desde los datos en la grilla usando mapaCostos
-        // ─────────────────────────────────────────
+       
         private void ActualizarAnalisisCosto()
         {
             decimal costoTotal = 0;
@@ -453,10 +446,10 @@ namespace Restaurante_Sabor_Gourmet.Vane
             FiltrarYMostrarProductos();
         }
 
-        // ─────────────────────────────────────────
+  
         // BOTÓN LIMPIAR RECETA
         // Elimina TODOS los ingredientes de la receta actual
-        // ─────────────────────────────────────────
+     
         private void btnLimpiarReceta_Click(object sender, EventArgs e)
         {
             if (idProductoActual == 0 || dgvReceta.Rows.Count == 0) return;
@@ -494,10 +487,8 @@ namespace Restaurante_Sabor_Gourmet.Vane
                 CargarRecetaDeProducto(idProductoActual);
             }
         }
-
-        // ─────────────────────────────────────────
         // BOTÓN ACTUALIZAR — recarga todo desde BD
-        // ─────────────────────────────────────────
+       
         private void btnActualizar_Click(object sender, EventArgs e)
         {
             CargarIngredientesCombo();
@@ -507,9 +498,9 @@ namespace Restaurante_Sabor_Gourmet.Vane
                 CargarRecetaDeProducto(idProductoActual);
         }
 
-        // ─────────────────────────────────────────
-        // HELPER — limpiar panel agregar ingrediente
-        // ─────────────────────────────────────────
+ 
+        // HELPER , limpiar panel agregar ingrediente
+   
         private void LimpiarFormularioAgregar()
         {
             if (cmbIngrediente.Items.Count > 0)

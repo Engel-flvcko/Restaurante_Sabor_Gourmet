@@ -33,9 +33,9 @@ namespace Restaurante_Sabor_Gourmet.Jaqueline.Formularios
             this.sqlMesas = sql;
         }
 
-        // ══════════════════════════════════════════════════════════════
-        //  CARGA INICIAL
-        // ══════════════════════════════════════════════════════════════
+
+        //  Carga inicial
+    
         private void FrmPopupMesas_Load(object sender, EventArgs e)
         {
             // Ocultar todos los tabs primero
@@ -64,9 +64,8 @@ namespace Restaurante_Sabor_Gourmet.Jaqueline.Formularios
         }
         
 
-        // ══════════════════════════════════════════════════════════════
         //  TABS
-        // ══════════════════════════════════════════════════════════════
+
         private void btnTabUnir_Click(object sender, EventArgs e)
         {
             tabActiva = TabInicial.Unir;
@@ -112,9 +111,8 @@ namespace Restaurante_Sabor_Gourmet.Jaqueline.Formularios
         }
 
 
-        // ══════════════════════════════════════════════════════════════
-        //  TAB 1 — UNIR MESAS
-        // ══════════════════════════════════════════════════════════════
+        //  TAB 1 — unir esas
+    
         private void MostrarTabUnir()
         {
             pnlContenido.Controls.Clear();
@@ -188,9 +186,9 @@ namespace Restaurante_Sabor_Gourmet.Jaqueline.Formularios
             pnlContenido.Controls.Add(pnlNota);
         }
 
-        // ══════════════════════════════════════════════════════════════
-        //  TAB 2 — TRANSFERIR ORDEN
-        // ══════════════════════════════════════════════════════════════
+        
+        //  TAB 2 — trasnferiri orden
+   
         private void MostrarTabTransferir()
         {
             pnlContenido.Controls.Clear();
@@ -281,9 +279,8 @@ namespace Restaurante_Sabor_Gourmet.Jaqueline.Formularios
                 { lblTitulo, lblSub, lblDestino, cmbMesas, pnlInfo });
         }
 
-        // ══════════════════════════════════════════════════════════════
-        //  TAB 3 — DIVIDIR MESA
-        // ══════════════════════════════════════════════════════════════
+        //  TAB 3 — Ddividir mesa 
+ 
         private void MostrarTabDividir()
         {
             pnlContenido.Controls.Clear();
@@ -372,9 +369,8 @@ namespace Restaurante_Sabor_Gourmet.Jaqueline.Formularios
                 { lblTitulo, lblSub, pnlLista, pnlAlerta });
         }
 
-        // ══════════════════════════════════════════════════════════════
         //  CONFIRMAR
-        // ══════════════════════════════════════════════════════════════
+
         private void btnConfirmar_Click(object sender, EventArgs e)
         {
             bool ok = false;
@@ -437,9 +433,8 @@ namespace Restaurante_Sabor_Gourmet.Jaqueline.Formularios
             Close();
         }
 
-        // ══════════════════════════════════════════════════════════════
         //  HELPERS
-        // ══════════════════════════════════════════════════════════════
+
         private int ObtenerNumeroMesa(int idMesa)
         {
             DataTable dt = sqlMesas.ObtenerMesaPorId(idMesa);
