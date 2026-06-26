@@ -58,8 +58,7 @@ namespace Restaurante_Sabor_Gourmet.Formularios
                 dt.Columns.Add("texto_mesa", typeof(string));
 
                 foreach (MesaResumen m in mesasOcupadas)
-                    dt.Rows.Add(m.IdMesa,
-                        string.Format("Mesa {0:00} - {1}", m.NumeroMesa, m.NombreZona));
+                    dt.Rows.Add(m.IdMesa, m.TextoComboBox);
 
                 cbxMesa.DataSource = dt;
                 cbxMesa.DisplayMember = "texto_mesa";
@@ -68,6 +67,7 @@ namespace Restaurante_Sabor_Gourmet.Formularios
                 LimpiarInfoMesa();
 
                 // ── PRE-SELECCIONAR mesa si viene desde FrmMesas ──────────
+                
                 if (idMesaPreseleccionada > 0)
                 {
                     foreach (DataRow fila in dt.Rows)
@@ -75,11 +75,20 @@ namespace Restaurante_Sabor_Gourmet.Formularios
                         if (Convert.ToInt32(fila["id_mesa"]) == idMesaPreseleccionada)
                         {
                             cbxMesa.SelectedValue = idMesaPreseleccionada;
+                            // Forzar manualmente la carga de info porque el evento puede no dispararse
+                            idMesaSeleccionada = idMesaPreseleccionada;
+                            MesaResumen mesa = mesasOcupadas.Find(m => m.IdMesa == idMesaPreseleccionada);
+                            if (mesa != null)
+                            {
+                                lblNumeroMesa.Text = "Mesa " + mesa.NumeroMesa.ToString("00");
+                                lblZona.Text = mesa.NombreZona;
+                                lblMeseroAsignado.Text = mesa.NombreMeseroAsignado;
+                                CargarOActualizarOrdenAbierta();
+                            }
                             break;
                         }
                     }
                 }
-                // ─────────────────────────────────────────────────────────
             }
             catch (Exception ex)
             {
@@ -114,6 +123,84 @@ namespace Restaurante_Sabor_Gourmet.Formularios
         //  orden abierta
         //  Si la mesa ya tiene una orden 'abierta', se carga la orden 
         //  Si no, deja todo limpio para una orden nueva.
+        private void btnEnviarCocina_Click(object sender, EventArgs e)
+        {
+            MesaResumen mesa = mesasOcupadas.Find(m => m.IdMesa == idMesaSeleccionada);
+            string estadoMesa = mesa?.EstadoMesa ?? "";
+
+            ValidacionesOrdenes.ResultadoValidacion validacion =
+                ValidacionesOrdenes.ValidarEnvioOrden(
+                    idMesaSeleccionada,
+                    dgvDetalleOrden.Rows.Count,
+                    estadoMesa);
+
+            if (!validacion.EsValido)
+            {
+                MessageBox.Show(validacion.Mensaje, "Aviso",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // Si ya hay orden abierta, preguntar si quiere agregar productos
+            string pregunta = idOrdenActual > 0
+                ? "¿Enviar los productos adicionales a cocina para la Orden #" + idOrdenActual + "?"
+                : "¿Enviar esta orden a cocina?";
+
+            DialogResult resp = MessageBox.Show(pregunta, "Confirmar envío",
+                MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (resp != DialogResult.Yes) return;
+
+            try
+            {
+                SQLOrden sql = new SQLOrden();
+                List<DetalleOrden> det = ObtenerDetalleParaGuardar();
+
+                if (idOrdenActual > 0)
+                {
+                    // Agregar productos a orden existente
+                    bool ok = sql.AgregarProductosAOrden(idOrdenActual, det);
+                    if (ok)
+                    {
+                        MessageBox.Show("Productos agregados a la Orden #" + idOrdenActual + ".",
+                            "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        this.DialogResult = DialogResult.OK;
+                        this.Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("No se pudieron agregar los productos.", "Error",
+                            MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                else
+                {
+                    // Orden nueva
+                    int idGenerado = sql.RegistrarOrden(
+                        idMesaSeleccionada, idMeseroSesion,
+                        txtObservacionesGenerales.Text.Trim(), det);
+
+                    if (idGenerado > 0)
+                    {
+                        idOrdenActual = idGenerado;
+                        ActualizarEstadoOrden("abierta");
+                        MessageBox.Show("Orden #" + idGenerado + " enviada a cocina.",
+                            "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        this.DialogResult = DialogResult.OK;
+                        this.Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("No se pudo registrar la orden.", "Error",
+                            MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
         private void CargarOActualizarOrdenAbierta()
         {
             try
@@ -161,7 +248,6 @@ namespace Restaurante_Sabor_Gourmet.Formularios
                     "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
         private void ActualizarEstadoOrden(string estado)
         {
             switch (estado)
@@ -169,11 +255,12 @@ namespace Restaurante_Sabor_Gourmet.Formularios
                 case "abierta":
                     lblEstadoOrden.FillColor = Color.FromArgb(37, 99, 235);
                     lblEstadoOrdenTexto.Text = "● ABIERTA";
+                    ordenEnviadaACocina = false; // ← sigue editable
                     break;
                 case "pendiente_pago":
                     lblEstadoOrden.FillColor = Color.FromArgb(249, 115, 22);
                     lblEstadoOrdenTexto.Text = "● PENDIENTE DE PAGO";
-                    ordenEnviadaACocina = true; // bloquear edición
+                    ordenEnviadaACocina = true; // ← ahora sí bloquear
                     break;
                 case "pagada":
                     lblEstadoOrden.FillColor = Color.FromArgb(34, 197, 94);
@@ -187,6 +274,7 @@ namespace Restaurante_Sabor_Gourmet.Formularios
                     break;
             }
         }
+
         //  categorias finamicas
         //  Se cargan desde tbl_categorias; si la BD no responde,
         //  se usan las categorías fijas del Designer como fallback.
@@ -483,69 +571,6 @@ namespace Restaurante_Sabor_Gourmet.Formularios
         }
 
         //  Enviar a cocina
-        private void btnEnviarCocina_Click(object sender, EventArgs e)
-        {
-            // Obtener estado de la mesa para validar
-            MesaResumen mesa = mesasOcupadas.Find(m => m.IdMesa == idMesaSeleccionada);
-            string estadoMesa = mesa?.EstadoMesa ?? "";
-
-            ValidacionesOrdenes.ResultadoValidacion validacion =
-                ValidacionesOrdenes.ValidarEnvioOrden(
-                    idMesaSeleccionada,
-                    dgvDetalleOrden.Rows.Count,
-                    estadoMesa);
-
-            if (!validacion.EsValido)
-            {
-                MessageBox.Show(validacion.Mensaje, "Aviso",
-                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-
-
-            DialogResult resp = MessageBox.Show(
-                "¿Enviar esta orden a cocina? Ya no podrás modificarla después.",
-                "Confirmar envío", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-            if (resp != DialogResult.Yes) return;
-
-            try
-            {
-                SQLOrden sql = new SQLOrden();
-                List<DetalleOrden> det = ObtenerDetalleParaGuardar();
-
-                int idGenerado = sql.RegistrarOrden(
-                    idMesaSeleccionada,
-                    idMeseroSesion,
-                    txtObservacionesGenerales.Text.Trim(),
-                    det);
-
-                if (idGenerado > 0)
-                {
-                    idOrdenActual = idGenerado;
-                    ordenEnviadaACocina = true;
-                    ActualizarEstadoOrden("abierta");
-
-                    MessageBox.Show("Orden #" + idGenerado + " enviada a cocina correctamente.",
-                        "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                    // ── Cerrar el formulario al terminar ──────────────────────
-                    this.DialogResult = DialogResult.OK;
-                    this.Close();
-                    // ─────────────────────────────────────────────────────────
-                }
-                else
-                {
-                    MessageBox.Show("No se pudo registrar la orden. Intenta de nuevo.",
-                        "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error al registrar la orden: " + ex.Message,
-                    "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
 
         //  Solicitar de cierre de cuenta 
         private void btnSolicitarCierre_Click(object sender, EventArgs e)

@@ -128,9 +128,7 @@ namespace Restaurante_Sabor_Gourmet.Jaqueline.Formularios
             lblCapacidadMesa.Text = row["capacidad_mesa"].ToString() + " personas";
             lblUbicacionMesa.Text = row["nombre_zona"].ToString();
             lblMeseroAsignado.Text = Sesion.NombreUsuario;
-            lblCantidadCliente.Text = row["num_clientes_mesa"] != DBNull.Value
-                                      ? row["num_clientes_mesa"].ToString()
-                                      : "0";
+            
 
             lblHoraInicioOrden.Text = row["hora_ocupacion_mesa"] != DBNull.Value
                                       ? Convert.ToDateTime(row["hora_ocupacion_mesa"])
@@ -174,8 +172,7 @@ namespace Restaurante_Sabor_Gourmet.Jaqueline.Formularios
             lblUbicacionMesa.Visible = false;
             lblMesero.Visible = false;
             lblMeseroAsignado.Visible = false;
-            lblClientes.Visible = false;
-            lblCantidadCliente.Visible = false;
+           
             lblHoraInicio.Visible = false;
             lblHoraInicioOrden.Visible = false;
             lblOrden.Visible = false;
@@ -209,8 +206,7 @@ namespace Restaurante_Sabor_Gourmet.Jaqueline.Formularios
             btnMesaFueraServicio.Visible = false;
             lblMesero.Visible = false;
             lblMeseroAsignado.Visible = false;
-            lblClientes.Visible = false;
-            lblCantidadCliente.Visible = false;
+            
             lblHoraInicio.Visible = false;
             lblHoraInicioOrden.Visible = false;
             lblOrden.Visible = false;
@@ -235,8 +231,6 @@ namespace Restaurante_Sabor_Gourmet.Jaqueline.Formularios
                 case "Ocupada":
                     lblMesero.Visible = true;
                     lblMeseroAsignado.Visible = true;
-                    lblClientes.Visible = true;
-                    lblCantidadCliente.Visible = true;
                     lblHoraInicio.Visible = true;
                     lblHoraInicioOrden.Visible = true;
                     lblOrden.Visible = true;
@@ -246,7 +240,9 @@ namespace Restaurante_Sabor_Gourmet.Jaqueline.Formularios
                     btnSolicitarPago.Visible = true;
                     btnUnirMesas.Visible = true;
                     btnDividirMesa.Visible = true;
+                    btnVerOrden.Visible = true;  // ← agregar
 
+                    btnVerOrden.FillColor = Color.FromArgb(34, 197, 94);
                     btnTransferirOrden.FillColor = Color.FromArgb(37, 99, 235);
                     btnSolicitarPago.FillColor = Color.FromArgb(249, 115, 22);
                     btnUnirMesas.FillColor = Color.FromArgb(168, 85, 247);
@@ -445,6 +441,19 @@ namespace Restaurante_Sabor_Gourmet.Jaqueline.Formularios
             }
         }
 
-        
+        private void btnVerOrden_Click(object sender, EventArgs e)
+        {
+            if (mesaSeleccionada == -1) return;
+
+            using (Restaurante_Sabor_Gourmet.Formularios.frmOrdenes frm =
+                   new Restaurante_Sabor_Gourmet.Formularios.frmOrdenes(
+                       Sesion.IdUsuario, Sesion.NombreUsuario, mesaSeleccionada))
+            {
+                frm.ShowDialog();
+            }
+
+            CargarTodasLasMesas();
+            MostrarInfoMesa(mesaSeleccionada);
+        }
     }
 }

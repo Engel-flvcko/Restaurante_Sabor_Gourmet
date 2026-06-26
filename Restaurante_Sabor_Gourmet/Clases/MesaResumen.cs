@@ -12,7 +12,8 @@ namespace Restaurante_Sabor_Gourmet.Clases
         public int NumeroMesa { get; set; }              // numero_mesa
         public string EstadoMesa { get; set; }           // estado_mesa
         public int? IdMeseroAsignado { get; set; }       // id_mesero_asignado (FK -> tbl_usuarios)
-
+                                                         // En MesaResumen.cs — agregar esta propiedad
+        public string TextoComboBox { get; set; }
         public int Capacidad { get; set; }   // capacidad// Solo para mostrar en pantalla (vienen de JOIN)
         public string NombreZona { get; set; }
         public string NombreMeseroAsignado { get; set; }

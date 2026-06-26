@@ -72,6 +72,77 @@ namespace Restaurante_Sabor_Gourmet.ConsultasSQL
             return orden;
         }
 
+        public bool AgregarProductosAOrden(int idOrden, List<DetalleOrden> detalles)
+        {
+            using (MySqlConnection cn = conexion.ObtenerConexion())
+            {
+                cn.Open();
+                using (MySqlTransaction tx = cn.BeginTransaction())
+                {
+                    try
+                    {
+                        foreach (DetalleOrden d in detalles)
+                        {
+                            // Si el producto ya existe en la orden, suma la cantidad
+                            string sqlCheck = @"
+                        SELECT id_detalle FROM tbl_detalle_orden
+                        WHERE id_orden_detalle   = @idOrden
+                          AND id_producto_detalle = @idProducto
+                        LIMIT 1";
+
+                            int idDetalle = 0;
+                            using (MySqlCommand cmd = new MySqlCommand(sqlCheck, cn, tx))
+                            {
+                                cmd.Parameters.AddWithValue("@idOrden", idOrden);
+                                cmd.Parameters.AddWithValue("@idProducto", d.IdProductoDetalle);
+                                object res = cmd.ExecuteScalar();
+                                if (res != null && res != DBNull.Value)
+                                    idDetalle = Convert.ToInt32(res);
+                            }
+
+                            if (idDetalle > 0)
+                            {
+                                // Sumar cantidad al detalle existente
+                                string sqlUpdate = @"
+                            UPDATE tbl_detalle_orden
+                            SET cantidad_detalle = cantidad_detalle + @cantidad
+                            WHERE id_detalle = @idDetalle";
+                                using (MySqlCommand cmd = new MySqlCommand(sqlUpdate, cn, tx))
+                                {
+                                    cmd.Parameters.AddWithValue("@cantidad", d.CantidadDetalle);
+                                    cmd.Parameters.AddWithValue("@idDetalle", idDetalle);
+                                    cmd.ExecuteNonQuery();
+                                }
+                            }
+                            else
+                            {
+                                // Insertar nuevo detalle
+                                string sqlInsert = @"
+                            INSERT INTO tbl_detalle_orden
+                                (id_orden_detalle, id_producto_detalle,
+                                 cantidad_detalle, precio_unitario_detalle, observaciones_detalle)
+                            VALUES
+                                (@idOrden, @idProducto,
+                                 @cantidad, @precio, @obs)";
+                                using (MySqlCommand cmd = new MySqlCommand(sqlInsert, cn, tx))
+                                {
+                                    cmd.Parameters.AddWithValue("@idOrden", idOrden);
+                                    cmd.Parameters.AddWithValue("@idProducto", d.IdProductoDetalle);
+                                    cmd.Parameters.AddWithValue("@cantidad", d.CantidadDetalle);
+                                    cmd.Parameters.AddWithValue("@precio", d.PrecioUnitarioDetalle);
+                                    cmd.Parameters.AddWithValue("@obs", d.Observaciones ?? "");
+                                    cmd.ExecuteNonQuery();
+                                }
+                            }
+                        }
+
+                        tx.Commit();
+                        return true;
+                    }
+                    catch { tx.Rollback(); return false; }
+                }
+            }
+        }
         private List<DetalleOrden> ObtenerDetallesPorOrden(MySqlConnection cn, int idOrden)
         {
             List<DetalleOrden> detalles = new List<DetalleOrden>();
