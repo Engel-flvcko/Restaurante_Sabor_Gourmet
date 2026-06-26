@@ -619,7 +619,7 @@
             Controls.Add(pnlFiltros);
             Controls.Add(pnlColaProduccion);
             Font = new Font("Segoe UI", 9F);
-            FormBorderStyle = FormBorderStyle.FixedSingle;
+            FormBorderStyle = FormBorderStyle.None;
             Margin = new Padding(4);
             MaximizeBox = false;
             Name = "frmCocina";

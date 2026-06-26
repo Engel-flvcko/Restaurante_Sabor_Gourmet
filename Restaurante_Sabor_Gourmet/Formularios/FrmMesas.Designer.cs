@@ -459,6 +459,7 @@
             guna2Panel1.ShadowDecoration.CustomizableEdges = customizableEdges28;
             guna2Panel1.Size = new Size(1386, 1080);
             guna2Panel1.TabIndex = 1;
+            guna2Panel1.Paint += guna2Panel1_Paint;
             // 
             // pnlLeyenda
             // 

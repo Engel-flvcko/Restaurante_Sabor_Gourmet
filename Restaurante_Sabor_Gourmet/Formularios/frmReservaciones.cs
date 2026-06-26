@@ -415,9 +415,9 @@ namespace Restaurante_Sabor_Gourmet.Formularios
             }
         }
 
-        // ══════════════════════════════════════════════════════════════
+
         //  CONFIRMAR RESERVACIÓN
-        // ══════════════════════════════════════════════════════════════
+
         private void btnConfirmar_Click(object sender, EventArgs e)
         {
             if (idReservacionSeleccionada == 0)
@@ -607,6 +607,11 @@ namespace Restaurante_Sabor_Gourmet.Formularios
             catch { /* si falla la consulta de capacidad, el SP valida */ }
 
             return true;
+        }
+
+        private void pnlBotonesAccion_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

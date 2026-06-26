@@ -553,7 +553,7 @@
             lblDetalleTitulo.Location = new Point(25, 19);
             lblDetalleTitulo.Margin = new Padding(4, 0, 4, 0);
             lblDetalleTitulo.Name = "lblDetalleTitulo";
-            lblDetalleTitulo.Size = new Size(303, 28);
+            lblDetalleTitulo.Size = new Size(299, 28);
             lblDetalleTitulo.TabIndex = 0;
             lblDetalleTitulo.Text = "📋  Detalle de la Orden Actual";
             // 
@@ -762,7 +762,7 @@
             Controls.Add(pnlCatalogo);
             Controls.Add(pnlDetalleOrden);
             Font = new Font("Segoe UI", 9F);
-            FormBorderStyle = FormBorderStyle.FixedSingle;
+            FormBorderStyle = FormBorderStyle.None;
             Margin = new Padding(4);
             MaximizeBox = false;
             Name = "frmOrdenes";
