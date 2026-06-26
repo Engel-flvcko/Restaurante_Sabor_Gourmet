@@ -50,7 +50,7 @@ namespace Restaurante_Sabor_Gourmet.Jaqueline.Clases
             CargarFormulario(new FrmMesas());
         }
 
-        // ── Módulos existentes ─────────────────────────────────────────────────────
+        // Módulos existentes 
 
         public void AbrirCocina()
         {

@@ -35,11 +35,11 @@ namespace Restaurante_Sabor_Gourmet.Jaqueline.Formularios
                 btnCocina,
                 btnMenu,
                 btnUsuarios,
-                btnOrdenes,
+                btnAbrirRecetas,
                 btnInventario,
                 btnCaja,
                 btnReservaciones,
-                btnReportes
+                btnAbrirMeseros
             );
 
         }
@@ -70,11 +70,7 @@ namespace Restaurante_Sabor_Gourmet.Jaqueline.Formularios
             gestorFormularios.AbrirUsuarios();
         }
 
-        private void btnOrdenes_Click(object sender, EventArgs e)
-        {
-            gestorFormularios.AbrirOrdenes();
 
-        }
 
 
         private void btnCaja_Click(object sender, EventArgs e)
@@ -87,12 +83,17 @@ namespace Restaurante_Sabor_Gourmet.Jaqueline.Formularios
             gestorFormularios.AbrirReservaciones();
         }
 
-        
+
 
         private void btnReportes_Click(object sender, EventArgs e)
         {
             gestorFormularios.AbrirDashboard();
 
+        }
+
+        private void btnAbrirRecetas_Click(object sender, EventArgs e)
+        {
+            gestorFormularios.AbrirRecetas();
         }
     }
 }

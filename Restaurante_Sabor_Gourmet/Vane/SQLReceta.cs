@@ -11,9 +11,8 @@ namespace Restaurante_Sabor_Gourmet.ConsultasSQL
     {
         private readonly ConexionBD conexion = new ConexionBD();
 
-        // ─────────────────────────────────────────
-        // RECETAS
-        // ─────────────────────────────────────────
+       
+        // Recetas
 
         public List<Receta> ObtenerPorProducto(int idProducto)
         {
@@ -117,11 +116,8 @@ namespace Restaurante_Sabor_Gourmet.ConsultasSQL
                 }
             }
         }
-
-        // ─────────────────────────────────────────
         // AUXILIARES — Solo para poblar ComboBox en frmRecetas
         // Los productos completos los maneja SQLProductoCatalogo (Persona 2)
-        // ─────────────────────────────────────────
 
         public Dictionary<int, string> ObtenerProductosParaCombo()
         {

@@ -136,10 +136,10 @@
             flowLayoutPanel1.Controls.Add(btnDividirMesa);
             flowLayoutPanel1.Controls.Add(btnLiberarMesa);
             flowLayoutPanel1.Controls.Add(btnMesaFueraServicio);
-            flowLayoutPanel1.Location = new Point(71, 552);
+            flowLayoutPanel1.Location = new Point(71, 538);
             flowLayoutPanel1.Margin = new Padding(25, 25, 25, 5);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(250, 441);
+            flowLayoutPanel1.Size = new Size(250, 472);
             flowLayoutPanel1.TabIndex = 16;
             // 
             // btnAsignarMesa
