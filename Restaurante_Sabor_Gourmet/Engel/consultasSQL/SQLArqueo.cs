@@ -22,10 +22,10 @@ namespace Restaurante_Sabor_Gourmet.Engel.consultasSQL
                 cn.Open();
 
                 string sql = @"INSERT INTO tbl_arqueos_caja
-                                   (id_cajero_arqueo, fecha_apertura_arqueo, fondo_inicial_arqueo,
-                                    total_esperado_arqueo, total_contado_arqueo, diferencia_arqueo, estado_arqueo)
-                               VALUES (@cajero, NOW(), @fondo, 0.00, 0.00, 0.00, 'abierta');
-                               SELECT LAST_INSERT_ID();";
+                           (id_cajero_arqueo, fecha_apertura_arqueo, fondo_inicial_arqueo,
+                            total_esperado_arqueo, total_contado_arqueo, diferencia_arqueo, estado_arqueo)
+                       VALUES (@cajero, NOW(), @fondo, @fondo, 0.00, 0.00, 'abierta');
+                       SELECT LAST_INSERT_ID();";
 
                 MySqlCommand cmd = new MySqlCommand(sql, cn);
                 cmd.Parameters.AddWithValue("@cajero", idCajero);

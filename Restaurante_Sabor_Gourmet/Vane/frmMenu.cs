@@ -44,6 +44,9 @@ namespace Restaurante_Sabor_Gourmet.Vane
         // ─────────────────────────────────────────
         // CARGA INICIAL
         // ─────────────────────────────────────────
+        // ─────────────────────────────────────────
+        // CARGA INICIAL
+        // ─────────────────────────────────────────
         private void frmMenu_Load(object sender, EventArgs e)
         {
             lblNombreUsuario.Text = nombreUsuarioSesion;
@@ -52,15 +55,264 @@ namespace Restaurante_Sabor_Gourmet.Vane
             CargarProductos();
             CargarGrillaCategorias();
 
-            // Estado inicial tab Productos
-            ConfigurarFormProducto(false);
-            BloquearFormulario(true);
+            EstadoInicial();
 
-            // Estado inicial tab Categorías
             btnEliminarCategoria.Enabled = false;
             txtNombreCategoria.Text = "";
-
         }
+
+        private void EstadoInicial()
+        {
+            idProductoSeleccionado = 0;
+            modoEdicion = false;
+
+            txtCodigo.Text = "";
+            txtNombreProducto.Text = "";
+            txtDescripcion.Text = "";
+            txtPrecio.Text = "";
+            txtTiempoPrep.Text = "";
+            tglDisponible.Checked = true;
+            lblDisponibleTexto.Text = "Sí";
+            lblFormTitulo.Text = "Datos del Producto";
+
+            BloquearCampos(true);
+
+            btnNuevoProducto.Text = "Nuevo";
+            btnNuevoProducto.Enabled = true;   // ← siempre visible y activo
+            btnEditar.Enabled = false;
+            btnEliminar.Enabled = false;
+        }
+
+        private void EstadoSeleccionado(ProductoCatalogo p)
+        {
+            idProductoSeleccionado = p.IdProducto;
+            modoEdicion = false;
+
+            txtCodigo.Text = p.CodigoProducto;
+            txtNombreProducto.Text = p.NombreProducto;
+            txtDescripcion.Text = p.Descripcion;
+            txtPrecio.Text = p.PrecioVenta.ToString("F2");
+            txtTiempoPrep.Text = p.TiempoPreparacionMin.ToString();
+            tglDisponible.Checked = p.Disponible;
+            lblDisponibleTexto.Text = p.Disponible ? "Sí" : "No";
+            lblDisponibleTexto.ForeColor = p.Disponible
+                ? Color.FromArgb(34, 197, 94)
+                : Color.FromArgb(239, 68, 68);
+
+            if (mapaCategorias.ContainsValue(p.IdCategoria))
+                cmbCategoria.SelectedItem = p.NombreCategoria;
+
+            lblFormTitulo.Text = $"Producto: {p.NombreProducto}";
+
+            BloquearCampos(true);
+
+            btnNuevoProducto.Text = "Nuevo";
+            btnNuevoProducto.Enabled = true;   // ← activo para poder crear uno nuevo
+            btnEditar.Enabled = true;
+            btnEliminar.Enabled = true;
+        }
+
+        private void EstadoEditando(bool esNuevo)
+        {
+            BloquearCampos(false);
+
+            lblFormTitulo.Text = esNuevo ? "Nuevo Producto" : "Editando producto...";
+
+            btnNuevoProducto.Text = "Guardar";
+            btnNuevoProducto.Enabled = true;   // ← ESTE es el fix principal
+            btnEditar.Enabled = false;
+            btnEliminar.Enabled = false;
+        }
+
+        // ─────────────────────────────────────────
+        // ESTADOS DEL FORMULARIO
+        // ─────────────────────────────────────────
+
+
+
+        private void BloquearCampos(bool bloqueado)
+        {
+            txtNombreProducto.ReadOnly = bloqueado;
+            txtDescripcion.ReadOnly = bloqueado;
+            txtPrecio.ReadOnly = bloqueado;
+            txtTiempoPrep.ReadOnly = bloqueado;
+            cmbCategoria.Enabled = !bloqueado;
+            tglDisponible.Enabled = !bloqueado;
+        }
+
+        // ─────────────────────────────────────────
+        // SELECCIÓN EN GRILLA
+        // ─────────────────────────────────────────
+        private void dgvProductos_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0) return;
+
+            DataGridViewRow fila = dgvProductos.Rows[e.RowIndex];
+            if (fila.Tag == null) return;
+
+            int id = Convert.ToInt32(fila.Tag);
+            ProductoCatalogo prod = todosLosProductos.Find(p => p.IdProducto == id);
+            if (prod == null) return;
+
+            EstadoSeleccionado(prod);
+        }
+
+        // ─────────────────────────────────────────
+        // BOTÓN NUEVO / GUARDAR (doble función)
+        // ─────────────────────────────────────────
+        private void btnNuevoProducto_Click(object sender, EventArgs e)
+        {
+            // Si el botón dice "Guardar", ejecutar guardado
+            if (btnNuevoProducto.Text == "Guardar")
+            {
+                Guardar();
+                return;
+            }
+
+            // Si dice "Nuevo", preparar formulario vacío
+            idProductoSeleccionado = 0;
+            modoEdicion = false;
+
+            txtCodigo.Text = "";
+            txtNombreProducto.Text = "";
+            txtDescripcion.Text = "";
+            txtPrecio.Text = "";
+            txtTiempoPrep.Text = "";
+            tglDisponible.Checked = true;
+            lblDisponibleTexto.Text = "Sí";
+            lblDisponibleTexto.ForeColor = Color.FromArgb(34, 197, 94);
+
+            if (cmbCategoria.Items.Count > 0)
+                cmbCategoria.SelectedIndex = 0;
+
+            GenerarCodigoAutomatico();
+            txtCodigo.ReadOnly = true;
+
+            EstadoEditando(esNuevo: true);
+            txtNombreProducto.Focus();
+        }
+
+        // ─────────────────────────────────────────
+        // BOTÓN EDITAR
+        // ─────────────────────────────────────────
+        private void btnEditar_Click(object sender, EventArgs e)
+        {
+            if (idProductoSeleccionado == 0)
+            {
+                MessageBox.Show("Selecciona un producto de la lista para editar.",
+                    "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            modoEdicion = true;
+            txtCodigo.ReadOnly = true;
+
+            EstadoEditando(esNuevo: false);
+            txtNombreProducto.Focus();
+        }
+
+        // ─────────────────────────────────────────
+        // LÓGICA DE GUARDADO (usado por btnNuevoProducto en modo Guardar)
+        // ─────────────────────────────────────────
+        private void Guardar()
+        {
+            if (!ValidarFormularioProducto()) return;
+
+            string nombreCat = cmbCategoria.SelectedItem?.ToString();
+            int idCat = mapaCategorias.ContainsKey(nombreCat) ? mapaCategorias[nombreCat] : 0;
+
+            if (idCat == 0)
+            {
+                MessageBox.Show("Selecciona una categoría válida.",
+                    "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // Verificar código duplicado
+            if (sqlMenu.CodigoExiste(txtCodigo.Text.Trim(), idProductoSeleccionado))
+            {
+                MessageBox.Show("Ya existe un producto con ese código.",
+                    "Duplicado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            ProductoCatalogo p = new ProductoCatalogo
+            {
+                IdProducto = idProductoSeleccionado,
+                CodigoProducto = txtCodigo.Text.Trim(),
+                NombreProducto = txtNombreProducto.Text.Trim(),
+                Descripcion = txtDescripcion.Text.Trim(),
+                PrecioVenta = decimal.Parse(txtPrecio.Text.Trim()),
+                TiempoPreparacionMin = int.Parse(txtTiempoPrep.Text.Trim()),
+                Disponible = tglDisponible.Checked,
+                IdCategoria = idCat,
+                NombreCategoria = nombreCat
+            };
+
+            bool resultado = modoEdicion
+                ? sqlMenu.ActualizarProducto(p)
+                : sqlMenu.InsertarProducto(p);
+
+            if (resultado)
+            {
+                MessageBox.Show(modoEdicion
+                    ? "Producto actualizado correctamente."
+                    : "Producto agregado correctamente.",
+                    "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                CargarProductos();
+                CargarGrillaCategorias();
+                EstadoInicial();
+            }
+            else
+            {
+                MessageBox.Show("No se pudo guardar el producto.",
+                    "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        // ─────────────────────────────────────────
+        // BOTÓN ELIMINAR
+        // ─────────────────────────────────────────
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            if (idProductoSeleccionado == 0) return;
+
+            DialogResult confirm = MessageBox.Show(
+                "¿Desactivar este producto del menú?\nNo se eliminará permanentemente.",
+                "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (confirm != DialogResult.Yes) return;
+
+            bool ok = sqlMenu.CambiarDisponibilidad(idProductoSeleccionado, false);
+
+            if (ok)
+            {
+                MessageBox.Show("Producto desactivado del menú.",
+                    "Listo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                CargarProductos();
+                EstadoInicial();
+            }
+            else
+            {
+                MessageBox.Show("No se pudo desactivar el producto.",
+                    "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        // ─────────────────────────────────────────
+        // BOTÓN ACTUALIZAR
+        // ─────────────────────────────────────────
+        private void btnActualizarLista_Click(object sender, EventArgs e)
+        {
+            CargarCategoriasEnCombos();
+            CargarProductos();
+            CargarGrillaCategorias();
+            EstadoInicial();
+        }
+
+
+
 
         // ════════════════════════════════════════════════════
         // SECCIÓN PRODUCTOS
@@ -212,20 +464,6 @@ namespace Restaurante_Sabor_Gourmet.Vane
         // ─────────────────────────────────────────
         // SELECCIÓN EN GRILLA PRODUCTOS
         // ─────────────────────────────────────────
-        private void dgvProductos_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex < 0) return;
-
-            DataGridViewRow fila = dgvProductos.Rows[e.RowIndex];
-            if (fila.Tag == null) return;
-
-            int id = Convert.ToInt32(fila.Tag);
-            ProductoCatalogo prod = todosLosProductos.Find(p => p.IdProducto == id);
-            if (prod == null) return;
-
-            CargarProductoEnFormulario(prod);
-        }
-
         private void CargarProductoEnFormulario(ProductoCatalogo p)
         {
             idProductoSeleccionado = p.IdProducto;
@@ -243,176 +481,15 @@ namespace Restaurante_Sabor_Gourmet.Vane
                 cmbCategoria.SelectedItem = p.NombreCategoria;
 
             lblFormTitulo.Text = $"Producto: {p.NombreProducto}";
-            ConfigurarFormProducto(true);
-            BloquearFormulario(true);
+
+            BloquearFormulario(true);       // bloquear campos
+                                            // BloquearFormulario ya activa btnEditar y btnEliminar cuando hay selección
         }
 
-        // ─────────────────────────────────────────
-        // BOTÓN NUEVO PRODUCTO
-        // ─────────────────────────────────────────
-        private void btnNuevoProducto_Click(object sender, EventArgs e)
-        {
-            idProductoSeleccionado = 0;
-            modoEdicion = false;
 
-            txtCodigo.Text = "";
-            txtNombreProducto.Text = "";
-            txtDescripcion.Text = "";
-            txtPrecio.Text = "";
-            txtTiempoPrep.Text = "";
-            tglDisponible.Checked = true;
-            lblDisponibleTexto.Text = "Sí";
-            lblDisponibleTexto.ForeColor = Color.FromArgb(34, 197, 94);
 
-            if (cmbCategoria.Items.Count > 0)
-                cmbCategoria.SelectedIndex = 0;
 
-            lblFormTitulo.Text = "Nuevo Producto";
-            txtCodigo.ReadOnly = true;       // se autogenera
-            BloquearFormulario(false);
-            ConfigurarFormProducto(false);   // editar y eliminar desactivados en modo nuevo
-            GenerarCodigoAutomatico();
-            txtNombreProducto.Focus();
-        }
 
-        // ─────────────────────────────────────────
-        // BOTÓN EDITAR
-        // ─────────────────────────────────────────
-        private void btnEditar_Click(object sender, EventArgs e)
-        {
-            if (idProductoSeleccionado == 0)
-            {
-                MessageBox.Show("Selecciona un producto de la lista para editar.",
-                    "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-
-            modoEdicion = true;
-            txtCodigo.ReadOnly = true;
-            BloquearFormulario(false);
-            lblFormTitulo.Text = "Editando producto...";
-            txtNombreProducto.Focus();
-        }
-
-        // ─────────────────────────────────────────
-        // BOTÓN GUARDAR (solo visible cuando el form está desbloqueado)
-        // ─────────────────────────────────────────
-        private void btnGuardar_Click(object sender, EventArgs e)
-        {
-            if (!ValidarFormularioProducto()) return;
-
-            string nombreCat = cmbCategoria.SelectedItem?.ToString();
-            int idCat = mapaCategorias.ContainsKey(nombreCat) ? mapaCategorias[nombreCat] : 0;
-
-            if (idCat == 0)
-            {
-                MessageBox.Show("Selecciona una categoría válida.",
-                    "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-
-            ProductoCatalogo p = new ProductoCatalogo
-            {
-                IdProducto = idProductoSeleccionado,
-                CodigoProducto = txtCodigo.Text.Trim(),
-                NombreProducto = txtNombreProducto.Text.Trim(),
-                Descripcion = txtDescripcion.Text.Trim(),
-                PrecioVenta = decimal.Parse(txtPrecio.Text.Trim()),
-                TiempoPreparacionMin = int.Parse(txtTiempoPrep.Text.Trim()),
-                Disponible = tglDisponible.Checked,
-                IdCategoria = idCat,
-                NombreCategoria = nombreCat
-            };
-
-            bool resultado = modoEdicion
-                ? sqlMenu.ActualizarProducto(p)
-                : (sqlMenu.CodigoExiste(p.CodigoProducto)
-                    ? false
-                    : sqlMenu.InsertarProducto(p));
-
-            // Mensaje de código duplicado
-            if (!modoEdicion && sqlMenu.CodigoExiste(p.CodigoProducto, idProductoSeleccionado))
-            {
-                MessageBox.Show("Ya existe un producto con ese código.",
-                    "Duplicado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-
-            if (resultado)
-            {
-                MessageBox.Show(modoEdicion
-                    ? "Producto actualizado correctamente."
-                    : "Producto agregado correctamente.",
-                    "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                idProductoSeleccionado = 0;
-                modoEdicion = false;
-                lblFormTitulo.Text = "Datos del Producto";
-                BloquearFormulario(true);
-                ConfigurarFormProducto(false);
-                CargarProductos();
-                CargarGrillaCategorias();
-            }
-            else
-            {
-                MessageBox.Show("No se pudo guardar el producto.",
-                    "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        // ─────────────────────────────────────────
-        // BOTÓN ELIMINAR PRODUCTO (soft-disable)
-        // ─────────────────────────────────────────
-        private void btnEliminar_Click(object sender, EventArgs e)
-        {
-            if (idProductoSeleccionado == 0)
-            {
-                MessageBox.Show("Selecciona un producto de la lista.",
-                    "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-
-            DialogResult confirm = MessageBox.Show(
-                "¿Desactivar este producto del menú?\n" +
-                "No se eliminará permanentemente.",
-                "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-            if (confirm != DialogResult.Yes) return;
-
-            bool ok = sqlMenu.CambiarDisponibilidad(idProductoSeleccionado, false);
-
-            if (ok)
-            {
-                MessageBox.Show("Producto desactivado del menú.",
-                    "Listo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                idProductoSeleccionado = 0;
-                modoEdicion = false;
-                lblFormTitulo.Text = "Datos del Producto";
-                BloquearFormulario(true);
-                ConfigurarFormProducto(false);
-                CargarProductos();
-            }
-            else
-            {
-                MessageBox.Show("No se pudo desactivar el producto.",
-                    "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        // ─────────────────────────────────────────
-        // BOTÓN ACTUALIZAR LISTA
-        // ─────────────────────────────────────────
-        private void btnActualizarLista_Click(object sender, EventArgs e)
-        {
-            CargarCategoriasEnCombos();
-            CargarProductos();
-            CargarGrillaCategorias();
-        }
-
-        // ════════════════════════════════════════════════════
-        // SECCIÓN CATEGORÍAS
-        // ════════════════════════════════════════════════════
 
         private void CargarGrillaCategorias()
         {
@@ -438,8 +515,7 @@ namespace Restaurante_Sabor_Gourmet.Vane
             if (fila.Tag == null) return;
 
             idCategoriaSeleccionada = Convert.ToInt32(fila.Tag);
-            string nombreCat = fila.Cells["colCatNombre"].Value?.ToString();
-
+            string nombreCat = fila.Cells[1].Value?.ToString();
             // Mostrar nombre en textbox para referencia visual
             txtNombreCategoria.Text = nombreCat;
 
@@ -568,6 +644,35 @@ namespace Restaurante_Sabor_Gourmet.Vane
         // HELPERS
         // ════════════════════════════════════════════════════
 
+        private void ConfigurarFormProducto(bool haySeleccion)
+        {
+            btnEliminar.Enabled = haySeleccion && !modoEdicion;
+            btnEditar.Enabled = haySeleccion && !modoEdicion;
+        }
+
+        private void BloquearFormulario(bool bloqueado)
+        {
+            txtNombreProducto.ReadOnly = bloqueado;
+            txtDescripcion.ReadOnly = bloqueado;
+            txtPrecio.ReadOnly = bloqueado;
+            txtTiempoPrep.ReadOnly = bloqueado;
+            cmbCategoria.Enabled = !bloqueado;
+            tglDisponible.Enabled = !bloqueado;
+            btnNuevoProducto.Enabled = !bloqueado;
+
+            // Cuando se desbloquea para editar, ocultar editar/eliminar
+            // Cuando se bloquea (solo ver), mostrarlos si hay producto seleccionado
+            if (bloqueado && idProductoSeleccionado > 0)
+            {
+                btnEditar.Enabled = true;
+                btnEliminar.Enabled = true;
+            }
+            else if (!bloqueado)
+            {
+                btnEditar.Enabled = false;
+                btnEliminar.Enabled = false;
+            }
+        }
         private bool ValidarFormularioProducto()
         {
             if (string.IsNullOrWhiteSpace(txtCodigo.Text))
@@ -603,21 +708,6 @@ namespace Restaurante_Sabor_Gourmet.Vane
             return true;
         }
 
-        private void ConfigurarFormProducto(bool haySeleccion)
-        {
-            btnEliminar.Enabled = haySeleccion;
-            btnEditar.Enabled = haySeleccion;
-        }
-
-        private void BloquearFormulario(bool bloqueado)
-        {
-            txtNombreProducto.ReadOnly = bloqueado;
-            txtDescripcion.ReadOnly = bloqueado;
-            txtPrecio.ReadOnly = bloqueado;
-            txtTiempoPrep.ReadOnly = bloqueado;
-            cmbCategoria.Enabled = !bloqueado;
-            tglDisponible.Enabled = !bloqueado;
-            btnGuardar.Enabled = !bloqueado;
-        }
+       
     }
 }

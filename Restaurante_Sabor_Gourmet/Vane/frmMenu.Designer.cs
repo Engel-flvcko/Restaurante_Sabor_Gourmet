@@ -137,7 +137,7 @@
             lblDisponible = new Label();
             tglDisponible = new Guna.UI2.WinForms.Guna2ToggleSwitch();
             lblDisponibleTexto = new Label();
-            btnGuardar = new Guna.UI2.WinForms.Guna2Button();
+            btnNuevoProducto = new Guna.UI2.WinForms.Guna2Button();
             tabCategorias = new TabPage();
             pnlListaCategorias = new Guna.UI2.WinForms.Guna2Panel();
             lblCatListaTitulo = new Label();
@@ -655,7 +655,7 @@
             pnlFormProducto.Controls.Add(lblDisponible);
             pnlFormProducto.Controls.Add(tglDisponible);
             pnlFormProducto.Controls.Add(lblDisponibleTexto);
-            pnlFormProducto.Controls.Add(btnGuardar);
+            pnlFormProducto.Controls.Add(btnNuevoProducto);
             pnlFormProducto.CustomizableEdges = customizableEdges37;
             pnlFormProducto.Location = new Point(951, 133);
             pnlFormProducto.Margin = new Padding(3, 4, 3, 4);
@@ -935,23 +935,23 @@
             lblDisponibleTexto.TabIndex = 8;
             lblDisponibleTexto.Text = "Sí";
             // 
-            // btnGuardar
+            // btnNuevoProducto
             // 
-            btnGuardar.BorderRadius = 8;
-            btnGuardar.Cursor = Cursors.Hand;
-            btnGuardar.CustomizableEdges = customizableEdges35;
-            btnGuardar.FillColor = Color.FromArgb(34, 197, 94);
-            btnGuardar.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            btnGuardar.ForeColor = Color.White;
-            btnGuardar.HoverState.FillColor = Color.FromArgb(22, 163, 74);
-            btnGuardar.Location = new Point(16, 527);
-            btnGuardar.Margin = new Padding(3, 4, 3, 4);
-            btnGuardar.Name = "btnGuardar";
-            btnGuardar.ShadowDecoration.CustomizableEdges = customizableEdges36;
-            btnGuardar.Size = new Size(113, 51);
-            btnGuardar.TabIndex = 7;
-            btnGuardar.Text = "  Guardar";
-            btnGuardar.Click += btnGuardar_Click;
+            btnNuevoProducto.BorderRadius = 8;
+            btnNuevoProducto.Cursor = Cursors.Hand;
+            btnNuevoProducto.CustomizableEdges = customizableEdges35;
+            btnNuevoProducto.FillColor = Color.FromArgb(34, 197, 94);
+            btnNuevoProducto.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            btnNuevoProducto.ForeColor = Color.White;
+            btnNuevoProducto.HoverState.FillColor = Color.FromArgb(22, 163, 74);
+            btnNuevoProducto.Location = new Point(16, 527);
+            btnNuevoProducto.Margin = new Padding(3, 4, 3, 4);
+            btnNuevoProducto.Name = "btnNuevoProducto";
+            btnNuevoProducto.ShadowDecoration.CustomizableEdges = customizableEdges36;
+            btnNuevoProducto.Size = new Size(113, 51);
+            btnNuevoProducto.TabIndex = 7;
+            btnNuevoProducto.Text = "Nuevo";
+            btnNuevoProducto.Click += btnNuevoProducto_Click;
             // 
             // tabCategorias
             // 
@@ -1262,7 +1262,7 @@
         private System.Windows.Forms.Label lblDisponible;
         private Guna.UI2.WinForms.Guna2ToggleSwitch tglDisponible;
         private System.Windows.Forms.Label lblDisponibleTexto;
-        private Guna.UI2.WinForms.Guna2Button btnGuardar;
+        private Guna.UI2.WinForms.Guna2Button btnNuevoProducto;
         private Guna.UI2.WinForms.Guna2Button btnEliminar;
         private Guna.UI2.WinForms.Guna2Button btnEditar;
         private Guna.UI2.WinForms.Guna2Button btnActualizarLista;

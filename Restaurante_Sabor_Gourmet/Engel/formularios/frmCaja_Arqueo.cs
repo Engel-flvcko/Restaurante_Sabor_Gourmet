@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Printing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -320,6 +321,18 @@ namespace Restaurante_Sabor_Gourmet.Engel.formularios
             if (sql.RegistrarPago(pago))
             {
                 MessageBox.Show("Pago registrado correctamente.");
+
+                // ── Preguntar si imprimir recibo ──────────────────────
+                DialogResult imprimirResp = MessageBox.Show(
+                    "¿Desea imprimir el recibo?",
+                    "Imprimir recibo",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Question);
+
+                if (imprimirResp == DialogResult.Yes)
+                    ImprimirRecibo(pago, txtMesa.Text, txtMesero.Text);
+                // ─────────────────────────────────────────────────────
+
                 CargarCuentasPendientes();
                 LimpiarCampos();
                 VerificarArqueoActivo();
@@ -446,6 +459,98 @@ namespace Restaurante_Sabor_Gourmet.Engel.formularios
             {
                 MessageBox.Show("Error al cerrar la caja.", "Error",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        // ── Agregar estos usings arriba ───────────────────────────────
+        // using System.Drawing.Printing;
+
+        private void ImprimirRecibo(Pago pago, string nombreMesa, string nombreMesero)
+        {
+            PrintDocument doc = new PrintDocument();
+
+            // Nombre exacto de la impresora en Windows (Panel de control → Dispositivos)
+            // Si está como predeterminada puedes omitir esta línea
+            doc.PrinterSettings.PrinterName = "3nStar 58mm"; // ← ajustar al nombre real
+
+            doc.PrintPage += (s, e) =>
+            {
+                Graphics g = e.Graphics;
+                float x = 5f;
+                float y = 5f;
+                float ancho = 160f; // 58mm ≈ 164 puntos a 72dpi
+
+                Font fTitulo = new Font("Courier New", 10f, FontStyle.Bold);
+                Font fNormal = new Font("Courier New", 8f);
+                Font fPeque = new Font("Courier New", 7f);
+                Brush negro = Brushes.Black;
+
+                // ── Encabezado ────────────────────────────────────────
+                g.DrawString("SABOR GOURMET FMO", fTitulo, negro,
+                    new RectangleF(x, y, ancho, 20),
+                    new StringFormat { Alignment = StringAlignment.Center });
+                y += 18;
+
+                g.DrawString("Tel: (503) 0000-0000", fPeque, negro,
+                    new RectangleF(x, y, ancho, 15),
+                    new StringFormat { Alignment = StringAlignment.Center });
+                y += 14;
+
+                g.DrawString(new string('-', 28), fNormal, negro, x, y); y += 12;
+
+                // ── Datos de la orden ─────────────────────────────────
+                g.DrawString($"Orden #: {pago.IdOrden}", fNormal, negro, x, y); y += 12;
+                g.DrawString($"Mesa   : {nombreMesa}", fNormal, negro, x, y); y += 12;
+                g.DrawString($"Mesero : {nombreMesero}", fNormal, negro, x, y); y += 12;
+                g.DrawString($"Fecha  : {DateTime.Now:dd/MM/yyyy HH:mm}", fNormal, negro, x, y); y += 12;
+
+                g.DrawString(new string('-', 28), fNormal, negro, x, y); y += 12;
+
+                // ── Totales ───────────────────────────────────────────
+                g.DrawString($"Subtotal : {pago.Subtotal:C2}", fNormal, negro, x, y); y += 12;
+
+                if (pago.Descuento > 0)
+                {
+                    g.DrawString($"Descuento: -{pago.Descuento:C2}", fNormal, negro, x, y); y += 12;
+                }
+
+                if (pago.Propina > 0)
+                {
+                    g.DrawString($"Propina  : {pago.Propina:C2}", fNormal, negro, x, y); y += 12;
+                }
+
+                g.DrawString(new string('-', 28), fNormal, negro, x, y); y += 12;
+
+                Font fTotal = new Font("Courier New", 10f, FontStyle.Bold);
+                g.DrawString($"TOTAL    : {pago.Total:C2}", fTotal, negro, x, y); y += 16;
+
+                g.DrawString($"Metodo   : {pago.MetodoPago.ToUpper()}", fNormal, negro, x, y); y += 12;
+
+                g.DrawString(new string('-', 28), fNormal, negro, x, y); y += 12;
+
+                // ── Pie ───────────────────────────────────────────────
+                g.DrawString("Gracias por su visita!", fPeque, negro,
+                    new RectangleF(x, y, ancho, 15),
+                    new StringFormat { Alignment = StringAlignment.Center });
+                y += 14;
+
+                g.DrawString("Vuelva pronto :)", fPeque, negro,
+                    new RectangleF(x, y, ancho, 15),
+                    new StringFormat { Alignment = StringAlignment.Center });
+
+                // Liberar fuentes
+                fTitulo.Dispose(); fNormal.Dispose(); fPeque.Dispose(); fTotal.Dispose();
+            };
+
+            try
+            {
+                doc.Print();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al imprimir: " + ex.Message +
+                    "\n\nVerifica que la impresora esté conectada y el nombre sea correcto.",
+                    "Error de impresión", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 

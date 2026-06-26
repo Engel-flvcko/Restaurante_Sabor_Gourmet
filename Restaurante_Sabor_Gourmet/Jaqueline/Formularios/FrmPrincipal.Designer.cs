@@ -74,7 +74,7 @@
             btnCaja = new Guna.UI2.WinForms.Guna2Button();
             btnReservaciones = new Guna.UI2.WinForms.Guna2Button();
             btnAbrirMeseros = new Guna.UI2.WinForms.Guna2Button();
-            guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
+            btnReportes = new Guna.UI2.WinForms.Guna2Button();
             btnCerrarSesion = new Guna.UI2.WinForms.Guna2Button();
             PnlCentro = new Guna.UI2.WinForms.Guna2Panel();
             PnlSuperior.SuspendLayout();
@@ -161,7 +161,7 @@
             flpIzquierdo.Controls.Add(btnCaja);
             flpIzquierdo.Controls.Add(btnReservaciones);
             flpIzquierdo.Controls.Add(btnAbrirMeseros);
-            flpIzquierdo.Controls.Add(guna2Button1);
+            flpIzquierdo.Controls.Add(btnReportes);
             flpIzquierdo.Controls.Add(btnCerrarSesion);
             flpIzquierdo.Dock = DockStyle.Fill;
             flpIzquierdo.FlowDirection = FlowDirection.TopDown;
@@ -332,24 +332,25 @@
             btnAbrirMeseros.Size = new Size(168, 37);
             btnAbrirMeseros.TabIndex = 8;
             btnAbrirMeseros.Text = "Meseros";
-            btnAbrirMeseros.Click += btnReportes_Click;
+            btnAbrirMeseros.Click += btnAbrirMeseros_Click;
             // 
-            // guna2Button1
+            // btnReportes
             // 
-            guna2Button1.CustomizableEdges = customizableEdges23;
-            guna2Button1.DisabledState.BorderColor = Color.DarkGray;
-            guna2Button1.DisabledState.CustomBorderColor = Color.DarkGray;
-            guna2Button1.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
-            guna2Button1.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-            guna2Button1.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            guna2Button1.ForeColor = Color.White;
-            guna2Button1.Location = new Point(35, 685);
-            guna2Button1.Margin = new Padding(25, 25, 25, 5);
-            guna2Button1.Name = "guna2Button1";
-            guna2Button1.ShadowDecoration.CustomizableEdges = customizableEdges24;
-            guna2Button1.Size = new Size(168, 41);
-            guna2Button1.TabIndex = 9;
-            guna2Button1.Text = "Reportes";
+            btnReportes.CustomizableEdges = customizableEdges23;
+            btnReportes.DisabledState.BorderColor = Color.DarkGray;
+            btnReportes.DisabledState.CustomBorderColor = Color.DarkGray;
+            btnReportes.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            btnReportes.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            btnReportes.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnReportes.ForeColor = Color.White;
+            btnReportes.Location = new Point(35, 685);
+            btnReportes.Margin = new Padding(25, 25, 25, 5);
+            btnReportes.Name = "btnReportes";
+            btnReportes.ShadowDecoration.CustomizableEdges = customizableEdges24;
+            btnReportes.Size = new Size(168, 41);
+            btnReportes.TabIndex = 9;
+            btnReportes.Text = "Reportes";
+            btnReportes.Click += btnReportes_Click;
             // 
             // btnCerrarSesion
             // 
@@ -419,7 +420,7 @@
         private Guna.UI2.WinForms.Guna2HtmlLabel lblTituloRestaurant;
         private Guna.UI2.WinForms.Guna2HtmlLabel lblRolUsuario;
         private Guna.UI2.WinForms.Guna2HtmlLabel lblNombreUsuario;
-        private Guna.UI2.WinForms.Guna2Button guna2Button1;
+        private Guna.UI2.WinForms.Guna2Button btnReportes;
         private Guna.UI2.WinForms.Guna2Button btnCerrarSesion;
     }
 }

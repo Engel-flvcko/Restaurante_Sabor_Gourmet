@@ -43,24 +43,36 @@ namespace Restaurante_Sabor_Gourmet.Jaqueline.Formularios
         // Títulos de zona encima de cada FlowLayoutPanel 
         private void AgregarTitulosZonas()
         {
-            AgregarTitulo("SALÓN PRINCIPAL", pnlSalonPrincipal);
-            AgregarTitulo("ZONA FAMILIAR", pnlZonaFamiliar);
-            AgregarTitulo("ZONA EVENTOS", pnlZonaEventos);
+            AgregarTitulo("SALÓN PRINCIPAL", pnlSalonPrincipal, flpSalon);
+            AgregarTitulo("ZONA FAMILIAR", pnlZonaFamiliar, flpFamiliar);
+            AgregarTitulo("ZONA EVENTOS", pnlZonaEventos, flpEventos);
         }
 
-        private void AgregarTitulo(string texto, Control contenedor)
+        private void AgregarTitulo(string texto, Guna.UI2.WinForms.Guna2Panel contenedor,
+                                    FlowLayoutPanel flp)
         {
+            // Crear label del título
             Label lbl = new Label
             {
                 Text = texto,
                 Font = new Font("Segoe UI", 11, FontStyle.Bold),
                 ForeColor = Color.FromArgb(30, 30, 47),
-                AutoSize = true,
-                Dock = DockStyle.Top,
-                Padding = new Padding(8, 6, 0, 4)
+                AutoSize = false,
+                Height = 30,
+                Dock = DockStyle.None,
+                Location = new Point(8, 4),
+                Width = contenedor.Width - 16
             };
+
+            // Quitar Dock Fill del FlowLayoutPanel para poder posicionarlo
+            flp.Dock = DockStyle.None;
+            flp.Location = new Point(0, 34);  // debajo del título
+            flp.Width = contenedor.Width;
+            flp.Height = contenedor.Height - 34;
+            flp.Anchor = AnchorStyles.Top | AnchorStyles.Left
+                         | AnchorStyles.Right | AnchorStyles.Bottom;
+
             contenedor.Controls.Add(lbl);
-            contenedor.Controls.SetChildIndex(lbl, 0);
         }
 
         //  LEYENDA
