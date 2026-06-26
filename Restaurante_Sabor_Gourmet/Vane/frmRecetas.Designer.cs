@@ -28,45 +28,37 @@
         /// </summary>
         private void InitializeComponent()
         {
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges7 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges7 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges15 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges16 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges9 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges10 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges17 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges18 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges11 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges12 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges13 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges14 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges15 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges16 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges17 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges18 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges19 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges20 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges21 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges22 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges23 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges24 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges25 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges26 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            pnlTopBar = new Guna.UI2.WinForms.Guna2Panel();
-            picIcono = new PictureBox();
-            lblTitulo = new Label();
-            lblSubtitulo = new Label();
-            picUsuario = new PictureBox();
-            lblUsuario = new Label();
-            lblUsuarioFlecha = new Label();
             pnlProducto = new Guna.UI2.WinForms.Guna2Panel();
             lblTituloProducto = new Label();
             txtBuscarProducto = new Guna.UI2.WinForms.Guna2TextBox();
@@ -112,9 +104,6 @@
             btnGuardarReceta = new Guna.UI2.WinForms.Guna2Button();
             btnLimpiarReceta = new Guna.UI2.WinForms.Guna2Button();
             btnActualizar = new Guna.UI2.WinForms.Guna2Button();
-            pnlTopBar.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)picIcono).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)picUsuario).BeginInit();
             pnlProducto.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvProductos).BeginInit();
             pnlReceta.SuspendLayout();
@@ -126,87 +115,6 @@
             pnlBotonesInf.SuspendLayout();
             SuspendLayout();
             // 
-            // pnlTopBar
-            // 
-            pnlTopBar.Controls.Add(picIcono);
-            pnlTopBar.Controls.Add(lblTitulo);
-            pnlTopBar.Controls.Add(lblSubtitulo);
-            pnlTopBar.Controls.Add(picUsuario);
-            pnlTopBar.Controls.Add(lblUsuario);
-            pnlTopBar.Controls.Add(lblUsuarioFlecha);
-            pnlTopBar.CustomizableEdges = customizableEdges1;
-            pnlTopBar.Dock = DockStyle.Top;
-            pnlTopBar.FillColor = Color.FromArgb(30, 30, 47);
-            pnlTopBar.Location = new Point(0, 0);
-            pnlTopBar.Name = "pnlTopBar";
-            pnlTopBar.ShadowDecoration.CustomizableEdges = customizableEdges2;
-            pnlTopBar.Size = new Size(1348, 65);
-            pnlTopBar.TabIndex = 0;
-            // 
-            // picIcono
-            // 
-            picIcono.BackColor = Color.Transparent;
-            picIcono.Location = new Point(14, 12);
-            picIcono.Name = "picIcono";
-            picIcono.Size = new Size(42, 42);
-            picIcono.SizeMode = PictureBoxSizeMode.Zoom;
-            picIcono.TabIndex = 0;
-            picIcono.TabStop = false;
-            // 
-            // lblTitulo
-            // 
-            lblTitulo.AutoSize = true;
-            lblTitulo.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
-            lblTitulo.ForeColor = Color.White;
-            lblTitulo.Location = new Point(64, 10);
-            lblTitulo.Name = "lblTitulo";
-            lblTitulo.Size = new Size(229, 32);
-            lblTitulo.TabIndex = 1;
-            lblTitulo.Text = "Gestión de Recetas";
-            // 
-            // lblSubtitulo
-            // 
-            lblSubtitulo.AutoSize = true;
-            lblSubtitulo.Font = new Font("Segoe UI", 9F);
-            lblSubtitulo.ForeColor = Color.FromArgb(180, 180, 210);
-            lblSubtitulo.Location = new Point(66, 34);
-            lblSubtitulo.Name = "lblSubtitulo";
-            lblSubtitulo.Size = new Size(145, 20);
-            lblSubtitulo.TabIndex = 2;
-            lblSubtitulo.Text = "Sabor Gourmet FMO";
-            // 
-            // picUsuario
-            // 
-            picUsuario.BackColor = Color.Transparent;
-            picUsuario.Location = new Point(1176, 13);
-            picUsuario.Name = "picUsuario";
-            picUsuario.Size = new Size(36, 36);
-            picUsuario.SizeMode = PictureBoxSizeMode.Zoom;
-            picUsuario.TabIndex = 3;
-            picUsuario.TabStop = false;
-            // 
-            // lblUsuario
-            // 
-            lblUsuario.AutoSize = true;
-            lblUsuario.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            lblUsuario.ForeColor = Color.White;
-            lblUsuario.Location = new Point(1218, 12);
-            lblUsuario.Name = "lblUsuario";
-            lblUsuario.Size = new Size(127, 23);
-            lblUsuario.TabIndex = 4;
-            lblUsuario.Text = "Administrador";
-            // 
-            // lblUsuarioFlecha
-            // 
-            lblUsuarioFlecha.AutoSize = true;
-            lblUsuarioFlecha.Font = new Font("Segoe UI", 9F);
-            lblUsuarioFlecha.ForeColor = Color.FromArgb(180, 180, 210);
-            lblUsuarioFlecha.Location = new Point(1276, 32);
-            lblUsuarioFlecha.Name = "lblUsuarioFlecha";
-            lblUsuarioFlecha.Size = new Size(22, 20);
-            lblUsuarioFlecha.TabIndex = 5;
-            lblUsuarioFlecha.Text = "▾";
-            // 
             // pnlProducto
             // 
             pnlProducto.BackColor = Color.Transparent;
@@ -217,15 +125,15 @@
             pnlProducto.Controls.Add(cmbCategoriaFiltro);
             pnlProducto.Controls.Add(dgvProductos);
             pnlProducto.Controls.Add(lblTotalProductos);
-            pnlProducto.CustomizableEdges = customizableEdges7;
+            pnlProducto.CustomizableEdges = customizableEdges5;
             pnlProducto.FillColor = Color.White;
-            pnlProducto.Location = new Point(0, 66);
+            pnlProducto.Location = new Point(0, 12);
             pnlProducto.Name = "pnlProducto";
             pnlProducto.ShadowDecoration.Color = Color.FromArgb(30, 0, 0, 0);
-            pnlProducto.ShadowDecoration.CustomizableEdges = customizableEdges8;
+            pnlProducto.ShadowDecoration.CustomizableEdges = customizableEdges6;
             pnlProducto.ShadowDecoration.Depth = 4;
             pnlProducto.ShadowDecoration.Enabled = true;
-            pnlProducto.Size = new Size(460, 380);
+            pnlProducto.Size = new Size(460, 434);
             pnlProducto.TabIndex = 1;
             // 
             // lblTituloProducto
@@ -243,7 +151,7 @@
             // 
             txtBuscarProducto.BorderColor = Color.FromArgb(200, 200, 220);
             txtBuscarProducto.BorderRadius = 8;
-            txtBuscarProducto.CustomizableEdges = customizableEdges3;
+            txtBuscarProducto.CustomizableEdges = customizableEdges1;
             txtBuscarProducto.DefaultText = "";
             txtBuscarProducto.FillColor = Color.FromArgb(245, 245, 252);
             txtBuscarProducto.Font = new Font("Segoe UI", 9.5F);
@@ -252,7 +160,7 @@
             txtBuscarProducto.Name = "txtBuscarProducto";
             txtBuscarProducto.PlaceholderText = "Buscar producto...";
             txtBuscarProducto.SelectedText = "";
-            txtBuscarProducto.ShadowDecoration.CustomizableEdges = customizableEdges4;
+            txtBuscarProducto.ShadowDecoration.CustomizableEdges = customizableEdges2;
             txtBuscarProducto.Size = new Size(428, 36);
             txtBuscarProducto.TabIndex = 1;
             txtBuscarProducto.TextChanged += txtBuscarProducto_TextChanged;
@@ -273,7 +181,7 @@
             cmbCategoriaFiltro.BackColor = Color.Transparent;
             cmbCategoriaFiltro.BorderColor = Color.FromArgb(200, 200, 220);
             cmbCategoriaFiltro.BorderRadius = 8;
-            cmbCategoriaFiltro.CustomizableEdges = customizableEdges5;
+            cmbCategoriaFiltro.CustomizableEdges = customizableEdges3;
             cmbCategoriaFiltro.DrawMode = DrawMode.OwnerDrawFixed;
             cmbCategoriaFiltro.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbCategoriaFiltro.FillColor = Color.FromArgb(245, 245, 252);
@@ -284,7 +192,7 @@
             cmbCategoriaFiltro.Items.AddRange(new object[] { "Todas las categorías" });
             cmbCategoriaFiltro.Location = new Point(166, 84);
             cmbCategoriaFiltro.Name = "cmbCategoriaFiltro";
-            cmbCategoriaFiltro.ShadowDecoration.CustomizableEdges = customizableEdges6;
+            cmbCategoriaFiltro.ShadowDecoration.CustomizableEdges = customizableEdges4;
             cmbCategoriaFiltro.Size = new Size(276, 36);
             cmbCategoriaFiltro.TabIndex = 3;
             cmbCategoriaFiltro.SelectedIndexChanged += cmbCategoriaFiltro_SelectedIndexChanged;
@@ -293,28 +201,32 @@
             // 
             dgvProductos.AllowUserToAddRows = false;
             dgvProductos.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = Color.Black;
+            dataGridViewCellStyle1.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle1.ForeColor = Color.FromArgb(224, 224, 224);
+            dgvProductos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             dgvProductos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvProductos.BackgroundColor = Color.White;
-            dgvProductos.BorderStyle = BorderStyle.None;
             dgvProductos.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = Color.FromArgb(30, 30, 47);
-            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            dataGridViewCellStyle1.ForeColor = Color.White;
-            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-            dgvProductos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = Color.FromArgb(224, 224, 224);
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            dataGridViewCellStyle2.ForeColor = Color.Black;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
+            dgvProductos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             dgvProductos.ColumnHeadersHeight = 29;
             dgvProductos.Columns.AddRange(new DataGridViewColumn[] { colNombreProducto, colCategoria, colNumIngredientes });
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = SystemColors.Window;
-            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle2.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(37, 99, 235);
-            dataGridViewCellStyle2.SelectionForeColor = Color.White;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
-            dgvProductos.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = SystemColors.Window;
+            dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle3.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = Color.White;
+            dataGridViewCellStyle3.SelectionForeColor = Color.White;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
+            dgvProductos.DefaultCellStyle = dataGridViewCellStyle3;
             dgvProductos.EnableHeadersVisualStyles = false;
             dgvProductos.GridColor = Color.FromArgb(230, 230, 240);
             dgvProductos.Location = new Point(0, 130);
@@ -360,7 +272,7 @@
             // 
             lblTotalProductos.AutoSize = true;
             lblTotalProductos.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            lblTotalProductos.ForeColor = Color.FromArgb(37, 99, 235);
+            lblTotalProductos.ForeColor = Color.FromArgb(30, 58, 138);
             lblTotalProductos.Location = new Point(13, 354);
             lblTotalProductos.Name = "lblTotalProductos";
             lblTotalProductos.Size = new Size(136, 20);
@@ -374,22 +286,22 @@
             pnlReceta.Controls.Add(lblNombreReceta);
             pnlReceta.Controls.Add(lblInfoReceta);
             pnlReceta.Controls.Add(dgvReceta);
-            pnlReceta.CustomizableEdges = customizableEdges9;
+            pnlReceta.CustomizableEdges = customizableEdges7;
             pnlReceta.FillColor = Color.White;
-            pnlReceta.Location = new Point(466, 66);
+            pnlReceta.Location = new Point(466, -6);
             pnlReceta.Name = "pnlReceta";
             pnlReceta.ShadowDecoration.Color = Color.FromArgb(30, 0, 0, 0);
-            pnlReceta.ShadowDecoration.CustomizableEdges = customizableEdges10;
+            pnlReceta.ShadowDecoration.CustomizableEdges = customizableEdges8;
             pnlReceta.ShadowDecoration.Depth = 4;
             pnlReceta.ShadowDecoration.Enabled = true;
-            pnlReceta.Size = new Size(882, 380);
+            pnlReceta.Size = new Size(882, 452);
             pnlReceta.TabIndex = 2;
             // 
             // lblNombreReceta
             // 
             lblNombreReceta.AutoSize = true;
             lblNombreReceta.Font = new Font("Segoe UI", 15F, FontStyle.Bold);
-            lblNombreReceta.ForeColor = Color.FromArgb(37, 99, 235);
+            lblNombreReceta.ForeColor = Color.FromArgb(30, 58, 138);
             lblNombreReceta.Location = new Point(16, 14);
             lblNombreReceta.Name = "lblNombreReceta";
             lblNombreReceta.Size = new Size(401, 35);
@@ -415,24 +327,24 @@
             dgvReceta.BackgroundColor = Color.White;
             dgvReceta.BorderStyle = BorderStyle.None;
             dgvReceta.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = Color.FromArgb(30, 30, 47);
-            dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            dataGridViewCellStyle3.ForeColor = Color.White;
-            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
-            dgvReceta.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = Color.FromArgb(224, 224, 224);
+            dataGridViewCellStyle4.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            dataGridViewCellStyle4.ForeColor = Color.Black;
+            dataGridViewCellStyle4.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
+            dgvReceta.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             dgvReceta.ColumnHeadersHeight = 29;
             dgvReceta.Columns.AddRange(new DataGridViewColumn[] { colIngrediente, colUnidadMedida, colCantidad, colAcciones });
-            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = SystemColors.Window;
-            dataGridViewCellStyle6.Font = new Font("Segoe UI", 9.5F);
-            dataGridViewCellStyle6.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle6.SelectionBackColor = Color.FromArgb(220, 230, 255);
-            dataGridViewCellStyle6.SelectionForeColor = Color.FromArgb(30, 30, 47);
-            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.False;
-            dgvReceta.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = SystemColors.Window;
+            dataGridViewCellStyle7.Font = new Font("Segoe UI", 9.5F);
+            dataGridViewCellStyle7.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle7.SelectionBackColor = Color.FromArgb(220, 230, 255);
+            dataGridViewCellStyle7.SelectionForeColor = Color.FromArgb(30, 30, 47);
+            dataGridViewCellStyle7.WrapMode = DataGridViewTriState.False;
+            dgvReceta.DefaultCellStyle = dataGridViewCellStyle7;
             dgvReceta.EnableHeadersVisualStyles = false;
             dgvReceta.GridColor = Color.FromArgb(230, 230, 240);
             dgvReceta.Location = new Point(14, 72);
@@ -467,8 +379,8 @@
             // colCantidad
             // 
             colCantidad.DataPropertyName = "cantidad_receta";
-            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            colCantidad.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            colCantidad.DefaultCellStyle = dataGridViewCellStyle5;
             colCantidad.FillWeight = 20F;
             colCantidad.HeaderText = "Cantidad";
             colCantidad.MinimumWidth = 6;
@@ -477,11 +389,11 @@
             // 
             // colAcciones
             // 
-            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.BackColor = Color.FromArgb(254, 226, 226);
-            dataGridViewCellStyle5.Font = new Font("Segoe UI", 11F);
-            dataGridViewCellStyle5.ForeColor = Color.FromArgb(239, 68, 68);
-            colAcciones.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.BackColor = Color.FromArgb(254, 226, 226);
+            dataGridViewCellStyle6.Font = new Font("Segoe UI", 11F);
+            dataGridViewCellStyle6.ForeColor = Color.FromArgb(239, 68, 68);
+            colAcciones.DefaultCellStyle = dataGridViewCellStyle6;
             colAcciones.FillWeight = 15F;
             colAcciones.HeaderText = "Acciones";
             colAcciones.MinimumWidth = 6;
@@ -503,12 +415,12 @@
             pnlAgregarIngrediente.Controls.Add(txtUnidadMedida);
             pnlAgregarIngrediente.Controls.Add(pnlAdvertencia);
             pnlAgregarIngrediente.Controls.Add(btnAgregarReceta);
-            pnlAgregarIngrediente.CustomizableEdges = customizableEdges17;
+            pnlAgregarIngrediente.CustomizableEdges = customizableEdges15;
             pnlAgregarIngrediente.FillColor = Color.White;
             pnlAgregarIngrediente.Location = new Point(0, 447);
             pnlAgregarIngrediente.Name = "pnlAgregarIngrediente";
             pnlAgregarIngrediente.ShadowDecoration.Color = Color.FromArgb(30, 0, 0, 0);
-            pnlAgregarIngrediente.ShadowDecoration.CustomizableEdges = customizableEdges18;
+            pnlAgregarIngrediente.ShadowDecoration.CustomizableEdges = customizableEdges16;
             pnlAgregarIngrediente.ShadowDecoration.Depth = 4;
             pnlAgregarIngrediente.ShadowDecoration.Enabled = true;
             pnlAgregarIngrediente.Size = new Size(686, 210);
@@ -518,7 +430,7 @@
             // 
             lblTituloAgregar.AutoSize = true;
             lblTituloAgregar.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
-            lblTituloAgregar.ForeColor = Color.FromArgb(37, 99, 235);
+            lblTituloAgregar.ForeColor = Color.FromArgb(30, 58, 138);
             lblTituloAgregar.Location = new Point(14, 10);
             lblTituloAgregar.Name = "lblTituloAgregar";
             lblTituloAgregar.Size = new Size(272, 25);
@@ -541,7 +453,7 @@
             cmbIngrediente.BackColor = Color.Transparent;
             cmbIngrediente.BorderColor = Color.FromArgb(200, 200, 220);
             cmbIngrediente.BorderRadius = 8;
-            cmbIngrediente.CustomizableEdges = customizableEdges11;
+            cmbIngrediente.CustomizableEdges = customizableEdges9;
             cmbIngrediente.DrawMode = DrawMode.OwnerDrawFixed;
             cmbIngrediente.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbIngrediente.FillColor = Color.FromArgb(245, 245, 252);
@@ -551,7 +463,7 @@
             cmbIngrediente.ItemHeight = 30;
             cmbIngrediente.Location = new Point(14, 60);
             cmbIngrediente.Name = "cmbIngrediente";
-            cmbIngrediente.ShadowDecoration.CustomizableEdges = customizableEdges12;
+            cmbIngrediente.ShadowDecoration.CustomizableEdges = customizableEdges10;
             cmbIngrediente.Size = new Size(380, 36);
             cmbIngrediente.TabIndex = 2;
             cmbIngrediente.SelectedIndexChanged += cmbIngrediente_SelectedIndexChanged;
@@ -594,7 +506,7 @@
             // 
             txtUnidadMedida.BorderColor = Color.FromArgb(200, 200, 220);
             txtUnidadMedida.BorderRadius = 8;
-            txtUnidadMedida.CustomizableEdges = customizableEdges13;
+            txtUnidadMedida.CustomizableEdges = customizableEdges11;
             txtUnidadMedida.DefaultText = "---";
             txtUnidadMedida.FillColor = Color.FromArgb(240, 240, 248);
             txtUnidadMedida.Font = new Font("Segoe UI", 9.5F);
@@ -604,7 +516,7 @@
             txtUnidadMedida.PlaceholderText = "";
             txtUnidadMedida.ReadOnly = true;
             txtUnidadMedida.SelectedText = "";
-            txtUnidadMedida.ShadowDecoration.CustomizableEdges = customizableEdges14;
+            txtUnidadMedida.ShadowDecoration.CustomizableEdges = customizableEdges12;
             txtUnidadMedida.Size = new Size(240, 36);
             txtUnidadMedida.TabIndex = 6;
             // 
@@ -632,13 +544,13 @@
             // btnAgregarReceta
             // 
             btnAgregarReceta.BorderRadius = 8;
-            btnAgregarReceta.CustomizableEdges = customizableEdges15;
-            btnAgregarReceta.FillColor = Color.FromArgb(34, 197, 94);
+            btnAgregarReceta.CustomizableEdges = customizableEdges13;
+            btnAgregarReceta.FillColor = Color.FromArgb(0, 80, 40);
             btnAgregarReceta.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             btnAgregarReceta.ForeColor = Color.White;
             btnAgregarReceta.Location = new Point(14, 174);
             btnAgregarReceta.Name = "btnAgregarReceta";
-            btnAgregarReceta.ShadowDecoration.CustomizableEdges = customizableEdges16;
+            btnAgregarReceta.ShadowDecoration.CustomizableEdges = customizableEdges14;
             btnAgregarReceta.Size = new Size(654, 30);
             btnAgregarReceta.TabIndex = 8;
             btnAgregarReceta.Text = "+ Agregar a Receta";
@@ -660,12 +572,12 @@
             pnlAnalisisCosto.Controls.Add(prgMargen);
             pnlAnalisisCosto.Controls.Add(lblMargenPorcentaje);
             pnlAnalisisCosto.Controls.Add(lblNotaCosto);
-            pnlAnalisisCosto.CustomizableEdges = customizableEdges19;
+            pnlAnalisisCosto.CustomizableEdges = customizableEdges17;
             pnlAnalisisCosto.FillColor = Color.White;
             pnlAnalisisCosto.Location = new Point(692, 447);
             pnlAnalisisCosto.Name = "pnlAnalisisCosto";
             pnlAnalisisCosto.ShadowDecoration.Color = Color.FromArgb(30, 0, 0, 0);
-            pnlAnalisisCosto.ShadowDecoration.CustomizableEdges = customizableEdges20;
+            pnlAnalisisCosto.ShadowDecoration.CustomizableEdges = customizableEdges18;
             pnlAnalisisCosto.ShadowDecoration.Depth = 4;
             pnlAnalisisCosto.ShadowDecoration.Enabled = true;
             pnlAnalisisCosto.Size = new Size(656, 210);
@@ -674,22 +586,22 @@
             // lblTituloAnalisis
             // 
             lblTituloAnalisis.AutoSize = true;
-            lblTituloAnalisis.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
-            lblTituloAnalisis.ForeColor = Color.FromArgb(168, 85, 247);
+            lblTituloAnalisis.Font = new Font("Segoe UI", 10.2F);
+            lblTituloAnalisis.ForeColor = SystemColors.ActiveCaptionText;
             lblTituloAnalisis.Location = new Point(16, 14);
             lblTituloAnalisis.Name = "lblTituloAnalisis";
-            lblTituloAnalisis.Size = new Size(161, 25);
+            lblTituloAnalisis.Size = new Size(139, 23);
             lblTituloAnalisis.TabIndex = 0;
             lblTituloAnalisis.Text = "Análisis de Costo";
             // 
             // lblCostoProduccionLbl
             // 
             lblCostoProduccionLbl.AutoSize = true;
-            lblCostoProduccionLbl.Font = new Font("Segoe UI", 9.5F);
-            lblCostoProduccionLbl.ForeColor = Color.FromArgb(80, 80, 100);
+            lblCostoProduccionLbl.Font = new Font("Segoe UI", 10.2F);
+            lblCostoProduccionLbl.ForeColor = SystemColors.ActiveCaptionText;
             lblCostoProduccionLbl.Location = new Point(16, 58);
             lblCostoProduccionLbl.Name = "lblCostoProduccionLbl";
-            lblCostoProduccionLbl.Size = new Size(156, 21);
+            lblCostoProduccionLbl.Size = new Size(173, 23);
             lblCostoProduccionLbl.TabIndex = 1;
             lblCostoProduccionLbl.Text = "Costo de producción:";
             // 
@@ -708,11 +620,11 @@
             // lblPrecioVentaLbl
             // 
             lblPrecioVentaLbl.AutoSize = true;
-            lblPrecioVentaLbl.Font = new Font("Segoe UI", 9.5F, FontStyle.Bold);
-            lblPrecioVentaLbl.ForeColor = Color.FromArgb(37, 99, 235);
+            lblPrecioVentaLbl.Font = new Font("Segoe UI", 10.2F);
+            lblPrecioVentaLbl.ForeColor = SystemColors.ActiveCaptionText;
             lblPrecioVentaLbl.Location = new Point(16, 90);
             lblPrecioVentaLbl.Name = "lblPrecioVentaLbl";
-            lblPrecioVentaLbl.Size = new Size(132, 21);
+            lblPrecioVentaLbl.Size = new Size(132, 23);
             lblPrecioVentaLbl.TabIndex = 3;
             lblPrecioVentaLbl.Text = "Precio de venta:";
             // 
@@ -721,7 +633,7 @@
             lblPrecioVentaVal.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             lblPrecioVentaVal.AutoSize = true;
             lblPrecioVentaVal.Font = new Font("Segoe UI", 9.5F, FontStyle.Bold);
-            lblPrecioVentaVal.ForeColor = Color.FromArgb(37, 99, 235);
+            lblPrecioVentaVal.ForeColor = Color.FromArgb(30, 58, 138);
             lblPrecioVentaVal.Location = new Point(534, 90);
             lblPrecioVentaVal.Name = "lblPrecioVentaVal";
             lblPrecioVentaVal.Size = new Size(54, 21);
@@ -731,11 +643,11 @@
             // lblGananciaLbl
             // 
             lblGananciaLbl.AutoSize = true;
-            lblGananciaLbl.Font = new Font("Segoe UI", 9.5F, FontStyle.Bold);
-            lblGananciaLbl.ForeColor = Color.FromArgb(34, 197, 94);
+            lblGananciaLbl.Font = new Font("Segoe UI", 10.2F);
+            lblGananciaLbl.ForeColor = SystemColors.ActiveCaptionText;
             lblGananciaLbl.Location = new Point(16, 122);
             lblGananciaLbl.Name = "lblGananciaLbl";
-            lblGananciaLbl.Size = new Size(159, 21);
+            lblGananciaLbl.Size = new Size(159, 23);
             lblGananciaLbl.TabIndex = 5;
             lblGananciaLbl.Text = "Ganancia estimada:";
             // 
@@ -744,7 +656,7 @@
             lblGananciaVal.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             lblGananciaVal.AutoSize = true;
             lblGananciaVal.Font = new Font("Segoe UI", 9.5F, FontStyle.Bold);
-            lblGananciaVal.ForeColor = Color.FromArgb(34, 197, 94);
+            lblGananciaVal.ForeColor = Color.FromArgb(0, 80, 40);
             lblGananciaVal.Location = new Point(534, 122);
             lblGananciaVal.Name = "lblGananciaVal";
             lblGananciaVal.Size = new Size(54, 21);
@@ -754,19 +666,19 @@
             // lblMargenLbl
             // 
             lblMargenLbl.AutoSize = true;
-            lblMargenLbl.Font = new Font("Segoe UI", 9F);
-            lblMargenLbl.ForeColor = Color.FromArgb(80, 80, 100);
+            lblMargenLbl.Font = new Font("Segoe UI", 10.2F);
+            lblMargenLbl.ForeColor = SystemColors.ActiveCaptionText;
             lblMargenLbl.Location = new Point(16, 156);
             lblMargenLbl.Name = "lblMargenLbl";
-            lblMargenLbl.Size = new Size(148, 20);
+            lblMargenLbl.Size = new Size(171, 23);
             lblMargenLbl.TabIndex = 7;
             lblMargenLbl.Text = "Margen de ganancia:";
             // 
             // prgMargen
             // 
-            prgMargen.Location = new Point(140, 156);
+            prgMargen.Location = new Point(193, 156);
             prgMargen.Name = "prgMargen";
-            prgMargen.Size = new Size(380, 18);
+            prgMargen.Size = new Size(327, 18);
             prgMargen.Style = ProgressBarStyle.Continuous;
             prgMargen.TabIndex = 8;
             // 
@@ -774,7 +686,7 @@
             // 
             lblMargenPorcentaje.AutoSize = true;
             lblMargenPorcentaje.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            lblMargenPorcentaje.ForeColor = Color.FromArgb(34, 197, 94);
+            lblMargenPorcentaje.ForeColor = Color.FromArgb(0, 80, 40);
             lblMargenPorcentaje.Location = new Point(530, 154);
             lblMargenPorcentaje.Name = "lblMargenPorcentaje";
             lblMargenPorcentaje.Size = new Size(44, 20);
@@ -807,13 +719,13 @@
             // btnGuardarReceta
             // 
             btnGuardarReceta.BorderRadius = 8;
-            btnGuardarReceta.CustomizableEdges = customizableEdges21;
-            btnGuardarReceta.FillColor = Color.FromArgb(34, 197, 94);
+            btnGuardarReceta.CustomizableEdges = customizableEdges19;
+            btnGuardarReceta.FillColor = Color.FromArgb(0, 80, 40);
             btnGuardarReceta.Font = new Font("Segoe UI", 9.5F, FontStyle.Bold);
             btnGuardarReceta.ForeColor = Color.White;
             btnGuardarReceta.Location = new Point(12, 10);
             btnGuardarReceta.Name = "btnGuardarReceta";
-            btnGuardarReceta.ShadowDecoration.CustomizableEdges = customizableEdges22;
+            btnGuardarReceta.ShadowDecoration.CustomizableEdges = customizableEdges20;
             btnGuardarReceta.Size = new Size(185, 38);
             btnGuardarReceta.TabIndex = 0;
             btnGuardarReceta.Text = " Guardar Receta";
@@ -822,13 +734,13 @@
             // btnLimpiarReceta
             // 
             btnLimpiarReceta.BorderRadius = 8;
-            btnLimpiarReceta.CustomizableEdges = customizableEdges23;
-            btnLimpiarReceta.FillColor = Color.FromArgb(239, 68, 68);
+            btnLimpiarReceta.CustomizableEdges = customizableEdges21;
+            btnLimpiarReceta.FillColor = Color.FromArgb(120, 10, 10);
             btnLimpiarReceta.Font = new Font("Segoe UI", 9.5F, FontStyle.Bold);
             btnLimpiarReceta.ForeColor = Color.White;
             btnLimpiarReceta.Location = new Point(207, 10);
             btnLimpiarReceta.Name = "btnLimpiarReceta";
-            btnLimpiarReceta.ShadowDecoration.CustomizableEdges = customizableEdges24;
+            btnLimpiarReceta.ShadowDecoration.CustomizableEdges = customizableEdges22;
             btnLimpiarReceta.Size = new Size(185, 38);
             btnLimpiarReceta.TabIndex = 1;
             btnLimpiarReceta.Text = "  Limpiar Receta";
@@ -837,13 +749,13 @@
             // btnActualizar
             // 
             btnActualizar.BorderRadius = 8;
-            btnActualizar.CustomizableEdges = customizableEdges25;
+            btnActualizar.CustomizableEdges = customizableEdges23;
             btnActualizar.FillColor = Color.FromArgb(200, 200, 215);
             btnActualizar.Font = new Font("Segoe UI", 9.5F, FontStyle.Bold);
             btnActualizar.ForeColor = Color.FromArgb(50, 50, 70);
             btnActualizar.Location = new Point(402, 10);
             btnActualizar.Name = "btnActualizar";
-            btnActualizar.ShadowDecoration.CustomizableEdges = customizableEdges26;
+            btnActualizar.ShadowDecoration.CustomizableEdges = customizableEdges24;
             btnActualizar.Size = new Size(160, 38);
             btnActualizar.TabIndex = 2;
             btnActualizar.Text = " Actualizar";
@@ -853,7 +765,6 @@
             // 
             BackColor = Color.FromArgb(240, 240, 248);
             ClientSize = new Size(1348, 721);
-            Controls.Add(pnlTopBar);
             Controls.Add(pnlProducto);
             Controls.Add(pnlReceta);
             Controls.Add(pnlAgregarIngrediente);
@@ -864,13 +775,9 @@
             MaximizeBox = false;
             MinimumSize = new Size(1100, 700);
             Name = "frmRecetas";
-            StartPosition = FormStartPosition.CenterScreen;
+            StartPosition = FormStartPosition.CenterParent;
             Text = "Gestión de Recetas - Sabor Gourmet FMO";
             Load += frmRecetas_Load;
-            pnlTopBar.ResumeLayout(false);
-            pnlTopBar.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)picIcono).EndInit();
-            ((System.ComponentModel.ISupportInitialize)picUsuario).EndInit();
             pnlProducto.ResumeLayout(false);
             pnlProducto.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dgvProductos).EndInit();
@@ -889,15 +796,6 @@
         }
 
         #endregion
-
-
-        private Guna.UI2.WinForms.Guna2Panel pnlTopBar;
-        private System.Windows.Forms.PictureBox picIcono;
-        private System.Windows.Forms.Label lblTitulo;
-        private System.Windows.Forms.Label lblSubtitulo;
-        private System.Windows.Forms.PictureBox picUsuario;
-        private System.Windows.Forms.Label lblUsuario;
-        private System.Windows.Forms.Label lblUsuarioFlecha;
 
         // Panel Producto
         private Guna.UI2.WinForms.Guna2Panel pnlProducto;

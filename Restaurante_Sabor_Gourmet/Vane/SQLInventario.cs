@@ -11,9 +11,8 @@ namespace Restaurante_Sabor_Gourmet.ConsultasSQL
     {
         private readonly ConexionBD conexion = new ConexionBD();
 
-        // ─────────────────────────────────────────
         // INGREDIENTES
-        // ─────────────────────────────────────────
+      
 
         public bool EstaEnReceta(int idIngrediente)
         {

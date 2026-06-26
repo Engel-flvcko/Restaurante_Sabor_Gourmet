@@ -67,7 +67,7 @@ namespace Restaurante_Sabor_Gourmet.Vane
         // ─────────────────────────────────────────
         private void frmRecetas_Load(object sender, EventArgs e)
         {
-            lblUsuario.Text = nombreUsuarioSesion;
+           
 
             CargarCategoriasFiltro();
             CargarIngredientesCombo();

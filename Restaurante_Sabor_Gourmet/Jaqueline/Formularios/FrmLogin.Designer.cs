@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmLogin));
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
@@ -53,11 +54,13 @@
             // picLogo
             // 
             picLogo.CustomizableEdges = customizableEdges1;
+            picLogo.Image = (Image)resources.GetObject("picLogo.Image");
             picLogo.ImageRotate = 0F;
-            picLogo.Location = new Point(200, 43);
+            picLogo.Location = new Point(188, 30);
             picLogo.Name = "picLogo";
             picLogo.ShadowDecoration.CustomizableEdges = customizableEdges2;
-            picLogo.Size = new Size(168, 141);
+            picLogo.Size = new Size(184, 166);
+            picLogo.SizeMode = PictureBoxSizeMode.Zoom;
             picLogo.TabIndex = 0;
             picLogo.TabStop = false;
             // 
@@ -158,6 +161,7 @@
             btnInicioSesion.DisabledState.CustomBorderColor = Color.DarkGray;
             btnInicioSesion.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
             btnInicioSesion.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            btnInicioSesion.FillColor = Color.FromArgb(30, 58, 138);
             btnInicioSesion.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnInicioSesion.ForeColor = Color.White;
             btnInicioSesion.Location = new Point(160, 516);

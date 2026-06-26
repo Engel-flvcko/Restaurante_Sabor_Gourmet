@@ -30,14 +30,13 @@ namespace Restaurante_Sabor_Gourmet.Vane
         // Filtro activo: "todos" | "bajo" | "agotado"
         private string filtroActivo = "todos";
 
-        // ─────────────────────────────────────────
         // DAOs
-        // ─────────────────────────────────────────
+       
         private readonly SQLInventario sqlInv = new SQLInventario();
 
-        // ─────────────────────────────────────────
+      
         // CONSTRUCTOR
-        // ─────────────────────────────────────────
+        
         public frmInventario(int idUsuarioSesion, string nombreUsuarioSesion)
         {
             InitializeComponent();
@@ -45,12 +44,12 @@ namespace Restaurante_Sabor_Gourmet.Vane
             this.nombreUsuarioSesion = nombreUsuarioSesion;
         }
 
-        // ─────────────────────────────────────────
+    
         // CARGA INICIAL
-        // ─────────────────────────────────────────
+       
         private void frmInventario_Load(object sender, EventArgs e)
         {
-            lblUsuario.Text = nombreUsuarioSesion;
+           
 
             CargarTodo();
             ConfigurarPanelMovimiento(false);
@@ -62,9 +61,9 @@ namespace Restaurante_Sabor_Gourmet.Vane
             CargarHistorial();
         }
 
-        // ─────────────────────────────────────────
+      
         // CARGAR INGREDIENTES Y KPI CARDS
-        // ─────────────────────────────────────────
+     
         private void CargarIngredientes()
         {
             todosLosIngredientes = sqlInv.ObtenerTodos();
@@ -138,9 +137,9 @@ namespace Restaurante_Sabor_Gourmet.Vane
             }
         }
 
-        // ─────────────────────────────────────────
+     
         // FORMATEO DE COLORES EN GRILLA (CellFormatting)
-        // ─────────────────────────────────────────
+        
         private void dgvIngredientes_CellFormatting(object sender,
             DataGridViewCellFormattingEventArgs e)
         {
@@ -167,9 +166,9 @@ namespace Restaurante_Sabor_Gourmet.Vane
             }
         }
 
-        // ─────────────────────────────────────────
+    
         // CARGAR HISTORIAL
-        // ─────────────────────────────────────────
+    
         private void CargarHistorial()
         {
             todoElHistorial = sqlInv.ObtenerMovimientosConUsuario();
@@ -205,17 +204,16 @@ namespace Restaurante_Sabor_Gourmet.Vane
             }
         }
 
-        // ─────────────────────────────────────────
         // BÚSQUEDA EN TIEMPO REAL
-        // ─────────────────────────────────────────
+        
         private void txtBuscar_TextChanged(object sender, EventArgs e)
         {
             AplicarFiltroYMostrar();
         }
 
-        // ─────────────────────────────────────────
+
         // BOTONES FILTRO
-        // ─────────────────────────────────────────
+  
         private void btnFiltroTodos_Click(object sender, EventArgs e)
         {
             filtroActivo = "todos";

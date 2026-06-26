@@ -28,469 +28,616 @@
         /// </summary>
         private void InitializeComponent()
         {
-            // ---------- KPI: Tiempo Promedio ----------
-            this.pnlKpiTiempoProm = new Guna.UI2.WinForms.Guna2Panel();
-            this.pnlIconTiempoProm = new Guna.UI2.WinForms.Guna2Panel();
-            this.lblIconTiempoProm = new System.Windows.Forms.Label();
-            this.lblKpiTiempoPromTitulo = new System.Windows.Forms.Label();
-            this.lblKpiTiempoPromValor = new System.Windows.Forms.Label();
-            this.lblKpiTiempoPromPeriodo = new System.Windows.Forms.Label();
-
-            // ---------- KPI: Órdenes Pendientes ----------
-            this.pnlKpiPendientes = new Guna.UI2.WinForms.Guna2Panel();
-            this.pnlIconPendientes = new Guna.UI2.WinForms.Guna2Panel();
-            this.lblIconPendientes = new System.Windows.Forms.Label();
-            this.lblKpiPendientesTitulo = new System.Windows.Forms.Label();
-            this.lblKpiPendientesValor = new System.Windows.Forms.Label();
-            this.lblKpiPendientesPeriodo = new System.Windows.Forms.Label();
-
-            // ---------- KPI: Órdenes Retrasadas ----------
-            this.pnlKpiRetrasadas = new Guna.UI2.WinForms.Guna2Panel();
-            this.pnlIconRetrasadas = new Guna.UI2.WinForms.Guna2Panel();
-            this.lblIconRetrasadas = new System.Windows.Forms.Label();
-            this.lblKpiRetrasadasTitulo = new System.Windows.Forms.Label();
-            this.lblKpiRetrasadasValor = new System.Windows.Forms.Label();
-            this.lblKpiRetrasadasPeriodo = new System.Windows.Forms.Label();
-
-            // ---------- KPI: Productos Más Solicitados ----------
-            this.pnlKpiTopProductos = new Guna.UI2.WinForms.Guna2Panel();
-            this.pnlIconTopProductos = new Guna.UI2.WinForms.Guna2Panel();
-            this.lblIconTopProductos = new System.Windows.Forms.Label();
-            this.lblKpiTopProductosTitulo = new System.Windows.Forms.Label();
-            this.lblTop1Nombre = new System.Windows.Forms.Label();
-            this.lblTop1Cantidad = new System.Windows.Forms.Label();
-            this.lblTop2Nombre = new System.Windows.Forms.Label();
-            this.lblTop2Cantidad = new System.Windows.Forms.Label();
-            this.lblTop3Nombre = new System.Windows.Forms.Label();
-            this.lblTop3Cantidad = new System.Windows.Forms.Label();
-
-            // ---------- Barra de filtros ----------
-            this.pnlFiltros = new Guna.UI2.WinForms.Guna2Panel();
-            this.btnFiltroTodas = new Guna.UI2.WinForms.Guna2Button();
-            this.btnFiltroPendientes = new Guna.UI2.WinForms.Guna2Button();
-            this.btnFiltroPreparacion = new Guna.UI2.WinForms.Guna2Button();
-            this.btnFiltroListas = new Guna.UI2.WinForms.Guna2Button();
-            this.btnFiltroEntregadas = new Guna.UI2.WinForms.Guna2Button();
-            this.btnFiltroCanceladas = new Guna.UI2.WinForms.Guna2Button();
-
-            // ---------- Contenedor de la cola de producción (tarjetas dinámicas) ----------
-            this.pnlColaProduccion = new System.Windows.Forms.Panel();
-
-            this.pnlKpiTiempoProm.SuspendLayout();
-            this.pnlIconTiempoProm.SuspendLayout();
-            this.pnlKpiPendientes.SuspendLayout();
-            this.pnlIconPendientes.SuspendLayout();
-            this.pnlKpiRetrasadas.SuspendLayout();
-            this.pnlIconRetrasadas.SuspendLayout();
-            this.pnlKpiTopProductos.SuspendLayout();
-            this.pnlIconTopProductos.SuspendLayout();
-            this.pnlFiltros.SuspendLayout();
-            this.SuspendLayout();
-
-            // ============================================================
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges7 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges11 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges12 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges9 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges10 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges15 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges16 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges13 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges14 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges29 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges30 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges17 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges18 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges19 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges20 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges21 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges22 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges23 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges24 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges25 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges26 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges27 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges28 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            pnlKpiTiempoProm = new Guna.UI2.WinForms.Guna2Panel();
+            pnlIconTiempoProm = new Guna.UI2.WinForms.Guna2Panel();
+            lblIconTiempoProm = new Label();
+            lblKpiTiempoPromTitulo = new Label();
+            lblKpiTiempoPromValor = new Label();
+            lblKpiTiempoPromPeriodo = new Label();
+            pnlKpiPendientes = new Guna.UI2.WinForms.Guna2Panel();
+            pnlIconPendientes = new Guna.UI2.WinForms.Guna2Panel();
+            lblIconPendientes = new Label();
+            lblKpiPendientesTitulo = new Label();
+            lblKpiPendientesValor = new Label();
+            lblKpiPendientesPeriodo = new Label();
+            pnlKpiRetrasadas = new Guna.UI2.WinForms.Guna2Panel();
+            pnlIconRetrasadas = new Guna.UI2.WinForms.Guna2Panel();
+            lblIconRetrasadas = new Label();
+            lblKpiRetrasadasTitulo = new Label();
+            lblKpiRetrasadasValor = new Label();
+            lblKpiRetrasadasPeriodo = new Label();
+            pnlKpiTopProductos = new Guna.UI2.WinForms.Guna2Panel();
+            pnlIconTopProductos = new Guna.UI2.WinForms.Guna2Panel();
+            lblIconTopProductos = new Label();
+            lblKpiTopProductosTitulo = new Label();
+            lblTop1Nombre = new Label();
+            lblTop1Cantidad = new Label();
+            lblTop2Nombre = new Label();
+            lblTop2Cantidad = new Label();
+            lblTop3Nombre = new Label();
+            lblTop3Cantidad = new Label();
+            pnlFiltros = new Guna.UI2.WinForms.Guna2Panel();
+            btnFiltroTodas = new Guna.UI2.WinForms.Guna2Button();
+            btnFiltroPendientes = new Guna.UI2.WinForms.Guna2Button();
+            btnFiltroPreparacion = new Guna.UI2.WinForms.Guna2Button();
+            btnFiltroListas = new Guna.UI2.WinForms.Guna2Button();
+            btnFiltroEntregadas = new Guna.UI2.WinForms.Guna2Button();
+            btnFiltroCanceladas = new Guna.UI2.WinForms.Guna2Button();
+            pnlColaProduccion = new Panel();
+            pnlKpiTiempoProm.SuspendLayout();
+            pnlIconTiempoProm.SuspendLayout();
+            pnlKpiPendientes.SuspendLayout();
+            pnlIconPendientes.SuspendLayout();
+            pnlKpiRetrasadas.SuspendLayout();
+            pnlIconRetrasadas.SuspendLayout();
+            pnlKpiTopProductos.SuspendLayout();
+            pnlIconTopProductos.SuspendLayout();
+            pnlFiltros.SuspendLayout();
+            SuspendLayout();
+            // 
             // pnlKpiTiempoProm
-            // ============================================================
-            this.pnlKpiTiempoProm.BorderRadius = 12;
-            this.pnlKpiTiempoProm.FillColor = System.Drawing.Color.White;
-            this.pnlKpiTiempoProm.Location = new System.Drawing.Point(20, 20);
-            this.pnlKpiTiempoProm.Name = "pnlKpiTiempoProm";
-            this.pnlKpiTiempoProm.ShadowDecoration.Enabled = true;
-            this.pnlKpiTiempoProm.Size = new System.Drawing.Size(360, 140);
-            this.pnlKpiTiempoProm.TabIndex = 0;
-            this.pnlKpiTiempoProm.Controls.Add(this.pnlIconTiempoProm);
-            this.pnlKpiTiempoProm.Controls.Add(this.lblKpiTiempoPromTitulo);
-            this.pnlKpiTiempoProm.Controls.Add(this.lblKpiTiempoPromValor);
-            this.pnlKpiTiempoProm.Controls.Add(this.lblKpiTiempoPromPeriodo);
-
-            this.pnlIconTiempoProm.BorderRadius = 25;
-            this.pnlIconTiempoProm.FillColor = System.Drawing.Color.FromArgb(220, 252, 231);
-            this.pnlIconTiempoProm.Location = new System.Drawing.Point(20, 20);
-            this.pnlIconTiempoProm.Name = "pnlIconTiempoProm";
-            this.pnlIconTiempoProm.Size = new System.Drawing.Size(50, 50);
-            this.pnlIconTiempoProm.TabIndex = 0;
-            this.pnlIconTiempoProm.Controls.Add(this.lblIconTiempoProm);
-
-            this.lblIconTiempoProm.AutoSize = false;
-            this.lblIconTiempoProm.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblIconTiempoProm.Font = new System.Drawing.Font("Segoe UI", 16F);
-            this.lblIconTiempoProm.Name = "lblIconTiempoProm";
-            this.lblIconTiempoProm.Text = "⏱";
-            this.lblIconTiempoProm.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-
-            this.lblKpiTiempoPromTitulo.AutoSize = true;
-            this.lblKpiTiempoPromTitulo.Font = new System.Drawing.Font("Segoe UI", 9.5F);
-            this.lblKpiTiempoPromTitulo.ForeColor = System.Drawing.Color.FromArgb(80, 80, 90);
-            this.lblKpiTiempoPromTitulo.Location = new System.Drawing.Point(85, 30);
-            this.lblKpiTiempoPromTitulo.Name = "lblKpiTiempoPromTitulo";
-            this.lblKpiTiempoPromTitulo.Size = new System.Drawing.Size(240, 19);
-            this.lblKpiTiempoPromTitulo.TabIndex = 1;
-            this.lblKpiTiempoPromTitulo.Text = "Tiempo Promedio de Preparación";
-
-            this.lblKpiTiempoPromValor.AutoSize = true;
-            this.lblKpiTiempoPromValor.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold);
-            this.lblKpiTiempoPromValor.ForeColor = System.Drawing.Color.FromArgb(34, 197, 94);
-            this.lblKpiTiempoPromValor.Location = new System.Drawing.Point(20, 78);
-            this.lblKpiTiempoPromValor.Name = "lblKpiTiempoPromValor";
-            this.lblKpiTiempoPromValor.Size = new System.Drawing.Size(120, 45);
-            this.lblKpiTiempoPromValor.TabIndex = 2;
-            this.lblKpiTiempoPromValor.Text = "0 min";
-
-            this.lblKpiTiempoPromPeriodo.AutoSize = true;
-            this.lblKpiTiempoPromPeriodo.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.lblKpiTiempoPromPeriodo.ForeColor = System.Drawing.Color.Gray;
-            this.lblKpiTiempoPromPeriodo.Location = new System.Drawing.Point(22, 118);
-            this.lblKpiTiempoPromPeriodo.Name = "lblKpiTiempoPromPeriodo";
-            this.lblKpiTiempoPromPeriodo.Size = new System.Drawing.Size(110, 17);
-            this.lblKpiTiempoPromPeriodo.TabIndex = 3;
-            this.lblKpiTiempoPromPeriodo.Text = "Últimos 30 minutos";
-
-            // ============================================================
+            // 
+            pnlKpiTiempoProm.BackColor = Color.Transparent;
+            pnlKpiTiempoProm.BorderRadius = 12;
+            pnlKpiTiempoProm.Controls.Add(pnlIconTiempoProm);
+            pnlKpiTiempoProm.Controls.Add(lblKpiTiempoPromTitulo);
+            pnlKpiTiempoProm.Controls.Add(lblKpiTiempoPromValor);
+            pnlKpiTiempoProm.Controls.Add(lblKpiTiempoPromPeriodo);
+            pnlKpiTiempoProm.CustomizableEdges = customizableEdges3;
+            pnlKpiTiempoProm.FillColor = Color.White;
+            pnlKpiTiempoProm.Location = new Point(25, 25);
+            pnlKpiTiempoProm.Margin = new Padding(4);
+            pnlKpiTiempoProm.Name = "pnlKpiTiempoProm";
+            pnlKpiTiempoProm.ShadowDecoration.CustomizableEdges = customizableEdges4;
+            pnlKpiTiempoProm.ShadowDecoration.Enabled = true;
+            pnlKpiTiempoProm.Size = new Size(376, 175);
+            pnlKpiTiempoProm.TabIndex = 0;
+            // 
+            // pnlIconTiempoProm
+            // 
+            pnlIconTiempoProm.BorderRadius = 25;
+            pnlIconTiempoProm.Controls.Add(lblIconTiempoProm);
+            pnlIconTiempoProm.CustomizableEdges = customizableEdges1;
+            pnlIconTiempoProm.FillColor = Color.FromArgb(220, 252, 231);
+            pnlIconTiempoProm.Location = new Point(25, 25);
+            pnlIconTiempoProm.Margin = new Padding(4);
+            pnlIconTiempoProm.Name = "pnlIconTiempoProm";
+            pnlIconTiempoProm.ShadowDecoration.CustomizableEdges = customizableEdges2;
+            pnlIconTiempoProm.Size = new Size(62, 62);
+            pnlIconTiempoProm.TabIndex = 0;
+            // 
+            // lblIconTiempoProm
+            // 
+            lblIconTiempoProm.Dock = DockStyle.Fill;
+            lblIconTiempoProm.Font = new Font("Segoe UI", 16F);
+            lblIconTiempoProm.Location = new Point(0, 0);
+            lblIconTiempoProm.Margin = new Padding(4, 0, 4, 0);
+            lblIconTiempoProm.Name = "lblIconTiempoProm";
+            lblIconTiempoProm.Size = new Size(62, 62);
+            lblIconTiempoProm.TabIndex = 0;
+            lblIconTiempoProm.Text = "⏱";
+            lblIconTiempoProm.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // lblKpiTiempoPromTitulo
+            // 
+            lblKpiTiempoPromTitulo.AutoSize = true;
+            lblKpiTiempoPromTitulo.Font = new Font("Segoe UI", 9.5F);
+            lblKpiTiempoPromTitulo.ForeColor = Color.FromArgb(80, 80, 90);
+            lblKpiTiempoPromTitulo.Location = new Point(106, 38);
+            lblKpiTiempoPromTitulo.Margin = new Padding(4, 0, 4, 0);
+            lblKpiTiempoPromTitulo.Name = "lblKpiTiempoPromTitulo";
+            lblKpiTiempoPromTitulo.Size = new Size(242, 21);
+            lblKpiTiempoPromTitulo.TabIndex = 1;
+            lblKpiTiempoPromTitulo.Text = "Tiempo Promedio de Preparación";
+            // 
+            // lblKpiTiempoPromValor
+            // 
+            lblKpiTiempoPromValor.AutoSize = true;
+            lblKpiTiempoPromValor.Font = new Font("Segoe UI", 24F, FontStyle.Bold);
+            lblKpiTiempoPromValor.ForeColor = Color.FromArgb(34, 197, 94);
+            lblKpiTiempoPromValor.Location = new Point(25, 98);
+            lblKpiTiempoPromValor.Margin = new Padding(4, 0, 4, 0);
+            lblKpiTiempoPromValor.Name = "lblKpiTiempoPromValor";
+            lblKpiTiempoPromValor.Size = new Size(129, 54);
+            lblKpiTiempoPromValor.TabIndex = 2;
+            lblKpiTiempoPromValor.Text = "0 min";
+            // 
+            // lblKpiTiempoPromPeriodo
+            // 
+            lblKpiTiempoPromPeriodo.AutoSize = true;
+            lblKpiTiempoPromPeriodo.Font = new Font("Segoe UI", 9F);
+            lblKpiTiempoPromPeriodo.ForeColor = Color.Gray;
+            lblKpiTiempoPromPeriodo.Location = new Point(28, 148);
+            lblKpiTiempoPromPeriodo.Margin = new Padding(4, 0, 4, 0);
+            lblKpiTiempoPromPeriodo.Name = "lblKpiTiempoPromPeriodo";
+            lblKpiTiempoPromPeriodo.Size = new Size(137, 20);
+            lblKpiTiempoPromPeriodo.TabIndex = 3;
+            lblKpiTiempoPromPeriodo.Text = "Últimos 30 minutos";
+            // 
             // pnlKpiPendientes
-            // ============================================================
-            this.pnlKpiPendientes.BorderRadius = 12;
-            this.pnlKpiPendientes.FillColor = System.Drawing.Color.White;
-            this.pnlKpiPendientes.Location = new System.Drawing.Point(395, 20);
-            this.pnlKpiPendientes.Name = "pnlKpiPendientes";
-            this.pnlKpiPendientes.ShadowDecoration.Enabled = true;
-            this.pnlKpiPendientes.Size = new System.Drawing.Size(360, 140);
-            this.pnlKpiPendientes.TabIndex = 1;
-            this.pnlKpiPendientes.Controls.Add(this.pnlIconPendientes);
-            this.pnlKpiPendientes.Controls.Add(this.lblKpiPendientesTitulo);
-            this.pnlKpiPendientes.Controls.Add(this.lblKpiPendientesValor);
-            this.pnlKpiPendientes.Controls.Add(this.lblKpiPendientesPeriodo);
-
-            this.pnlIconPendientes.BorderRadius = 25;
-            this.pnlIconPendientes.FillColor = System.Drawing.Color.FromArgb(255, 237, 213);
-            this.pnlIconPendientes.Location = new System.Drawing.Point(20, 20);
-            this.pnlIconPendientes.Name = "pnlIconPendientes";
-            this.pnlIconPendientes.Size = new System.Drawing.Size(50, 50);
-            this.pnlIconPendientes.TabIndex = 0;
-            this.pnlIconPendientes.Controls.Add(this.lblIconPendientes);
-
-            this.lblIconPendientes.AutoSize = false;
-            this.lblIconPendientes.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblIconPendientes.Font = new System.Drawing.Font("Segoe UI", 16F);
-            this.lblIconPendientes.Name = "lblIconPendientes";
-            this.lblIconPendientes.Text = "🕐";
-            this.lblIconPendientes.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-
-            this.lblKpiPendientesTitulo.AutoSize = true;
-            this.lblKpiPendientesTitulo.Font = new System.Drawing.Font("Segoe UI", 9.5F);
-            this.lblKpiPendientesTitulo.ForeColor = System.Drawing.Color.FromArgb(80, 80, 90);
-            this.lblKpiPendientesTitulo.Location = new System.Drawing.Point(85, 30);
-            this.lblKpiPendientesTitulo.Name = "lblKpiPendientesTitulo";
-            this.lblKpiPendientesTitulo.Size = new System.Drawing.Size(140, 19);
-            this.lblKpiPendientesTitulo.TabIndex = 1;
-            this.lblKpiPendientesTitulo.Text = "Órdenes Pendientes";
-
-            this.lblKpiPendientesValor.AutoSize = true;
-            this.lblKpiPendientesValor.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold);
-            this.lblKpiPendientesValor.ForeColor = System.Drawing.Color.FromArgb(249, 115, 22);
-            this.lblKpiPendientesValor.Location = new System.Drawing.Point(20, 78);
-            this.lblKpiPendientesValor.Name = "lblKpiPendientesValor";
-            this.lblKpiPendientesValor.Size = new System.Drawing.Size(60, 45);
-            this.lblKpiPendientesValor.TabIndex = 2;
-            this.lblKpiPendientesValor.Text = "0";
-
-            this.lblKpiPendientesPeriodo.AutoSize = true;
-            this.lblKpiPendientesPeriodo.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.lblKpiPendientesPeriodo.ForeColor = System.Drawing.Color.Gray;
-            this.lblKpiPendientesPeriodo.Location = new System.Drawing.Point(22, 118);
-            this.lblKpiPendientesPeriodo.Name = "lblKpiPendientesPeriodo";
-            this.lblKpiPendientesPeriodo.Size = new System.Drawing.Size(75, 17);
-            this.lblKpiPendientesPeriodo.TabIndex = 3;
-            this.lblKpiPendientesPeriodo.Text = "Por preparar";
-
-            // ============================================================
+            // 
+            pnlKpiPendientes.BackColor = Color.Transparent;
+            pnlKpiPendientes.BorderRadius = 12;
+            pnlKpiPendientes.Controls.Add(pnlIconPendientes);
+            pnlKpiPendientes.Controls.Add(lblKpiPendientesTitulo);
+            pnlKpiPendientes.Controls.Add(lblKpiPendientesValor);
+            pnlKpiPendientes.Controls.Add(lblKpiPendientesPeriodo);
+            pnlKpiPendientes.CustomizableEdges = customizableEdges7;
+            pnlKpiPendientes.FillColor = Color.White;
+            pnlKpiPendientes.Location = new Point(425, 25);
+            pnlKpiPendientes.Margin = new Padding(4);
+            pnlKpiPendientes.Name = "pnlKpiPendientes";
+            pnlKpiPendientes.ShadowDecoration.CustomizableEdges = customizableEdges8;
+            pnlKpiPendientes.ShadowDecoration.Enabled = true;
+            pnlKpiPendientes.Size = new Size(277, 175);
+            pnlKpiPendientes.TabIndex = 1;
+            // 
+            // pnlIconPendientes
+            // 
+            pnlIconPendientes.BorderRadius = 25;
+            pnlIconPendientes.Controls.Add(lblIconPendientes);
+            pnlIconPendientes.CustomizableEdges = customizableEdges5;
+            pnlIconPendientes.FillColor = Color.FromArgb(255, 237, 213);
+            pnlIconPendientes.Location = new Point(25, 25);
+            pnlIconPendientes.Margin = new Padding(4);
+            pnlIconPendientes.Name = "pnlIconPendientes";
+            pnlIconPendientes.ShadowDecoration.CustomizableEdges = customizableEdges6;
+            pnlIconPendientes.Size = new Size(62, 62);
+            pnlIconPendientes.TabIndex = 0;
+            // 
+            // lblIconPendientes
+            // 
+            lblIconPendientes.Dock = DockStyle.Fill;
+            lblIconPendientes.Font = new Font("Segoe UI", 16F);
+            lblIconPendientes.Location = new Point(0, 0);
+            lblIconPendientes.Margin = new Padding(4, 0, 4, 0);
+            lblIconPendientes.Name = "lblIconPendientes";
+            lblIconPendientes.Size = new Size(62, 62);
+            lblIconPendientes.TabIndex = 0;
+            lblIconPendientes.Text = "🕐";
+            lblIconPendientes.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // lblKpiPendientesTitulo
+            // 
+            lblKpiPendientesTitulo.AutoSize = true;
+            lblKpiPendientesTitulo.Font = new Font("Segoe UI", 9.5F);
+            lblKpiPendientesTitulo.ForeColor = Color.FromArgb(80, 80, 90);
+            lblKpiPendientesTitulo.Location = new Point(104, 25);
+            lblKpiPendientesTitulo.Margin = new Padding(4, 0, 4, 0);
+            lblKpiPendientesTitulo.Name = "lblKpiPendientesTitulo";
+            lblKpiPendientesTitulo.Size = new Size(148, 21);
+            lblKpiPendientesTitulo.TabIndex = 1;
+            lblKpiPendientesTitulo.Text = "Órdenes Pendientes";
+            // 
+            // lblKpiPendientesValor
+            // 
+            lblKpiPendientesValor.AutoSize = true;
+            lblKpiPendientesValor.Font = new Font("Segoe UI", 24F, FontStyle.Bold);
+            lblKpiPendientesValor.ForeColor = Color.FromArgb(249, 115, 22);
+            lblKpiPendientesValor.Location = new Point(25, 98);
+            lblKpiPendientesValor.Margin = new Padding(4, 0, 4, 0);
+            lblKpiPendientesValor.Name = "lblKpiPendientesValor";
+            lblKpiPendientesValor.Size = new Size(46, 54);
+            lblKpiPendientesValor.TabIndex = 2;
+            lblKpiPendientesValor.Text = "0";
+            // 
+            // lblKpiPendientesPeriodo
+            // 
+            lblKpiPendientesPeriodo.AutoSize = true;
+            lblKpiPendientesPeriodo.Font = new Font("Segoe UI", 9F);
+            lblKpiPendientesPeriodo.ForeColor = Color.Gray;
+            lblKpiPendientesPeriodo.Location = new Point(28, 148);
+            lblKpiPendientesPeriodo.Margin = new Padding(4, 0, 4, 0);
+            lblKpiPendientesPeriodo.Name = "lblKpiPendientesPeriodo";
+            lblKpiPendientesPeriodo.Size = new Size(91, 20);
+            lblKpiPendientesPeriodo.TabIndex = 3;
+            lblKpiPendientesPeriodo.Text = "Por preparar";
+            // 
             // pnlKpiRetrasadas
-            // ============================================================
-            this.pnlKpiRetrasadas.BorderRadius = 12;
-            this.pnlKpiRetrasadas.FillColor = System.Drawing.Color.White;
-            this.pnlKpiRetrasadas.Location = new System.Drawing.Point(770, 20);
-            this.pnlKpiRetrasadas.Name = "pnlKpiRetrasadas";
-            this.pnlKpiRetrasadas.ShadowDecoration.Enabled = true;
-            this.pnlKpiRetrasadas.Size = new System.Drawing.Size(360, 140);
-            this.pnlKpiRetrasadas.TabIndex = 2;
-            this.pnlKpiRetrasadas.Controls.Add(this.pnlIconRetrasadas);
-            this.pnlKpiRetrasadas.Controls.Add(this.lblKpiRetrasadasTitulo);
-            this.pnlKpiRetrasadas.Controls.Add(this.lblKpiRetrasadasValor);
-            this.pnlKpiRetrasadas.Controls.Add(this.lblKpiRetrasadasPeriodo);
-
-            this.pnlIconRetrasadas.BorderRadius = 25;
-            this.pnlIconRetrasadas.FillColor = System.Drawing.Color.FromArgb(254, 226, 226);
-            this.pnlIconRetrasadas.Location = new System.Drawing.Point(20, 20);
-            this.pnlIconRetrasadas.Name = "pnlIconRetrasadas";
-            this.pnlIconRetrasadas.Size = new System.Drawing.Size(50, 50);
-            this.pnlIconRetrasadas.TabIndex = 0;
-            this.pnlIconRetrasadas.Controls.Add(this.lblIconRetrasadas);
-
-            this.lblIconRetrasadas.AutoSize = false;
-            this.lblIconRetrasadas.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblIconRetrasadas.Font = new System.Drawing.Font("Segoe UI", 16F);
-            this.lblIconRetrasadas.Name = "lblIconRetrasadas";
-            this.lblIconRetrasadas.Text = "⚠";
-            this.lblIconRetrasadas.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-
-            this.lblKpiRetrasadasTitulo.AutoSize = true;
-            this.lblKpiRetrasadasTitulo.Font = new System.Drawing.Font("Segoe UI", 9.5F);
-            this.lblKpiRetrasadasTitulo.ForeColor = System.Drawing.Color.FromArgb(80, 80, 90);
-            this.lblKpiRetrasadasTitulo.Location = new System.Drawing.Point(85, 30);
-            this.lblKpiRetrasadasTitulo.Name = "lblKpiRetrasadasTitulo";
-            this.lblKpiRetrasadasTitulo.Size = new System.Drawing.Size(140, 19);
-            this.lblKpiRetrasadasTitulo.TabIndex = 1;
-            this.lblKpiRetrasadasTitulo.Text = "Órdenes Retrasadas";
-
-            this.lblKpiRetrasadasValor.AutoSize = true;
-            this.lblKpiRetrasadasValor.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold);
-            this.lblKpiRetrasadasValor.ForeColor = System.Drawing.Color.FromArgb(239, 68, 68);
-            this.lblKpiRetrasadasValor.Location = new System.Drawing.Point(20, 78);
-            this.lblKpiRetrasadasValor.Name = "lblKpiRetrasadasValor";
-            this.lblKpiRetrasadasValor.Size = new System.Drawing.Size(60, 45);
-            this.lblKpiRetrasadasValor.TabIndex = 2;
-            this.lblKpiRetrasadasValor.Text = "0";
-
-            this.lblKpiRetrasadasPeriodo.AutoSize = true;
-            this.lblKpiRetrasadasPeriodo.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.lblKpiRetrasadasPeriodo.ForeColor = System.Drawing.Color.Gray;
-            this.lblKpiRetrasadasPeriodo.Location = new System.Drawing.Point(22, 118);
-            this.lblKpiRetrasadasPeriodo.Name = "lblKpiRetrasadasPeriodo";
-            this.lblKpiRetrasadasPeriodo.Size = new System.Drawing.Size(50, 17);
-            this.lblKpiRetrasadasPeriodo.TabIndex = 3;
-            this.lblKpiRetrasadasPeriodo.Text = "+30 min";
-
-            // ============================================================
+            // 
+            pnlKpiRetrasadas.BackColor = Color.Transparent;
+            pnlKpiRetrasadas.BorderRadius = 12;
+            pnlKpiRetrasadas.Controls.Add(pnlIconRetrasadas);
+            pnlKpiRetrasadas.Controls.Add(lblKpiRetrasadasTitulo);
+            pnlKpiRetrasadas.Controls.Add(lblKpiRetrasadasValor);
+            pnlKpiRetrasadas.Controls.Add(lblKpiRetrasadasPeriodo);
+            pnlKpiRetrasadas.CustomizableEdges = customizableEdges11;
+            pnlKpiRetrasadas.FillColor = Color.White;
+            pnlKpiRetrasadas.Location = new Point(722, 25);
+            pnlKpiRetrasadas.Margin = new Padding(4);
+            pnlKpiRetrasadas.Name = "pnlKpiRetrasadas";
+            pnlKpiRetrasadas.ShadowDecoration.CustomizableEdges = customizableEdges12;
+            pnlKpiRetrasadas.ShadowDecoration.Enabled = true;
+            pnlKpiRetrasadas.Size = new Size(273, 175);
+            pnlKpiRetrasadas.TabIndex = 2;
+            // 
+            // pnlIconRetrasadas
+            // 
+            pnlIconRetrasadas.BorderRadius = 25;
+            pnlIconRetrasadas.Controls.Add(lblIconRetrasadas);
+            pnlIconRetrasadas.CustomizableEdges = customizableEdges9;
+            pnlIconRetrasadas.FillColor = Color.FromArgb(254, 226, 226);
+            pnlIconRetrasadas.Location = new Point(25, 25);
+            pnlIconRetrasadas.Margin = new Padding(4);
+            pnlIconRetrasadas.Name = "pnlIconRetrasadas";
+            pnlIconRetrasadas.ShadowDecoration.CustomizableEdges = customizableEdges10;
+            pnlIconRetrasadas.Size = new Size(62, 62);
+            pnlIconRetrasadas.TabIndex = 0;
+            // 
+            // lblIconRetrasadas
+            // 
+            lblIconRetrasadas.Dock = DockStyle.Fill;
+            lblIconRetrasadas.Font = new Font("Segoe UI", 16F);
+            lblIconRetrasadas.Location = new Point(0, 0);
+            lblIconRetrasadas.Margin = new Padding(4, 0, 4, 0);
+            lblIconRetrasadas.Name = "lblIconRetrasadas";
+            lblIconRetrasadas.Size = new Size(62, 62);
+            lblIconRetrasadas.TabIndex = 0;
+            lblIconRetrasadas.Text = "⚠";
+            lblIconRetrasadas.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // lblKpiRetrasadasTitulo
+            // 
+            lblKpiRetrasadasTitulo.AutoSize = true;
+            lblKpiRetrasadasTitulo.Font = new Font("Segoe UI", 9.5F);
+            lblKpiRetrasadasTitulo.ForeColor = Color.FromArgb(80, 80, 90);
+            lblKpiRetrasadasTitulo.Location = new Point(95, 25);
+            lblKpiRetrasadasTitulo.Margin = new Padding(4, 0, 4, 0);
+            lblKpiRetrasadasTitulo.Name = "lblKpiRetrasadasTitulo";
+            lblKpiRetrasadasTitulo.Size = new Size(149, 21);
+            lblKpiRetrasadasTitulo.TabIndex = 1;
+            lblKpiRetrasadasTitulo.Text = "Órdenes Retrasadas";
+            // 
+            // lblKpiRetrasadasValor
+            // 
+            lblKpiRetrasadasValor.AutoSize = true;
+            lblKpiRetrasadasValor.Font = new Font("Segoe UI", 24F, FontStyle.Bold);
+            lblKpiRetrasadasValor.ForeColor = Color.FromArgb(239, 68, 68);
+            lblKpiRetrasadasValor.Location = new Point(25, 98);
+            lblKpiRetrasadasValor.Margin = new Padding(4, 0, 4, 0);
+            lblKpiRetrasadasValor.Name = "lblKpiRetrasadasValor";
+            lblKpiRetrasadasValor.Size = new Size(46, 54);
+            lblKpiRetrasadasValor.TabIndex = 2;
+            lblKpiRetrasadasValor.Text = "0";
+            // 
+            // lblKpiRetrasadasPeriodo
+            // 
+            lblKpiRetrasadasPeriodo.AutoSize = true;
+            lblKpiRetrasadasPeriodo.Font = new Font("Segoe UI", 9F);
+            lblKpiRetrasadasPeriodo.ForeColor = Color.Gray;
+            lblKpiRetrasadasPeriodo.Location = new Point(28, 148);
+            lblKpiRetrasadasPeriodo.Margin = new Padding(4, 0, 4, 0);
+            lblKpiRetrasadasPeriodo.Name = "lblKpiRetrasadasPeriodo";
+            lblKpiRetrasadasPeriodo.Size = new Size(64, 20);
+            lblKpiRetrasadasPeriodo.TabIndex = 3;
+            lblKpiRetrasadasPeriodo.Text = "+30 min";
+            // 
             // pnlKpiTopProductos
-            // ============================================================
-            this.pnlKpiTopProductos.BorderRadius = 12;
-            this.pnlKpiTopProductos.FillColor = System.Drawing.Color.White;
-            this.pnlKpiTopProductos.Location = new System.Drawing.Point(1145, 20);
-            this.pnlKpiTopProductos.Name = "pnlKpiTopProductos";
-            this.pnlKpiTopProductos.ShadowDecoration.Enabled = true;
-            this.pnlKpiTopProductos.Size = new System.Drawing.Size(371, 140);
-            this.pnlKpiTopProductos.TabIndex = 3;
-            this.pnlKpiTopProductos.Controls.Add(this.pnlIconTopProductos);
-            this.pnlKpiTopProductos.Controls.Add(this.lblKpiTopProductosTitulo);
-            this.pnlKpiTopProductos.Controls.Add(this.lblTop1Nombre);
-            this.pnlKpiTopProductos.Controls.Add(this.lblTop1Cantidad);
-            this.pnlKpiTopProductos.Controls.Add(this.lblTop2Nombre);
-            this.pnlKpiTopProductos.Controls.Add(this.lblTop2Cantidad);
-            this.pnlKpiTopProductos.Controls.Add(this.lblTop3Nombre);
-            this.pnlKpiTopProductos.Controls.Add(this.lblTop3Cantidad);
-
-            this.pnlIconTopProductos.BorderRadius = 21;
-            this.pnlIconTopProductos.FillColor = System.Drawing.Color.FromArgb(243, 232, 255);
-            this.pnlIconTopProductos.Location = new System.Drawing.Point(20, 18);
-            this.pnlIconTopProductos.Name = "pnlIconTopProductos";
-            this.pnlIconTopProductos.Size = new System.Drawing.Size(42, 42);
-            this.pnlIconTopProductos.TabIndex = 0;
-            this.pnlIconTopProductos.Controls.Add(this.lblIconTopProductos);
-
-            this.lblIconTopProductos.AutoSize = false;
-            this.lblIconTopProductos.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblIconTopProductos.Font = new System.Drawing.Font("Segoe UI", 14F);
-            this.lblIconTopProductos.Name = "lblIconTopProductos";
-            this.lblIconTopProductos.Text = "📊";
-            this.lblIconTopProductos.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-
-            this.lblKpiTopProductosTitulo.AutoSize = true;
-            this.lblKpiTopProductosTitulo.Font = new System.Drawing.Font("Segoe UI", 9.5F);
-            this.lblKpiTopProductosTitulo.ForeColor = System.Drawing.Color.FromArgb(80, 80, 90);
-            this.lblKpiTopProductosTitulo.Location = new System.Drawing.Point(72, 28);
-            this.lblKpiTopProductosTitulo.Name = "lblKpiTopProductosTitulo";
-            this.lblKpiTopProductosTitulo.Size = new System.Drawing.Size(190, 19);
-            this.lblKpiTopProductosTitulo.TabIndex = 1;
-            this.lblKpiTopProductosTitulo.Text = "Productos Más Solicitados";
-
-            this.lblTop1Nombre.AutoSize = true;
-            this.lblTop1Nombre.Font = new System.Drawing.Font("Segoe UI", 9.5F);
-            this.lblTop1Nombre.ForeColor = System.Drawing.Color.FromArgb(30, 30, 47);
-            this.lblTop1Nombre.Location = new System.Drawing.Point(20, 65);
-            this.lblTop1Nombre.Name = "lblTop1Nombre";
-            this.lblTop1Nombre.Size = new System.Drawing.Size(150, 19);
-            this.lblTop1Nombre.TabIndex = 2;
-            this.lblTop1Nombre.Text = "1.  ---";
-
-            this.lblTop1Cantidad.AutoSize = true;
-            this.lblTop1Cantidad.Font = new System.Drawing.Font("Segoe UI", 9.5F, System.Drawing.FontStyle.Bold);
-            this.lblTop1Cantidad.ForeColor = System.Drawing.Color.FromArgb(168, 85, 247);
-            this.lblTop1Cantidad.Location = new System.Drawing.Point(335, 65);
-            this.lblTop1Cantidad.Name = "lblTop1Cantidad";
-            this.lblTop1Cantidad.Size = new System.Drawing.Size(20, 19);
-            this.lblTop1Cantidad.TabIndex = 3;
-            this.lblTop1Cantidad.Text = "0";
-
-            this.lblTop2Nombre.AutoSize = true;
-            this.lblTop2Nombre.Font = new System.Drawing.Font("Segoe UI", 9.5F);
-            this.lblTop2Nombre.ForeColor = System.Drawing.Color.FromArgb(30, 30, 47);
-            this.lblTop2Nombre.Location = new System.Drawing.Point(20, 90);
-            this.lblTop2Nombre.Name = "lblTop2Nombre";
-            this.lblTop2Nombre.Size = new System.Drawing.Size(150, 19);
-            this.lblTop2Nombre.TabIndex = 4;
-            this.lblTop2Nombre.Text = "2.  ---";
-
-            this.lblTop2Cantidad.AutoSize = true;
-            this.lblTop2Cantidad.Font = new System.Drawing.Font("Segoe UI", 9.5F, System.Drawing.FontStyle.Bold);
-            this.lblTop2Cantidad.ForeColor = System.Drawing.Color.FromArgb(168, 85, 247);
-            this.lblTop2Cantidad.Location = new System.Drawing.Point(335, 90);
-            this.lblTop2Cantidad.Name = "lblTop2Cantidad";
-            this.lblTop2Cantidad.Size = new System.Drawing.Size(20, 19);
-            this.lblTop2Cantidad.TabIndex = 5;
-            this.lblTop2Cantidad.Text = "0";
-
-            this.lblTop3Nombre.AutoSize = true;
-            this.lblTop3Nombre.Font = new System.Drawing.Font("Segoe UI", 9.5F);
-            this.lblTop3Nombre.ForeColor = System.Drawing.Color.FromArgb(30, 30, 47);
-            this.lblTop3Nombre.Location = new System.Drawing.Point(20, 115);
-            this.lblTop3Nombre.Name = "lblTop3Nombre";
-            this.lblTop3Nombre.Size = new System.Drawing.Size(150, 19);
-            this.lblTop3Nombre.TabIndex = 6;
-            this.lblTop3Nombre.Text = "3.  ---";
-
-            this.lblTop3Cantidad.AutoSize = true;
-            this.lblTop3Cantidad.Font = new System.Drawing.Font("Segoe UI", 9.5F, System.Drawing.FontStyle.Bold);
-            this.lblTop3Cantidad.ForeColor = System.Drawing.Color.FromArgb(168, 85, 247);
-            this.lblTop3Cantidad.Location = new System.Drawing.Point(335, 115);
-            this.lblTop3Cantidad.Name = "lblTop3Cantidad";
-            this.lblTop3Cantidad.Size = new System.Drawing.Size(20, 19);
-            this.lblTop3Cantidad.TabIndex = 7;
-            this.lblTop3Cantidad.Text = "0";
-
-            // ============================================================
+            // 
+            pnlKpiTopProductos.BackColor = Color.Transparent;
+            pnlKpiTopProductos.BorderRadius = 12;
+            pnlKpiTopProductos.Controls.Add(pnlIconTopProductos);
+            pnlKpiTopProductos.Controls.Add(lblKpiTopProductosTitulo);
+            pnlKpiTopProductos.Controls.Add(lblTop1Nombre);
+            pnlKpiTopProductos.Controls.Add(lblTop1Cantidad);
+            pnlKpiTopProductos.Controls.Add(lblTop2Nombre);
+            pnlKpiTopProductos.Controls.Add(lblTop2Cantidad);
+            pnlKpiTopProductos.Controls.Add(lblTop3Nombre);
+            pnlKpiTopProductos.Controls.Add(lblTop3Cantidad);
+            pnlKpiTopProductos.CustomizableEdges = customizableEdges15;
+            pnlKpiTopProductos.FillColor = Color.White;
+            pnlKpiTopProductos.Location = new Point(1018, 25);
+            pnlKpiTopProductos.Margin = new Padding(4);
+            pnlKpiTopProductos.Name = "pnlKpiTopProductos";
+            pnlKpiTopProductos.ShadowDecoration.CustomizableEdges = customizableEdges16;
+            pnlKpiTopProductos.ShadowDecoration.Enabled = true;
+            pnlKpiTopProductos.Size = new Size(437, 175);
+            pnlKpiTopProductos.TabIndex = 3;
+            // 
+            // pnlIconTopProductos
+            // 
+            pnlIconTopProductos.BorderRadius = 21;
+            pnlIconTopProductos.Controls.Add(lblIconTopProductos);
+            pnlIconTopProductos.CustomizableEdges = customizableEdges13;
+            pnlIconTopProductos.FillColor = Color.FromArgb(243, 232, 255);
+            pnlIconTopProductos.Location = new Point(25, 22);
+            pnlIconTopProductos.Margin = new Padding(4);
+            pnlIconTopProductos.Name = "pnlIconTopProductos";
+            pnlIconTopProductos.ShadowDecoration.CustomizableEdges = customizableEdges14;
+            pnlIconTopProductos.Size = new Size(52, 52);
+            pnlIconTopProductos.TabIndex = 0;
+            // 
+            // lblIconTopProductos
+            // 
+            lblIconTopProductos.Dock = DockStyle.Fill;
+            lblIconTopProductos.Font = new Font("Segoe UI", 14F);
+            lblIconTopProductos.Location = new Point(0, 0);
+            lblIconTopProductos.Margin = new Padding(4, 0, 4, 0);
+            lblIconTopProductos.Name = "lblIconTopProductos";
+            lblIconTopProductos.Size = new Size(52, 52);
+            lblIconTopProductos.TabIndex = 0;
+            lblIconTopProductos.Text = "📊";
+            lblIconTopProductos.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // lblKpiTopProductosTitulo
+            // 
+            lblKpiTopProductosTitulo.AutoSize = true;
+            lblKpiTopProductosTitulo.Font = new Font("Segoe UI", 9.5F);
+            lblKpiTopProductosTitulo.ForeColor = Color.FromArgb(80, 80, 90);
+            lblKpiTopProductosTitulo.Location = new Point(90, 35);
+            lblKpiTopProductosTitulo.Margin = new Padding(4, 0, 4, 0);
+            lblKpiTopProductosTitulo.Name = "lblKpiTopProductosTitulo";
+            lblKpiTopProductosTitulo.Size = new Size(192, 21);
+            lblKpiTopProductosTitulo.TabIndex = 1;
+            lblKpiTopProductosTitulo.Text = "Productos Más Solicitados";
+            // 
+            // lblTop1Nombre
+            // 
+            lblTop1Nombre.AutoSize = true;
+            lblTop1Nombre.Font = new Font("Segoe UI", 9.5F);
+            lblTop1Nombre.ForeColor = Color.FromArgb(30, 30, 47);
+            lblTop1Nombre.Location = new Point(25, 81);
+            lblTop1Nombre.Margin = new Padding(4, 0, 4, 0);
+            lblTop1Nombre.Name = "lblTop1Nombre";
+            lblTop1Nombre.Size = new Size(48, 21);
+            lblTop1Nombre.TabIndex = 2;
+            lblTop1Nombre.Text = "1.  ---";
+            // 
+            // lblTop1Cantidad
+            // 
+            lblTop1Cantidad.AutoSize = true;
+            lblTop1Cantidad.Font = new Font("Segoe UI", 9.5F, FontStyle.Bold);
+            lblTop1Cantidad.ForeColor = Color.FromArgb(168, 85, 247);
+            lblTop1Cantidad.Location = new Point(388, 81);
+            lblTop1Cantidad.Margin = new Padding(4, 0, 4, 0);
+            lblTop1Cantidad.Name = "lblTop1Cantidad";
+            lblTop1Cantidad.Size = new Size(19, 21);
+            lblTop1Cantidad.TabIndex = 3;
+            lblTop1Cantidad.Text = "0";
+            // 
+            // lblTop2Nombre
+            // 
+            lblTop2Nombre.AutoSize = true;
+            lblTop2Nombre.Font = new Font("Segoe UI", 9.5F);
+            lblTop2Nombre.ForeColor = Color.FromArgb(30, 30, 47);
+            lblTop2Nombre.Location = new Point(25, 112);
+            lblTop2Nombre.Margin = new Padding(4, 0, 4, 0);
+            lblTop2Nombre.Name = "lblTop2Nombre";
+            lblTop2Nombre.Size = new Size(48, 21);
+            lblTop2Nombre.TabIndex = 4;
+            lblTop2Nombre.Text = "2.  ---";
+            // 
+            // lblTop2Cantidad
+            // 
+            lblTop2Cantidad.AutoSize = true;
+            lblTop2Cantidad.Font = new Font("Segoe UI", 9.5F, FontStyle.Bold);
+            lblTop2Cantidad.ForeColor = Color.FromArgb(168, 85, 247);
+            lblTop2Cantidad.Location = new Point(388, 112);
+            lblTop2Cantidad.Margin = new Padding(4, 0, 4, 0);
+            lblTop2Cantidad.Name = "lblTop2Cantidad";
+            lblTop2Cantidad.Size = new Size(19, 21);
+            lblTop2Cantidad.TabIndex = 5;
+            lblTop2Cantidad.Text = "0";
+            // 
+            // lblTop3Nombre
+            // 
+            lblTop3Nombre.AutoSize = true;
+            lblTop3Nombre.Font = new Font("Segoe UI", 9.5F);
+            lblTop3Nombre.ForeColor = Color.FromArgb(30, 30, 47);
+            lblTop3Nombre.Location = new Point(25, 144);
+            lblTop3Nombre.Margin = new Padding(4, 0, 4, 0);
+            lblTop3Nombre.Name = "lblTop3Nombre";
+            lblTop3Nombre.Size = new Size(48, 21);
+            lblTop3Nombre.TabIndex = 6;
+            lblTop3Nombre.Text = "3.  ---";
+            // 
+            // lblTop3Cantidad
+            // 
+            lblTop3Cantidad.AutoSize = true;
+            lblTop3Cantidad.Font = new Font("Segoe UI", 9.5F, FontStyle.Bold);
+            lblTop3Cantidad.ForeColor = Color.FromArgb(168, 85, 247);
+            lblTop3Cantidad.Location = new Point(388, 147);
+            lblTop3Cantidad.Margin = new Padding(4, 0, 4, 0);
+            lblTop3Cantidad.Name = "lblTop3Cantidad";
+            lblTop3Cantidad.Size = new Size(19, 21);
+            lblTop3Cantidad.TabIndex = 7;
+            lblTop3Cantidad.Text = "0";
+            // 
             // pnlFiltros
-            // ============================================================
-            this.pnlFiltros.BorderRadius = 12;
-            this.pnlFiltros.FillColor = System.Drawing.Color.White;
-            this.pnlFiltros.Location = new System.Drawing.Point(20, 175);
-            this.pnlFiltros.Name = "pnlFiltros";
-            this.pnlFiltros.ShadowDecoration.Enabled = true;
-            this.pnlFiltros.Size = new System.Drawing.Size(1496, 65);
-            this.pnlFiltros.TabIndex = 4;
-            this.pnlFiltros.Controls.Add(this.btnFiltroTodas);
-            this.pnlFiltros.Controls.Add(this.btnFiltroPendientes);
-            this.pnlFiltros.Controls.Add(this.btnFiltroPreparacion);
-            this.pnlFiltros.Controls.Add(this.btnFiltroListas);
-            this.pnlFiltros.Controls.Add(this.btnFiltroEntregadas);
-            this.pnlFiltros.Controls.Add(this.btnFiltroCanceladas);
-
-            this.btnFiltroTodas.BorderRadius = 8;
-            this.btnFiltroTodas.FillColor = System.Drawing.Color.FromArgb(37, 99, 235);
-            this.btnFiltroTodas.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.btnFiltroTodas.ForeColor = System.Drawing.Color.White;
-            this.btnFiltroTodas.Location = new System.Drawing.Point(20, 12);
-            this.btnFiltroTodas.Name = "btnFiltroTodas";
-            this.btnFiltroTodas.Size = new System.Drawing.Size(110, 40);
-            this.btnFiltroTodas.TabIndex = 0;
-            this.btnFiltroTodas.Text = "Todas";
-            this.btnFiltroTodas.Tag = "todas";
-            this.btnFiltroTodas.Click += new System.EventHandler(this.btnFiltro_Click);
-
-            this.btnFiltroPendientes.BorderRadius = 8;
-            this.btnFiltroPendientes.FillColor = System.Drawing.Color.FromArgb(240, 240, 248);
-            this.btnFiltroPendientes.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.btnFiltroPendientes.ForeColor = System.Drawing.Color.FromArgb(249, 115, 22);
-            this.btnFiltroPendientes.Location = new System.Drawing.Point(150, 12);
-            this.btnFiltroPendientes.Name = "btnFiltroPendientes";
-            this.btnFiltroPendientes.Size = new System.Drawing.Size(150, 40);
-            this.btnFiltroPendientes.TabIndex = 1;
-            this.btnFiltroPendientes.Text = "🕐  Pendientes";
-            this.btnFiltroPendientes.Tag = "pendiente";
-            this.btnFiltroPendientes.Click += new System.EventHandler(this.btnFiltro_Click);
-
-            this.btnFiltroPreparacion.BorderRadius = 8;
-            this.btnFiltroPreparacion.FillColor = System.Drawing.Color.FromArgb(240, 240, 248);
-            this.btnFiltroPreparacion.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.btnFiltroPreparacion.ForeColor = System.Drawing.Color.FromArgb(37, 99, 235);
-            this.btnFiltroPreparacion.Location = new System.Drawing.Point(320, 12);
-            this.btnFiltroPreparacion.Name = "btnFiltroPreparacion";
-            this.btnFiltroPreparacion.Size = new System.Drawing.Size(170, 40);
-            this.btnFiltroPreparacion.TabIndex = 2;
-            this.btnFiltroPreparacion.Text = "🍳  En Preparación";
-            this.btnFiltroPreparacion.Tag = "en_preparacion";
-            this.btnFiltroPreparacion.Click += new System.EventHandler(this.btnFiltro_Click);
-
-            this.btnFiltroListas.BorderRadius = 8;
-            this.btnFiltroListas.FillColor = System.Drawing.Color.FromArgb(240, 240, 248);
-            this.btnFiltroListas.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.btnFiltroListas.ForeColor = System.Drawing.Color.FromArgb(34, 197, 94);
-            this.btnFiltroListas.Location = new System.Drawing.Point(510, 12);
-            this.btnFiltroListas.Name = "btnFiltroListas";
-            this.btnFiltroListas.Size = new System.Drawing.Size(120, 40);
-            this.btnFiltroListas.TabIndex = 3;
-            this.btnFiltroListas.Text = "✓  Listas";
-            this.btnFiltroListas.Tag = "lista";
-            this.btnFiltroListas.Click += new System.EventHandler(this.btnFiltro_Click);
-
-            this.btnFiltroEntregadas.BorderRadius = 8;
-            this.btnFiltroEntregadas.FillColor = System.Drawing.Color.FromArgb(240, 240, 248);
-            this.btnFiltroEntregadas.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.btnFiltroEntregadas.ForeColor = System.Drawing.Color.FromArgb(80, 80, 90);
-            this.btnFiltroEntregadas.Location = new System.Drawing.Point(650, 12);
-            this.btnFiltroEntregadas.Name = "btnFiltroEntregadas";
-            this.btnFiltroEntregadas.Size = new System.Drawing.Size(150, 40);
-            this.btnFiltroEntregadas.TabIndex = 4;
-            this.btnFiltroEntregadas.Text = "✓  Entregadas";
-            this.btnFiltroEntregadas.Tag = "entregada";
-            this.btnFiltroEntregadas.Click += new System.EventHandler(this.btnFiltro_Click);
-
-            this.btnFiltroCanceladas.BorderRadius = 8;
-            this.btnFiltroCanceladas.FillColor = System.Drawing.Color.FromArgb(240, 240, 248);
-            this.btnFiltroCanceladas.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.btnFiltroCanceladas.ForeColor = System.Drawing.Color.FromArgb(239, 68, 68);
-            this.btnFiltroCanceladas.Location = new System.Drawing.Point(820, 12);
-            this.btnFiltroCanceladas.Name = "btnFiltroCanceladas";
-            this.btnFiltroCanceladas.Size = new System.Drawing.Size(150, 40);
-            this.btnFiltroCanceladas.TabIndex = 5;
-            this.btnFiltroCanceladas.Text = "✕  Canceladas";
-            this.btnFiltroCanceladas.Tag = "cancelada";
-            this.btnFiltroCanceladas.Click += new System.EventHandler(this.btnFiltro_Click);
-
-            // ============================================================
+            // 
+            pnlFiltros.BackColor = Color.Transparent;
+            pnlFiltros.BorderRadius = 12;
+            pnlFiltros.Controls.Add(btnFiltroTodas);
+            pnlFiltros.Controls.Add(btnFiltroPendientes);
+            pnlFiltros.Controls.Add(btnFiltroPreparacion);
+            pnlFiltros.Controls.Add(btnFiltroListas);
+            pnlFiltros.Controls.Add(btnFiltroEntregadas);
+            pnlFiltros.Controls.Add(btnFiltroCanceladas);
+            pnlFiltros.CustomizableEdges = customizableEdges29;
+            pnlFiltros.FillColor = Color.White;
+            pnlFiltros.Location = new Point(25, 219);
+            pnlFiltros.Margin = new Padding(4);
+            pnlFiltros.Name = "pnlFiltros";
+            pnlFiltros.ShadowDecoration.CustomizableEdges = customizableEdges30;
+            pnlFiltros.ShadowDecoration.Enabled = true;
+            pnlFiltros.Size = new Size(1430, 81);
+            pnlFiltros.TabIndex = 4;
+            // 
+            // btnFiltroTodas
+            // 
+            btnFiltroTodas.BorderRadius = 8;
+            btnFiltroTodas.CustomizableEdges = customizableEdges17;
+            btnFiltroTodas.FillColor = Color.FromArgb(30, 58, 138);
+            btnFiltroTodas.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            btnFiltroTodas.ForeColor = Color.White;
+            btnFiltroTodas.Location = new Point(25, 15);
+            btnFiltroTodas.Margin = new Padding(4);
+            btnFiltroTodas.Name = "btnFiltroTodas";
+            btnFiltroTodas.ShadowDecoration.CustomizableEdges = customizableEdges18;
+            btnFiltroTodas.Size = new Size(138, 50);
+            btnFiltroTodas.TabIndex = 0;
+            btnFiltroTodas.Tag = "todas";
+            btnFiltroTodas.Text = "Todas";
+            btnFiltroTodas.Click += btnFiltro_Click;
+            // 
+            // btnFiltroPendientes
+            // 
+            btnFiltroPendientes.BorderRadius = 8;
+            btnFiltroPendientes.CustomizableEdges = customizableEdges19;
+            btnFiltroPendientes.FillColor = Color.FromArgb(240, 240, 248);
+            btnFiltroPendientes.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold);
+            btnFiltroPendientes.ForeColor = Color.FromArgb(249, 115, 22);
+            btnFiltroPendientes.Location = new Point(188, 15);
+            btnFiltroPendientes.Margin = new Padding(4);
+            btnFiltroPendientes.Name = "btnFiltroPendientes";
+            btnFiltroPendientes.ShadowDecoration.CustomizableEdges = customizableEdges20;
+            btnFiltroPendientes.Size = new Size(188, 50);
+            btnFiltroPendientes.TabIndex = 1;
+            btnFiltroPendientes.Tag = "pendiente";
+            btnFiltroPendientes.Text = "🕐  Pendientes";
+            btnFiltroPendientes.Click += btnFiltro_Click;
+            // 
+            // btnFiltroPreparacion
+            // 
+            btnFiltroPreparacion.BorderRadius = 8;
+            btnFiltroPreparacion.CustomizableEdges = customizableEdges21;
+            btnFiltroPreparacion.FillColor = Color.FromArgb(240, 240, 248);
+            btnFiltroPreparacion.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold);
+            btnFiltroPreparacion.ForeColor = Color.FromArgb(37, 99, 235);
+            btnFiltroPreparacion.Location = new Point(400, 15);
+            btnFiltroPreparacion.Margin = new Padding(4);
+            btnFiltroPreparacion.Name = "btnFiltroPreparacion";
+            btnFiltroPreparacion.ShadowDecoration.CustomizableEdges = customizableEdges22;
+            btnFiltroPreparacion.Size = new Size(212, 50);
+            btnFiltroPreparacion.TabIndex = 2;
+            btnFiltroPreparacion.Tag = "en_preparacion";
+            btnFiltroPreparacion.Text = "🍳  En Preparación";
+            btnFiltroPreparacion.Click += btnFiltro_Click;
+            // 
+            // btnFiltroListas
+            // 
+            btnFiltroListas.BorderRadius = 8;
+            btnFiltroListas.CustomizableEdges = customizableEdges23;
+            btnFiltroListas.FillColor = Color.FromArgb(240, 240, 248);
+            btnFiltroListas.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold);
+            btnFiltroListas.ForeColor = Color.FromArgb(34, 197, 94);
+            btnFiltroListas.Location = new Point(638, 15);
+            btnFiltroListas.Margin = new Padding(4);
+            btnFiltroListas.Name = "btnFiltroListas";
+            btnFiltroListas.ShadowDecoration.CustomizableEdges = customizableEdges24;
+            btnFiltroListas.Size = new Size(150, 50);
+            btnFiltroListas.TabIndex = 3;
+            btnFiltroListas.Tag = "lista";
+            btnFiltroListas.Text = "✓  Listas";
+            btnFiltroListas.Click += btnFiltro_Click;
+            // 
+            // btnFiltroEntregadas
+            // 
+            btnFiltroEntregadas.BorderRadius = 8;
+            btnFiltroEntregadas.CustomizableEdges = customizableEdges25;
+            btnFiltroEntregadas.FillColor = Color.FromArgb(240, 240, 248);
+            btnFiltroEntregadas.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold);
+            btnFiltroEntregadas.ForeColor = Color.FromArgb(80, 80, 90);
+            btnFiltroEntregadas.Location = new Point(812, 15);
+            btnFiltroEntregadas.Margin = new Padding(4);
+            btnFiltroEntregadas.Name = "btnFiltroEntregadas";
+            btnFiltroEntregadas.ShadowDecoration.CustomizableEdges = customizableEdges26;
+            btnFiltroEntregadas.Size = new Size(188, 50);
+            btnFiltroEntregadas.TabIndex = 4;
+            btnFiltroEntregadas.Tag = "entregada";
+            btnFiltroEntregadas.Text = "✓  Entregadas";
+            btnFiltroEntregadas.Click += btnFiltro_Click;
+            // 
+            // btnFiltroCanceladas
+            // 
+            btnFiltroCanceladas.BorderRadius = 8;
+            btnFiltroCanceladas.CustomizableEdges = customizableEdges27;
+            btnFiltroCanceladas.FillColor = Color.FromArgb(240, 240, 248);
+            btnFiltroCanceladas.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold);
+            btnFiltroCanceladas.ForeColor = Color.FromArgb(239, 68, 68);
+            btnFiltroCanceladas.Location = new Point(1025, 15);
+            btnFiltroCanceladas.Margin = new Padding(4);
+            btnFiltroCanceladas.Name = "btnFiltroCanceladas";
+            btnFiltroCanceladas.ShadowDecoration.CustomizableEdges = customizableEdges28;
+            btnFiltroCanceladas.Size = new Size(188, 50);
+            btnFiltroCanceladas.TabIndex = 5;
+            btnFiltroCanceladas.Tag = "cancelada";
+            btnFiltroCanceladas.Text = "✕  Canceladas";
+            btnFiltroCanceladas.Click += btnFiltro_Click;
+            // 
             // pnlColaProduccion
-            // (panel vacío: las tarjetas de cada orden se generan dinámicamente
-            //  por código, en orden estricto de hora_recepcion ascendente,
-            //  en una cuadrícula de 3 columnas)
-            // ============================================================
-            this.pnlColaProduccion.AutoScroll = true;
-            this.pnlColaProduccion.BackColor = System.Drawing.Color.Transparent;
-            this.pnlColaProduccion.Location = new System.Drawing.Point(20, 255);
-            this.pnlColaProduccion.Name = "pnlColaProduccion";
-            this.pnlColaProduccion.Size = new System.Drawing.Size(1496, 670);
-            this.pnlColaProduccion.TabIndex = 5;
-
+            // 
+            pnlColaProduccion.AutoScroll = true;
+            pnlColaProduccion.BackColor = Color.Transparent;
+            pnlColaProduccion.Location = new Point(25, 333);
+            pnlColaProduccion.Margin = new Padding(4);
+            pnlColaProduccion.Name = "pnlColaProduccion";
+            pnlColaProduccion.Size = new Size(1430, 689);
+            pnlColaProduccion.TabIndex = 5;
             // 
             // frmCocina
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.BackColor = System.Drawing.Color.FromArgb(240, 240, 248);
-            this.ClientSize = new System.Drawing.Size(1536, 945);
-            this.Controls.Add(this.pnlKpiTiempoProm);
-            this.Controls.Add(this.pnlKpiPendientes);
-            this.Controls.Add(this.pnlKpiRetrasadas);
-            this.Controls.Add(this.pnlKpiTopProductos);
-            this.Controls.Add(this.pnlFiltros);
-            this.Controls.Add(this.pnlColaProduccion);
-            this.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.MaximizeBox = false;
-            this.Name = "frmCocina";
-            this.Text = "Cola de Producción - Cocina";
-            this.Load += new System.EventHandler(this.frmCocina_Load);
-
-            this.pnlKpiTiempoProm.ResumeLayout(false);
-            this.pnlKpiTiempoProm.PerformLayout();
-            this.pnlIconTiempoProm.ResumeLayout(false);
-            this.pnlKpiPendientes.ResumeLayout(false);
-            this.pnlKpiPendientes.PerformLayout();
-            this.pnlIconPendientes.ResumeLayout(false);
-            this.pnlKpiRetrasadas.ResumeLayout(false);
-            this.pnlKpiRetrasadas.PerformLayout();
-            this.pnlIconRetrasadas.ResumeLayout(false);
-            this.pnlKpiTopProductos.ResumeLayout(false);
-            this.pnlKpiTopProductos.PerformLayout();
-            this.pnlIconTopProductos.ResumeLayout(false);
-            this.pnlFiltros.ResumeLayout(false);
-            this.ResumeLayout(false);
+            AutoScaleDimensions = new SizeF(120F, 120F);
+            AutoScaleMode = AutoScaleMode.Dpi;
+            BackColor = Color.FromArgb(240, 240, 248);
+            ClientSize = new Size(1490, 1055);
+            Controls.Add(pnlKpiTiempoProm);
+            Controls.Add(pnlKpiPendientes);
+            Controls.Add(pnlKpiRetrasadas);
+            Controls.Add(pnlKpiTopProductos);
+            Controls.Add(pnlFiltros);
+            Controls.Add(pnlColaProduccion);
+            Font = new Font("Segoe UI", 9F);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            Margin = new Padding(4);
+            MaximizeBox = false;
+            Name = "frmCocina";
+            Text = "Cola de Producción - Cocina";
+            Load += frmCocina_Load;
+            pnlKpiTiempoProm.ResumeLayout(false);
+            pnlKpiTiempoProm.PerformLayout();
+            pnlIconTiempoProm.ResumeLayout(false);
+            pnlKpiPendientes.ResumeLayout(false);
+            pnlKpiPendientes.PerformLayout();
+            pnlIconPendientes.ResumeLayout(false);
+            pnlKpiRetrasadas.ResumeLayout(false);
+            pnlKpiRetrasadas.PerformLayout();
+            pnlIconRetrasadas.ResumeLayout(false);
+            pnlKpiTopProductos.ResumeLayout(false);
+            pnlKpiTopProductos.PerformLayout();
+            pnlIconTopProductos.ResumeLayout(false);
+            pnlFiltros.ResumeLayout(false);
+            ResumeLayout(false);
         }
 
         #endregion
