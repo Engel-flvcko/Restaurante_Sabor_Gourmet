@@ -362,6 +362,7 @@
             btnReportes.DisabledState.CustomBorderColor = Color.DarkGray;
             btnReportes.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
             btnReportes.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            btnReportes.FillColor = Color.FromArgb(30, 58, 138);
             btnReportes.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnReportes.ForeColor = Color.White;
             btnReportes.Location = new Point(35, 685);
