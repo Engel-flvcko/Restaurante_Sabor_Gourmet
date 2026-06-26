@@ -13,9 +13,7 @@ namespace Restaurante_Sabor_Gourmet.Vane
 {
     public partial class frmInventario : Form
     {
-        // ─────────────────────────────────────────
         // VARIABLES DE ESTADO
-        // ─────────────────────────────────────────
         private int idUsuarioSesion;
         private string nombreUsuarioSesion;
 
