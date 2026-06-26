@@ -30,14 +30,13 @@
 
         private void InitializeComponent()
         {
-            components = new System.ComponentModel.Container();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmReportes));
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmReportes));
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges7 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges9 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
@@ -78,14 +77,7 @@
             DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
-            pnlTopBar = new Guna.UI2.WinForms.Guna2Panel();
-            picLogoTop = new PictureBox();
-            lblUltimaActualizacion = new Label();
-            lblTitulo = new Label();
-            lblGerente = new Label();
             btnRefrescar = new Guna.UI2.WinForms.Guna2Button();
-            lblStatusFecha = new Label();
-            lblStatusHora = new Label();
             pnlCardVentas = new Guna.UI2.WinForms.Guna2Panel();
             picKpiVentas = new PictureBox();
             lblKpiVentasTitulo = new Label();
@@ -107,6 +99,7 @@
             lblKpiPropinaValor = new Label();
             lblKpiPropinaComp = new Label();
             pnlAlertas = new Panel();
+            btnSupervision = new Guna.UI2.WinForms.Guna2Button();
             picAlertaIcon = new PictureBox();
             lblAlertasTitulo = new Label();
             pnlAlerta1 = new Guna.UI2.WinForms.Guna2Panel();
@@ -204,10 +197,6 @@
             colPersVentas = new DataGridViewTextBoxColumn();
             colPersPropinas = new DataGridViewTextBoxColumn();
             colPersMesas = new DataGridViewTextBoxColumn();
-            timerActualizacion = new System.Windows.Forms.Timer(components);
-            pnlStatus = new Panel();
-            pnlTopBar.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)picLogoTop).BeginInit();
             pnlCardVentas.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)picKpiVentas).BeginInit();
             pnlCardMesas.SuspendLayout();
@@ -248,69 +237,7 @@
             ((System.ComponentModel.ISupportInitialize)dgvArqueos).BeginInit();
             tabPersonal.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvPersonal).BeginInit();
-            pnlStatus.SuspendLayout();
             SuspendLayout();
-            // 
-            // pnlTopBar
-            // 
-            pnlTopBar.BackColor = Color.FromArgb(30, 30, 47);
-            pnlTopBar.Controls.Add(picLogoTop);
-            pnlTopBar.Controls.Add(lblUltimaActualizacion);
-            pnlTopBar.Controls.Add(lblTitulo);
-            pnlTopBar.Controls.Add(lblGerente);
-            pnlTopBar.Controls.Add(btnRefrescar);
-            pnlTopBar.CustomizableEdges = customizableEdges3;
-            pnlTopBar.Dock = DockStyle.Top;
-            pnlTopBar.FillColor = Color.FromArgb(30, 30, 47);
-            pnlTopBar.Location = new Point(0, 0);
-            pnlTopBar.Margin = new Padding(3, 4, 3, 4);
-            pnlTopBar.Name = "pnlTopBar";
-            pnlTopBar.ShadowDecoration.CustomizableEdges = customizableEdges4;
-            pnlTopBar.Size = new Size(1570, 80);
-            pnlTopBar.TabIndex = 7;
-            // 
-            // picLogoTop
-            // 
-            picLogoTop.Location = new Point(17, 13);
-            picLogoTop.Margin = new Padding(3, 4, 3, 4);
-            picLogoTop.Name = "picLogoTop";
-            picLogoTop.Size = new Size(46, 53);
-            picLogoTop.SizeMode = PictureBoxSizeMode.Zoom;
-            picLogoTop.TabIndex = 0;
-            picLogoTop.TabStop = false;
-            // 
-            // lblUltimaActualizacion
-            // 
-            lblUltimaActualizacion.AutoSize = true;
-            lblUltimaActualizacion.Font = new Font("Segoe UI", 9F);
-            lblUltimaActualizacion.ForeColor = Color.White;
-            lblUltimaActualizacion.Location = new Point(1097, 36);
-            lblUltimaActualizacion.Name = "lblUltimaActualizacion";
-            lblUltimaActualizacion.Size = new Size(166, 20);
-            lblUltimaActualizacion.TabIndex = 5;
-            lblUltimaActualizacion.Text = "Última actualización: —";
-            // 
-            // lblTitulo
-            // 
-            lblTitulo.AutoSize = true;
-            lblTitulo.Font = new Font("Segoe UI", 18F, FontStyle.Bold);
-            lblTitulo.ForeColor = Color.White;
-            lblTitulo.Location = new Point(74, 19);
-            lblTitulo.Name = "lblTitulo";
-            lblTitulo.Size = new Size(402, 41);
-            lblTitulo.TabIndex = 1;
-            lblTitulo.Text = "MÓDULO DE SUPERVISIÓN";
-            // 
-            // lblGerente
-            // 
-            lblGerente.AutoSize = true;
-            lblGerente.Font = new Font("Segoe UI", 10F);
-            lblGerente.ForeColor = Color.FromArgb(200, 200, 220);
-            lblGerente.Location = new Point(771, 34);
-            lblGerente.Name = "lblGerente";
-            lblGerente.Size = new Size(102, 23);
-            lblGerente.TabIndex = 2;
-            lblGerente.Text = "Gerente:  —";
             // 
             // btnRefrescar
             // 
@@ -318,9 +245,9 @@
             btnRefrescar.BorderRadius = 8;
             btnRefrescar.CustomizableEdges = customizableEdges1;
             btnRefrescar.FillColor = Color.White;
-            btnRefrescar.Font = new Font("Segoe UI", 8F);
+            btnRefrescar.Font = new Font("Segoe UI", 7.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnRefrescar.ForeColor = Color.Black;
-            btnRefrescar.Location = new Point(1334, 31);
+            btnRefrescar.Location = new Point(612, 5);
             btnRefrescar.Margin = new Padding(3, 4, 3, 4);
             btnRefrescar.Name = "btnRefrescar";
             btnRefrescar.ShadowDecoration.CustomizableEdges = customizableEdges2;
@@ -328,28 +255,6 @@
             btnRefrescar.TabIndex = 6;
             btnRefrescar.Text = "Actualizar";
             btnRefrescar.Click += btnRefrescar_Click;
-            // 
-            // lblStatusFecha
-            // 
-            lblStatusFecha.AutoSize = true;
-            lblStatusFecha.Font = new Font("Segoe UI", 9F);
-            lblStatusFecha.ForeColor = Color.White;
-            lblStatusFecha.Location = new Point(1341, 13);
-            lblStatusFecha.Name = "lblStatusFecha";
-            lblStatusFecha.Size = new Size(85, 20);
-            lblStatusFecha.TabIndex = 1;
-            lblStatusFecha.Text = "20/06/2026";
-            // 
-            // lblStatusHora
-            // 
-            lblStatusHora.AutoSize = true;
-            lblStatusHora.Font = new Font("Segoe UI", 9F);
-            lblStatusHora.ForeColor = Color.White;
-            lblStatusHora.Location = new Point(1455, 14);
-            lblStatusHora.Name = "lblStatusHora";
-            lblStatusHora.Size = new Size(69, 20);
-            lblStatusHora.TabIndex = 3;
-            lblStatusHora.Text = "12:45 PM";
             // 
             // pnlCardVentas
             // 
@@ -359,13 +264,13 @@
             pnlCardVentas.Controls.Add(lblKpiVentasTitulo);
             pnlCardVentas.Controls.Add(lblKpiVentasValor);
             pnlCardVentas.Controls.Add(lblKpiVentasComp);
-            pnlCardVentas.CustomizableEdges = customizableEdges5;
+            pnlCardVentas.CustomizableEdges = customizableEdges3;
             pnlCardVentas.FillColor = Color.White;
-            pnlCardVentas.Location = new Point(14, 91);
+            pnlCardVentas.Location = new Point(12, 13);
             pnlCardVentas.Margin = new Padding(3, 4, 3, 4);
             pnlCardVentas.Name = "pnlCardVentas";
             pnlCardVentas.ShadowDecoration.Color = Color.FromArgb(20, 0, 0, 0);
-            pnlCardVentas.ShadowDecoration.CustomizableEdges = customizableEdges6;
+            pnlCardVentas.ShadowDecoration.CustomizableEdges = customizableEdges4;
             pnlCardVentas.ShadowDecoration.Enabled = true;
             pnlCardVentas.Size = new Size(371, 144);
             pnlCardVentas.TabIndex = 5;
@@ -422,13 +327,13 @@
             pnlCardMesas.Controls.Add(lblKpiMesasTitulo);
             pnlCardMesas.Controls.Add(lblKpiMesasValor);
             pnlCardMesas.Controls.Add(lblKpiMesasComp);
-            pnlCardMesas.CustomizableEdges = customizableEdges7;
+            pnlCardMesas.CustomizableEdges = customizableEdges5;
             pnlCardMesas.FillColor = Color.White;
-            pnlCardMesas.Location = new Point(400, 91);
+            pnlCardMesas.Location = new Point(397, 13);
             pnlCardMesas.Margin = new Padding(3, 4, 3, 4);
             pnlCardMesas.Name = "pnlCardMesas";
             pnlCardMesas.ShadowDecoration.Color = Color.FromArgb(20, 0, 0, 0);
-            pnlCardMesas.ShadowDecoration.CustomizableEdges = customizableEdges8;
+            pnlCardMesas.ShadowDecoration.CustomizableEdges = customizableEdges6;
             pnlCardMesas.ShadowDecoration.Enabled = true;
             pnlCardMesas.Size = new Size(370, 144);
             pnlCardMesas.TabIndex = 4;
@@ -485,13 +390,13 @@
             pnlCardCocina.Controls.Add(lblKpiCocinaTitulo);
             pnlCardCocina.Controls.Add(lblKpiCocinaValor);
             pnlCardCocina.Controls.Add(lblKpiCocinaComp);
-            pnlCardCocina.CustomizableEdges = customizableEdges9;
+            pnlCardCocina.CustomizableEdges = customizableEdges7;
             pnlCardCocina.FillColor = Color.White;
-            pnlCardCocina.Location = new Point(784, 91);
+            pnlCardCocina.Location = new Point(776, 13);
             pnlCardCocina.Margin = new Padding(3, 4, 3, 4);
             pnlCardCocina.Name = "pnlCardCocina";
             pnlCardCocina.ShadowDecoration.Color = Color.FromArgb(20, 0, 0, 0);
-            pnlCardCocina.ShadowDecoration.CustomizableEdges = customizableEdges10;
+            pnlCardCocina.ShadowDecoration.CustomizableEdges = customizableEdges8;
             pnlCardCocina.ShadowDecoration.Enabled = true;
             pnlCardCocina.Size = new Size(372, 144);
             pnlCardCocina.TabIndex = 3;
@@ -548,13 +453,13 @@
             pnlCardPropinas.Controls.Add(lblKpiPropinasTitulo);
             pnlCardPropinas.Controls.Add(lblKpiPropinaValor);
             pnlCardPropinas.Controls.Add(lblKpiPropinaComp);
-            pnlCardPropinas.CustomizableEdges = customizableEdges11;
+            pnlCardPropinas.CustomizableEdges = customizableEdges9;
             pnlCardPropinas.FillColor = Color.White;
-            pnlCardPropinas.Location = new Point(1169, 91);
+            pnlCardPropinas.Location = new Point(1166, 13);
             pnlCardPropinas.Margin = new Padding(3, 4, 3, 4);
             pnlCardPropinas.Name = "pnlCardPropinas";
             pnlCardPropinas.ShadowDecoration.Color = Color.FromArgb(20, 0, 0, 0);
-            pnlCardPropinas.ShadowDecoration.CustomizableEdges = customizableEdges12;
+            pnlCardPropinas.ShadowDecoration.CustomizableEdges = customizableEdges10;
             pnlCardPropinas.ShadowDecoration.Enabled = true;
             pnlCardPropinas.Size = new Size(371, 144);
             pnlCardPropinas.TabIndex = 2;
@@ -607,18 +512,37 @@
             // 
             pnlAlertas.BackColor = Color.White;
             pnlAlertas.BorderStyle = BorderStyle.FixedSingle;
+            pnlAlertas.Controls.Add(btnSupervision);
             pnlAlertas.Controls.Add(picAlertaIcon);
             pnlAlertas.Controls.Add(lblAlertasTitulo);
             pnlAlertas.Controls.Add(pnlAlerta1);
             pnlAlertas.Controls.Add(pnlAlerta2);
+            pnlAlertas.Controls.Add(btnRefrescar);
             pnlAlertas.Controls.Add(pnlAlerta3);
             pnlAlertas.Controls.Add(pnlAlerta4);
             pnlAlertas.Controls.Add(pnlAlerta5);
-            pnlAlertas.Location = new Point(14, 245);
+            pnlAlertas.Location = new Point(12, 175);
             pnlAlertas.Margin = new Padding(3, 4, 3, 4);
             pnlAlertas.Name = "pnlAlertas";
             pnlAlertas.Size = new Size(1527, 143);
             pnlAlertas.TabIndex = 1;
+            // 
+            // btnSupervision
+            // 
+            btnSupervision.BackColor = Color.Transparent;
+            btnSupervision.BorderRadius = 8;
+            btnSupervision.CustomizableEdges = customizableEdges11;
+            btnSupervision.FillColor = Color.White;
+            btnSupervision.Font = new Font("Segoe UI", 7.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnSupervision.ForeColor = Color.Black;
+            btnSupervision.Location = new Point(830, 5);
+            btnSupervision.Margin = new Padding(3, 4, 3, 4);
+            btnSupervision.Name = "btnSupervision";
+            btnSupervision.ShadowDecoration.CustomizableEdges = customizableEdges12;
+            btnSupervision.Size = new Size(108, 35);
+            btnSupervision.TabIndex = 8;
+            btnSupervision.Text = "Supervision";
+            btnSupervision.Click += btnSupervision_Click;
             // 
             // picAlertaIcon
             // 
@@ -890,7 +814,7 @@
             tabControl.Controls.Add(tabCaja);
             tabControl.Controls.Add(tabPersonal);
             tabControl.Font = new Font("Segoe UI", 10F);
-            tabControl.Location = new Point(14, 400);
+            tabControl.Location = new Point(12, 341);
             tabControl.Margin = new Padding(3, 4, 3, 4);
             tabControl.Name = "tabControl";
             tabControl.SelectedIndex = 0;
@@ -1776,45 +1700,23 @@
             colPersMesas.Name = "colPersMesas";
             colPersMesas.ReadOnly = true;
             // 
-            // timerActualizacion
-            // 
-            timerActualizacion.Interval = 60000;
-            timerActualizacion.Tick += timerActualizacion_Tick;
-            // 
-            // pnlStatus
-            // 
-            pnlStatus.BackColor = Color.FromArgb(30, 30, 47);
-            pnlStatus.Controls.Add(lblStatusFecha);
-            pnlStatus.Controls.Add(lblStatusHora);
-            pnlStatus.Dock = DockStyle.Bottom;
-            pnlStatus.Location = new Point(0, 1048);
-            pnlStatus.Margin = new Padding(3, 4, 3, 4);
-            pnlStatus.Name = "pnlStatus";
-            pnlStatus.Size = new Size(1570, 43);
-            pnlStatus.TabIndex = 6;
-            // 
-            // frmDashboard
+            // frmReportes
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(240, 240, 245);
-            ClientSize = new Size(1570, 1091);
+            ClientSize = new Size(1570, 1019);
             Controls.Add(tabControl);
             Controls.Add(pnlAlertas);
             Controls.Add(pnlCardPropinas);
             Controls.Add(pnlCardCocina);
             Controls.Add(pnlCardMesas);
             Controls.Add(pnlCardVentas);
-            Controls.Add(pnlStatus);
-            Controls.Add(pnlTopBar);
             FormBorderStyle = FormBorderStyle.None;
             Margin = new Padding(3, 4, 3, 4);
-            Name = "frmDashboard";
+            Name = "frmReportes";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Módulo de Supervisión - Sabor Gourmet";
-            pnlTopBar.ResumeLayout(false);
-            pnlTopBar.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)picLogoTop).EndInit();
             pnlCardVentas.ResumeLayout(false);
             pnlCardVentas.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)picKpiVentas).EndInit();
@@ -1873,18 +1775,10 @@
             ((System.ComponentModel.ISupportInitialize)dgvArqueos).EndInit();
             tabPersonal.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dgvPersonal).EndInit();
-            pnlStatus.ResumeLayout(false);
-            pnlStatus.PerformLayout();
             ResumeLayout(false);
         }
 
         #endregion
-
-        // ── Barra superior ───────────────────────────────────────────────────
-        private Guna.UI2.WinForms.Guna2Panel pnlTopBar;
-        private System.Windows.Forms.PictureBox picLogoTop;
-        private System.Windows.Forms.Label lblTitulo;
-        private System.Windows.Forms.Label lblGerente;
 
         // ── Cards KPI ─────────────────────────────────────────────────────────
         private Guna.UI2.WinForms.Guna2Panel pnlCardVentas;
@@ -2030,11 +1924,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colPersVentas;
         private System.Windows.Forms.DataGridViewTextBoxColumn colPersPropinas;
         private System.Windows.Forms.DataGridViewTextBoxColumn colPersMesas;
-        private System.Windows.Forms.Timer timerActualizacion;
         private Guna.UI2.WinForms.Guna2Button btnRefrescar;
-        private Label lblUltimaActualizacion;
-        private Panel pnlStatus;
-        private Label lblStatusFecha;
-        private Label lblStatusHora;
+        private Guna.UI2.WinForms.Guna2Button btnSupervision;
     }
 }

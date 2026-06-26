@@ -1,5 +1,7 @@
 ﻿using Restaurante_Sabor_Gourmet.Engel.clases;
 using Restaurante_Sabor_Gourmet.Engel.consultasSQL;
+using Restaurante_Sabor_Gourmet.Jaqueline.Clases;
+using Restaurante_Sabor_Gourmet.Engel.formularios;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -28,22 +30,14 @@ namespace Restaurante_Sabor_Gourmet.Engel
 
         private void frmDashboard_Load(object sender, EventArgs e)
         {
-            lblStatusFecha.Text = DateTime.Now.ToString("dd/MM/yyyy");
-            lblStatusHora.Text = DateTime.Now.ToString("hh:mm tt");
 
             CargarKPIs();
             CargarAlertas();
             CargarVentasMesero();
             CargarVentasCategoria();
 
-            timerActualizacion.Start();
         }
 
-        private void timerActualizacion_Tick(object sender, EventArgs e)
-        {
-            lblStatusFecha.Text = DateTime.Now.ToString("dd/MM/yyyy");
-            lblStatusHora.Text = DateTime.Now.ToString("hh:mm tt");
-        }
 
         private void CargarKPIs()
         {
@@ -60,7 +54,6 @@ namespace Restaurante_Sabor_Gourmet.Engel
                     lblKpiPropinaValor.Text = Convert.ToDecimal(dt.Rows[0]["propinas_hoy"]).ToString("C2");
                 }
 
-                lblUltimaActualizacion.Text = $"Última actualización: {DateTime.Now:HH:mm:ss}";
             }
             catch (Exception ex)
             {
@@ -301,7 +294,7 @@ namespace Restaurante_Sabor_Gourmet.Engel
                 MessageBox.Show($"Error al cargar personal:\n{ex.Message}");
             }
         }
-  
+
         private void CargarAlertas()
         {
             try
@@ -448,9 +441,14 @@ namespace Restaurante_Sabor_Gourmet.Engel
             tabControl_SelectedIndexChanged(null, null);
         }
 
-        public void EstablecerGerente(string nombreGerente)
+        private void btnSupervision_Click(object sender, EventArgs e)
         {
-            lblGerente.Text = $"Gerente:  {nombreGerente}";
+            frmSupervision frm =
+            new frmSupervision(Sesion.IdUsuario);
+            {
+                frm.ShowDialog();
+            }
+
         }
     }
 }

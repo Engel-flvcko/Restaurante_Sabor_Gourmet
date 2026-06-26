@@ -39,7 +39,7 @@ namespace Restaurante_Sabor_Gourmet.Formularios
         // Caché de mesas ocupadas para consultar datos sin volver a la BD
         private List<MesaResumen> mesasOcupadas = new List<MesaResumen>();
 
-        
+
         private void frmOrdenes_Load(object sender, EventArgs e)
         {
             CargarMesasOcupadas();
@@ -67,7 +67,7 @@ namespace Restaurante_Sabor_Gourmet.Formularios
                 LimpiarInfoMesa();
 
                 // ── PRE-SELECCIONAR mesa si viene desde FrmMesas ──────────
-                
+
                 if (idMesaPreseleccionada > 0)
                 {
                     foreach (DataRow fila in dt.Rows)
@@ -572,51 +572,60 @@ namespace Restaurante_Sabor_Gourmet.Formularios
 
         //  Enviar a cocina
 
-        //  Solicitar de cierre de cuenta 
-        private void btnSolicitarCierre_Click(object sender, EventArgs e)
+        private void btnCancelar_Click(object sender, EventArgs e)
         {
             if (idOrdenActual == 0)
             {
-                MessageBox.Show("Esta mesa aún no tiene una orden enviada a cocina.", "Aviso",
-                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show(
+                    "Esta mesa aún no tiene una orden registrada para cancelar.",
+                    "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            if (!ValidacionesOrdenes.OrdenSePuedeCerrar("abierta"))
+            if (ordenEnviadaACocina)
             {
-                MessageBox.Show("Esta orden no se puede cerrar en su estado actual.", "Aviso",
-                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show(
+                    "No se puede cancelar una orden que ya está pendiente de pago o pagada.",
+                    "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
             DialogResult resp = MessageBox.Show(
-                "¿Solicitar el cierre de cuenta para la Orden #" + idOrdenActual + "?\n" +
-                "La orden pasará a 'Pendiente de pago' y el cliente deberá ir a caja.",
-                "Confirmar cierre", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                "¿Cancelar la Orden #" + idOrdenActual + "?\n\n" +
+                "• La orden se marcará como cancelada en cocina\n" +
+                "• La mesa quedará disponible de nuevo\n\n" +
+                "Esta acción no se puede deshacer.",
+                "Confirmar cancelación",
+                MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
             if (resp != DialogResult.Yes) return;
 
             try
             {
                 SQLOrden sql = new SQLOrden();
-                bool exito = sql.CerrarCuenta(idOrdenActual);
+                bool exito = sql.CancelarOrden(idOrdenActual);
 
                 if (exito)
                 {
-                    ActualizarEstadoOrden("pendiente_pago");
-                    MessageBox.Show("Cuenta enviada a caja correctamente.\n" +
-                        "La mesa quedará disponible al cobrar.",
-                        "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show(
+                        "Orden #" + idOrdenActual + " cancelada correctamente.\n" +
+                        "La mesa ha quedado disponible.",
+                        "Cancelado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    this.DialogResult = DialogResult.OK;
+                    this.Close();
                 }
                 else
                 {
-                    MessageBox.Show("No se pudo cerrar la cuenta. Verifica que la orden esté abierta.",
+                    MessageBox.Show(
+                        "No se pudo cancelar la orden.\n" +
+                        "Verifica que la orden siga abierta.",
                         "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al cerrar la cuenta: " + ex.Message,
+                MessageBox.Show("Error al cancelar: " + ex.Message,
                     "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }

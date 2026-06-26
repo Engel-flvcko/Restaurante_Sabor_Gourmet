@@ -26,42 +26,36 @@
 
         private void InitializeComponent()
         {
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges27 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges28 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges29 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges30 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges37 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges38 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges31 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges32 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges33 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges34 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges35 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges36 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges41 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges42 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges39 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges40 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            DataGridViewCellStyle dataGridViewCellStyle9 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle10 = new DataGridViewCellStyle();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges45 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges46 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            DataGridViewCellStyle dataGridViewCellStyle11 = new DataGridViewCellStyle();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges43 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges44 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges51 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges52 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges47 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges48 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges49 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges50 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            DataGridViewCellStyle dataGridViewCellStyle12 = new DataGridViewCellStyle();
-            pnlTopBar = new Guna.UI2.WinForms.Guna2Panel();
-            picIcono = new PictureBox();
-            lblTitulo = new Label();
-            lblSupervisor = new Label();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges9 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges10 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges7 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges13 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges14 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges11 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges12 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges17 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges18 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges15 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges16 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges23 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges24 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges19 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges20 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges21 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges22 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
             tabControl = new TabControl();
             tabDescuentos = new TabPage();
             pnlOrdenes = new Guna.UI2.WinForms.Guna2Panel();
@@ -123,8 +117,6 @@
             colEsperadoDif = new DataGridViewTextBoxColumn();
             colContadoDif = new DataGridViewTextBoxColumn();
             colDiferenciaDif = new DataGridViewTextBoxColumn();
-            pnlTopBar.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)picIcono).BeginInit();
             tabControl.SuspendLayout();
             tabDescuentos.SuspendLayout();
             pnlOrdenes.SuspendLayout();
@@ -143,59 +135,13 @@
             ((System.ComponentModel.ISupportInitialize)dgvDiferencias).BeginInit();
             SuspendLayout();
             // 
-            // pnlTopBar
-            // 
-            pnlTopBar.BackColor = Color.FromArgb(30, 30, 47);
-            pnlTopBar.Controls.Add(picIcono);
-            pnlTopBar.Controls.Add(lblTitulo);
-            pnlTopBar.Controls.Add(lblSupervisor);
-            pnlTopBar.CustomizableEdges = customizableEdges27;
-            pnlTopBar.Dock = DockStyle.Top;
-            pnlTopBar.FillColor = Color.FromArgb(30, 30, 47);
-            pnlTopBar.Location = new Point(0, 0);
-            pnlTopBar.Name = "pnlTopBar";
-            pnlTopBar.ShadowDecoration.CustomizableEdges = customizableEdges28;
-            pnlTopBar.Size = new Size(1366, 80);
-            pnlTopBar.TabIndex = 1;
-            // 
-            // picIcono
-            // 
-            picIcono.Location = new Point(20, 22);
-            picIcono.Name = "picIcono";
-            picIcono.Size = new Size(36, 36);
-            picIcono.SizeMode = PictureBoxSizeMode.Zoom;
-            picIcono.TabIndex = 0;
-            picIcono.TabStop = false;
-            // 
-            // lblTitulo
-            // 
-            lblTitulo.AutoSize = true;
-            lblTitulo.Font = new Font("Segoe UI", 18F, FontStyle.Bold);
-            lblTitulo.ForeColor = Color.White;
-            lblTitulo.Location = new Point(65, 22);
-            lblTitulo.Name = "lblTitulo";
-            lblTitulo.Size = new Size(346, 41);
-            lblTitulo.TabIndex = 1;
-            lblTitulo.Text = "Módulo de Supervisión";
-            // 
-            // lblSupervisor
-            // 
-            lblSupervisor.AutoSize = true;
-            lblSupervisor.Font = new Font("Segoe UI", 10F);
-            lblSupervisor.ForeColor = Color.FromArgb(180, 180, 200);
-            lblSupervisor.Location = new Point(1090, 28);
-            lblSupervisor.Name = "lblSupervisor";
-            lblSupervisor.Size = new Size(115, 23);
-            lblSupervisor.TabIndex = 2;
-            lblSupervisor.Text = "Supervisor: —";
-            // 
             // tabControl
             // 
             tabControl.Controls.Add(tabDescuentos);
             tabControl.Controls.Add(tabPromociones);
             tabControl.Controls.Add(tabDiferencias);
             tabControl.Font = new Font("Segoe UI", 10F);
-            tabControl.Location = new Point(0, 80);
+            tabControl.Location = new Point(0, 12);
             tabControl.Name = "tabControl";
             tabControl.SelectedIndex = 0;
             tabControl.Size = new Size(1366, 738);
@@ -221,12 +167,12 @@
             pnlOrdenes.BorderRadius = 12;
             pnlOrdenes.Controls.Add(lblOrdenesTitle);
             pnlOrdenes.Controls.Add(dgvOrdenes);
-            pnlOrdenes.CustomizableEdges = customizableEdges29;
+            pnlOrdenes.CustomizableEdges = customizableEdges1;
             pnlOrdenes.FillColor = Color.White;
             pnlOrdenes.Location = new Point(15, 15);
             pnlOrdenes.Name = "pnlOrdenes";
             pnlOrdenes.ShadowDecoration.Color = Color.FromArgb(30, 0, 0, 0);
-            pnlOrdenes.ShadowDecoration.CustomizableEdges = customizableEdges30;
+            pnlOrdenes.ShadowDecoration.CustomizableEdges = customizableEdges2;
             pnlOrdenes.ShadowDecoration.Enabled = true;
             pnlOrdenes.Size = new Size(760, 430);
             pnlOrdenes.TabIndex = 0;
@@ -249,22 +195,22 @@
             dgvOrdenes.BorderStyle = BorderStyle.None;
             dgvOrdenes.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
             dgvOrdenes.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle7.BackColor = Color.FromArgb(30, 30, 47);
-            dataGridViewCellStyle7.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            dataGridViewCellStyle7.ForeColor = Color.White;
-            dgvOrdenes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = Color.FromArgb(30, 30, 47);
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            dataGridViewCellStyle1.ForeColor = Color.White;
+            dgvOrdenes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dgvOrdenes.ColumnHeadersHeight = 40;
             dgvOrdenes.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             dgvOrdenes.Columns.AddRange(new DataGridViewColumn[] { colOrdenOrd, colMesaOrd, colMeseroOrd, colEstadoOrd, colSubtotalOrd });
-            dataGridViewCellStyle8.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = SystemColors.Window;
-            dataGridViewCellStyle8.Font = new Font("Segoe UI", 10F);
-            dataGridViewCellStyle8.ForeColor = Color.FromArgb(40, 40, 40);
-            dataGridViewCellStyle8.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = DataGridViewTriState.False;
-            dgvOrdenes.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = SystemColors.Window;
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 10F);
+            dataGridViewCellStyle2.ForeColor = Color.FromArgb(40, 40, 40);
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            dgvOrdenes.DefaultCellStyle = dataGridViewCellStyle2;
             dgvOrdenes.EnableHeadersVisualStyles = false;
             dgvOrdenes.GridColor = Color.FromArgb(220, 220, 230);
             dgvOrdenes.Location = new Point(0, 46);
@@ -327,12 +273,12 @@
             pnlAutorizar.Controls.Add(lblMotivo);
             pnlAutorizar.Controls.Add(txtMotivo);
             pnlAutorizar.Controls.Add(btnAutorizarDescuento);
-            pnlAutorizar.CustomizableEdges = customizableEdges37;
+            pnlAutorizar.CustomizableEdges = customizableEdges9;
             pnlAutorizar.FillColor = Color.White;
             pnlAutorizar.Location = new Point(790, 15);
             pnlAutorizar.Name = "pnlAutorizar";
             pnlAutorizar.ShadowDecoration.Color = Color.FromArgb(30, 0, 0, 0);
-            pnlAutorizar.ShadowDecoration.CustomizableEdges = customizableEdges38;
+            pnlAutorizar.ShadowDecoration.CustomizableEdges = customizableEdges10;
             pnlAutorizar.ShadowDecoration.Enabled = true;
             pnlAutorizar.Size = new Size(555, 430);
             pnlAutorizar.TabIndex = 1;
@@ -370,7 +316,7 @@
             // txtOrdenSelec
             // 
             txtOrdenSelec.BorderRadius = 6;
-            txtOrdenSelec.CustomizableEdges = customizableEdges31;
+            txtOrdenSelec.CustomizableEdges = customizableEdges3;
             txtOrdenSelec.DefaultText = "";
             txtOrdenSelec.FillColor = Color.FromArgb(245, 245, 250);
             txtOrdenSelec.Font = new Font("Segoe UI", 10F);
@@ -381,7 +327,7 @@
             txtOrdenSelec.PlaceholderText = "Selecciona una orden de la tabla";
             txtOrdenSelec.ReadOnly = true;
             txtOrdenSelec.SelectedText = "";
-            txtOrdenSelec.ShadowDecoration.CustomizableEdges = customizableEdges32;
+            txtOrdenSelec.ShadowDecoration.CustomizableEdges = customizableEdges4;
             txtOrdenSelec.Size = new Size(510, 38);
             txtOrdenSelec.TabIndex = 0;
             // 
@@ -422,7 +368,7 @@
             // txtMotivo
             // 
             txtMotivo.BorderRadius = 6;
-            txtMotivo.CustomizableEdges = customizableEdges33;
+            txtMotivo.CustomizableEdges = customizableEdges5;
             txtMotivo.DefaultText = "";
             txtMotivo.Font = new Font("Segoe UI", 10F);
             txtMotivo.ForeColor = Color.FromArgb(60, 60, 80);
@@ -432,21 +378,21 @@
             txtMotivo.Name = "txtMotivo";
             txtMotivo.PlaceholderText = "Ingrese el motivo...";
             txtMotivo.SelectedText = "";
-            txtMotivo.ShadowDecoration.CustomizableEdges = customizableEdges34;
+            txtMotivo.ShadowDecoration.CustomizableEdges = customizableEdges6;
             txtMotivo.Size = new Size(510, 100);
             txtMotivo.TabIndex = 2;
             // 
             // btnAutorizarDescuento
             // 
             btnAutorizarDescuento.BorderRadius = 8;
-            btnAutorizarDescuento.CustomizableEdges = customizableEdges35;
+            btnAutorizarDescuento.CustomizableEdges = customizableEdges7;
             btnAutorizarDescuento.FillColor = Color.FromArgb(34, 197, 94);
             btnAutorizarDescuento.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
             btnAutorizarDescuento.ForeColor = Color.White;
             btnAutorizarDescuento.HoverState.FillColor = Color.FromArgb(22, 163, 74);
             btnAutorizarDescuento.Location = new Point(20, 358);
             btnAutorizarDescuento.Name = "btnAutorizarDescuento";
-            btnAutorizarDescuento.ShadowDecoration.CustomizableEdges = customizableEdges36;
+            btnAutorizarDescuento.ShadowDecoration.CustomizableEdges = customizableEdges8;
             btnAutorizarDescuento.Size = new Size(510, 50);
             btnAutorizarDescuento.TabIndex = 3;
             btnAutorizarDescuento.Text = "✔  Autorizar Descuento";
@@ -459,12 +405,12 @@
             pnlDescuentosHoy.Controls.Add(lblDescuentosTitle);
             pnlDescuentosHoy.Controls.Add(pnlBadge);
             pnlDescuentosHoy.Controls.Add(dgvDescuentosHoy);
-            pnlDescuentosHoy.CustomizableEdges = customizableEdges41;
+            pnlDescuentosHoy.CustomizableEdges = customizableEdges13;
             pnlDescuentosHoy.FillColor = Color.White;
             pnlDescuentosHoy.Location = new Point(15, 460);
             pnlDescuentosHoy.Name = "pnlDescuentosHoy";
             pnlDescuentosHoy.ShadowDecoration.Color = Color.FromArgb(25, 0, 0, 0);
-            pnlDescuentosHoy.ShadowDecoration.CustomizableEdges = customizableEdges42;
+            pnlDescuentosHoy.ShadowDecoration.CustomizableEdges = customizableEdges14;
             pnlDescuentosHoy.ShadowDecoration.Enabled = true;
             pnlDescuentosHoy.Size = new Size(1330, 248);
             pnlDescuentosHoy.TabIndex = 2;
@@ -484,11 +430,11 @@
             // 
             pnlBadge.BorderRadius = 13;
             pnlBadge.Controls.Add(lblBadgeNum);
-            pnlBadge.CustomizableEdges = customizableEdges39;
+            pnlBadge.CustomizableEdges = customizableEdges11;
             pnlBadge.FillColor = Color.FromArgb(34, 197, 94);
             pnlBadge.Location = new Point(270, 9);
             pnlBadge.Name = "pnlBadge";
-            pnlBadge.ShadowDecoration.CustomizableEdges = customizableEdges40;
+            pnlBadge.ShadowDecoration.CustomizableEdges = customizableEdges12;
             pnlBadge.Size = new Size(26, 26);
             pnlBadge.TabIndex = 1;
             // 
@@ -511,22 +457,22 @@
             dgvDescuentosHoy.BorderStyle = BorderStyle.None;
             dgvDescuentosHoy.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
             dgvDescuentosHoy.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle9.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle9.BackColor = Color.FromArgb(30, 30, 47);
-            dataGridViewCellStyle9.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            dataGridViewCellStyle9.ForeColor = Color.White;
-            dgvDescuentosHoy.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = Color.FromArgb(30, 30, 47);
+            dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            dataGridViewCellStyle3.ForeColor = Color.White;
+            dgvDescuentosHoy.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             dgvDescuentosHoy.ColumnHeadersHeight = 38;
             dgvDescuentosHoy.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             dgvDescuentosHoy.Columns.AddRange(new DataGridViewColumn[] { colOrdenHoy, colMesaHoy, colSupervisorHoy, colCajeroHoy, colPorcentajeHoy, colMotivoHoy, colHoraHoy });
-            dataGridViewCellStyle10.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle10.BackColor = SystemColors.Window;
-            dataGridViewCellStyle10.Font = new Font("Segoe UI", 10F);
-            dataGridViewCellStyle10.ForeColor = Color.FromArgb(40, 40, 40);
-            dataGridViewCellStyle10.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle10.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle10.WrapMode = DataGridViewTriState.False;
-            dgvDescuentosHoy.DefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = SystemColors.Window;
+            dataGridViewCellStyle4.Font = new Font("Segoe UI", 10F);
+            dataGridViewCellStyle4.ForeColor = Color.FromArgb(40, 40, 40);
+            dataGridViewCellStyle4.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.False;
+            dgvDescuentosHoy.DefaultCellStyle = dataGridViewCellStyle4;
             dgvDescuentosHoy.EnableHeadersVisualStyles = false;
             dgvDescuentosHoy.GridColor = Color.FromArgb(220, 220, 230);
             dgvDescuentosHoy.Location = new Point(0, 43);
@@ -608,12 +554,12 @@
             pnlPromoLista.Controls.Add(lblPromoListaTitle);
             pnlPromoLista.Controls.Add(dgvPromociones);
             pnlPromoLista.Controls.Add(btnEliminarPromocion);
-            pnlPromoLista.CustomizableEdges = customizableEdges45;
+            pnlPromoLista.CustomizableEdges = customizableEdges17;
             pnlPromoLista.FillColor = Color.White;
             pnlPromoLista.Location = new Point(15, 15);
             pnlPromoLista.Name = "pnlPromoLista";
             pnlPromoLista.ShadowDecoration.Color = Color.FromArgb(25, 0, 0, 0);
-            pnlPromoLista.ShadowDecoration.CustomizableEdges = customizableEdges46;
+            pnlPromoLista.ShadowDecoration.CustomizableEdges = customizableEdges18;
             pnlPromoLista.ShadowDecoration.Enabled = true;
             pnlPromoLista.Size = new Size(760, 676);
             pnlPromoLista.TabIndex = 0;
@@ -636,18 +582,18 @@
             dgvPromociones.BorderStyle = BorderStyle.None;
             dgvPromociones.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
             dgvPromociones.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dgvPromociones.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dgvPromociones.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dgvPromociones.ColumnHeadersHeight = 38;
             dgvPromociones.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             dgvPromociones.Columns.AddRange(new DataGridViewColumn[] { colNombrePromo, colPorcentajePromo, colInicioPromo, colFinPromo, colEstadoPromo });
-            dataGridViewCellStyle11.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle11.BackColor = SystemColors.Window;
-            dataGridViewCellStyle11.Font = new Font("Segoe UI", 10F);
-            dataGridViewCellStyle11.ForeColor = Color.FromArgb(40, 40, 40);
-            dataGridViewCellStyle11.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle11.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle11.WrapMode = DataGridViewTriState.False;
-            dgvPromociones.DefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = SystemColors.Window;
+            dataGridViewCellStyle5.Font = new Font("Segoe UI", 10F);
+            dataGridViewCellStyle5.ForeColor = Color.FromArgb(40, 40, 40);
+            dataGridViewCellStyle5.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.False;
+            dgvPromociones.DefaultCellStyle = dataGridViewCellStyle5;
             dgvPromociones.EnableHeadersVisualStyles = false;
             dgvPromociones.GridColor = Color.FromArgb(220, 220, 230);
             dgvPromociones.Location = new Point(0, 45);
@@ -699,14 +645,14 @@
             // btnEliminarPromocion
             // 
             btnEliminarPromocion.BorderRadius = 8;
-            btnEliminarPromocion.CustomizableEdges = customizableEdges43;
+            btnEliminarPromocion.CustomizableEdges = customizableEdges15;
             btnEliminarPromocion.FillColor = Color.FromArgb(239, 68, 68);
             btnEliminarPromocion.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             btnEliminarPromocion.ForeColor = Color.White;
             btnEliminarPromocion.HoverState.FillColor = Color.FromArgb(185, 28, 28);
             btnEliminarPromocion.Location = new Point(565, 632);
             btnEliminarPromocion.Name = "btnEliminarPromocion";
-            btnEliminarPromocion.ShadowDecoration.CustomizableEdges = customizableEdges44;
+            btnEliminarPromocion.ShadowDecoration.CustomizableEdges = customizableEdges16;
             btnEliminarPromocion.Size = new Size(185, 38);
             btnEliminarPromocion.TabIndex = 1;
             btnEliminarPromocion.Text = "Eliminar seleccionada";
@@ -726,12 +672,12 @@
             pnlPromoForm.Controls.Add(lblFin);
             pnlPromoForm.Controls.Add(dtpFin);
             pnlPromoForm.Controls.Add(btnGuardarPromocion);
-            pnlPromoForm.CustomizableEdges = customizableEdges51;
+            pnlPromoForm.CustomizableEdges = customizableEdges23;
             pnlPromoForm.FillColor = Color.White;
             pnlPromoForm.Location = new Point(790, 15);
             pnlPromoForm.Name = "pnlPromoForm";
             pnlPromoForm.ShadowDecoration.Color = Color.FromArgb(25, 0, 0, 0);
-            pnlPromoForm.ShadowDecoration.CustomizableEdges = customizableEdges52;
+            pnlPromoForm.ShadowDecoration.CustomizableEdges = customizableEdges24;
             pnlPromoForm.ShadowDecoration.Enabled = true;
             pnlPromoForm.Size = new Size(555, 430);
             pnlPromoForm.TabIndex = 1;
@@ -761,7 +707,7 @@
             // txtNombrePromo
             // 
             txtNombrePromo.BorderRadius = 6;
-            txtNombrePromo.CustomizableEdges = customizableEdges47;
+            txtNombrePromo.CustomizableEdges = customizableEdges19;
             txtNombrePromo.DefaultText = "";
             txtNombrePromo.Font = new Font("Segoe UI", 10F);
             txtNombrePromo.Location = new Point(20, 84);
@@ -769,7 +715,7 @@
             txtNombrePromo.Name = "txtNombrePromo";
             txtNombrePromo.PlaceholderText = "Ej: Descuento fin de semana";
             txtNombrePromo.SelectedText = "";
-            txtNombrePromo.ShadowDecoration.CustomizableEdges = customizableEdges48;
+            txtNombrePromo.ShadowDecoration.CustomizableEdges = customizableEdges20;
             txtNombrePromo.Size = new Size(510, 38);
             txtNombrePromo.TabIndex = 0;
             // 
@@ -839,14 +785,14 @@
             // btnGuardarPromocion
             // 
             btnGuardarPromocion.BorderRadius = 8;
-            btnGuardarPromocion.CustomizableEdges = customizableEdges49;
+            btnGuardarPromocion.CustomizableEdges = customizableEdges21;
             btnGuardarPromocion.FillColor = Color.FromArgb(34, 197, 94);
             btnGuardarPromocion.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
             btnGuardarPromocion.ForeColor = Color.White;
             btnGuardarPromocion.HoverState.FillColor = Color.FromArgb(22, 163, 74);
             btnGuardarPromocion.Location = new Point(20, 362);
             btnGuardarPromocion.Name = "btnGuardarPromocion";
-            btnGuardarPromocion.ShadowDecoration.CustomizableEdges = customizableEdges50;
+            btnGuardarPromocion.ShadowDecoration.CustomizableEdges = customizableEdges22;
             btnGuardarPromocion.Size = new Size(510, 48);
             btnGuardarPromocion.TabIndex = 4;
             btnGuardarPromocion.Text = "✔  Guardar Promoción";
@@ -882,18 +828,18 @@
             dgvDiferencias.BorderStyle = BorderStyle.None;
             dgvDiferencias.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
             dgvDiferencias.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dgvDiferencias.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dgvDiferencias.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dgvDiferencias.ColumnHeadersHeight = 40;
             dgvDiferencias.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             dgvDiferencias.Columns.AddRange(new DataGridViewColumn[] { colCajeroDif, colAperturaDif, colEsperadoDif, colContadoDif, colDiferenciaDif });
-            dataGridViewCellStyle12.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle12.BackColor = SystemColors.Window;
-            dataGridViewCellStyle12.Font = new Font("Segoe UI", 10F);
-            dataGridViewCellStyle12.ForeColor = Color.FromArgb(40, 40, 40);
-            dataGridViewCellStyle12.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle12.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle12.WrapMode = DataGridViewTriState.False;
-            dgvDiferencias.DefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = SystemColors.Window;
+            dataGridViewCellStyle6.Font = new Font("Segoe UI", 10F);
+            dataGridViewCellStyle6.ForeColor = Color.FromArgb(40, 40, 40);
+            dataGridViewCellStyle6.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.False;
+            dgvDiferencias.DefaultCellStyle = dataGridViewCellStyle6;
             dgvDiferencias.EnableHeadersVisualStyles = false;
             dgvDiferencias.GridColor = Color.FromArgb(220, 220, 230);
             dgvDiferencias.Location = new Point(15, 45);
@@ -947,9 +893,8 @@
             AutoScaleDimensions = new SizeF(9F, 23F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(240, 240, 248);
-            ClientSize = new Size(1366, 820);
+            ClientSize = new Size(1366, 756);
             Controls.Add(tabControl);
-            Controls.Add(pnlTopBar);
             Font = new Font("Segoe UI", 10F);
             FormBorderStyle = FormBorderStyle.FixedSingle;
             MaximizeBox = false;
@@ -957,9 +902,6 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Sabor Gourmet FMO - Supervisión";
             Load += frmSupervision_Load;
-            pnlTopBar.ResumeLayout(false);
-            pnlTopBar.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)picIcono).EndInit();
             tabControl.ResumeLayout(false);
             tabDescuentos.ResumeLayout(false);
             pnlOrdenes.ResumeLayout(false);
@@ -986,11 +928,6 @@
         }
 
         #endregion
-
-        private Guna.UI2.WinForms.Guna2Panel pnlTopBar;
-        private System.Windows.Forms.PictureBox picIcono;
-        private System.Windows.Forms.Label lblTitulo;
-        private System.Windows.Forms.Label lblSupervisor;
         private System.Windows.Forms.TabControl tabControl;
         private System.Windows.Forms.TabPage tabDescuentos;
         private System.Windows.Forms.TabPage tabPromociones;

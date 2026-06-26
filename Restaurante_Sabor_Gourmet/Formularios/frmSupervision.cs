@@ -39,15 +39,74 @@ namespace Restaurante_Sabor_Gourmet.Engel.formularios
         private void CargarOrdenesSinDescuento()
         {
             SQLDescuentoAutorizado sql = new SQLDescuentoAutorizado();
-            dgvOrdenes.DataSource = sql.MostrarOrdenesSinDescuento();
+            DataTable dt = sql.MostrarOrdenesSinDescuento();
+
+            dgvOrdenes.AutoGenerateColumns = false;
+            colOrdenOrd.DataPropertyName = "id_orden";
+            colMesaOrd.DataPropertyName = "numero_mesa";
+            colMeseroOrd.DataPropertyName = "mesero";
+            colEstadoOrd.DataPropertyName = "estado_orden";
+            colSubtotalOrd.DataPropertyName = "subtotal";
+            dgvOrdenes.DataSource = dt;
         }
 
         private void CargarDescuentosDelDia()
         {
             SQLDescuentoAutorizado sql = new SQLDescuentoAutorizado();
-            var dt = sql.MostrarDescuentosDelDia();
+            DataTable dt = sql.MostrarDescuentosDelDia();
+
+            dgvDescuentosHoy.AutoGenerateColumns = false;
+            colOrdenHoy.DataPropertyName = "id_descuento";
+            colMesaHoy.DataPropertyName = "numero_mesa";
+            colSupervisorHoy.DataPropertyName = "supervisor";
+            colCajeroHoy.DataPropertyName = "cajero";
+            colPorcentajeHoy.DataPropertyName = "porcentaje_descuento";
+            colMotivoHoy.DataPropertyName = "motivo_descuento";
+            colHoraHoy.DataPropertyName = "fecha_descuento";
             dgvDescuentosHoy.DataSource = dt;
+
             lblBadgeNum.Text = dt.Rows.Count.ToString();
+        }
+
+        private void CargarPromociones()
+        {
+            SQLPromocion sql = new SQLPromocion();
+            DataTable dt = sql.MostrarPromociones();
+
+            dgvPromociones.AutoGenerateColumns = false;
+            colNombrePromo.DataPropertyName = "nombre_promocion";
+            colPorcentajePromo.DataPropertyName = "porcentaje_promocion";
+            colInicioPromo.DataPropertyName = "fecha_inicio_promocion";
+            colFinPromo.DataPropertyName = "fecha_fin_promocion";
+            colEstadoPromo.DataPropertyName = "estado";
+            dgvPromociones.DataSource = dt;
+        }
+
+        private void CargarArqueosConDiferencias()
+        {
+            SQLArqueo sql = new SQLArqueo();
+            DataTable dt = sql.MostrarArqueosConDiferencias();
+
+            dgvDiferencias.AutoGenerateColumns = false;
+            colCajeroDif.DataPropertyName = "nombre_cajero";
+            colAperturaDif.DataPropertyName = "fecha_apertura_arqueo";
+            colEsperadoDif.DataPropertyName = "total_esperado_arqueo";
+            colContadoDif.DataPropertyName = "total_contado_arqueo";
+            colDiferenciaDif.DataPropertyName = "diferencia_arqueo";
+            dgvDiferencias.DataSource = dt;
+        }
+
+        private void dgvOrdenes_SelectionChanged(object sender, EventArgs e)
+        {
+            if (dgvOrdenes.SelectedRows.Count == 0) return;
+
+            DataGridViewRow fila = dgvOrdenes.SelectedRows[0];
+            object idOrden = fila.Cells["colOrdenOrd"].Value;
+            object mesa = fila.Cells["colMesaOrd"].Value;
+
+            if (idOrden == null || mesa == null) return;
+
+            txtOrdenSelec.Text = $"#{idOrden}  —  Mesa {mesa}";
         }
 
         private void btnAutorizarDescuento_Click(object sender, EventArgs e)
@@ -59,7 +118,7 @@ namespace Restaurante_Sabor_Gourmet.Engel.formularios
             DataGridViewRow fila = dgvOrdenes.SelectedRows[0];
 
             DescuentoAutorizado descuento = new DescuentoAutorizado();
-            descuento.IdOrden = Convert.ToInt32(fila.Cells["id_orden"].Value);
+            descuento.IdOrden = Convert.ToInt32(fila.Cells["colOrdenOrd"].Value);
             descuento.IdSupervisor = idSupervisor;
             descuento.IdCajero = 0;
             descuento.PorcentajeDescuento = nudPorcentaje.Value;
@@ -83,11 +142,6 @@ namespace Restaurante_Sabor_Gourmet.Engel.formularios
 
         // ── PROMOCIONES ───────────────────────────────────────────────────────
 
-        private void CargarPromociones()
-        {
-            SQLPromocion sql = new SQLPromocion();
-            dgvPromociones.DataSource = sql.MostrarPromociones();
-        }
 
         private void btnGuardarPromocion_Click(object sender, EventArgs e)
         {
@@ -138,11 +192,6 @@ namespace Restaurante_Sabor_Gourmet.Engel.formularios
 
         // ── ARQUEOS CON DIFERENCIAS ───────────────────────────────────────────
 
-        private void CargarArqueosConDiferencias()
-        {
-            SQLArqueo sql = new SQLArqueo();
-            dgvDiferencias.DataSource = sql.MostrarArqueosConDiferencias();
-        }
 
         private void tabControl_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -159,17 +208,6 @@ namespace Restaurante_Sabor_Gourmet.Engel.formularios
                     CargarArqueosConDiferencias();
                     break;
             }
-        }
-
-        private void dgvOrdenes_SelectionChanged(object sender, EventArgs e)
-        {
-            if (dgvOrdenes.SelectedRows.Count == 0) return;
-
-            DataGridViewRow fila = dgvOrdenes.SelectedRows[0];
-            string idOrden = fila.Cells["id_orden"].Value.ToString();
-            string mesa = fila.Cells["numero_mesa"].Value.ToString();
-
-            txtOrdenSelec.Text = $"#{idOrden}  —  Mesa {mesa}";
         }
     }
 }

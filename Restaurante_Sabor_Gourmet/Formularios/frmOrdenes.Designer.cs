@@ -59,17 +59,17 @@
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges34 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges27 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges28 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges29 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges30 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges31 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges32 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             pnlSeleccionMesa = new Guna.UI2.WinForms.Guna2Panel();
             lblTituloSeleccionMesa = new Label();
             cbxMesa = new Guna.UI2.WinForms.Guna2ComboBox();
@@ -101,20 +101,19 @@
             pnlDetalleOrden = new Guna.UI2.WinForms.Guna2Panel();
             lblDetalleTitulo = new Label();
             dgvDetalleOrden = new DataGridView();
+            colProducto = new DataGridViewTextBoxColumn();
+            colCantidad = new DataGridViewTextBoxColumn();
+            colPrecioUnitario = new DataGridViewTextBoxColumn();
+            colSubtotal = new DataGridViewTextBoxColumn();
+            colObservaciones = new DataGridViewTextBoxColumn();
+            colEditar = new DataGridViewButtonColumn();
+            colEliminar = new DataGridViewButtonColumn();
             lblObservacionesGenerales = new Label();
             txtObservacionesGenerales = new Guna.UI2.WinForms.Guna2TextBox();
-            lblContadorObs = new Label();
             lblTotalTitulo = new Label();
             lblTotalOrden = new Label();
             btnEnviarCocina = new Guna.UI2.WinForms.Guna2Button();
-            btnSolicitarCierre = new Guna.UI2.WinForms.Guna2Button();
-            colEliminar = new DataGridViewButtonColumn();
-            colEditar = new DataGridViewButtonColumn();
-            colObservaciones = new DataGridViewTextBoxColumn();
-            colSubtotal = new DataGridViewTextBoxColumn();
-            colPrecioUnitario = new DataGridViewTextBoxColumn();
-            colCantidad = new DataGridViewTextBoxColumn();
-            colProducto = new DataGridViewTextBoxColumn();
+            btnCancelar = new Guna.UI2.WinForms.Guna2Button();
             pnlSeleccionMesa.SuspendLayout();
             pnlMesaInfo.SuspendLayout();
             pnlIconoMesa.SuspendLayout();
@@ -532,11 +531,10 @@
             pnlDetalleOrden.Controls.Add(dgvDetalleOrden);
             pnlDetalleOrden.Controls.Add(lblObservacionesGenerales);
             pnlDetalleOrden.Controls.Add(txtObservacionesGenerales);
-            pnlDetalleOrden.Controls.Add(lblContadorObs);
             pnlDetalleOrden.Controls.Add(lblTotalTitulo);
             pnlDetalleOrden.Controls.Add(lblTotalOrden);
             pnlDetalleOrden.Controls.Add(btnEnviarCocina);
-            pnlDetalleOrden.Controls.Add(btnSolicitarCierre);
+            pnlDetalleOrden.Controls.Add(btnCancelar);
             pnlDetalleOrden.CustomizableEdges = customizableEdges33;
             pnlDetalleOrden.FillColor = Color.White;
             pnlDetalleOrden.Location = new Point(769, 188);
@@ -597,6 +595,75 @@
             dgvDetalleOrden.CellClick += dgvDetalleOrden_CellClick;
             dgvDetalleOrden.CellEndEdit += dgvDetalleOrden_CellEndEdit;
             // 
+            // colProducto
+            // 
+            colProducto.FillWeight = 21F;
+            colProducto.HeaderText = "Producto";
+            colProducto.MinimumWidth = 6;
+            colProducto.Name = "colProducto";
+            colProducto.ReadOnly = true;
+            // 
+            // colCantidad
+            // 
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            colCantidad.DefaultCellStyle = dataGridViewCellStyle2;
+            colCantidad.FillWeight = 14F;
+            colCantidad.HeaderText = "Cantidad";
+            colCantidad.MinimumWidth = 6;
+            colCantidad.Name = "colCantidad";
+            // 
+            // colPrecioUnitario
+            // 
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            colPrecioUnitario.DefaultCellStyle = dataGridViewCellStyle3;
+            colPrecioUnitario.FillWeight = 18F;
+            colPrecioUnitario.HeaderText = "Precio Unitario";
+            colPrecioUnitario.MinimumWidth = 6;
+            colPrecioUnitario.Name = "colPrecioUnitario";
+            colPrecioUnitario.ReadOnly = true;
+            // 
+            // colSubtotal
+            // 
+            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            colSubtotal.DefaultCellStyle = dataGridViewCellStyle4;
+            colSubtotal.FillWeight = 11F;
+            colSubtotal.HeaderText = "Subtotal";
+            colSubtotal.MinimumWidth = 6;
+            colSubtotal.Name = "colSubtotal";
+            colSubtotal.ReadOnly = true;
+            // 
+            // colObservaciones
+            // 
+            colObservaciones.FillWeight = 18F;
+            colObservaciones.HeaderText = "Observaciones";
+            colObservaciones.MinimumWidth = 6;
+            colObservaciones.Name = "colObservaciones";
+            // 
+            // colEditar
+            // 
+            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = Color.White;
+            colEditar.DefaultCellStyle = dataGridViewCellStyle5;
+            colEditar.FillWeight = 8F;
+            colEditar.HeaderText = "Editar";
+            colEditar.MinimumWidth = 6;
+            colEditar.Name = "colEditar";
+            colEditar.Text = "✎";
+            colEditar.UseColumnTextForButtonValue = true;
+            // 
+            // colEliminar
+            // 
+            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.BackColor = Color.FromArgb(254, 226, 226);
+            dataGridViewCellStyle6.ForeColor = Color.FromArgb(239, 68, 68);
+            colEliminar.DefaultCellStyle = dataGridViewCellStyle6;
+            colEliminar.FillWeight = 8F;
+            colEliminar.HeaderText = "Eliminar";
+            colEliminar.MinimumWidth = 6;
+            colEliminar.Name = "colEliminar";
+            colEliminar.Text = "✕";
+            colEliminar.UseColumnTextForButtonValue = true;
+            // 
             // lblObservacionesGenerales
             // 
             lblObservacionesGenerales.AutoSize = true;
@@ -626,18 +693,6 @@
             txtObservacionesGenerales.Size = new Size(550, 125);
             txtObservacionesGenerales.TabIndex = 3;
             txtObservacionesGenerales.TextChanged += txtObservacionesGenerales_TextChanged;
-            // 
-            // lblContadorObs
-            // 
-            lblContadorObs.AutoSize = true;
-            lblContadorObs.Font = new Font("Segoe UI", 8.5F);
-            lblContadorObs.ForeColor = Color.Gray;
-            lblContadorObs.Location = new Point(488, 526);
-            lblContadorObs.Margin = new Padding(4, 0, 4, 0);
-            lblContadorObs.Name = "lblContadorObs";
-            lblContadorObs.Size = new Size(47, 20);
-            lblContadorObs.TabIndex = 4;
-            lblContadorObs.Text = "0/300";
             // 
             // lblTotalTitulo
             // 
@@ -679,90 +734,21 @@
             btnEnviarCocina.Text = "🔔  Enviar a Cocina";
             btnEnviarCocina.Click += btnEnviarCocina_Click;
             // 
-            // btnSolicitarCierre
+            // btnCancelar
             // 
-            btnSolicitarCierre.BorderRadius = 10;
-            btnSolicitarCierre.CustomizableEdges = customizableEdges31;
-            btnSolicitarCierre.FillColor = Color.FromArgb(249, 115, 22);
-            btnSolicitarCierre.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
-            btnSolicitarCierre.ForeColor = Color.White;
-            btnSolicitarCierre.Location = new Point(456, 551);
-            btnSolicitarCierre.Margin = new Padding(4);
-            btnSolicitarCierre.Name = "btnSolicitarCierre";
-            btnSolicitarCierre.ShadowDecoration.CustomizableEdges = customizableEdges32;
-            btnSolicitarCierre.Size = new Size(425, 81);
-            btnSolicitarCierre.TabIndex = 8;
-            btnSolicitarCierre.Text = "\U0001f9fe  Solicitar Cierre de Cuenta";
-            btnSolicitarCierre.Click += btnSolicitarCierre_Click;
-            // 
-            // colEliminar
-            // 
-            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle6.BackColor = Color.FromArgb(254, 226, 226);
-            dataGridViewCellStyle6.ForeColor = Color.FromArgb(239, 68, 68);
-            colEliminar.DefaultCellStyle = dataGridViewCellStyle6;
-            colEliminar.FillWeight = 8F;
-            colEliminar.HeaderText = "Eliminar";
-            colEliminar.MinimumWidth = 6;
-            colEliminar.Name = "colEliminar";
-            colEliminar.Text = "✕";
-            colEliminar.UseColumnTextForButtonValue = true;
-            // 
-            // colEditar
-            // 
-            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.BackColor = Color.White;
-            colEditar.DefaultCellStyle = dataGridViewCellStyle5;
-            colEditar.FillWeight = 8F;
-            colEditar.HeaderText = "Editar";
-            colEditar.MinimumWidth = 6;
-            colEditar.Name = "colEditar";
-            colEditar.Text = "✎";
-            colEditar.UseColumnTextForButtonValue = true;
-            // 
-            // colObservaciones
-            // 
-            colObservaciones.FillWeight = 18F;
-            colObservaciones.HeaderText = "Observaciones";
-            colObservaciones.MinimumWidth = 6;
-            colObservaciones.Name = "colObservaciones";
-            // 
-            // colSubtotal
-            // 
-            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            colSubtotal.DefaultCellStyle = dataGridViewCellStyle4;
-            colSubtotal.FillWeight = 11F;
-            colSubtotal.HeaderText = "Subtotal";
-            colSubtotal.MinimumWidth = 6;
-            colSubtotal.Name = "colSubtotal";
-            colSubtotal.ReadOnly = true;
-            // 
-            // colPrecioUnitario
-            // 
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            colPrecioUnitario.DefaultCellStyle = dataGridViewCellStyle3;
-            colPrecioUnitario.FillWeight = 18F;
-            colPrecioUnitario.HeaderText = "Precio Unitario";
-            colPrecioUnitario.MinimumWidth = 6;
-            colPrecioUnitario.Name = "colPrecioUnitario";
-            colPrecioUnitario.ReadOnly = true;
-            // 
-            // colCantidad
-            // 
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            colCantidad.DefaultCellStyle = dataGridViewCellStyle2;
-            colCantidad.FillWeight = 14F;
-            colCantidad.HeaderText = "Cantidad";
-            colCantidad.MinimumWidth = 6;
-            colCantidad.Name = "colCantidad";
-            // 
-            // colProducto
-            // 
-            colProducto.FillWeight = 21F;
-            colProducto.HeaderText = "Producto";
-            colProducto.MinimumWidth = 6;
-            colProducto.Name = "colProducto";
-            colProducto.ReadOnly = true;
+            btnCancelar.BorderRadius = 10;
+            btnCancelar.CustomizableEdges = customizableEdges31;
+            btnCancelar.FillColor = Color.FromArgb(239, 68, 68);
+            btnCancelar.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
+            btnCancelar.ForeColor = Color.White;
+            btnCancelar.Location = new Point(456, 551);
+            btnCancelar.Margin = new Padding(4);
+            btnCancelar.Name = "btnCancelar";
+            btnCancelar.ShadowDecoration.CustomizableEdges = customizableEdges32;
+            btnCancelar.Size = new Size(425, 81);
+            btnCancelar.TabIndex = 8;
+            btnCancelar.Text = "Cancelar Orden";
+            btnCancelar.Click += btnCancelar_Click;
             // 
             // frmOrdenes
             // 
@@ -844,7 +830,7 @@
         private System.Windows.Forms.Label lblTotalTitulo;
         private System.Windows.Forms.Label lblTotalOrden;
         private Guna.UI2.WinForms.Guna2Button btnEnviarCocina;
-        private Guna.UI2.WinForms.Guna2Button btnSolicitarCierre;
+        private Guna.UI2.WinForms.Guna2Button btnCancelar;
         private DataGridViewTextBoxColumn colProducto;
         private DataGridViewTextBoxColumn colCantidad;
         private DataGridViewTextBoxColumn colPrecioUnitario;

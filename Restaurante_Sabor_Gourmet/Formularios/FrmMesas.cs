@@ -345,6 +345,20 @@ namespace Restaurante_Sabor_Gourmet.Jaqueline.Formularios
                 return;
             }
 
+            // ── Validar que todos los ítems ya fueron entregados ──────────
+            if (sqlMesas.OrdenTieneItemsPendientesEnCocina(idOrden.Value))
+            {
+                MessageBox.Show(
+                    "No se puede solicitar el pago.\n\n" +
+                    "Aún hay productos en cocina pendientes de entregar.\n" +
+                    "Espera a que todos los ítems estén en estado 'entregada'.",
+                    "Orden en cocina",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+                return;
+            }
+            // ─────────────────────────────────────────────────────────────
+
             DialogResult resp = MessageBox.Show(
                 "¿Solicitar cierre de cuenta para la Mesa " + mesaSeleccionada + "?",
                 "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);

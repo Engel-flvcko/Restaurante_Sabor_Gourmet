@@ -31,10 +31,6 @@ namespace Restaurante_Sabor_Gourmet.Haydee
         // ══════════════════════════════════════════════════════════════════
         private void frmUsuarios_Load(object sender, EventArgs e)
         {
-            // Mostrar usuario en sesión en la barra superior
-            lblUsuarioSesion.Text = Sesion.NombreUsuario;
-            lblRolSesion.Text = Sesion.NombreRol;
-
             ConfigurarGrid();
             CargarRoles();
             CargarUsuarios();

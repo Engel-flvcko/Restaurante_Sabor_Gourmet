@@ -38,7 +38,6 @@ namespace Restaurante_Sabor_Gourmet.Formularios
         // ══════════════════════════════════════════════════════════════
         private void frmReservaciones_Load(object sender, EventArgs e)
         {
-            lblNombreUsuario.Text = nombreUsuarioSesion;
             CargarCombos();
             CargarMesasEnPanel();
             BuscarReservaciones();

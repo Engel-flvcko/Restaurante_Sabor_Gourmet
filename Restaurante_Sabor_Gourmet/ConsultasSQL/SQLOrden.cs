@@ -314,6 +314,72 @@ namespace Restaurante_Sabor_Gourmet.ConsultasSQL
             return lista;
         }
 
-        
+        public bool CancelarOrden(int idOrden)
+        {
+            using (MySqlConnection cn = conexion.ObtenerConexion())
+            {
+                cn.Open();
+                using (MySqlTransaction tx = cn.BeginTransaction())
+                {
+                    try
+                    {
+                        // Solo se puede cancelar si está abierta
+                        string sqlOrden = @"
+                    UPDATE tbl_ordenes
+                    SET estado_orden = 'cancelada'
+                    WHERE id_orden   = @idOrden
+                      AND estado_orden = 'abierta'";
+
+                        using (MySqlCommand cmd = new MySqlCommand(sqlOrden, cn, tx))
+                        {
+                            cmd.Parameters.AddWithValue("@idOrden", idOrden);
+                            int filas = cmd.ExecuteNonQuery();
+                            if (filas == 0)
+                            {
+                                tx.Rollback();
+                                return false; // ya no estaba abierta
+                            }
+                        }
+
+                        // Cancelar también en cocina
+                        string sqlCocina = @"
+                    UPDATE tbl_cola_cocina
+                    SET estado_cocina          = 'cancelada',
+                        hora_finalizacion_cocina = NOW()
+                    WHERE id_orden_cocina = @idOrden
+                      AND estado_cocina NOT IN ('entregada', 'cancelada')";
+
+                        using (MySqlCommand cmd = new MySqlCommand(sqlCocina, cn, tx))
+                        {
+                            cmd.Parameters.AddWithValue("@idOrden", idOrden);
+                            cmd.ExecuteNonQuery();
+                        }
+
+                        // Liberar la mesa de vuelta a Disponible
+                        string sqlMesa = @"
+                    UPDATE tbl_mesas
+                    SET estado_mesa             = 'Disponible',
+                        id_mesero_asignado_mesa = NULL,
+                        hora_ocupacion_mesa     = NULL,
+                        num_clientes_mesa       = 0,
+                        unida_con_mesa          = NULL
+                    WHERE id_mesa = (
+                        SELECT id_mesa_orden FROM tbl_ordenes WHERE id_orden = @idOrden
+                    )";
+
+                        using (MySqlCommand cmd = new MySqlCommand(sqlMesa, cn, tx))
+                        {
+                            cmd.Parameters.AddWithValue("@idOrden", idOrden);
+                            cmd.ExecuteNonQuery();
+                        }
+
+                        tx.Commit();
+                        return true;
+                    }
+                    catch { tx.Rollback(); return false; }
+                }
+            }
+        }
+
     }
 }

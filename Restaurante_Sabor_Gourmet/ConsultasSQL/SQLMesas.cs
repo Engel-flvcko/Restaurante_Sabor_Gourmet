@@ -18,6 +18,22 @@ namespace Restaurante_Sabor_Gourmet.Jaqueline.ConsultasSQL
         // ── Todas las mesas (para dibujar el mapa)
 
         // ── Detalle de una mesa (para el panel lateral) ───────────────
+
+        public bool OrdenTieneItemsPendientesEnCocina(int idOrden)
+        {
+            using (MySqlConnection conn = conexionBD.ObtenerConexion())
+            {
+                string query = @"
+            SELECT COUNT(*) FROM tbl_cola_cocina
+            WHERE id_orden_cocina = @idOrden
+              AND estado_cocina  NOT IN ('entregada', 'cancelada')";
+
+                MySqlCommand cmd = new MySqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@idOrden", idOrden);
+                conn.Open();
+                return Convert.ToInt32(cmd.ExecuteScalar()) > 0;
+            }
+        }
         public int? ObtenerOrdenActivaPorMesa(int idMesa)
         {
             using (MySqlConnection conn = conexionBD.ObtenerConexion())
@@ -325,20 +341,22 @@ namespace Restaurante_Sabor_Gourmet.Jaqueline.ConsultasSQL
         }
 
         // ── Detalle de una mesa (para el panel lateral) ───────────────
-       
+
         // ── Mesas disponibles para unir / transferir ──────────────────
+
         public DataTable ObtenerMesasDisponibles(int excluirIdMesa = 0)
         {
             DataTable dt = new DataTable();
             using (MySqlConnection conn = conexionBD.ObtenerConexion())
             {
                 string query = @"
-                    SELECT m.id_mesa, m.numero_mesa, z.nombre_zona
-                    FROM tbl_mesas m
-                    INNER JOIN tbl_zonas z ON m.id_zona_mesa = z.id_zona
-                    WHERE m.estado_mesa = 'Disponible'
-                      AND m.id_mesa <> @excluir
-                    ORDER BY m.numero_mesa ASC";
+            SELECT m.id_mesa, m.numero_mesa, z.nombre_zona
+            FROM tbl_mesas m
+            INNER JOIN tbl_zonas z ON m.id_zona_mesa = z.id_zona
+            WHERE m.estado_mesa   = 'Disponible'
+              AND m.id_mesa      <> @excluir
+              AND z.es_eventos_zona = 0
+            ORDER BY m.numero_mesa ASC";
 
                 MySqlCommand cmd = new MySqlCommand(query, conn);
                 cmd.Parameters.AddWithValue("@excluir", excluirIdMesa);
